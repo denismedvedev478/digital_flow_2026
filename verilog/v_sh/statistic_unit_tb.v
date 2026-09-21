@@ -6,7 +6,7 @@ logic [31:0] data_in;
 
  statistics_unit DUT(
     .clk (clk),
-    .rst_n (rstn),
+    .rst_n (rst),
 
     .clear (clr),
     .valid_in (v_in),
@@ -14,20 +14,50 @@ logic [31:0] data_in;
 );
 
 initial begin
+	rst = '1;
+	v_in = 0;
+	clr = 0;
+	
+	@(posedge clk);
+	
 	rst = '0;
 
 	@(posedge clk);
-	@(posedge clk);
-	@(posedge clk);
 	
 	rst = 1;
-	v_in = 0;
+
+	@(posedge clk);
+
+	v_in <= '1;
+	data_in <= '1;
+
+	@(posedge clk);
+		
+	v_in <= '0;
 
 	@(posedge clk);
 	@(posedge clk);
 	@(posedge clk);
 	
-	$finish();
+	v_in <= '1;
+	data_in <= 31'd2;
+
+	@(posedge clk);
+
+	v_in <= '0;
+
+	@(posedge clk);
+	@(posedge clk);
+	
+	clr <= '1;	
+	@(posedge clk);
+	clr <= '0;
+	
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	
+	$stop();
 end
 
 initial begin
