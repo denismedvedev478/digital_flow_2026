@@ -1,0 +1,2 @@
+#e1(21Sep2026:18:56:33): source ./xcelium.d/env.d/env.history.21Sep2026_18_56_33
+s1(21Sep2026:18:56:33):  xrun -access +rw -clean -seed random -timescale 1ns/1ps /home/denismedvedev478/digital_flow_2026/lab1/data/rtl/counter/counter.sv /home/denismedvedev478/digital_flow_2026/lab1/data/rtl/counter/counter_tb.sv -top counter_tb -gui 
