@@ -44,7 +44,7 @@ always #5 clk = ~clk;
 
 initial begin
     rst_n = 0; clear = 0; valid_in = 0;
-    data_a = 0; data_b = 0; operation = 0; range_limit = 32'd100;
+    data_a = 0; data_b = 0; operation = 0; range_limit = 32'd20;
     repeat (3) @(posedge clk);
     rst_n = 1;
     repeat (2) @(posedge clk);

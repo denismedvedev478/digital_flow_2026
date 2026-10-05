@@ -1,7 +1,7 @@
 module tb ();
 
 logic clk, rst, clr, v_in;
-logic [31:0] data_in;
+logic signed [31:0] data_in;
 
 
  statistics_unit DUT(
@@ -29,7 +29,7 @@ initial begin
 	@(posedge clk);
 
 	v_in <= '1;
-	data_in <= '1;
+	data_in <= {1'b0, {31{1'b1}}};
 
 	@(posedge clk);
 		
@@ -40,7 +40,7 @@ initial begin
 	@(posedge clk);
 	
 	v_in <= '1;
-	data_in <= 31'd2;
+	data_in <= 1'b1;
 
 	@(posedge clk);
 
