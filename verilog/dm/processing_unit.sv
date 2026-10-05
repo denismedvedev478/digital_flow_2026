@@ -24,11 +24,18 @@ end
 
 always_ff @(posedge clk or negedge rst_n) begin
     if (~rst_n)
-        {valid_out, result} <= '0;
+        result <= '0;
     else if (valid_in) begin
         result    <= res_nx;
-        valid_out <= valid_in;
     end
+end
+
+always_ff @(posedge clk or negedge rst_n) begin
+    if (~rst_n)
+        valid_out <= '0;
+    else
+        valid_out <= valid_in;
+
 end
 
 covergroup cg @(posedge clk iff rst_n);
