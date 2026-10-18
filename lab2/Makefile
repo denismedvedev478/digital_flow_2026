@@ -6,12 +6,12 @@ export PDK_DIR     				= $(PWD)/../PDK
 # Design settings
 # ============================================================
 
-export ENV_DESIGN               = counter
-export ENV_DESIGN_DIR           = $(PWD)/data/example_rtl/counter
-export ENV_MMMC                 = $(ENV_DESIGN_DIR)/mmmc.view
+export ENV_DESIGN               = statistics_unit
+export ENV_DESIGN_DIR           = $(PWD)/my_rtl
+export ENV_MMMC                 = $(PWD)/data/example_rtl/counter/mmmc.view
 export ENV_DEFINE               =
 export ENV_INIT_HDL_SEARCH_PATH = ${ENV_DESIGN_DIR}
-export ENV_RTL_LIST             = $(ENV_DESIGN_DIR)/counter.lst
+export ENV_RTL_LIST             = $(ENV_DESIGN_DIR)/my_rtl.lst
 # ============================================================
 # Flow
 # ============================================================
