@@ -1,0 +1,212 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2022 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[20:19:29.409531] Configured Lic search path (21.01-s002): 5280@srv-eda-01:5280@srv-eda-05:1717@srv-eda-01
+
+Version: 21.14-s082_1, built Thu Jun 23 04:32:08 PDT 2022
+Options: -files /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/flow_scripts/flow.genus.syn.tcl 
+Date:    Sat Oct 17 20:19:29 2026
+Host:    miet-cad-edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (32cores*32cpus*1physical cpu*Common KVM processor 512KB) (132031524KB)
+PID:     20780
+OS:      CentOS Linux release 7.9.2009 (Core)
+
+
+[20:19:29.458577] Periodic Lic check successful
+[20:19:29.458590] Feature usage summary:
+[20:19:29.458590] Genus_Synthesis
+Checking out license: Genus_Synthesis
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Loading tool scripts...
+Finished loading tool scripts (8 seconds elapsed).
+
+#@ Processing -files option
+@genus 1> source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/flow_scripts/flow.genus.syn.tcl
+#@ Begin verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/flow_scripts/flow.genus.syn.tcl
+@file(flow.genus.syn.tcl) 5: source $::env(FLOW_DIR)/steps.genus.tcl
+Sourcing '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/flow_scripts/steps.genus.tcl' (Sat Oct 17 20:19:37 MSK 2026)...
+#@ Begin verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/flow_scripts/steps.genus.tcl
+@file(steps.genus.tcl) 2: proc step_genus_gen ...
+@file(steps.genus.tcl) 17: proc step_genus_user_reports ...
+@file(steps.genus.tcl) 30: proc step_genus_user_out ...
+@file(steps.genus.tcl) 40: proc step_genus_opt ...
+@file(steps.genus.tcl) 52: proc step_genus_read_hdl ...
+@file(steps.genus.tcl) 61: proc step_genus_read_mmmc ...
+@file(steps.genus.tcl) 67: proc step_genus_init_design ...
+@file(steps.genus.tcl) 76: proc step_genus_map ...
+@file(steps.genus.tcl) 90: proc step_genus_lec ...
+@file(steps.genus.tcl) 103: proc step_genus_host_info ...
+@file(steps.genus.tcl) 119: proc step_genus_global_options ...
+@file(steps.genus.tcl) 146: proc step_genus_elaborate ...
+#@ End verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/flow_scripts/steps.genus.tcl
+@file(flow.genus.syn.tcl) 7: step_genus_host_info
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+Hostname : miet-cad-edu
+@file(flow.genus.syn.tcl) 8: step_genus_global_options
+  Setting attribute of root '/': 'timing_report_time_unit' = ns
+  Setting attribute of root '/': 'max_cpus_per_server' = 8
+  Setting attribute of root '/': 'syn_generic_effort' = medium
+  Setting attribute of root '/': 'syn_map_effort' = medium
+  Setting attribute of root '/': 'syn_opt_effort' = medium
+  Setting attribute of root '/': 'information_level' = 1
+  Setting attribute of root '/': 'init_hdl_search_path' = /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/my_rtl
+@file(flow.genus.syn.tcl) 10: step_genus_read_hdl
+Warning : Cannot open file. [VLOGPT-650]
+        : File 'statistics_unit'.
+        : The specified file could not be opened.  Check the value of the init_hdl_search_path attribute.
+@file(flow.genus.syn.tcl) 11: step_genus_read_mmmc
+  Setting attribute of root '/': 'is_read_mmmc_flow' = true
+Sourcing '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/example_rtl/counter/mmmc.view' (Sat Oct 17 20:19:38 MSK 2026)...
+#@ Begin verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/example_rtl/counter/mmmc.view
+@file(mmmc.view) 5: set lib_list_typ {}
+@file(mmmc.view) 7: lappend lib_list_typ  " $::env(PDK_DIR)/IHP_Open_PDK/sg13g2_stdcell/lib/sg13g2_stdcell_typ_1p20V_25C.lib"
+@file(mmmc.view) 9: create_rc_corner -name typ -temperature {25} -pre_route_res {1} -pre_route_cap {1} -pre_route_clock_res {0} -pre_route_clock_cap {0} -post_route_res {1} -post_route_cap {1} -post_route_cross_cap {1} -post_route_clock_res {0} -post_route_clock_cap {0}
+@file(mmmc.view) 10: create_library_set -name typ -timing $lib_list_typ
+@file(mmmc.view) 11: create_opcond -name typ -process {1} -voltage {1.20} -temperature {25}
+@file(mmmc.view) 12: create_timing_condition -name typ -opcond {typ} -library_sets {typ}
+@file(mmmc.view) 13: create_delay_corner -name typ -timing_condition {typ} -rc_corner {typ}
+@file(mmmc.view) 33: create_constraint_mode -name func -sdc_files "/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/blockB/statistics_unit.sdc"
+@file(mmmc.view) 34: create_analysis_view -name typ -constraint_mode {func} -delay_corner {typ}
+@file(mmmc.view) 35: set_analysis_view -setup {typ} -hold {typ}
+
+Threads Configured:3
+
+  Message Summary for Library sg13g2_stdcell_typ_1p20V_25C.lib:
+  *************************************************************
+  Missing a function attribute in the output pin definition. [LBR-518]: 1
+  An unsupported construct was detected in this library. [LBR-40]: 6
+  *************************************************************
+ 
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 1.200000, 25.000000) in library 'sg13g2_stdcell_typ_1p20V_25C.lib'.
+        : The nominal operating condition is represented, either by the nominal PVT values specified in the library source (via nom_process,nom_voltage and nom_temperature respectively), or by the default PVT values (1.0,1.0,1.0).
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_antennanp' must have an output pin.
+        : Add the missing output pin(s), then reload the library. Else the library cell will be marked as timing model i.e. unusable. Timing_model means that the cell does not have any defined function. If there is no output pin, Genus will mark library cell as unusable i.e. the attribute 'usable' will be marked to 'false' on the libcell. Therefore, the cell is not used for mapping and it will not be picked up from the library for synthesis. If you query the attribute 'unusable_reason' on the libcell; result will be: 'Library cell has no output pins.'Note: The message LBR-9 is only for the logical pins and not for the power_ground pins. Genus will depend upon the output function defined in the pin group (output pin) of the cell, to use it for mapping. The pg_pin will not have any function defined.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_antennanp' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_decap_4' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_decap_4' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_decap_8' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_decap_8' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_1' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_1' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_2' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_2' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_4' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_4' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_8' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_8' must have an output pin.
+Warning : Unusable clock gating integrated cell found at the time of loading libraries. This warning happens because a particular library cell is defined as 'clock_gating_integrated_cell', but 'dont_use' attribute is defined as true in the liberty library. To make Genus use this cell for clock gating insertion, 'dont_use' attribute should be set to false. [LBR-101]
+        : Clock gating integrated cell name: 'sg13g2_lgcp_1'
+        : To make the cell usable, change the value of 'dont_use' attribute to false.
+Warning : Unusable clock gating integrated cell found at the time of loading libraries. This warning happens because a particular library cell is defined as 'clock_gating_integrated_cell', but 'dont_use' attribute is defined as true in the liberty library. To make Genus use this cell for clock gating insertion, 'dont_use' attribute should be set to false. [LBR-101]
+        : Clock gating integrated cell name: 'sg13g2_slgcp_1'
+Info    : Set default library domain. [LBR-109]
+        : The default library domain is 'library_domain:typ'.
+  Library has 58 usable logic and 8 usable sequential lib-cells.
+#@ End verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/example_rtl/counter/mmmc.view
+@file(flow.genus.syn.tcl) 12: step_genus_elaborate
+Error   : Could not find an HDL design. [CDFG-210] [elaborate]
+        : The design is 'statistics_unit'.
+        : This error may happen if you read a set of files, and you try to elaborate a design which description is not part of the files read. To fix this, check the name of the design you want to elaborate, or check if you have read all the expected RTL files.
+UM:   flow.cputime  flow.realtime  timing.setup.tns  timing.setup.wns  snapshot
+UM:*                                                                   elaborate
+#@ End verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/flow_scripts/flow.genus.syn.tcl
+1
+Encountered problems processing file: /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/flow_scripts/flow.genus.syn.tcl
+WARNING: This version of the tool is 1577 days old.
+@genus:root: 2> step_genus_read_hdl
+Warning : Cannot open file. [VLOGPT-650]
+        : File 'statistics_unit.sv'.
+@genus:root: 3> step_genus_read_hdl
+@genus:root: 4> exit
+
+Lic Summary:
+[20:22:48.001360] cdslmd servers: srv-eda-05 srv-eda-01
+[20:22:48.016528] Feature usage summary:
+[20:22:48.155007]   Genus_Synthesis  
+
+Normal exit.

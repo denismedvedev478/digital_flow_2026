@@ -1,0 +1,10 @@
+# Cadence Genus(TM) Synthesis Solution, Version 21.14-s082_1, built Jun 23 2022 14:32:08
+
+# Date: Sat Oct 17 20:19:29 2026
+# Host: miet-cad-edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (32cores*32cpus*1physical cpu*Common KVM processor 512KB)
+# OS:   CentOS Linux release 7.9.2009 (Core)
+
+source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/flow_scripts/flow.genus.syn.tcl
+step_genus_read_hdl
+step_genus_read_hdl
+exit

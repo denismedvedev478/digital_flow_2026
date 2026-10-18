@@ -5,7 +5,9 @@ proc step_genus_gen {} \
     set STAGE syn_generic
     puts "\033\]2;$STAGE\a"
 
-    syn_generic
+    syn_generic 
+    #(always * + -> gneric block)
+    #(ретайминг свапинг)
 
     step_genus_user_reports $STAGE
     step_genus_user_out $STAGE
@@ -20,7 +22,8 @@ proc step_genus_user_reports {STAGE} {
 
     report_timing                > ${dir}/report_timing.rpt
     report_timing_summary        > ${dir}/report_timing_summary.rpt
-    report_area                  > ${dir}/report_area.rpt
+    report_area        -detail -depth 6 -show_leaf_cells   > ${dir}/report_area_cels.rpt
+    report_gates                 > ${dir}/gates_report.rpt
     report_power                 > ${dir}/report_power.rpt
     report_qor                   > ${dir}/report_qor.rpt
     report_hierarchy             > ${dir}/report_hierarchy.rpt
@@ -43,6 +46,7 @@ proc step_genus_opt {args} \
     puts "\033\]2;$STAGE\a"
 
     syn_opt   
+    #PPA
 
     step_genus_user_reports $STAGE
     step_genus_user_out $STAGE    
@@ -55,6 +59,7 @@ proc step_genus_read_hdl {} \
      # Choose one options:
     # read_hdl -define $::env(ENV_DEFINE) -language v2001 -f $::env(ENV_RTL_LIST)  ; # if rtl write on Verilog
     read_hdl -define $::env(ENV_DEFINE) -sv -f $::env(ENV_RTL_LIST)  ; # if rtl write on SystemVerilog
+    #macros + rtl database
 }
 
 

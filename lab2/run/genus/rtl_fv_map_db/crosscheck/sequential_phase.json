@@ -1,0 +1,1045 @@
+{
+ "filetype": "conformal-table",
+ "data": [
+  {
+   "Object": "/count_reg[0]/U$1",
+   "Type": "DFF",
+   "Mapping": "/count_reg[0]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/count_reg[1]/U$1",
+   "Type": "DFF",
+   "Mapping": "/count_reg[1]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/count_reg[2]/U$1",
+   "Type": "DFF",
+   "Mapping": "/count_reg[2]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/count_reg[3]/U$1",
+   "Type": "DFF",
+   "Mapping": "/count_reg[3]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/count_reg[4]/U$1",
+   "Type": "DFF",
+   "Mapping": "/count_reg[4]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/count_reg[5]/U$1",
+   "Type": "DFF",
+   "Mapping": "/count_reg[5]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/count_reg[6]/U$1",
+   "Type": "DFF",
+   "Mapping": "/count_reg[6]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/count_reg[7]/U$1",
+   "Type": "DFF",
+   "Mapping": "/count_reg[7]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/count_reg[8]/U$1",
+   "Type": "DFF",
+   "Mapping": "/count_reg[8]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/count_reg[9]/U$1",
+   "Type": "DFF",
+   "Mapping": "/count_reg[9]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/count_reg[10]/U$1",
+   "Type": "DFF",
+   "Mapping": "/count_reg[10]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/count_reg[11]/U$1",
+   "Type": "DFF",
+   "Mapping": "/count_reg[11]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/count_reg[12]/U$1",
+   "Type": "DFF",
+   "Mapping": "/count_reg[12]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/count_reg[13]/U$1",
+   "Type": "DFF",
+   "Mapping": "/count_reg[13]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/count_reg[14]/U$1",
+   "Type": "DFF",
+   "Mapping": "/count_reg[14]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/count_reg[15]/U$1",
+   "Type": "DFF",
+   "Mapping": "/count_reg[15]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/flag_max_reg/U$1",
+   "Type": "DFF",
+   "Mapping": "/flag_max_reg",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[0]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[0]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[1]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[1]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[2]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[2]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[3]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[3]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[4]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[4]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[5]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[5]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[6]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[6]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[7]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[7]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[8]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[8]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[9]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[9]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[10]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[10]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[11]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[11]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[12]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[12]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[13]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[13]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[14]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[14]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[15]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[15]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[16]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[16]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[17]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[17]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[18]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[18]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[19]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[19]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[20]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[20]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[21]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[21]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[22]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[22]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[23]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[23]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[24]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[24]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[25]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[25]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[26]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[26]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[27]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[27]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[28]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[28]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[29]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[29]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[30]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[30]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/max_reg[31]/U$1",
+   "Type": "DFF",
+   "Mapping": "/max_reg[31]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[0]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[0]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[1]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[1]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[2]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[2]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[3]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[3]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[4]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[4]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[5]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[5]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[6]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[6]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[7]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[7]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[8]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[8]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[9]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[9]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[10]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[10]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[11]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[11]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[12]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[12]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[13]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[13]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[14]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[14]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[15]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[15]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[16]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[16]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[17]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[17]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[18]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[18]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[19]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[19]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[20]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[20]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[21]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[21]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[22]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[22]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[23]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[23]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[24]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[24]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[25]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[25]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[26]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[26]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[27]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[27]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[28]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[28]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[29]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[29]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[30]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[30]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/min_reg[31]/U$1",
+   "Type": "DFF",
+   "Mapping": "/min_reg[31]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[0]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[0]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[1]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[1]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[2]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[2]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[3]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[3]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[4]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[4]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[5]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[5]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[6]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[6]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[7]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[7]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[8]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[8]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[9]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[9]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[10]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[10]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[11]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[11]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[12]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[12]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[13]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[13]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[14]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[14]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[15]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[15]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[16]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[16]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[17]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[17]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[18]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[18]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[19]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[19]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[20]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[20]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[21]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[21]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[22]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[22]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[23]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[23]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[24]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[24]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[25]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[25]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[26]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[26]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[27]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[27]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[28]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[28]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[29]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[29]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[30]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[30]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  },
+  {
+   "Object": "/sum_reg[31]/U$1",
+   "Type": "DFF",
+   "Mapping": "/sum_reg[31]",
+   "Phase": "+",
+   "User Setup object phase inversion": "+",
+   "User Setup mapped object phase inversion": "",
+   "highlite": 0
+  }
+ ],
+ "cols": [
+  {
+   "key": "Object"
+  },
+  {
+   "key": "Type"
+  },
+  {
+   "key": "Mapping"
+  },
+  {
+   "key": "Phase"
+  },
+  {
+   "key": "User Setup object phase inversion"
+  },
+  {
+   "key": "User Setup mapped object phase inversion"
+  }
+ ],
+ "sort": [
+  "-highlite"
+ ]
+}

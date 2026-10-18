@@ -1,0 +1,262 @@
+Non-equivalent compared points:
+  (G) + 149  DFF  /flag_max_reg
+  (R) + 165  DFF  /flag_max_reg/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 214  DFF  /sum_reg[31]
+  (R) + 261  DFF  /sum_reg[31]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 215  DFF  /sum_reg[30]
+  (R) + 260  DFF  /sum_reg[30]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 216  DFF  /sum_reg[29]
+  (R) + 259  DFF  /sum_reg[29]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 217  DFF  /sum_reg[28]
+  (R) + 258  DFF  /sum_reg[28]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 218  DFF  /sum_reg[27]
+  (R) + 257  DFF  /sum_reg[27]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 219  DFF  /sum_reg[26]
+  (R) + 256  DFF  /sum_reg[26]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 220  DFF  /sum_reg[25]
+  (R) + 255  DFF  /sum_reg[25]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 221  DFF  /sum_reg[24]
+  (R) + 254  DFF  /sum_reg[24]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 222  DFF  /sum_reg[23]
+  (R) + 253  DFF  /sum_reg[23]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 223  DFF  /sum_reg[22]
+  (R) + 252  DFF  /sum_reg[22]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 224  DFF  /sum_reg[21]
+  (R) + 251  DFF  /sum_reg[21]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 225  DFF  /sum_reg[20]
+  (R) + 250  DFF  /sum_reg[20]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 226  DFF  /sum_reg[19]
+  (R) + 249  DFF  /sum_reg[19]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 227  DFF  /sum_reg[18]
+  (R) + 248  DFF  /sum_reg[18]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 228  DFF  /sum_reg[17]
+  (R) + 247  DFF  /sum_reg[17]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 229  DFF  /sum_reg[16]
+  (R) + 246  DFF  /sum_reg[16]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 230  DFF  /sum_reg[15]
+  (R) + 245  DFF  /sum_reg[15]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 231  DFF  /sum_reg[14]
+  (R) + 244  DFF  /sum_reg[14]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 232  DFF  /sum_reg[13]
+  (R) + 243  DFF  /sum_reg[13]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 233  DFF  /sum_reg[12]
+  (R) + 242  DFF  /sum_reg[12]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 234  DFF  /sum_reg[11]
+  (R) + 241  DFF  /sum_reg[11]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 235  DFF  /sum_reg[10]
+  (R) + 240  DFF  /sum_reg[10]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 236  DFF  /sum_reg[9]
+  (R) + 239  DFF  /sum_reg[9]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 237  DFF  /sum_reg[8]
+  (R) + 238  DFF  /sum_reg[8]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 238  DFF  /sum_reg[7]
+  (R) + 237  DFF  /sum_reg[7]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 239  DFF  /sum_reg[6]
+  (R) + 236  DFF  /sum_reg[6]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 240  DFF  /sum_reg[5]
+  (R) + 235  DFF  /sum_reg[5]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 241  DFF  /sum_reg[4]
+  (R) + 234  DFF  /sum_reg[4]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 242  DFF  /sum_reg[3]
+  (R) + 233  DFF  /sum_reg[3]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 243  DFF  /sum_reg[2]
+  (R) + 232  DFF  /sum_reg[2]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 244  DFF  /sum_reg[1]
+  (R) + 231  DFF  /sum_reg[1]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 245  DFF  /sum_reg[0]
+  (R) + 230  DFF  /sum_reg[0]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 246  DFF  /count_reg[15]
+  (R) + 164  DFF  /count_reg[15]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 247  DFF  /count_reg[14]
+  (R) + 163  DFF  /count_reg[14]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 248  DFF  /count_reg[13]
+  (R) + 162  DFF  /count_reg[13]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 249  DFF  /count_reg[12]
+  (R) + 161  DFF  /count_reg[12]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 250  DFF  /count_reg[11]
+  (R) + 160  DFF  /count_reg[11]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 251  DFF  /count_reg[10]
+  (R) + 159  DFF  /count_reg[10]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 252  DFF  /count_reg[9]
+  (R) + 158  DFF  /count_reg[9]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 253  DFF  /count_reg[8]
+  (R) + 157  DFF  /count_reg[8]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 254  DFF  /count_reg[7]
+  (R) + 156  DFF  /count_reg[7]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 255  DFF  /count_reg[6]
+  (R) + 155  DFF  /count_reg[6]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 256  DFF  /count_reg[5]
+  (R) + 154  DFF  /count_reg[5]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 257  DFF  /count_reg[4]
+  (R) + 153  DFF  /count_reg[4]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 258  DFF  /count_reg[3]
+  (R) + 152  DFF  /count_reg[3]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 259  DFF  /count_reg[2]
+  (R) + 151  DFF  /count_reg[2]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 260  DFF  /count_reg[1]
+  (R) + 150  DFF  /count_reg[1]/U$1
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+
+Non-equivalent compared points:
+  (G) + 261  DFF  /count_reg[0]
+  (R) + 149  DFF  /count_reg[0]/U$1
+  DFF /count_reg[0]/U$1((R)) is in free mode
+  Add pin constraint(s) to make DFT register(s) in the functional mode:
+      DFF count_reg[0]/U$1(R) 0
+
+================================================================================
+       Non-equivalent category|Caused #NEQ|
+================================================================================
+              SuspectTrueNoneq|         48|
+--------------------------------------------------------------------------------
+                 DFTConstraint|          1|
+================================================================================
+DFTConstraint:
+  1 revised registers are in free mode
+  Add pin constraint(s) to make DFT register(s) in the functional mode:
+    DFF count_reg[0]/U$1(R) 0
+
+SuspectTrueNoneq:
+  The compared point and all supports are fully name mapped to each other, suspect true Non-equivalent.
+

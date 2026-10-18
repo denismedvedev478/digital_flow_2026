@@ -9,9 +9,10 @@ lappend lib_list_typ  " $::env(PDK_DIR)/IHP_Open_PDK/sg13g2_stdcell/lib/sg13g2_s
 create_rc_corner -name typ -temperature {25} -pre_route_res {1} -pre_route_cap {1} -pre_route_clock_res {0} -pre_route_clock_cap {0} -post_route_res {1} -post_route_cap {1} -post_route_cross_cap {1} -post_route_clock_res {0} -post_route_clock_cap {0}
 create_library_set -name typ -timing $lib_list_typ
 create_opcond -name typ -process {1} -voltage {1.20} -temperature {25}
+#set PVT
 create_timing_condition -name typ -opcond {typ} -library_sets {typ}
 create_delay_corner -name typ -timing_condition {typ} -rc_corner {typ}
-
+#create corner
 
 # ################
 # MAX
@@ -30,6 +31,7 @@ create_delay_corner -name typ -timing_condition {typ} -rc_corner {typ}
 # FINAL 
 # ################
 
-create_constraint_mode -name func -sdc_files "$::env(ENV_DESIGN_DIR)/$::env(ENV_DESIGN).sdc"
+create_constraint_mode -name func -sdc_files "/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/blockB/statistics_unit.sdc"
 create_analysis_view -name typ -constraint_mode {func} -delay_corner {typ}
 set_analysis_view -setup {typ} -hold {typ}
+#mode + corner
