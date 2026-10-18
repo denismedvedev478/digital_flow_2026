@@ -1,0 +1,62 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[19:47:10.357299] Configured Lic search path (23.02-s003): 5280@srv-eda-01:5280@srv-eda-05:1717@srv-eda-01
+
+Version: 23.10-p004_1, built Thu Feb 01 02:43:46 PST 2024
+Options: -files ./scripts/input.tcl 
+Date:    Mon Oct 05 19:47:10 2026
+Host:    miet-cad-edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (32cores*32cpus*1physical cpu*Common KVM processor 512KB) (132031524KB)
+PID:     12446
+OS:      CentOS Linux release 7.9.2009 (Core)
+
+Checking out license: Genus_Synthesis
+[19:47:10.376115] Periodic Lic check successful
+[19:47:10.376127] Feature usage summary:
+[19:47:10.376132] Genus_Synthesis
+
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Finished executable startup (1 second elapsed).
+
+Loading tool scripts...
+Finished loading tool scripts (13 seconds elapsed).
+
+#@ Processing -files option
+@genus:root: 1> source ./scripts/input.tcl
+#@ Begin verbose source ./scripts/input.tcl
+@file(input.tcl) 1: file mkdir ./out/10_syn_gen
+@file(input.tcl) 2: file mkdir ./out/20_syn_map
+@file(input.tcl) 3: file mkdir ./out/30_syn_opt
+@file(input.tcl) 5: set script_path [file normalize [file dirname [info script]]]
+@file(input.tcl) 6: set rtl_dir ${script_path}/../rtl
+@file(input.tcl) 7: set sdc_dir ${script_path}/../sdc
+@file(input.tcl) 9: read_libs "$::env(PDK_DIR)/sg13g2_stdcell/lib/"
+Error   : File error. [FILE-100] [::legacy::set_attribute]
+        : Cannot open file '/PDK/sg13g2_stdcell/lib/'. File not found.
+        : Make sure that the file is a readable regular file and has the specified name.
+Error   : A library file does not exist. [LBR-68] [::legacy::set_attribute]
+        : File '/PDK/sg13g2_stdcell/lib/' could not be found. File '<none>' was the last file that was successfully read in.
+        : Make sure that the library file exists or check for a typo in the file name.
+Error   : The data value for this attribute is invalid. [TUI-24] [::legacy::set_attribute]
+        : The value '  { /PDK/sg13g2_stdcell/lib/ } ' cannot be set for attribute 'library'.
+        : To see the usage/description for this attribute, type '::legacy::set_attribute -h <attr_name> *' (in legacy UI mode) or 'help * <attr_name> -detail' (in CUI mode).
+#@ End verbose source ./scripts/input.tcl
+1
+Encountered problems processing file: ./scripts/input.tcl
+WARNING: This version of the tool is 977 days old.
+@genus:root: 2> exit
+
+Lic Summary:
+[19:48:17.001456] cdslmd servers: srv-eda-05 srv-eda-01
+[19:48:17.016624] Feature usage summary:
+[19:48:17.155103]   Genus_Synthesis  
+
+Normal exit.

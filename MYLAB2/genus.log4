@@ -1,0 +1,77 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[19:53:22.357299] Configured Lic search path (23.02-s003): 5280@srv-eda-01:5280@srv-eda-05:1717@srv-eda-01
+
+Version: 23.10-p004_1, built Thu Feb 01 02:43:46 PST 2024
+Options: -files ./scripts/input.tcl 
+Date:    Mon Oct 05 19:53:22 2026
+Host:    miet-cad-edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (32cores*32cpus*1physical cpu*Common KVM processor 512KB) (132031524KB)
+PID:     17687
+OS:      CentOS Linux release 7.9.2009 (Core)
+
+Checking out license: Genus_Synthesis
+[19:53:22.375130] Periodic Lic check successful
+[19:53:22.375142] Feature usage summary:
+[19:53:22.375143] Genus_Synthesis
+
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Finished executable startup (1 second elapsed).
+
+Loading tool scripts...
+Finished loading tool scripts (14 seconds elapsed).
+
+#@ Processing -files option
+@genus:root: 1> source ./scripts/input.tcl
+#@ Begin verbose source ./scripts/input.tcl
+@file(input.tcl) 1: file mkdir ./out/10_syn_gen
+@file(input.tcl) 2: file mkdir ./out/20_syn_map
+@file(input.tcl) 3: file mkdir ./out/30_syn_opt
+@file(input.tcl) 5: set script_path [file normalize [file dirname [info script]]]
+@file(input.tcl) 6: set rtl_dir ${script_path}/../rtl
+@file(input.tcl) 7: set sdc_dir ${script_path}/../sdc
+@file(input.tcl) 9: set_db init_hdl_search_path ${rtl_dir}
+  Setting attribute of root '/': 'init_hdl_search_path' = /home/denismedvedev478/digital_flow_2026/MYLAB2/scripts/../rtl
+@file(input.tcl) 10: set_db timing_report_unconstrained false
+  Setting attribute of root '/': 'timing_report_unconstrained' = false
+@file(input.tcl) 12: read_hdl -sv -f ${rtl_dir}/filelist.f
+@file(input.tcl) 13: read_mmmc $::env(ENV_MMMC)
+  Setting attribute of root '/': 'is_read_mmmc_flow' = true
+Sourcing './sdc/mmmc.view' (Mon Oct 05 19:53:36 MSK 2026)...
+#@ Begin verbose source ./sdc/mmmc.view
+@file(mmmc.view) 5: set lib_list_typ {}
+@file(mmmc.view) 7: lappend lib_list_typ  " $::env(PDK_DIR)/IHP_Open_PDK/sg13g2_stdcell/lib/sg13g2_stdcell_typ_1p20V_25C.lib"
+@file(mmmc.view) 9: create_rc_corner -name typ -temperature {25} -pre_route_res {1} -pre_route_cap {1} -pre_route_clock_res {0} -pre_route_clock_cap {0} -post_route_res {1} -post_route_cap {1} -post_route_cross_cap {1} -post_route_clock_res {0} -post_route_clock_cap {0}
+@file(mmmc.view) 10: create_library_set -name typ -timing $lib_list_typ
+@file(mmmc.view) 11: create_opcond -name typ -process {1} -voltage {1.20} -temperature {25}
+@file(mmmc.view) 12: create_timing_condition -name typ -opcond {typ} -library_sets {typ}
+@file(mmmc.view) 13: create_delay_corner -name typ -timing_condition {typ} -rc_corner {typ}
+@file(mmmc.view) 33: create_constraint_mode -name func -sdc_files "$::env(ENV_DESIGN).sdc"
+Error   : File error. [FILE-100] [create_constraint_mode]
+        : File '"processing_unit".sdc' not found
+        : Make sure that the file is a readable regular file and has the specified name.
+Error   : Incorrect list type. [TIM-403] [create_constraint_mode]
+        : The list type is invalid
+        : The list format is invalid.
+#@ End verbose source ./sdc/mmmc.view
+1
+#@ End verbose source ./scripts/input.tcl
+Failed on read_mmmc
+Encountered problems processing file: ./scripts/input.tcl
+WARNING: This version of the tool is 977 days old.
+@genus:root: 2> exit
+
+Lic Summary:
+[19:53:53.001424] cdslmd servers: srv-eda-05 srv-eda-01
+[19:53:53.016592] Feature usage summary:
+[19:53:53.155071]   Genus_Synthesis  
+
+Normal exit.

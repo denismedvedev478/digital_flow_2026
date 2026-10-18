@@ -1,0 +1,87 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[19:48:22.357331] Configured Lic search path (23.02-s003): 5280@srv-eda-01:5280@srv-eda-05:1717@srv-eda-01
+
+Version: 23.10-p004_1, built Thu Feb 01 02:43:46 PST 2024
+Options: -files ./scripts/input.tcl 
+Date:    Mon Oct 05 19:48:22 2026
+Host:    miet-cad-edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (32cores*32cpus*1physical cpu*Common KVM processor 512KB) (132031524KB)
+PID:     14890
+OS:      CentOS Linux release 7.9.2009 (Core)
+
+Checking out license: Genus_Synthesis
+[19:48:22.376347] Periodic Lic check successful
+[19:48:22.376364] Feature usage summary:
+[19:48:22.376365] Genus_Synthesis
+
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Finished executable startup (1 second elapsed).
+
+Loading tool scripts...
+Finished loading tool scripts (13 seconds elapsed).
+
+#@ Processing -files option
+@genus:root: 1> source ./scripts/input.tcl
+#@ Begin verbose source ./scripts/input.tcl
+@file(input.tcl) 1: file mkdir ./out/10_syn_gen
+@file(input.tcl) 2: file mkdir ./out/20_syn_map
+@file(input.tcl) 3: file mkdir ./out/30_syn_opt
+@file(input.tcl) 5: set script_path [file normalize [file dirname [info script]]]
+@file(input.tcl) 6: set rtl_dir ${script_path}/../rtl
+@file(input.tcl) 7: set sdc_dir ${script_path}/../sdc
+@file(input.tcl) 9: set_db init_hdl_search_path ${rtl_dir}
+  Setting attribute of root '/': 'init_hdl_search_path' = /home/denismedvedev478/digital_flow_2026/MYLAB2/scripts/../rtl
+@file(input.tcl) 10: set_db timing_report_unconstrained false
+  Setting attribute of root '/': 'timing_report_unconstrained' = false
+@file(input.tcl) 12: read_hdl -sv -f ${rtl_dir}/filelist.f
+covergroup cg @(posedge clk iff rst_n);
+            |
+Warning : Ignoring unsynthesizable construct. [VLOGPT-37]
+        : Covergroup declaration in file '/home/denismedvedev478/digital_flow_2026/lab2/rtl/processing_unit.sv' on line 39, column 13.
+        : For example, the following constructs will be ignored:
+    - initial block
+    - final block
+    - program block
+    - property block
+    - sequence block
+    - covergroup
+    - checker block
+    - gate drive strength
+    - system task enable
+    - reg declaration with initial value
+    - specify block.
+cg i_cg = new();
+            |
+Warning : Unsupported expression: assuming value 1'b0. [VLOGPT-40]
+        : Constructor 'new' in file '/home/denismedvedev478/digital_flow_2026/lab2/rtl/processing_unit.sv' on line 45, column 13.
+        : Expressions such as the constructor new() are not supported for synthesis.
+cg i_cg = new();
+               |
+Warning : Ignoring unsynthesizable construct. [VLOGPT-37]
+        : Initial value assignment to reg in file '/home/denismedvedev478/digital_flow_2026/lab2/rtl/processing_unit.sv' on line 45, column 16.
+cg i_cg = new();
+        |
+Error   : Illegal dependency in port/parameter declaration. [VLOGPT-67] [read_hdl]
+        : Port/parameter 'i_cg' in file '/home/denismedvedev478/digital_flow_2026/lab2/rtl/processing_unit.sv' on line 45, column 9.
+        : Illegal Verilog syntax is encountered.
+#@ End verbose source ./scripts/input.tcl
+1
+Encountered problems processing file: ./scripts/input.tcl
+WARNING: This version of the tool is 977 days old.
+@genus:root: 2> exit
+
+Lic Summary:
+[19:50:09.001408] cdslmd servers: srv-eda-05 srv-eda-01
+[19:50:09.016576] Feature usage summary:
+[19:50:09.155055]   Genus_Synthesis  
+
+Normal exit.

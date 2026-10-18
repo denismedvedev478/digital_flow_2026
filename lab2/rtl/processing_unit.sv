@@ -36,6 +36,7 @@ always_ff @(posedge clk or negedge rst_n) begin
         valid_out <= valid_in;
 end
 
+`ifdef ENABLE_VERIFICATION
 covergroup cg @(posedge clk iff rst_n);
     op  : coverpoint operation;
     vld : coverpoint valid_in;
@@ -47,5 +48,5 @@ cg i_cg = new();
 assert property ( @(posedge clk) disable iff(~rst_n)
     valid_in |-> s_eventually valid_out
 );
-
+`endif
 endmodule

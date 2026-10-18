@@ -1,0 +1,162 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[19:21:54.357299] Configured Lic search path (23.02-s003): 5280@srv-eda-01:5280@srv-eda-05:1717@srv-eda-01
+
+Version: 23.10-p004_1, built Thu Feb 01 02:43:46 PST 2024
+Options: -files /home/denismedvedev478/digital_flow_2026/lab2/flow_scripts/flow.genus.syn.tcl 
+Date:    Mon Oct 05 19:21:54 2026
+Host:    miet-cad-edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (32cores*32cpus*1physical cpu*Common KVM processor 512KB) (132031524KB)
+PID:     17364
+OS:      CentOS Linux release 7.9.2009 (Core)
+
+Checking out license: Genus_Synthesis
+[19:21:54.150625] Periodic Lic check successful
+[19:21:54.674925] Feature usage summary:
+[19:21:54.674926] Genus_Synthesis
+
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Finished executable startup (0 seconds elapsed).
+
+Loading tool scripts...
+Finished loading tool scripts (13 seconds elapsed).
+
+#@ Processing -files option
+@genus:root: 1> source /home/denismedvedev478/digital_flow_2026/lab2/flow_scripts/flow.genus.syn.tcl
+#@ Begin verbose source /home/denismedvedev478/digital_flow_2026/lab2/flow_scripts/flow.genus.syn.tcl
+@file(flow.genus.syn.tcl) 5: source $::env(FLOW_DIR)/steps.genus.tcl
+Sourcing '/home/denismedvedev478/digital_flow_2026/lab2/flow_scripts/steps.genus.tcl' (Mon Oct 05 19:22:07 MSK 2026)...
+#@ Begin verbose source /home/denismedvedev478/digital_flow_2026/lab2/flow_scripts/steps.genus.tcl
+@file(steps.genus.tcl) 2: proc step_genus_gen ...
+@file(steps.genus.tcl) 17: proc step_genus_user_reports ...
+@file(steps.genus.tcl) 30: proc step_genus_user_out ...
+@file(steps.genus.tcl) 40: proc step_genus_opt ...
+@file(steps.genus.tcl) 52: proc step_genus_read_hdl ...
+@file(steps.genus.tcl) 61: proc step_genus_read_mmmc ...
+@file(steps.genus.tcl) 67: proc step_genus_init_design ...
+@file(steps.genus.tcl) 76: proc step_genus_map ...
+@file(steps.genus.tcl) 90: proc step_genus_lec ...
+@file(steps.genus.tcl) 103: proc step_genus_host_info ...
+@file(steps.genus.tcl) 119: proc step_genus_global_options ...
+@file(steps.genus.tcl) 146: proc step_genus_elaborate ...
+#@ End verbose source /home/denismedvedev478/digital_flow_2026/lab2/flow_scripts/steps.genus.tcl
+@file(flow.genus.syn.tcl) 7: set script_dir [file normalize [file dirname [info script]]]
+@file(flow.genus.syn.tcl) 10: set ::env(ENV_DESIGN)                "top"
+@file(flow.genus.syn.tcl) 11: set ::env(ENV_DEFINE)                "SYNTHESIS"
+@file(flow.genus.syn.tcl) 12: set ::env(ENV_RTL_LIST)              [file join $script_dir "rtl" "filelist.f"]
+@file(flow.genus.syn.tcl) 13: set ::env(ENV_MMMC)                  [file join $script_dir "constraints" "mmmc.tcl"]
+@file(flow.genus.syn.tcl) 14: set ::env(ENV_INIT_HDL_SEARCH_PATH)  [list \
+    [file join $script_dir "rtl"] \
+    [file join $script_dir "include"] \
+]
+@file(flow.genus.syn.tcl) 19: set ::env(GENUS_RUN_DIR)             [file join $script_dir "genus_run"]
+@file(flow.genus.syn.tcl) 20: set ::env(GENUS_REPORT_DIR)          [file join $::env(GENUS_RUN_DIR) "reports"]
+@file(flow.genus.syn.tcl) 21: set ::env(GENUS_OUTPUT_DIR)          [file join $::env(GENUS_RUN_DIR) "outputs"]
+@file(flow.genus.syn.tcl) 24: file mkdir $::env(GENUS_RUN_DIR)
+@file(flow.genus.syn.tcl) 25: file mkdir $::env(GENUS_REPORT_DIR)
+@file(flow.genus.syn.tcl) 26: file mkdir $::env(GENUS_OUTPUT_DIR)
+@file(flow.genus.syn.tcl) 28: foreach stage {syn_generic syn_map syn_opt} {
+    file mkdir [file join $::env(GENUS_REPORT_DIR) $stage]
+    file mkdir [file join $::env(GENUS_OUTPUT_DIR) $stage]
+}
+@file(flow.genus.syn.tcl) 35: step_genus_host_info
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+Hostname : miet-cad-edu
+@file(flow.genus.syn.tcl) 36: step_genus_global_options
+  Setting attribute of root '/': 'ui_units_timing_reporting' = ns
+  Setting attribute of root '/': 'max_cpus_per_server' = 8
+  Setting attribute of root '/': 'syn_generic_effort' = medium
+  Setting attribute of root '/': 'syn_map_effort' = medium
+  Setting attribute of root '/': 'syn_opt_effort' = medium
+  Setting attribute of root '/': 'information_level' = 1
+  Setting attribute of root '/': 'init_hdl_search_path' = /home/denismedvedev478/digital_flow_2026/lab2/flow_scripts/rtl /home/denismedvedev478/digital_flow_2026/lab2/flow_scripts/include
+@file(flow.genus.syn.tcl) 38: step_genus_read_hdl
+Error   : File or directory not found. [HDL-14] [read_hdl]
+        : Cannot open list file '/home/denismedvedev478/digital_flow_2026/lab2/flow_scripts/rtl/filelist.f'.
+        : The specified file could not be opened. Check the path of file.
+#@ End verbose source /home/denismedvedev478/digital_flow_2026/lab2/flow_scripts/flow.genus.syn.tcl
+1
+Encountered problems processing file: /home/denismedvedev478/digital_flow_2026/lab2/flow_scripts/flow.genus.syn.tcl
+WARNING: This version of the tool is 977 days old.
+
+Another Ctrl-C within 1 second will terminate the tool.
+CURRENT RESOURCES: RT {elapsed: 115s, ST: 17s, FG: 17s, CPU: 1.7%}, MEM {curr: 1.1G, peak: 1.1G, phys curr: 0.3G, phys peak: 0.3G}, SYS {load: 3.1, cpu: 32, total: 125.9G, free: 9.7G}
+@genus:root: 2> exit
+
+Lic Summary:
+[19:23:50.001376] cdslmd servers: srv-eda-05 srv-eda-01
+[19:23:50.016544] Feature usage summary:
+[19:23:50.155023]   Genus_Synthesis  
+
+Normal exit.
