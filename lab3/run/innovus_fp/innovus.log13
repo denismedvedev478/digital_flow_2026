@@ -1,0 +1,524 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v21.14-s109_1, built Wed Jun 29 09:53:08 PDT 2022
+Options:	-stylus -files /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/flow.innovus.fp.tcl 
+Date:		Sun Oct 18 17:37:05 2026
+Host:		miet-cad-edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (32cores*32cpus*Common KVM processor 512KB)
+OS:		CentOS Linux release 7.9.2009 (Core)
+
+License:
+		[17:37:05.185273] Configured Lic search path (21.01-s002): 5280@srv-eda-05
+
+		invs	Innovus Implementation System	21.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+
+
+**WARN: (IMPOPT-801):	Genus executable not found in PATH. Install Genus, add the path to the genus executable in the PATH variable and rerun Innovus.
+Create and set the environment variable TMPDIR to /tmp/innovus_temp_16414_miet-cad-edu_zzomda_oMpVuJ.
+
+The soft stacksize limit is either up to the hard limit or larger than 0.2% of RAM. No change is needed.
+
+**INFO:  MMMC transition support version v31-84 
+
+#@ Processing -files option
+@innovus 1> source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/flow.innovus.fp.tcl
+#@ Begin verbose source (pre): source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/flow.innovus.fp.tcl
+@file 1: #  ___       _ _   
+@file 2: # |_ _|_ __ (_) |_ 
+@file 3: #  | || '_ \| | __|
+@file 4: #  | || | | | | |_ 
+@file 5: # |___|_| |_|_|\__|
+@file 6:
+@file 7: source $::env(FLOW_DIR)/steps.innovus.tcl
+#@ Begin verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/steps.innovus.tcl (pre)
+@file 1: proc user_init_design {} \
+{
+ 
+    # ------------------
+    # Init design
+    # ------------------
+    if {[info exists ::env(TECH_SIZE)] && $::env(TECH_SIZE) ne ""} {
+        set_db design_process_node $::env(TECH_SIZE)
+    }
+
+    set_db init_netlist_files  $::env(ENV_NETLIST)
+    set_db init_lef_files      $::env(ENV_LEF_FILES)
+    set_db init_power_nets     $::env(ENV_POWER_NETS)
+    set_db init_ground_nets    $::env(ENV_GROUND_NETS)
+    set_db init_mmmc_files     $::env(ENV_MMMC)
+
+    read_mmmc     $::env(ENV_MMMC)
+    read_physical -lef $::env(ENV_LEF_FILES)
+
+    read_netlist  $::env(ENV_NETLIST) -top $::env(ENV_DESIGN)
+    init_design
+
+
+}
+@file 25:
+@file 26: proc user_read_floorplan {} {
+    # ----------------------------------------------------------
+    # Floorplan file Ã¡Ã¥Ã°Â¸Ã¬ Ã¨Ã§ ENV_FLOORPLAN_FILE (Ã±Ã¬. Makefile)
+    # ENV_INNOVUS_FP Â Ã½Ã²Ã® Ã¨Ã¬Ã¿ Ã§Ã Ã¯Ã³Ã±ÃªÃ Ã¥Ã¬Ã®Ã© Ã³Ã²Ã¨Ã«Ã¨Ã²Ã», ÃÃ Ã´Ã Ã©Ã« floorplan
+    # ----------------------------------------------------------
+    set fp_file ""
+
+    if {[info exists ::env(ENV_FLOORPLAN_FILE)] && $::env(ENV_FLOORPLAN_FILE) ne ""} {
+        set fp_file $::env(ENV_FLOORPLAN_FILE)
+    }
+
+    if {$fp_file eq ""} {
+        puts "WARN: ENV_FLOORPLAN_FILE is not set, skip read_floorplan"
+        return
+    }
+
+    if {![file exists $fp_file]} {
+        puts "WARN: floorplan file not found: $fp_file"
+        return
+    }
+
+    # ÃÃ¨Ã²Ã Ã¥Ã¬ floorplan
+    read_floorplan $fp_file
+
+    # ÃÃ®Ã¯Ã¨Ã°Ã³Ã¥Ã¬ Ã¨Ã±ÃµÃ®Ã¤Ã­Ã»Ã© .fp Ã¨ Ã¥Ã£Ã® .spr (Ã¥Ã±Ã«Ã¨ Ã¥Ã±Ã²Ã¼) Ã¢ ./in
+    if {![file exists ./in]} {
+        file mkdir ./in
+    }
+
+    file copy -force $fp_file ./in
+    puts "INFO: copied floorplan  -> ./in/[file tail $fp_file]"
+
+    set spr_file "${fp_file}.spr"
+    if {[file exists $spr_file]} {
+        file copy -force $spr_file ./in
+        puts "INFO: copied floorplan  -> ./in/[file tail $spr_file]"
+    }
+}
+@file 64:
+@file 65:
+@file 66: proc global_net {} \
+{
+    connect_global_net VDD -type pg_pin -pin_base_name VDD -inst_base_name *
+    connect_global_net VSS -type pg_pin -pin_base_name VSS -inst_base_name *
+
+
+
+}
+@file 74:
+@file 75:
+#@ End verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/steps.innovus.tcl
+@file 8:
+@file 9: user_init_design
+##  Process: 130           (User Set)               
+##     Node: (not set)                           
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+Applying the recommended capacitance filtering threshold values for 130nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.4.
+	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+	Capacitance filtering mode(extract_rc_cap_filter_mode option of the set_db) is 'relative_and_coupling' for all engines.
+	The accuracy mode for post_route extract_rc_effort_level low extraction will be set to 'standard'.
+	Default value for EffortLevel(extract_rc_effort_level option of the set_db) in post_route extraction mode is 'low'.
+#@ Begin verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/example_rtl/counter/mmmc.view (pre)
+@file 1:
+@file 2: # ################
+@file 3: # TYP
+@file 4: # ################
+@file 5: set lib_list_typ {}
+@file 6:
+@file 7: lappend lib_list_typ  " $::env(PDK_DIR)/IHP_Open_PDK/sg13g2_stdcell/lib/sg13g2_stdcell_typ_1p20V_25C.lib"
+@file 8:
+@@file 9: create_rc_corner -name typ -temperature {25} -pre_route_res {1} -pre_route_cap {1} -pre_route_clock_res {0} -pre_route_clock_cap {0} -post_route_res {1} -post_route_cap {1} -post_route_cross_cap {1} -post_route_clock_res {0} -post_route_clock_cap {0}
+@@file 10: create_library_set -name typ -timing $lib_list_typ
+@@file 11: create_opcond -name typ -process {1} -voltage {1.20} -temperature {25}
+@file 12: #set PVT
+@@file 13: create_timing_condition -name typ -opcond {typ} -library_sets {typ}
+@@file 14: create_delay_corner -name typ -timing_condition {typ} -rc_corner {typ}
+@file 15: #create corner
+@file 16:
+@file 17: # ################
+@file 18: # MAX
+@file 19: # ################
+@file 20: # set lib_list_max {}
+@file 21:
+@file 22: # lappend lib_list_max  <PLACEHOLDER>
+@file 23:
+@file 24: # create_rc_corner <PLACEHOLDER>
+@file 25: # create_library_set <PLACEHOLDER>
+@file 26: # create_opcond <PLACEHOLDER>
+@file 27: # create_timing_condition <PLACEHOLDER>
+@file 28: # create_delay_corner <PLACEHOLDER>
+@file 29:
+@file 30: # ################
+@file 31: # FINAL 
+@file 32: # ################
+@file 33:
+@@file 34: create_constraint_mode -name func -sdc_files "/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/blockB/statistics_unit.sdc"
+@@file 35: create_analysis_view -name typ -constraint_mode {func} -delay_corner {typ}
+@@file 36: set_analysis_view -setup {typ} -hold {typ}
+#@ End verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/example_rtl/counter/mmmc.view
+Reading typ timing library '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/PDK/IHP_Open_PDK/sg13g2_stdcell/lib/sg13g2_stdcell_typ_1p20V_25C.lib' ...
+Read 78 cells in library 'sg13g2_stdcell_typ_1p20V_25C' 
+
+Loading LEF file /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/../PDK//IHP_Open_PDK/sg13g2_stdcell/lef/sg13g2_tech.lef ...
+
+Loading LEF file /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/../PDK//IHP_Open_PDK/sg13g2_stdcell/lef/sg13g2_stdcell.lef ...
+Set DBUPerIGU to M1 pitch 480.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'sg13g2_antennanp' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+
+viaInitial starts at Sun Oct 18 17:37:28 2026
+viaInitial ends at Sun Oct 18 17:37:28 2026
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+#% Begin Load netlist data ... (date=10/18 17:37:28, mem=814.7M)
+*** Begin netlist parsing (mem=887.1M) ***
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_xor2_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_xor2_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_xnor2_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_xnor2_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_tielo' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_tielo' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_tiehi' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_tiehi' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_slgcp_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_slgcp_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_sighold' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_sighold' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_sdfbbp_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_sdfbbp_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_or4_2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_or4_2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_or4_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_or4_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_or3_2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_or3_2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (EMS-27):	Message (IMPVL-159) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+Created 78 new cells from 1 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilog netlist '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/run/genus/outputs/syn_opt/statistics_unit.v'
+
+*** Memory Usage v#1 (Current mem = 890.078M, initial mem = 376.109M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=890.1M) ***
+#% End Load netlist data ... (date=10/18 17:37:28, total cpu=0:00:00.0, real=0:00:00.0, peak res=819.0M, current mem=819.0M)
+Set top cell to statistics_unit.
+Hooked 78 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell statistics_unit ...
+*** Netlist is unique.
+** info: there are 79 modules.
+** info: there are 788 stdCell insts.
+
+*** Memory Usage v#1 (Current mem = 952.551M, initial mem = 376.109M) ***
+Adjust TopMetal1 preferred direction offset from 1.64 to 0.
+Start create_tracks
+Generated pitch 2.52 in TopMetal1 is different from 2.28 defined in technology file in preferred direction.
+Extraction setup Started 
+Initializing multi-corner RC extraction with 1 active RC Corners ...
+**WARN: (IMPEXT-2773):	The via resistance between layers M0 and M1 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M1 and M2 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M2 and M3 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M3 and M4 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M4 and M5 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M5 and M6 is not defined in the capacitance table file. The via resistance of 4 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M6 and M7 is not defined in the capacitance table file. The via resistance of 2.2 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M1 is not defined in the cap table. Therefore, the LEF value 0.135 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M2 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M3 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M4 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M5 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M6 is not defined in the cap table. Therefore, the LEF value 0.021 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M7 is not defined in the cap table. Therefore, the LEF value 0.0145 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+Summary of Active RC-Corners : 
+ 
+ Analysis View: typ
+    RC-Corner Name        : typ
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from Cap Table]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from Cap Table]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+Updating RC grid for preRoute extraction ...
+Initializing multi-corner resistance tables ...
+*Info: initialize multi-corner CTS.
+Reading timing constraints file '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/blockB/statistics_unit.sdc' ...
+Current (total cpu=0:00:37.9, real=0:00:24.0, peak res=1102.7M, current mem=1102.7M)
+INFO (CTE): Constraints read successfully.
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:01.0, peak res=1120.6M, current mem=1120.6M)
+Current (total cpu=0:00:37.9, real=0:00:25.0, peak res=1120.6M, current mem=1120.6M)
+Total number of combinational cells: 62
+Total number of sequential cells: 10
+Total number of tristate cells: 6
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+List of usable buffers: sg13g2_buf_1 sg13g2_buf_16 sg13g2_buf_2 sg13g2_buf_4 sg13g2_buf_8
+Total number of usable buffers: 5
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: sg13g2_inv_1 sg13g2_inv_16 sg13g2_inv_2 sg13g2_inv_4 sg13g2_inv_8
+Total number of usable inverters: 5
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: sg13g2_dlygate4sd2_1 sg13g2_dlygate4sd1_1 sg13g2_dlygate4sd3_1
+Total number of identified usable delay cells: 3
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+@file 10: user_read_floorplan
+WARN: floorplan file not found: /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/my_rtl/floorplan/statistics_unit.fp
+@file 11:
+@file 12: global_net
+@file 13:
+@file 14: #-no_snap_to_grid
+@@file 15: create_floorplan -no_snap_to_grid -site CoreSite -box_size 0.0 0.0 200.16 199.92 0.0 0.0 200.16 199.92 20.16 20.16 180.0 180.18
+Adjust TopMetal1 preferred direction offset from 1.64 to 0.
+Start create_tracks
+Generated pitch 2.52 in TopMetal1 is different from 2.28 defined in technology file in preferred direction.
+**WARN: (IMPFP-325):	Floorplan of the design is resized. All current create_floorplan objects are automatically derived based on specified new create_floorplan. This may change blocks, fixed standard cells, existing routes and blockages.
+@file 16:
+@@file 17: edit_pin -pin_width 10.0 -pin_depth 10.0 -fix_overlap 1 -unit micron -spread_direction clockwise -side Top -layer 3 -spread_type center -spacing 0.48 -pin clk
+To speed up, if you have to run multiple edit_pin commands then wrap all edit_pin commands within  'set_db assign_pins_edit_in_batch true' (then edit_pin commands) and 'set_db assign_pins_edit_in_batch false'
+**WARN: (IMPTR-2104):	Layer M6: Pitch=2280 is less than min width=1640 + min spacing=1640.
+**WARN: (IMPTR-2108):	For layer M6, the gaps of 78 out of 78 tracks are narrower than 3.280um (space 1.640 + width 1.640).
+Type 'man IMPTR-2108' for more detail.
+ As a result, your trialRoute congestion could be incorrect.
+Successfully spread [1] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1243.0M).
+@@file 18: edit_pin -pin_width 2.0 -pin_depth 10.0 -fix_overlap 1 -unit micron -spread_direction clockwise -side Bottom -layer 3 -spread_type center -spacing 0.48 -pin {valid_in rst_n clear}
+To speed up, if you have to run multiple edit_pin commands then wrap all edit_pin commands within  'set_db assign_pins_edit_in_batch true' (then edit_pin commands) and 'set_db assign_pins_edit_in_batch false'
+Successfully spread [3] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1244.0M).
+@@file 19: edit_pin -pin_width 1.0 -pin_depth 10.0 -fix_overlap 1 -spread_direction clockwise -edge 0 -layer 3 -spread_type range -offset_end 70 -offset_start 70 -pin {{data_in[0]} {data_in[1]} {data_in[2]} {data_in[3]} {data_in[4]} {data_in[5]} {data_in[6]} {data_in[7]} {data_in[8]} {data_in[9]} {data_in[10]} {data_in[11]} {data_in[12]} {data_in[13]} {data_in[14]} {data_in[15]} {data_in[16]} {data_in[17]} {data_in[18]} {data_in[19]} {data_in[20]} {data_in[21]} {data_in[22]} {data_in[23]} {data_in[24]} {data_in[25]} {data_in[26]} {data_in[27]} {data_in[28]} {data_in[29]} {data_in[30]} {data_in[31]}}
+To speed up, if you have to run multiple edit_pin commands then wrap all edit_pin commands within  'set_db assign_pins_edit_in_batch true' (then edit_pin commands) and 'set_db assign_pins_edit_in_batch false'
+Successfully spread [32] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1244.0M).
+@@file 20: edit_pin -pin_width 0.2 -pin_depth 10.0 -fix_overlap 1 -spread_direction clockwise -edge 2 -layer 3 -spread_type range -offset_end 20 -offset_start 20 -pin {{count[0]} {count[1]} {count[2]} {count[3]} {count[4]} {count[5]} {count[6]} {count[7]} {count[8]} {count[9]} {count[10]} {count[11]} {count[12]} {count[13]} {count[14]} {count[15]} {max[0]} {max[1]} {max[2]} {max[3]} {max[4]} {max[5]} {max[6]} {max[7]} {max[8]} {max[9]} {max[10]} {max[11]} {max[12]} {max[13]} {max[14]} {max[15]} {max[16]} {max[17]} {max[18]} {max[19]} {max[20]} {max[21]} {max[22]} {max[23]} {max[24]} {max[25]} {max[26]} {max[27]} {max[28]} {max[29]} {max[30]} {max[31]} {min[0]} {min[1]} {min[2]} {min[3]} {min[4]} {min[5]} {min[6]} {min[7]} {min[8]} {min[9]} {min[10]} {min[11]} {min[12]} {min[13]} {min[14]} {min[15]} {min[16]} {min[17]} {min[18]} {min[19]} {min[20]} {min[21]} {min[22]} {min[23]} {min[24]} {min[25]} {min[26]} {min[27]} {min[28]} {min[29]} {min[30]} {min[31]} {sum[0]} {sum[1]} {sum[2]} {sum[3]} {sum[4]} {sum[5]} {sum[6]} {sum[7]} {sum[8]} {sum[9]} {sum[10]} {sum[11]} {sum[12]} {sum[13]} {sum[14]} {sum[15]} {sum[16]} {sum[17]} {sum[18]} {sum[19]} {sum[20]} {sum[21]} {sum[22]} {sum[23]} {sum[24]} {sum[25]} {sum[26]} {sum[27]} {sum[28]} {sum[29]} {sum[30]} {sum[31]}}
+To speed up, if you have to run multiple edit_pin commands then wrap all edit_pin commands within  'set_db assign_pins_edit_in_batch true' (then edit_pin commands) and 'set_db assign_pins_edit_in_batch false'
+Successfully spread [112] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1244.0M).
+@file 21:
+@@file 22: add_rings -nets {VDD VSS} -type core_rings -follow core -layer {top TopMetal1 bottom TopMetal1 left TopMetal2 right TopMetal2} -width {top 4 bottom 4 left 4 right 4} -spacing {top 2 bottom 2 left 2 right 2} -offset {top 6 bottom 6 left 6 right 6} -center 0 -threshold 0 -jog_distance 0 -snap_wire_center_to_grid none
+#% Begin add_rings (date=10/18 17:37:30, mem=1153.4M)
+
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1244.0M)
+Ring generation is complete.
+vias are now being generated.
+add_rings created 8 wires.
+ViaGen created 8 vias, deleted 0 via to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+|TopMetal1|        4       |       NA       |
+| TopVia2|        8       |        0       |
+|TopMetal2|        4       |       NA       |
++--------+----------------+----------------+
+#% End add_rings (date=10/18 17:37:30, total cpu=0:00:00.0, real=0:00:00.0, peak res=1155.6M, current mem=1155.6M)
+@file 23:
+@file 24:
+@@file 25: gui_show
+@@file 26: gui_fit
+@file 27:
+@file 28:
+#@ End verbose source: /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/flow.innovus.fp.tcl
+@innovus 2> gui_pan -119.31500 -12.68800
+@innovus 3> gui_pan -196.77800 -48.56200
+@innovus 4> gui_pan 9.18400 151.84800
+@innovus 5> set_db edit_wire_type regular
+@innovus 6> set_db edit_wire_type special
+@innovus 7> set_db edit_wire_type regular
+@innovus 8> set_db edit_wire_type special
+@innovus 9> set_db edit_wire_type patch
+@innovus 10> set_db edit_wire_type regular
+@innovus 11> set_db edit_wire_nets {VDD}
+@innovus 12> edit_add_route_point 31.618 182.243
+@innovus 13> edit_add_route_point 37.978 174.683
+@innovus 14> edit_add_route_point 33.418 174.443
+@innovus 15> edit_add_route_point 36.658 167.243
+@innovus 16> edit_add_route_point 50.458 170.483
+@innovus 17> edit_add_route_point 40.378 176.723
+@innovus 18> set_db edit_wire_layer_horizontal {TopMetal1}
+@innovus 19> set_db edit_wire_layer_vertical {TopMetal2}
+@innovus 20> set_db edit_wire_type special
+@innovus 21> set_db edit_wire_width_horizontal {4}
+@innovus 22> set_db edit_wire_width_vertical {4}
+@innovus 23> edit_add_route_point 64.378 181.523
+@innovus 24> gui_pan 3.98600 69.28900
+@innovus 25> gui_pan 4.31800 -8.27500
+@innovus 26> edit_add_route_point 65.055 10.175
+@innovus 27> gui_pan -7.64000 39.73000
+@innovus 28> edit_add_route_point 80.424 110.202
+@innovus 29> gui_pan 9.19500 165.71900
+@innovus 30> edit_add_route_point 87.381 190.475
+@innovus 31> gui_pan -0.28200 67.37600
+@innovus 32> edit_add_route_point 85.387 95.834
+@innovus 33> edit_add_route_point 87.713 96.997
+@innovus 34> edit_add_route_point 87.713 96.997
+@innovus 35> gui_pan 6.64400 129.86900
+@innovus 36> edit_add_route_point 86.302 171.407
+@innovus 37> gui_pan 1.82700 149.88200
+@innovus 38> edit_add_route_point 87.963 188.847
+@innovus 39> edit_add_route_point 87.797 150.313
+@innovus 40> edit_add_route_point -16.43 202.816
+@innovus 41> edit_add_route_point 89.878 189.86
+@innovus 42> edit_add_route_point 91.539 160.459
+@innovus 43> edit_add_route_point 88.715 187.534
+@innovus 44> edit_add_route_point 88.383 130.56
+@innovus 45> edit_add_route_point 92.535 188.863
+@innovus 46> edit_add_route_point 81.406 97.671
+@innovus 47> edit_add_route_point 118.614 100.827
+@innovus 48> edit_add_route_point 121.271 195.175
+@innovus 49> edit_add_route_point 124.427 193.68
+@innovus 50> edit_add_route_point 80.41 188.531
+@innovus 51> edit_add_route_point 81.572 114.116
+@innovus 52> edit_end_route_point 81.572 114.116
+@innovus 53> gui_pan 22.59000 93.83600
+@innovus 54> edit_add_route_point 91.372 194.51
+@innovus 55> edit_add_route_point 92.535 118.102
+@innovus 56> edit_end_route_point 92.535 118.102
+@innovus 57> gui_pan -10.13200 93.00600
+@innovus 58> gui_pan -7.07500 109.54400
+@innovus 59> edit_add_route_point 110.121 194.551
+@innovus 60> edit_add_route_point 110.121 194.551
+@innovus 61> edit_end_route_point 110.121 194.551
+@innovus 62> edit_add_route_point 112.038 195.583
+@innovus 63> set_db edit_wire_nets {VSS}
+@innovus 64> edit_add_route_point 113.217 194.256
+@innovus 65> gui_pan 5.30700 87.82000
+@innovus 66> edit_add_route_point 113.103 117.564
+@innovus 67> edit_end_route_point 113.103 117.564
+@innovus 68> gui_pan 6.49500 140.87400
+@innovus 69> gui_select -point {91.40200 178.83800}
+@innovus 70> delete_selected_from_floorplan 
+@innovus 71> gui_pan 3.16300 99.50500
+@innovus 72> gui_select -point {115.42300 94.45400}
+@innovus 73> **INFO (INTERRUPT): One more Ctrl-C to exit Innovus ...
+gui_select -point {56.78200 183.85800}
+@innovus 74> gui_pan -3.87700 137.58700
+@innovus 75> gui_select -point {82.32100 195.76900}
+@innovus 76> gui_pan -3.90700 111.61800
+@innovus 77> gui_pan -2.43300 95.03100
+@innovus 78> gui_pan 0.22200 83.38300
+@innovus 79> gui_pan -0.73700 67.82800
+@innovus 80> gui_pan -8.80600 45.70100
+@innovus 81> gui_pan -3.48900 14.79800
+@innovus 82> gui_pan 1.12800 -32.15300
+@innovus 83> set_db edit_wire_nets {VDD}
+1 VDD
+set_db edit_wire_layer_horizontal {TopMetal1}
+@innovus 84> set_db edit_wire_layer_horizontal {TopMetal1}
+1 TopMetal1
+@innovus 85> set_db edit_wire_layer_vertical {TopMetal2}
+set_db edit_wire_layer_vertical {TopMetal2}
+1 TopMetal2
+set_db edit_wire_type special
+@innovus 86> set_db edit_wire_type special
+1 special
+@innovus 87> set_db edit_wire_width_horizontal {4}
+set_db edit_wire_width_horizontal {4}
+1 4.0
+@innovus 88> set_db edit_wire_width_vertical {4}
+set_db edit_wire_width_vertical {4}
+1 4.0
+@innovus 89> edit_add_route_point 97.0 187.0
+edit_add_route_point 97.0 187.0
+@innovus 90> edit_end_route_point 97.0 13.0edit_end_route_point 97.0 13.0
+
+@innovus 91> edit_add_route_point 67.235 3.233
+@innovus 92> 
+
+@innovus 92> 
+
+@innovus 92> hset_db edit_wire_nets {VDD}
+set_db edit_wire_nets {VDD}
+invalid command name "hset_db"
+invalid command name "hset_db"
+@innovus 93> set_db edit_wire_layer_horizontal {TopMetal1}
+set_db edit_wire_layer_horizontal {TopMetal1}
+1 TopMetal1
+@innovus 94> set_db edit_wire_layer_vertical {TopMetal2}
+set_db edit_wire_layer_vertical {TopMetal2}
+1 TopMetal2
+@innovus 95> set_db edit_wire_type special
+set_db edit_wire_type special
+1 special
+@innovus 96> set_db edit_wire_width_horizontal {4}
+set_db edit_wire_width_horizontal {4}
+1 4.0
+@innovus 97> set_db edit_wire_width_vertical {4}
+set_db edit_wire_width_vertical {4}
+1 4.0
+@innovus 98> edit_add_route_point 97.0 187.0
+edit_add_route_point 97.0 187.0
+@innovus 99> edit_end_route_point 97.0 13.0edit_end_route_point 97.0 13.0
+
+@innovus 100> 
+
+@innovus 100> 
+
+@innovus 100> 
+@innovus 100> 
+
+@innovus 100> 
+
+@innovus 100> 
+
+@innovus 100> edit_add_route_point 90.778 -0.655
+@innovus 101> 
+
+@innovus 101> 
+
+@innovus 101> **INFO (INTERRUPT): One more Ctrl-C to exit Innovus ...
+Innovus terminated by user interrupt.
+QObject::~QObject: Timers cannot be stopped from another thread
+
+*** Memory Usage v#1 (Current mem = 1518.801M, initial mem = 376.109M) ***
+*** Message Summary: 175 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:03:02, real=0:21:32, mem=1518.8M) ---

@@ -1,0 +1,683 @@
+[10/18 15:01:45      0s] 
+[10/18 15:01:45      0s] Cadence Innovus(TM) Implementation System.
+[10/18 15:01:45      0s] Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+[10/18 15:01:45      0s] 
+[10/18 15:01:45      0s] Version:	v21.14-s109_1, built Wed Jun 29 09:53:08 PDT 2022
+[10/18 15:01:45      0s] Options:	-stylus -files /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/flow.innovus.fp.tcl 
+[10/18 15:01:45      0s] Date:		Sun Oct 18 15:01:45 2026
+[10/18 15:01:45      0s] Host:		miet-cad-edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (32cores*32cpus*Common KVM processor 512KB)
+[10/18 15:01:45      0s] OS:		CentOS Linux release 7.9.2009 (Core)
+[10/18 15:01:45      0s] 
+[10/18 15:01:45      0s] License:
+[10/18 15:01:45      0s] 		[15:01:45.185217] Configured Lic search path (21.01-s002): 5280@srv-eda-05
+[10/18 15:01:45      0s] 
+[10/18 15:01:45      0s] 		invs	Innovus Implementation System	21.1	checkout succeeded
+[10/18 15:01:45      0s] 		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[10/18 15:01:56     20s] 
+[10/18 15:01:56     20s] 
+[10/18 15:02:00     29s] Reset Parastics called with the command setExtractRCMode -reset@(#)CDS: Innovus v21.14-s109_1 (64bit) 06/29/2022 09:53 (Linux 3.10.0-693.el7.x86_64)
+[10/18 15:02:03     32s] @(#)CDS: NanoRoute 21.14-s109_1 NR220628-1629/21_14-UB (database version 18.20.582) {superthreading v2.17}
+[10/18 15:02:03     32s] @(#)CDS: AAE 21.14-s031 (64bit) 06/29/2022 (Linux 3.10.0-693.el7.x86_64)
+[10/18 15:02:03     32s] @(#)CDS: CTE 21.14-s031_1 () Jun 22 2022 10:32:17 ( )
+[10/18 15:02:03     32s] @(#)CDS: SYNTECH 21.14-s014_1 () May 29 2022 20:47:50 ( )
+[10/18 15:02:03     32s] @(#)CDS: CPE v21.14-s062
+[10/18 15:02:03     32s] @(#)CDS: IQuantus/TQuantus 21.1.1-w001 (64bit) Wed Jun 1 22:42:35 PDT 2022 (Linux 3.10.0-693.el7.x86_64)
+[10/18 15:02:03     32s] @(#)CDS: OA 22.60-p074 Tue Apr 12 12:08:19 2022
+[10/18 15:02:03     32s] @(#)CDS: SGN 20.10-d001 (01-Jun-2020) (64 bit executable, Qt5.9.0)
+[10/18 15:02:03     32s] @(#)CDS: RCDB 11.15.0
+[10/18 15:02:03     32s] @(#)CDS: STYLUS 21.12-s008_1 (04/27/2022 03:28 PDT)
+[10/18 15:02:03     32s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_7336_miet-cad-edu_zzomda_boF64w.
+
+[10/18 15:02:03     32s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_7336_miet-cad-edu_zzomda_boF64w.
+[10/18 15:02:03     32s] 
+[10/18 15:02:03     32s] The soft stacksize limit is either up to the hard limit or larger than 0.2% of RAM. No change is needed.
+[10/18 15:02:06     34s] 
+[10/18 15:02:06     34s] **INFO:  MMMC transition support version v31-84 
+[10/18 15:02:06     34s] 
+[10/18 15:02:09     37s] #@ Processing -files option
+[10/18 15:02:09     37s] @innovus 1> source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/flow.innovus.fp.tcl
+[10/18 15:02:09     37s] #@ Begin verbose source (pre): source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/flow.innovus.fp.tcl
+[10/18 15:02:09     37s] @file 1: #  ___       _ _   
+[10/18 15:02:09     37s] @file 2: # |_ _|_ __ (_) |_ 
+[10/18 15:02:09     37s] @file 3: #  | || '_ \| | __|
+[10/18 15:02:09     37s] @file 4: #  | || | | | | |_ 
+[10/18 15:02:09     37s] @file 5: # |___|_| |_|_|\__|
+[10/18 15:02:09     37s] @file 6:
+[10/18 15:02:09     37s] @file 7: source $::env(FLOW_DIR)/steps.innovus.tcl
+[10/18 15:02:09     37s] #@ Begin verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/steps.innovus.tcl (pre)
+[10/18 15:02:09     37s] @file 1: proc user_init_design {} \
+[10/18 15:02:09     37s] {
+[10/18 15:02:09     37s]  
+[10/18 15:02:09     37s]     # ------------------
+[10/18 15:02:09     37s]     # Init design
+[10/18 15:02:09     37s]     # ------------------
+[10/18 15:02:09     37s]     if {[info exists ::env(TECH_SIZE)] && $::env(TECH_SIZE) ne ""} {
+[10/18 15:02:09     37s]         set_db design_process_node $::env(TECH_SIZE)
+[10/18 15:02:09     37s]     }
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s]     set_db init_netlist_files  $::env(ENV_NETLIST)
+[10/18 15:02:09     37s]     set_db init_lef_files      $::env(ENV_LEF_FILES)
+[10/18 15:02:09     37s]     set_db init_power_nets     $::env(ENV_POWER_NETS)
+[10/18 15:02:09     37s]     set_db init_ground_nets    $::env(ENV_GROUND_NETS)
+[10/18 15:02:09     37s]     set_db init_mmmc_files     $::env(ENV_MMMC)
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s]     read_mmmc     $::env(ENV_MMMC)
+[10/18 15:02:09     37s]     read_physical -lef $::env(ENV_LEF_FILES)
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s]     read_netlist  $::env(ENV_NETLIST) -top $::env(ENV_DESIGN)
+[10/18 15:02:09     37s]     init_design
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s] }
+[10/18 15:02:09     37s] @file 25:
+[10/18 15:02:09     37s] @file 26: proc user_read_floorplan {} {
+[10/18 15:02:09     37s]     # ----------------------------------------------------------
+[10/18 15:02:09     37s]     # Floorplan file Ã¡Ã¥Ã°Â¸Ã¬ Ã¨Ã§ ENV_FLOORPLAN_FILE (Ã±Ã¬. Makefile)
+[10/18 15:02:09     37s]     # ENV_INNOVUS_FP Â Ã½Ã²Ã® Ã¨Ã¬Ã¿ Ã§Ã Ã¯Ã³Ã±ÃªÃ Ã¥Ã¬Ã®Ã© Ã³Ã²Ã¨Ã«Ã¨Ã²Ã», ÃÃ Ã´Ã Ã©Ã« floorplan
+[10/18 15:02:09     37s]     # ----------------------------------------------------------
+[10/18 15:02:09     37s]     set fp_file ""
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s]     if {[info exists ::env(ENV_FLOORPLAN_FILE)] && $::env(ENV_FLOORPLAN_FILE) ne ""} {
+[10/18 15:02:09     37s]         set fp_file $::env(ENV_FLOORPLAN_FILE)
+[10/18 15:02:09     37s]     }
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s]     if {$fp_file eq ""} {
+[10/18 15:02:09     37s]         puts "WARN: ENV_FLOORPLAN_FILE is not set, skip read_floorplan"
+[10/18 15:02:09     37s]         return
+[10/18 15:02:09     37s]     }
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s]     if {![file exists $fp_file]} {
+[10/18 15:02:09     37s]         puts "WARN: floorplan file not found: $fp_file"
+[10/18 15:02:09     37s]         return
+[10/18 15:02:09     37s]     }
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s]     # ÃÃ¨Ã²Ã Ã¥Ã¬ floorplan
+[10/18 15:02:09     37s]     read_floorplan $fp_file
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s]     # ÃÃ®Ã¯Ã¨Ã°Ã³Ã¥Ã¬ Ã¨Ã±ÃµÃ®Ã¤Ã­Ã»Ã© .fp Ã¨ Ã¥Ã£Ã® .spr (Ã¥Ã±Ã«Ã¨ Ã¥Ã±Ã²Ã¼) Ã¢ ./in
+[10/18 15:02:09     37s]     if {![file exists ./in]} {
+[10/18 15:02:09     37s]         file mkdir ./in
+[10/18 15:02:09     37s]     }
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s]     file copy -force $fp_file ./in
+[10/18 15:02:09     37s]     puts "INFO: copied floorplan  -> ./in/[file tail $fp_file]"
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s]     set spr_file "${fp_file}.spr"
+[10/18 15:02:09     37s]     if {[file exists $spr_file]} {
+[10/18 15:02:09     37s]         file copy -force $spr_file ./in
+[10/18 15:02:09     37s]         puts "INFO: copied floorplan  -> ./in/[file tail $spr_file]"
+[10/18 15:02:09     37s]     }
+[10/18 15:02:09     37s] }
+[10/18 15:02:09     37s] @file 64:
+[10/18 15:02:09     37s] @file 65:
+[10/18 15:02:09     37s] @file 66: proc global_net {} \
+[10/18 15:02:09     37s] {
+[10/18 15:02:09     37s]     connect_global_net VDD -type pg_pin -pin_base_name VDD -inst_base_name *
+[10/18 15:02:09     37s]     connect_global_net VSS -type pg_pin -pin_base_name VSS -inst_base_name *
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s] }
+[10/18 15:02:09     37s] @file 74:
+[10/18 15:02:09     37s] @file 75:
+[10/18 15:02:09     37s] #@ End verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/steps.innovus.tcl
+[10/18 15:02:09     37s] @file 8:
+[10/18 15:02:09     37s] @file 9: user_init_design
+[10/18 15:02:09     37s] ##  Process: 130           (User Set)               
+[10/18 15:02:09     37s] ##     Node: (not set)                           
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s] ##  Check design process and node:  
+[10/18 15:02:09     37s] ##  Design tech node is not set.
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s] Applying the recommended capacitance filtering threshold values for 130nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.4.
+[10/18 15:02:09     37s] 	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+[10/18 15:02:09     37s] 	Capacitance filtering mode(extract_rc_cap_filter_mode option of the set_db) is 'relative_and_coupling' for all engines.
+[10/18 15:02:09     37s] 	The accuracy mode for post_route extract_rc_effort_level low extraction will be set to 'standard'.
+[10/18 15:02:09     37s] 	Default value for EffortLevel(extract_rc_effort_level option of the set_db) in post_route extraction mode is 'low'.
+[10/18 15:02:09     37s] #@ Begin verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/example_rtl/counter/mmmc.view (pre)
+[10/18 15:02:09     37s] @file 1:
+[10/18 15:02:09     37s] @file 2: # ################
+[10/18 15:02:09     37s] @file 3: # TYP
+[10/18 15:02:09     37s] @file 4: # ################
+[10/18 15:02:09     37s] @file 5: set lib_list_typ {}
+[10/18 15:02:09     37s] @file 6:
+[10/18 15:02:09     37s] @file 7: lappend lib_list_typ  " $::env(PDK_DIR)/IHP_Open_PDK/sg13g2_stdcell/lib/sg13g2_stdcell_typ_1p20V_25C.lib"
+[10/18 15:02:09     37s] @file 8:
+[10/18 15:02:09     37s] @@file 9: create_rc_corner -name typ -temperature {25} -pre_route_res {1} -pre_route_cap {1} -pre_route_clock_res {0} -pre_route_clock_cap {0} -post_route_res {1} -post_route_cap {1} -post_route_cross_cap {1} -post_route_clock_res {0} -post_route_clock_cap {0}
+[10/18 15:02:09     37s] @@file 10: create_library_set -name typ -timing $lib_list_typ
+[10/18 15:02:09     37s] @@file 11: create_opcond -name typ -process {1} -voltage {1.20} -temperature {25}
+[10/18 15:02:09     37s] @file 12: #set PVT
+[10/18 15:02:09     37s] @@file 13: create_timing_condition -name typ -opcond {typ} -library_sets {typ}
+[10/18 15:02:09     37s] @@file 14: create_delay_corner -name typ -timing_condition {typ} -rc_corner {typ}
+[10/18 15:02:09     37s] @file 15: #create corner
+[10/18 15:02:09     37s] @file 16:
+[10/18 15:02:09     37s] @file 17: # ################
+[10/18 15:02:09     37s] @file 18: # MAX
+[10/18 15:02:09     37s] @file 19: # ################
+[10/18 15:02:09     37s] @file 20: # set lib_list_max {}
+[10/18 15:02:09     37s] @file 21:
+[10/18 15:02:09     37s] @file 22: # lappend lib_list_max  <PLACEHOLDER>
+[10/18 15:02:09     37s] @file 23:
+[10/18 15:02:09     37s] @file 24: # create_rc_corner <PLACEHOLDER>
+[10/18 15:02:09     37s] @file 25: # create_library_set <PLACEHOLDER>
+[10/18 15:02:09     37s] @file 26: # create_opcond <PLACEHOLDER>
+[10/18 15:02:09     37s] @file 27: # create_timing_condition <PLACEHOLDER>
+[10/18 15:02:09     37s] @file 28: # create_delay_corner <PLACEHOLDER>
+[10/18 15:02:09     37s] @file 29:
+[10/18 15:02:09     37s] @file 30: # ################
+[10/18 15:02:09     37s] @file 31: # FINAL 
+[10/18 15:02:09     37s] @file 32: # ################
+[10/18 15:02:09     37s] @file 33:
+[10/18 15:02:09     37s] @@file 34: create_constraint_mode -name func -sdc_files "/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/blockB/statistics_unit.sdc"
+[10/18 15:02:09     37s] @@file 35: create_analysis_view -name typ -constraint_mode {func} -delay_corner {typ}
+[10/18 15:02:09     37s] @@file 36: set_analysis_view -setup {typ} -hold {typ}
+[10/18 15:02:09     37s] #@ End verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/example_rtl/counter/mmmc.view
+[10/18 15:02:09     37s] Reading typ timing library '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/PDK/IHP_Open_PDK/sg13g2_stdcell/lib/sg13g2_stdcell_typ_1p20V_25C.lib' ...
+[10/18 15:02:09     37s] Read 78 cells in library 'sg13g2_stdcell_typ_1p20V_25C' 
+[10/18 15:02:09     37s] Ending "PreSetAnalysisView" (total cpu=0:00:00.1, real=0:00:00.0, peak res=773.8M, current mem=743.0M)
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s] Loading LEF file /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/../PDK//IHP_Open_PDK/sg13g2_stdcell/lef/sg13g2_tech.lef ...
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s] Loading LEF file /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/../PDK//IHP_Open_PDK/sg13g2_stdcell/lef/sg13g2_stdcell.lef ...
+[10/18 15:02:09     37s] Set DBUPerIGU to M1 pitch 480.
+[10/18 15:02:09     37s] **WARN: (IMPLF-200):	Pin 'A' in macro 'sg13g2_antennanp' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[10/18 15:02:09     37s] Type 'man IMPLF-200' for more detail.
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s] viaInitial starts at Sun Oct 18 15:02:09 2026
+[10/18 15:02:09     37s] viaInitial ends at Sun Oct 18 15:02:09 2026
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s] ##  Check design process and node:  
+[10/18 15:02:09     37s] ##  Design tech node is not set.
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s] #% Begin Load netlist data ... (date=10/18 15:02:09, mem=748.3M)
+[10/18 15:02:09     37s] *** Begin netlist parsing (mem=886.6M) ***
+[10/18 15:02:09     37s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_xor2_1' is defined in LEF but not in the timing library.
+[10/18 15:02:09     37s] Type 'man IMPVL-159' for more detail.
+[10/18 15:02:09     37s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_xor2_1' is defined in LEF but not in the timing library.
+[10/18 15:02:09     37s] Type 'man IMPVL-159' for more detail.
+[10/18 15:02:09     37s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_xnor2_1' is defined in LEF but not in the timing library.
+[10/18 15:02:09     37s] Type 'man IMPVL-159' for more detail.
+[10/18 15:02:09     37s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_xnor2_1' is defined in LEF but not in the timing library.
+[10/18 15:02:09     37s] Type 'man IMPVL-159' for more detail.
+[10/18 15:02:09     37s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_tielo' is defined in LEF but not in the timing library.
+[10/18 15:02:09     37s] Type 'man IMPVL-159' for more detail.
+[10/18 15:02:09     37s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_tielo' is defined in LEF but not in the timing library.
+[10/18 15:02:09     37s] Type 'man IMPVL-159' for more detail.
+[10/18 15:02:09     37s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_tiehi' is defined in LEF but not in the timing library.
+[10/18 15:02:09     37s] Type 'man IMPVL-159' for more detail.
+[10/18 15:02:09     37s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_tiehi' is defined in LEF but not in the timing library.
+[10/18 15:02:09     37s] Type 'man IMPVL-159' for more detail.
+[10/18 15:02:09     37s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_slgcp_1' is defined in LEF but not in the timing library.
+[10/18 15:02:09     37s] Type 'man IMPVL-159' for more detail.
+[10/18 15:02:09     37s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_slgcp_1' is defined in LEF but not in the timing library.
+[10/18 15:02:09     37s] Type 'man IMPVL-159' for more detail.
+[10/18 15:02:09     37s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_sighold' is defined in LEF but not in the timing library.
+[10/18 15:02:09     37s] Type 'man IMPVL-159' for more detail.
+[10/18 15:02:09     37s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_sighold' is defined in LEF but not in the timing library.
+[10/18 15:02:09     37s] Type 'man IMPVL-159' for more detail.
+[10/18 15:02:09     37s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_sdfbbp_1' is defined in LEF but not in the timing library.
+[10/18 15:02:09     37s] Type 'man IMPVL-159' for more detail.
+[10/18 15:02:09     37s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_sdfbbp_1' is defined in LEF but not in the timing library.
+[10/18 15:02:09     37s] Type 'man IMPVL-159' for more detail.
+[10/18 15:02:09     37s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_or4_2' is defined in LEF but not in the timing library.
+[10/18 15:02:09     37s] Type 'man IMPVL-159' for more detail.
+[10/18 15:02:09     37s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_or4_2' is defined in LEF but not in the timing library.
+[10/18 15:02:09     37s] Type 'man IMPVL-159' for more detail.
+[10/18 15:02:09     37s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_or4_1' is defined in LEF but not in the timing library.
+[10/18 15:02:09     37s] Type 'man IMPVL-159' for more detail.
+[10/18 15:02:09     37s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_or4_1' is defined in LEF but not in the timing library.
+[10/18 15:02:09     37s] Type 'man IMPVL-159' for more detail.
+[10/18 15:02:09     37s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_or3_2' is defined in LEF but not in the timing library.
+[10/18 15:02:09     37s] Type 'man IMPVL-159' for more detail.
+[10/18 15:02:09     37s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_or3_2' is defined in LEF but not in the timing library.
+[10/18 15:02:09     37s] Type 'man IMPVL-159' for more detail.
+[10/18 15:02:09     37s] **WARN: (EMS-27):	Message (IMPVL-159) has exceeded the current message display limit of 20.
+[10/18 15:02:09     37s] To increase the message display limit, refer to the product command reference manual.
+[10/18 15:02:09     37s] Created 78 new cells from 1 timing libraries.
+[10/18 15:02:09     37s] Reading netlist ...
+[10/18 15:02:09     37s] Backslashed names will retain backslash and a trailing blank character.
+[10/18 15:02:09     37s] Reading verilog netlist '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/run/genus/outputs/syn_opt/statistics_unit.v'
+[10/18 15:02:09     37s] 
+[10/18 15:02:09     37s] *** Memory Usage v#1 (Current mem = 889.648M, initial mem = 376.109M) ***
+[10/18 15:02:09     37s] *** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=889.6M) ***
+[10/18 15:02:09     37s] #% End Load netlist data ... (date=10/18 15:02:09, total cpu=0:00:00.0, real=0:00:00.0, peak res=752.8M, current mem=752.8M)
+[10/18 15:02:09     37s] Set top cell to statistics_unit.
+[10/18 15:02:10     38s] Hooked 78 DB cells to tlib cells.
+[10/18 15:02:10     38s] Ending "BindLib:" (total cpu=0:00:00.0, real=0:00:00.0, peak res=759.2M, current mem=759.2M)
+[10/18 15:02:10     38s] Starting recursive module instantiation check.
+[10/18 15:02:10     38s] No recursion found.
+[10/18 15:02:10     38s] Building hierarchical netlist for Cell statistics_unit ...
+[10/18 15:02:10     38s] *** Netlist is unique.
+[10/18 15:02:10     38s] Setting Std. cell height to 3780 DBU (smallest netlist inst).
+[10/18 15:02:10     38s] ** info: there are 79 modules.
+[10/18 15:02:10     38s] ** info: there are 788 stdCell insts.
+[10/18 15:02:10     38s] 
+[10/18 15:02:10     38s] *** Memory Usage v#1 (Current mem = 952.121M, initial mem = 376.109M) ***
+[10/18 15:02:10     38s] Adjust TopMetal1 preferred direction offset from 1.64 to 0.
+[10/18 15:02:10     38s] Start create_tracks
+[10/18 15:02:10     38s] Generated pitch 2.52 in TopMetal1 is different from 2.28 defined in technology file in preferred direction.
+[10/18 15:02:10     38s] Extraction setup Started 
+[10/18 15:02:10     38s] 
+[10/18 15:02:10     38s] Trim Metal Layers:
+[10/18 15:02:10     38s] Initializing multi-corner RC extraction with 1 active RC Corners ...
+[10/18 15:02:10     38s] **WARN: (IMPEXT-2773):	The via resistance between layers M0 and M1 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[10/18 15:02:10     38s] Type 'man IMPEXT-2773' for more detail.
+[10/18 15:02:10     38s] **WARN: (IMPEXT-2776):	The via resistance between layers M1 and M2 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+[10/18 15:02:10     38s] Type 'man IMPEXT-2776' for more detail.
+[10/18 15:02:10     38s] **WARN: (IMPEXT-2776):	The via resistance between layers M2 and M3 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+[10/18 15:02:10     38s] Type 'man IMPEXT-2776' for more detail.
+[10/18 15:02:10     38s] **WARN: (IMPEXT-2776):	The via resistance between layers M3 and M4 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+[10/18 15:02:10     38s] Type 'man IMPEXT-2776' for more detail.
+[10/18 15:02:10     38s] **WARN: (IMPEXT-2776):	The via resistance between layers M4 and M5 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+[10/18 15:02:10     38s] Type 'man IMPEXT-2776' for more detail.
+[10/18 15:02:10     38s] **WARN: (IMPEXT-2776):	The via resistance between layers M5 and M6 is not defined in the capacitance table file. The via resistance of 4 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+[10/18 15:02:10     38s] Type 'man IMPEXT-2776' for more detail.
+[10/18 15:02:10     38s] **WARN: (IMPEXT-2776):	The via resistance between layers M6 and M7 is not defined in the capacitance table file. The via resistance of 2.2 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+[10/18 15:02:10     38s] Type 'man IMPEXT-2776' for more detail.
+[10/18 15:02:10     38s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M1 is not defined in the cap table. Therefore, the LEF value 0.135 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/18 15:02:10     38s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M2 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/18 15:02:10     38s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M3 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/18 15:02:10     38s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M4 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/18 15:02:10     38s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M5 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/18 15:02:10     38s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M6 is not defined in the cap table. Therefore, the LEF value 0.021 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/18 15:02:10     38s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M7 is not defined in the cap table. Therefore, the LEF value 0.0145 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[10/18 15:02:10     38s] Summary of Active RC-Corners : 
+[10/18 15:02:10     38s]  
+[10/18 15:02:10     38s]  Analysis View: typ
+[10/18 15:02:10     38s]     RC-Corner Name        : typ
+[10/18 15:02:10     38s]     RC-Corner Index       : 0
+[10/18 15:02:10     38s]     RC-Corner Temperature : 25 Celsius
+[10/18 15:02:10     38s]     RC-Corner Cap Table   : ''
+[10/18 15:02:10     38s]     RC-Corner PreRoute Res Factor         : 1
+[10/18 15:02:10     38s]     RC-Corner PreRoute Cap Factor         : 1
+[10/18 15:02:10     38s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[10/18 15:02:10     38s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[10/18 15:02:10     38s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[10/18 15:02:10     38s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from Cap Table]
+[10/18 15:02:10     38s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from Cap Table]
+[10/18 15:02:10     38s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+[10/18 15:02:10     38s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+[10/18 15:02:10     38s]     RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+[10/18 15:02:10     38s] 
+[10/18 15:02:10     38s] Trim Metal Layers:
+[10/18 15:02:10     38s] LayerId::1 widthSet size::1
+[10/18 15:02:10     38s] LayerId::2 widthSet size::1
+[10/18 15:02:10     38s] LayerId::3 widthSet size::1
+[10/18 15:02:10     38s] LayerId::4 widthSet size::1
+[10/18 15:02:10     38s] LayerId::5 widthSet size::1
+[10/18 15:02:10     38s] LayerId::6 widthSet size::1
+[10/18 15:02:10     38s] LayerId::7 widthSet size::1
+[10/18 15:02:10     38s] eee: pegSigSF::1.070000
+[10/18 15:02:10     38s] Updating RC grid for preRoute extraction ...
+[10/18 15:02:10     38s] Initializing multi-corner resistance tables ...
+[10/18 15:02:10     38s] eee: l::1 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[10/18 15:02:10     38s] eee: l::2 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[10/18 15:02:10     38s] eee: l::3 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[10/18 15:02:10     38s] eee: l::4 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[10/18 15:02:10     38s] eee: l::5 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[10/18 15:02:10     38s] eee: l::6 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[10/18 15:02:10     38s] eee: l::7 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[10/18 15:02:10     38s] {RT typ 0 7 7 {6 0} 1}
+[10/18 15:02:10     38s] eee: LAM: n=40 LLS=2-3 HLS=3-5 rDens=0.000000 uaWl=0.000000 uaWlH=0.000000 aWlH=0.000000 lMod=0 pMax=0.850000 pMod=82 wcR=0.533800 newSi=0.000000 wHLS=1.334500 siPrev=0 viaL=0.000000
+[10/18 15:02:10     38s] *Info: initialize multi-corner CTS.
+[10/18 15:02:10     38s] Ending "SetAnalysisView" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1025.2M, current mem=802.3M)
+[10/18 15:02:11     39s] Reading timing constraints file '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/blockB/statistics_unit.sdc' ...
+[10/18 15:02:11     39s] Current (total cpu=0:00:39.2, real=0:00:26.0, peak res=1040.7M, current mem=1040.7M)
+[10/18 15:02:11     39s] INFO (CTE): Constraints read successfully.
+[10/18 15:02:11     39s] Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=1058.5M, current mem=1058.5M)
+[10/18 15:02:11     39s] Current (total cpu=0:00:39.3, real=0:00:26.0, peak res=1058.5M, current mem=1058.5M)
+[10/18 15:02:11     39s] Tech dependent Parameter, Build TLibAnalyzer for: cellAreaConsiderPadding
+[10/18 15:02:11     39s] 
+[10/18 15:02:11     39s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) Begin ...
+[10/18 15:02:11     39s] Summary for sequential cells identification: 
+[10/18 15:02:11     39s]   Identified SBFF number: 3
+[10/18 15:02:11     39s]   Identified MBFF number: 0
+[10/18 15:02:11     39s]   Identified SB Latch number: 0
+[10/18 15:02:11     39s]   Identified MB Latch number: 0
+[10/18 15:02:11     39s]   Not identified SBFF number: 0
+[10/18 15:02:11     39s]   Not identified MBFF number: 0
+[10/18 15:02:11     39s]   Not identified SB Latch number: 0
+[10/18 15:02:11     39s]   Not identified MB Latch number: 0
+[10/18 15:02:11     39s]   Number of sequential cells which are not FFs: 7
+[10/18 15:02:11     39s] Total number of combinational cells: 62
+[10/18 15:02:11     39s] Total number of sequential cells: 10
+[10/18 15:02:11     39s] Total number of tristate cells: 6
+[10/18 15:02:11     39s] Total number of level shifter cells: 0
+[10/18 15:02:11     39s] Total number of power gating cells: 0
+[10/18 15:02:11     39s] Total number of isolation cells: 0
+[10/18 15:02:11     39s] Total number of power switch cells: 0
+[10/18 15:02:11     39s] Total number of pulse generator cells: 0
+[10/18 15:02:11     39s] Total number of always on buffers: 0
+[10/18 15:02:11     39s] Total number of retention cells: 0
+[10/18 15:02:11     39s] 
+[10/18 15:02:11     39s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) End ...
+[10/18 15:02:11     39s] List of usable buffers: sg13g2_buf_1 sg13g2_buf_16 sg13g2_buf_2 sg13g2_buf_4 sg13g2_buf_8
+[10/18 15:02:11     39s] Total number of usable buffers: 5
+[10/18 15:02:11     39s] List of unusable buffers:
+[10/18 15:02:11     39s] Total number of unusable buffers: 0
+[10/18 15:02:11     39s] List of usable inverters: sg13g2_inv_1 sg13g2_inv_16 sg13g2_inv_2 sg13g2_inv_4 sg13g2_inv_8
+[10/18 15:02:11     39s] Total number of usable inverters: 5
+[10/18 15:02:11     39s] List of unusable inverters:
+[10/18 15:02:11     39s] Total number of unusable inverters: 0
+[10/18 15:02:11     39s] List of identified usable delay cells: sg13g2_dlygate4sd2_1 sg13g2_dlygate4sd1_1 sg13g2_dlygate4sd3_1
+[10/18 15:02:11     39s] Total number of identified usable delay cells: 3
+[10/18 15:02:11     39s] List of identified unusable delay cells:
+[10/18 15:02:11     39s] Total number of identified unusable delay cells: 0
+[10/18 15:02:11     39s] 
+[10/18 15:02:11     39s] TimeStamp Deleting Cell Server Begin ...
+[10/18 15:02:11     39s] 
+[10/18 15:02:11     39s] TimeStamp Deleting Cell Server End ...
+[10/18 15:02:11     39s] Ending "Cell type marking" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1079.9M, current mem=1079.9M)
+[10/18 15:02:11     39s] 
+[10/18 15:02:11     39s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) Begin ...
+[10/18 15:02:11     39s] Summary for sequential cells identification: 
+[10/18 15:02:11     39s]   Identified SBFF number: 3
+[10/18 15:02:11     39s]   Identified MBFF number: 0
+[10/18 15:02:11     39s]   Identified SB Latch number: 0
+[10/18 15:02:11     39s]   Identified MB Latch number: 0
+[10/18 15:02:11     39s]   Not identified SBFF number: 0
+[10/18 15:02:11     39s]   Not identified MBFF number: 0
+[10/18 15:02:11     39s]   Not identified SB Latch number: 0
+[10/18 15:02:11     39s]   Not identified MB Latch number: 0
+[10/18 15:02:11     39s]   Number of sequential cells which are not FFs: 7
+[10/18 15:02:11     39s]  Visiting view : typ
+[10/18 15:02:11     39s]    : PowerDomain = none : Weighted F : unweighted  = 25.20 (1.000) with rcCorner = 0
+[10/18 15:02:11     39s]    : PowerDomain = none : Weighted F : unweighted  = 23.30 (1.000) with rcCorner = -1
+[10/18 15:02:11     39s]  Visiting view : typ
+[10/18 15:02:11     39s]    : PowerDomain = none : Weighted F : unweighted  = 25.20 (1.000) with rcCorner = 0
+[10/18 15:02:11     39s]    : PowerDomain = none : Weighted F : unweighted  = 23.30 (1.000) with rcCorner = -1
+[10/18 15:02:11     39s] TLC MultiMap info (StdDelay):
+[10/18 15:02:11     39s]   : typ + typ + 1 + no RcCorner := 23.3ps
+[10/18 15:02:11     39s]   : typ + typ + 1 + typ := 25.2ps
+[10/18 15:02:11     39s]  Setting StdDelay to: 25.2ps
+[10/18 15:02:11     39s] 
+[10/18 15:02:11     39s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) End ...
+[10/18 15:02:11     39s] @file 10: user_read_floorplan
+[10/18 15:02:11     39s] WARN: floorplan file not found: /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/my_rtl/floorplan/statistics_unit.fp
+[10/18 15:02:11     39s] @file 11:
+[10/18 15:02:11     39s] @file 12: global_net
+[10/18 15:02:11     39s] @file 13:
+[10/18 15:02:11     39s] @@file 14: create_floorplan -site CoreSite -box_size 0.0 0.0 200.0 200.0 0.0 0.0 200.0 200.0 20.0 20.0 180.0 180.0
+[10/18 15:02:11     39s] **WARN: (IMPFP-4031):	Adjusting 'coreBox'(according to PlacementGrid) from {(20.0000000000 , 20.0000000000) (180.0000000000 , 180.0000000000)} to {(20.1600000000 , 20.1600000000) (180.0000000000 , 180.1800000000)} due to track/row misalignment. To force the value, specify the -no_snap_to_grid option or use floorplan_set_snap_rule command to specify the die/core to different grid.
+[10/18 15:02:11     39s] **WARN: (IMPFP-4031):	Adjusting 'DieBox'(according to PlacementGrid) from {(0.0000000000 , 0.0000000000) (200.0000000000 , 200.0000000000)} to {(0.0000000000 , 0.0000000000) (200.1600000000 , 199.9200000000)} due to track/row misalignment. To force the value, specify the -no_snap_to_grid option or use floorplan_set_snap_rule command to specify the die/core to different grid.
+[10/18 15:02:11     39s] **WARN: (IMPFP-4031):	Adjusting 'ioBox'(according to PlacementGrid) from {(0.0000000000 , 0.0000000000) (200.0000000000 , 200.0000000000)} to {(0.0000000000 , 0.0000000000) (200.1600000000 , 199.9200000000)} due to track/row misalignment. To force the value, specify the -no_snap_to_grid option or use floorplan_set_snap_rule command to specify the die/core to different grid.
+[10/18 15:02:11     39s] Adjust TopMetal1 preferred direction offset from 1.64 to 0.
+[10/18 15:02:11     39s] Start create_tracks
+[10/18 15:02:11     39s] Generated pitch 2.52 in TopMetal1 is different from 2.28 defined in technology file in preferred direction.
+[10/18 15:02:11     39s] **WARN: (IMPFP-325):	Floorplan of the design is resized. All current create_floorplan objects are automatically derived based on specified new create_floorplan. This may change blocks, fixed standard cells, existing routes and blockages.
+[10/18 15:02:11     39s] @file 15:
+[10/18 15:02:11     39s] @@file 16: edit_pin -pin_width 5.0 -pin_depth 2.0 -fix_overlap 1 -unit micron -spread_direction clockwise -side Top -layer 1 -spread_type center -spacing 1.44 -pin {clear clk rst_n valid_in}
+[10/18 15:02:11     39s] To speed up, if you have to run multiple edit_pin commands then wrap all edit_pin commands within  'set_db assign_pins_edit_in_batch true' (then edit_pin commands) and 'set_db assign_pins_edit_in_batch false'
+[10/18 15:02:11     39s] Temporarily expand pitch on layer M6 from 2280 to 4560 (2x).
+[10/18 15:02:11     39s] **WARN: (IMPTR-2104):	Layer M6: Pitch=2280 is less than min width=1640 + min spacing=1640.
+[10/18 15:02:11     39s] **WARN: (IMPTR-2108):	For layer M6, the gaps of 78 out of 78 tracks are narrower than 3.280um (space 1.640 + width 1.640).
+[10/18 15:02:11     39s] Type 'man IMPTR-2108' for more detail.
+[10/18 15:02:11     39s]  As a result, your trialRoute congestion could be incorrect.
+[10/18 15:02:11     39s] #create default rule from bind_ndr_rule rule=0x2ba5d49cf030 0x2ba5fa21aaa8
+[10/18 15:02:11     39s] #WARNING (NRDB-407) pitch for LAYER TopMetal1 is defined too small, reset to 2280
+[10/18 15:02:11     39s] ### import design signature (1): route=1 fixed_route=1 flt_obj=0 vio=1905142130 swire=1 shield_wire=1 net_attr=1 dirty_area=0 del_dirty_area=0 cell=0 placement=0 pin_access=1 inst_pattern=1
+[10/18 15:02:11     39s] Successfully spread [4] pins.
+[10/18 15:02:11     39s] editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1244.5M).
+[10/18 15:02:11     39s] @@file 17: edit_pin -pin_width 2.0 -pin_depth 3.0 -fix_overlap 1 -spread_direction clockwise -edge 3 -layer 1 -spread_type side -pin {{max[0]} {max[1]} {max[2]} {max[3]} {max[4]} {max[5]} {max[6]} {max[7]} {max[8]} {max[9]} {max[10]} {max[11]} {max[12]} {max[13]} {max[14]} {max[15]} {max[16]} {max[17]} {max[18]} {max[19]} {max[20]} {max[21]} {max[22]} {max[23]} {max[24]} {max[25]} {max[26]} {max[27]} {max[28]} {max[29]} {max[30]} {max[31]} {min[0]} {min[1]} {min[2]} {min[3]} {min[4]} {min[5]} {min[6]} {min[7]} {min[8]} {min[9]} {min[10]} {min[11]} {min[12]} {min[13]} {min[14]} {min[15]} {min[16]} {min[17]} {min[18]} {min[19]} {min[20]} {min[21]} {min[22]} {min[23]} {min[24]} {min[25]} {min[26]} {min[27]} {min[28]} {min[29]} {min[30]} {min[31]}}
+[10/18 15:02:11     39s] To speed up, if you have to run multiple edit_pin commands then wrap all edit_pin commands within  'set_db assign_pins_edit_in_batch true' (then edit_pin commands) and 'set_db assign_pins_edit_in_batch false'
+[10/18 15:02:11     39s] ### import design signature (2): route=1 fixed_route=1 flt_obj=0 vio=1905142130 swire=1 shield_wire=1 net_attr=1 dirty_area=0 del_dirty_area=0 cell=0 placement=0 pin_access=1 inst_pattern=1
+[10/18 15:02:11     39s] Successfully spread [64] pins.
+[10/18 15:02:11     39s] editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1245.5M).
+[10/18 15:02:11     39s] @@file 18: edit_pin -pin_width 2.0 -pin_depth 3.0 -fix_overlap 1 -spread_direction clockwise -edge 2 -layer 1 -spread_type side -pin {{count[0]} {count[1]} {count[2]} {count[3]} {count[4]} {count[5]} {count[6]} {count[7]} {count[8]} {count[9]} {count[10]} {count[11]} {count[12]} {count[13]} {count[14]} {count[15]}}
+[10/18 15:02:11     39s] To speed up, if you have to run multiple edit_pin commands then wrap all edit_pin commands within  'set_db assign_pins_edit_in_batch true' (then edit_pin commands) and 'set_db assign_pins_edit_in_batch false'
+[10/18 15:02:11     39s] ### import design signature (3): route=1 fixed_route=1 flt_obj=0 vio=1905142130 swire=1 shield_wire=1 net_attr=1 dirty_area=0 del_dirty_area=0 cell=0 placement=0 pin_access=1 inst_pattern=1
+[10/18 15:02:11     39s] Successfully spread [16] pins.
+[10/18 15:02:11     39s] editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1245.5M).
+[10/18 15:02:11     39s] @@file 19: edit_pin -pin_width 1.0 -pin_depth 3.0 -fix_overlap 1 -spread_direction clockwise -edge 2 -layer 1 -spread_type side -pin {{data_in[0]} {data_in[1]} {data_in[2]} {data_in[3]} {data_in[4]} {data_in[5]} {data_in[6]} {data_in[7]} {data_in[8]} {data_in[9]} {data_in[10]} {data_in[11]} {data_in[12]} {data_in[13]} {data_in[14]} {data_in[15]} {data_in[16]} {data_in[17]} {data_in[18]} {data_in[19]} {data_in[20]} {data_in[21]} {data_in[22]} {data_in[23]} {data_in[24]} {data_in[25]} {data_in[26]} {data_in[27]} {data_in[28]} {data_in[29]} {data_in[30]} {data_in[31]}}
+[10/18 15:02:11     39s] To speed up, if you have to run multiple edit_pin commands then wrap all edit_pin commands within  'set_db assign_pins_edit_in_batch true' (then edit_pin commands) and 'set_db assign_pins_edit_in_batch false'
+[10/18 15:02:11     39s] ### import design signature (4): route=1 fixed_route=1 flt_obj=0 vio=1905142130 swire=1 shield_wire=1 net_attr=1 dirty_area=0 del_dirty_area=0 cell=0 placement=0 pin_access=1 inst_pattern=1
+[10/18 15:02:11     39s] Successfully spread [32] pins.
+[10/18 15:02:11     39s] editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1245.5M).
+[10/18 15:02:11     39s] @@file 20: edit_pin -pin_width 2.0 -pin_depth 3.0 -fix_overlap 1 -unit micron -spread_direction clockwise -edge 0 -layer 1 -spread_type center -spacing 2.94 -pin {{sum[0]} {sum[1]} {sum[2]} {sum[3]} {sum[4]} {sum[5]} {sum[6]} {sum[7]} {sum[8]} {sum[9]} {sum[10]} {sum[11]} {sum[12]} {sum[13]} {sum[14]} {sum[15]} {sum[16]} {sum[17]} {sum[18]} {sum[19]} {sum[20]} {sum[21]} {sum[22]} {sum[23]} {sum[24]} {sum[25]} {sum[26]} {sum[27]} {sum[28]} {sum[29]} {sum[30]} {sum[31]}}
+[10/18 15:02:11     39s] To speed up, if you have to run multiple edit_pin commands then wrap all edit_pin commands within  'set_db assign_pins_edit_in_batch true' (then edit_pin commands) and 'set_db assign_pins_edit_in_batch false'
+[10/18 15:02:11     39s] ### import design signature (5): route=1 fixed_route=1 flt_obj=0 vio=1905142130 swire=1 shield_wire=1 net_attr=1 dirty_area=0 del_dirty_area=0 cell=0 placement=0 pin_access=1 inst_pattern=1
+[10/18 15:02:11     39s] Successfully spread [32] pins.
+[10/18 15:02:11     39s] editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1245.5M).
+[10/18 15:02:11     39s] @file 21:
+[10/18 15:02:11     39s] @@file 22: add_rings -nets {VDD VSS} -type core_rings -follow core -layer {top TopMetal1 bottom TopMetal1 left TopMetal2 right TopMetal2} -width {top 4 bottom 4 left 4 right 4} -spacing {top 2 bottom 2 left 2 right 2} -offset {top 6 bottom 6 left 6 right 6} -center 0 -threshold 0 -jog_distance 0 -snap_wire_center_to_grid none
+[10/18 15:02:11     39s] #% Begin add_rings (date=10/18 15:02:11, mem=1091.3M)
+[10/18 15:02:11     39s] 
+[10/18 15:02:11     39s] Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1245.5M)
+[10/18 15:02:11     39s] Ring generation is complete.
+[10/18 15:02:11     39s] vias are now being generated.
+[10/18 15:02:11     39s] add_rings created 8 wires.
+[10/18 15:02:11     39s] ViaGen created 8 vias, deleted 0 via to avoid violation.
+[10/18 15:02:11     39s] +--------+----------------+----------------+
+[10/18 15:02:11     39s] |  Layer |     Created    |     Deleted    |
+[10/18 15:02:11     39s] +--------+----------------+----------------+
+[10/18 15:02:11     39s] |TopMetal1|        4       |       NA       |
+[10/18 15:02:11     39s] | TopVia2|        8       |        0       |
+[10/18 15:02:11     39s] |TopMetal2|        4       |       NA       |
+[10/18 15:02:11     39s] +--------+----------------+----------------+
+[10/18 15:02:11     39s] #% End add_rings (date=10/18 15:02:11, total cpu=0:00:00.0, real=0:00:00.0, peak res=1093.4M, current mem=1093.4M)
+[10/18 15:02:11     39s] @file 23:
+[10/18 15:02:11     39s] @@file 24: route_special -connect {block_pin pad_pin pad_ring core_pin floating_stripe} -layer_change_range { Metal1(1) TopMetal2(7) } -block_pin_target {nearest_target} -pad_pin_port_connect {all_port one_geom} -pad_pin_target {nearest_target} -core_pin_target {first_after_row_end} -floating_stripe_target {block_ring pad_ring ring stripe ring_pin block_pin followpin} -allow_jogging 1 -crossover_via_layer_range { Metal1(1) TopMetal2(7) } -nets { VDD VSS } -allow_layer_change 1 -block_pin use_lef -target_via_layer_range { Metal1(1) TopMetal2(7) }
+[10/18 15:02:11     39s] #% Begin route_special (date=10/18 15:02:11, mem=1093.4M)
+[10/18 15:02:11     39s] *** Begin SPECIAL ROUTE on Sun Oct 18 15:02:11 2026 ***
+[10/18 15:02:11     39s] SPECIAL ROUTE ran on directory: /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/run/innovus_fp
+[10/18 15:02:11     39s] SPECIAL ROUTE ran on machine: miet-cad-edu (Linux 3.10.0-1160.119.1.el7.x86_64 x86_64 2.45Ghz)
+[10/18 15:02:11     39s] 
+[10/18 15:02:11     39s] Begin option processing ...
+[10/18 15:02:11     39s] srouteConnectPowerBump set to false
+[10/18 15:02:11     39s] routeSelectNet set to "VDD VSS"
+[10/18 15:02:11     39s] routeSpecial set to true
+[10/18 15:02:11     39s] srouteBlockPin set to "useLef"
+[10/18 15:02:11     39s] srouteBottomLayerLimit set to 1
+[10/18 15:02:11     39s] srouteBottomTargetLayerLimit set to 1
+[10/18 15:02:11     39s] srouteConnectConverterPin set to false
+[10/18 15:02:11     39s] srouteCrossoverViaBottomLayer set to 1
+[10/18 15:02:11     39s] srouteCrossoverViaTopLayer set to 7
+[10/18 15:02:11     39s] srouteFloatingStripeTarget set to "blockring padring ring stripe ringpin blockpin followpin"
+[10/18 15:02:11     39s] srouteFollowCorePinEnd set to 3
+[10/18 15:02:11     39s] srouteJogControl set to "preferWithChanges differentLayer"
+[10/18 15:02:11     39s] sroutePadPinAllPorts set to true
+[10/18 15:02:11     39s] sroutePreserveExistingRoutes set to true
+[10/18 15:02:11     39s] srouteRoutePowerBarPortOnBothDir set to true
+[10/18 15:02:11     39s] srouteStopBlockPin set to "nearestTarget"
+[10/18 15:02:11     39s] srouteTopLayerLimit set to 7
+[10/18 15:02:11     39s] srouteTopTargetLayerLimit set to 7
+[10/18 15:02:11     39s] End option processing: cpu: 0:00:00, real: 0:00:00, peak: 2653.00 megs.
+[10/18 15:02:11     39s] 
+[10/18 15:02:11     39s] Reading DB technology information...
+[10/18 15:02:11     39s] Finished reading DB technology information.
+[10/18 15:02:11     39s] Reading floorplan and netlist information...
+[10/18 15:02:11     39s] Finished reading floorplan and netlist information.
+[10/18 15:02:11     39s] Read in 15 layers, 7 routing layers, 1 overlap layer
+[10/18 15:02:11     39s] Read in 78 macros, 24 used
+[10/18 15:02:11     39s] Read in 23 components
+[10/18 15:02:11     39s]   23 core components: 23 unplaced, 0 placed, 0 fixed
+[10/18 15:02:11     39s] Read in 148 physical pins
+[10/18 15:02:11     39s]   148 physical pins: 0 unplaced, 148 placed, 0 fixed
+[10/18 15:02:11     39s] Read in 148 nets
+[10/18 15:02:11     39s] Read in 2 special nets, 2 routed
+[10/18 15:02:11     39s] Read in 194 terminals
+[10/18 15:02:11     39s] 2 nets selected.
+[10/18 15:02:11     39s] 
+[10/18 15:02:11     39s] Begin power routing ...
+[10/18 15:02:11     39s] ### import design signature (6): route=1 fixed_route=1 flt_obj=0 vio=1905142130 swire=1 shield_wire=1 net_attr=1 dirty_area=0 del_dirty_area=0 cell=0 placement=0 pin_access=1 inst_pattern=1
+[10/18 15:02:11     39s] **WARN: (IMPSR-1254):	Unable to connect the specified objects, since block pins of the VDD net were not found in the design. Check netlist or change the parameter value to include block pins in the design.
+[10/18 15:02:11     39s] **WARN: (IMPSR-1256):	Unable to find any CORE class pad pin of the VDD net due to unavailability of the pin or check netlist in the routing area or layer. Change routing area or layer to include the expected pin or check netlist. Alternatively, change port class in the technology file.
+[10/18 15:02:11     39s] Type 'man IMPSR-1256' for more detail.
+[10/18 15:02:11     39s] Cannot find any AREAIO class pad pin of net VDD. Check net list, or change port class in the technology file, or change option to include pin in given range.
+[10/18 15:02:11     39s] **WARN: (IMPSR-1254):	Unable to connect the specified objects, since block pins of the VSS net were not found in the design. Check netlist or change the parameter value to include block pins in the design.
+[10/18 15:02:11     39s] **WARN: (IMPSR-1256):	Unable to find any CORE class pad pin of the VSS net due to unavailability of the pin or check netlist in the routing area or layer. Change routing area or layer to include the expected pin or check netlist. Alternatively, change port class in the technology file.
+[10/18 15:02:11     39s] Type 'man IMPSR-1256' for more detail.
+[10/18 15:02:11     39s] Cannot find any AREAIO class pad pin of net VSS. Check net list, or change port class in the technology file, or change option to include pin in given range.
+[10/18 15:02:11     39s] CPU time for VDD FollowPin 0 seconds
+[10/18 15:02:11     39s] CPU time for VSS FollowPin 0 seconds
+[10/18 15:02:11     39s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+[10/18 15:02:11     39s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+[10/18 15:02:11     39s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+[10/18 15:02:11     39s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+[10/18 15:02:11     39s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+[10/18 15:02:11     39s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+[10/18 15:02:11     39s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+[10/18 15:02:11     39s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+[10/18 15:02:11     39s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+[10/18 15:02:11     39s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+[10/18 15:02:11     39s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+[10/18 15:02:11     39s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+[10/18 15:02:11     39s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+[10/18 15:02:11     39s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+[10/18 15:02:11     39s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+[10/18 15:02:11     39s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+[10/18 15:02:11     39s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+[10/18 15:02:11     39s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+[10/18 15:02:11     39s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+[10/18 15:02:11     39s] **WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+[10/18 15:02:11     39s] **WARN: (EMS-27):	Message (IMPPP-531) has exceeded the current message display limit of 20.
+[10/18 15:02:11     39s] To increase the message display limit, refer to the product command reference manual.
+[10/18 15:02:11     39s]   Number of IO ports routed: 0
+[10/18 15:02:11     39s]   Number of Block ports routed: 0
+[10/18 15:02:11     39s]   Number of Stripe ports routed: 0
+[10/18 15:02:11     39s]   Number of Core ports routed: 86
+[10/18 15:02:11     39s]   Number of Pad ports routed: 0
+[10/18 15:02:11     39s]   Number of Power Bump ports routed: 0
+[10/18 15:02:11     39s]   Number of Followpin connections: 43
+[10/18 15:02:11     39s] End power routing: cpu: 0:00:00, real: 0:00:00, peak: 2659.00 megs.
+[10/18 15:02:11     39s] 
+[10/18 15:02:11     39s] 
+[10/18 15:02:11     39s] 
+[10/18 15:02:11     39s]  Begin updating DB with routing results ...
+[10/18 15:02:11     39s]  Updating DB with 148 io pins ...
+[10/18 15:02:11     39s]  Updating DB with 0 via definition ...Extracting standard cell pins and blockage ...... 
+[10/18 15:02:11     39s] Pin and blockage extraction finished
+[10/18 15:02:11     39s] 
+[10/18 15:02:11     39s] route_special created 215 wires.
+[10/18 15:02:11     39s] ViaGen created 516 vias, deleted 0 via to avoid violation.
+[10/18 15:02:11     39s] +--------+----------------+----------------+
+[10/18 15:02:11     39s] |  Layer |     Created    |     Deleted    |
+[10/18 15:02:11     39s] +--------+----------------+----------------+
+[10/18 15:02:11     39s] | Metal1 |       129      |       NA       |
+[10/18 15:02:11     39s] |  Via1  |       86       |        0       |
+[10/18 15:02:11     39s] | Metal2 |       86       |       NA       |
+[10/18 15:02:11     39s] |  Via2  |       86       |        0       |
+[10/18 15:02:11     39s] |  Via3  |       86       |        0       |
+[10/18 15:02:11     39s] |  Via4  |       86       |        0       |
+[10/18 15:02:11     39s] | TopVia1|       86       |        0       |
+[10/18 15:02:11     39s] | TopVia2|       86       |        0       |
+[10/18 15:02:11     39s] +--------+----------------+----------------+
+[10/18 15:02:11     39s] #% End route_special (date=10/18 15:02:11, total cpu=0:00:00.2, real=0:00:00.0, peak res=1104.7M, current mem=1099.1M)
+[10/18 15:02:11     39s] @file 25:
+[10/18 15:02:11     39s] @file 26:
+[10/18 15:02:11     39s] @@file 27: gui_show
+[10/18 15:02:11     39s] @@file 28: gui_fit
+[10/18 15:02:11     39s] @file 29:
+[10/18 15:02:11     39s] @file 30:
+[10/18 15:02:11     39s] #@ End verbose source: /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/flow.innovus.fp.tcl
+[10/18 15:02:11     39s] @innovus 2> create_place_blockage -type hard -rects {{0 0 200 14}} -no_cut_by_core
+@innovus 3> gui_pan -97.68000 -67.41400
+[10/18 15:02:20     41s] @innovus 4> gui_pan -6.85400 -7.09700
+[10/18 15:02:22     42s] @innovus 5> gui_pan 18.61900 21.87600
+[10/18 15:02:24     42s] @innovus 6> create_place_blockage -type hard -rects {{0.0 0. 200.0 14.0}} -no_cut_by_core
+@innovus 7> create_place_blockage -type hard -rects {{0.0 0.0 200.0 14.0}} -no_cut_by_core
+@innovus 8> gui_pan 63.24000 67.51500
+[10/18 15:03:17     48s] @innovus 9> gui_pan -9.60000 1.63500
+[10/18 15:03:18     49s] @innovus 10> gui_pan -29.52000 23.71500
+[10/18 15:03:19     49s] @innovus 11> set_db edit_wire_type regular
+[10/18 15:03:26     51s] @innovus 12> create_place_blockage -type hard -rects {{0.0 0.0 30.0 30.0}} -no_cut_by_core
+**WARN: (IMPSYC-1962):	Provided Box defScreenName (0.00, 0.00, 30.00, 30.00) is not fully inside CoreBox.
+[10/18 15:04:24     56s] @innovus 13> gui_pan 5.36500 9.64300
+[10/18 15:04:31     57s] @innovus 14> gui_pan 13.89800 38.67600
+[10/18 15:04:34     58s] @innovus 15> gui_pan 14.85700 22.38200
+[10/18 15:04:35     59s] @innovus 16> gui_pan -30.40500 -4.29600
+[10/18 15:04:36     59s] @innovus 17> gui_pan 7.68500 14.69200
+[10/18 15:04:39     60s] @innovus 18> create_place_blockage -type hard -rects {{-1.0 -1.0 30.0 30.0}} -no_cut_by_core
+[56D[1B
+[10/18 15:04:53     62s] **WARN: (IMPSYC-1962):	Provided Box defScreenName (0.00, 0.00, 30.00, 30.00) is not fully inside CoreBox.
+[10/18 15:04:53     62s] @innovus 19> gui_pan 9.36100 43.95100
+[10/18 15:05:00     63s] @innovus 20> gui_pan 15.39000 27.99500
+[10/18 15:05:01     64s] @innovus 21> gui_pan 5.56200 8.95800
+[10/18 15:05:03     64s] @innovus 22> gui_pan 17.69100 51.59700
+[10/18 15:05:06     66s] @innovus 23> gui_pan -14.97500 -0.93400
+[10/18 15:05:08     67s] @innovus 24> gui_pan 3.79600 9.38300
+[10/18 15:05:09     67s] @innovus 25> gui_pan 118.96700 242.41900
+[10/18 15:05:15     69s] @innovus 26> gui_pan 67.09800 -56.29600
+[10/18 15:05:17     70s] @innovus 27> gui_pan 4.78300 -169.51400
+[10/18 15:05:19     71s] @innovus 28> dbGet top.fPlan.coreBox
+
+[10/18 15:07:08     78s] invalid command name "dbGet"
+[10/18 15:07:08     78s] invalid command name "dbGet"
+[10/18 15:07:08     78s] @innovus 29> get_db current_design .core_bbox
+
+[10/18 15:07:43     80s] {20.16 20.16 180.0 180.18}
+[10/18 15:07:43     80s] @innovus 30> get_db current_design .bbox
+{0.0 0.0 200.16 199.92}
+[10/18 15:09:08     86s] @innovus 31> create_place_blockage -type hard -rects {{0.0 0.0 200.16 200.16}} -no_cut_by_core
+[74D[1B
+[10/18 15:09:56     89s] **WARN: (IMPSYC-1962):	Provided Box defScreenName (0.00, 0.00, 200.16, 199.92) is not fully inside CoreBox.
+[10/18 15:09:56     89s] @innovus 32> gui_pan -91.68500 -86.73700
+[10/18 15:09:59     90s] @innovus 33> gui_pan 0.50000 204.52000
+[10/18 15:10:03     92s] @innovus 34> gui_pan 16748.77200 124495.50900
+[10/18 15:10:08     93s] @innovus 35> gui_pan -18.55000 183.04200
+[10/18 15:10:12     95s] @innovus 36> gui_pan 53.00300 325.61800
+[10/18 15:10:14     95s] @innovus 37> gui_pan 43.57800 256.02400
+[10/18 15:10:15     96s] @innovus 38> gui_pan 12.74200 209.35800
+[10/18 15:10:31     99s] @innovus 39> gui_pan 146.90700 249.90900
+[10/18 15:10:33    100s] @innovus 40> gui_pan 34.58700 57.62800
+[10/18 15:10:33    101s] @innovus 41> create_place_blockage -type hard -rects {{-1.668 0.0 200.16 200.16}} -no_cut_by_core
+[55D[1B
+[10/18 15:10:50    102s] **WARN: (IMPSYC-1962):	Provided Box defScreenName (0.00, 0.00, 200.16, 199.92) is not fully inside CoreBox.
+[10/18 15:10:50    102s] @innovus 42> man get
+
+[10/18 15:13:03    111s] @innovus 43> 
+@innovus 43> 
+
+[10/18 15:13:04    111s] @innovus 43> 
+
+[10/18 15:13:04    112s] @innovus 43> 
+
+[10/18 15:13:04    112s] @innovus 43> 
+
+[10/18 15:13:04    112s] @innovus 43> 
+
+[10/18 15:13:07    112s] @innovus 43> 
+@innovus 43> 
+
+[10/18 15:13:07    112s] @innovus 43> 
+
+[10/18 15:13:08    112s] @innovus 43> 
+@innovus 43> 
+
+[10/18 15:13:08    112s] @innovus 43> 
+
+[10/18 15:13:08    112s] @innovus 43> 
+
+[10/18 15:13:08    112s] @innovus 43> 
+
+[10/18 15:13:08    112s] @innovus 43> 
+
+[10/18 15:13:09    112s] @innovus 43> 
+@innovus 43> 
+
+[10/18 15:13:09    112s] @innovus 43> ihfhifdgfdgudsdsbbfdsvvvvssddsds
+[10/18 15:13:20    113s] invalid command name "ihfhifdgfdgudsdsbbfdsvvvvssddsds"
+invalid command name "ihfhifdgfdgudsdsbbfdsvvvvssddsds"
+[10/18 15:13:20    113s] @innovus 44> 
+
+[10/18 15:13:21    113s] @innovus 44> 
+@innovus 44> 
+@innovus 44> 
+@innovus 44> c
+[10/18 15:13:57    116s] ambiguous command name "c": calculate_glitch_peak canvas case catch ccopt_design cd chan check_ac_limits check_bond_pad_spacing check_bumps check_ccr check_clock_tree_convergence check_connectivity check_cts_config check_cut_density check_design check_drc check_endcaps check_filler check_flip_chip_constraints check_floorplan check_floorplan_space check_flow check_footprint check_hier_route check_io_inst_overlap check_io_to_bump_connectivity check_isolated_cuts check_ldb_version check_library check_macro_lower_left_on_track check_macro_place_constraint check_metal_density check_module_model check_multi_cpu_usage check_netlist check_noise check_partition_sdc check_pg_library check_pg_shorts check_pgv check_pin_assignment check_place check_power_domains check_power_switches check_power_vias check_process_antenna check_sdps check_stacked_die check_syntax check_tieoffs check_timing check_timing_library check_timing_library_consistency check_timing_model check_tquantus_model_file check_tracks check_ufc check_unique check_well_antenna check_well_taps check_wire_gaps checkbutton clear_active_logic_view clear_all_rulers clipboard clock clock_design clock_post_route_repair clone_msv_gate close close_on_eof commit_clock_tree_route_attributes commit_global_net_rules commit_module_model commit_partitions commit_power_intent commit_pushdown_eco compare_collections compare_def compare_oa_cellview compare_pin_assignment_statistics compare_power_intents compare_release concat connect connect_clock_tree_mesh_drivers connect_die_package connect_global_net connect_hpin connect_macro_feedthru connect_pin continue convert_blackbox_to_fence convert_dbu_to_um convert_fence_to_black_box convert_fence_to_lef convert_legacy_to_common_ui convert_lib_clock_tree_latencies convert_proto_model convert_special_routes_for_eco convert_stream_to_def convert_um_to_dbu copy_bumps copy_collection copy_obj coroutine create_active_logic_view create_aggressor_model create_aging_stress_profile create_analysis_view create_basic_path_groups create_blackbox create_boundary_constraint create_bump create_bump_connect_target_constraint create_bump_grid create_bus_guide create_cell_obs create_channel_density_control create_clock create_clock_tree create_clock_tree_source_group create_clock_tree_spec create_constraint_mode create_delay_corner create_diode create_exclusive_groups create_fillet create_flexfiller_route_blockage create_flexible_htree create_floorplan create_flow create_flow_step create_gate_array_filler_group create_generated_clock create_generated_clock_tree create_group create_gui_shape create_gui_text create_hinst create_histogram_png create_hnet create_hport create_ilm_from_files create_inst create_inst_space_group create_io_row create_library_set create_logic_hierarchy create_marker create_metric_page create_metric_table create_metric_table_heading create_module create_net create_net_group create_oa_lib create_oa_lib_property create_opcond create_parasitic_coordinate_transform create_partition create_partition_feedthru create_partition_wrapper create_path_category create_path_scope create_pg_keep_out create_pg_model_for_macro_place create_pg_pin create_physical_pin create_pin_blockage create_pin_group create_pin_guide create_pin_text create_pipeline_bus_guide create_pipeline_net_group create_place_blockage create_place_halo create_port create_property_alias create_proto_model create_proto_net_delay_model create_pushdown_eco create_rc_corner create_relative_floorplan create_resize_blockage create_route_blockage create_route_halo create_route_rule create_route_type create_row create_ruler create_scan_chain create_scan_chain_partition create_sdp create_shape create_signal_pin create_skew_group create_snapshot create_spare_module create_special_drc_region create_special_mark_layer_shape create_stress_rule create_structural_collection create_text create_timing_budget create_timing_condition create_tquantus_model_file create_tracks create_via create_via_definition create_virtual_shape_on_pg_wires current_design current_instance cut_box_list_from_power_domain cut_power_domain_by_overlaps
+ambiguous command name "c": calculate_glitch_peak canvas case catch ccopt_design cd chan check_ac_limits check_bond_pad_spacing check_bumps check_ccr check_clock_tree_convergence check_connectivity check_cts_config check_cut_density check_design check_drc check_endcaps check_filler check_flip_chip_constraints check_floorplan check_floorplan_space check_flow check_footprint check_hier_route check_io_inst_overlap check_io_to_bump_connectivity check_isolated_cuts check_ldb_version check_library check_macro_lower_left_on_track check_macro_place_constraint check_metal_density check_module_model check_multi_cpu_usage check_netlist check_noise check_partition_sdc check_pg_library check_pg_shorts check_pgv check_pin_assignment check_place check_power_domains check_power_switches check_power_vias check_process_antenna check_sdps check_stacked_die check_syntax check_tieoffs check_timing check_timing_library check_timing_library_consistency check_timing_model check_tquantus_model_file check_tracks check_ufc check_unique check_well_antenna check_well_taps check_wire_gaps checkbutton clear_active_logic_view clear_all_rulers clipboard clock clock_design clock_post_route_repair clone_msv_gate close close_on_eof commit_clock_tree_route_attributes commit_global_net_rules commit_module_model commit_partitions commit_power_intent commit_pushdown_eco compare_collections compare_def compare_oa_cellview compare_pin_assignment_statistics compare_power_intents compare_release concat connect connect_clock_tree_mesh_drivers connect_die_package connect_global_net connect_hpin connect_macro_feedthru connect_pin continue convert_blackbox_to_fence convert_dbu_to_um convert_fence_to_black_box convert_fence_to_lef convert_legacy_to_common_ui convert_lib_clock_tree_latencies convert_proto_model convert_special_routes_for_eco convert_stream_to_def convert_um_to_dbu copy_bumps copy_collection copy_obj coroutine create_active_logic_view create_aggressor_model create_aging_stress_profile create_analysis_view create_basic_path_groups create_blackbox create_boundary_constraint create_bump create_bump_connect_target_constraint create_bump_grid create_bus_guide create_cell_obs create_channel_density_control create_clock create_clock_tree create_clock_tree_source_group create_clock_tree_spec create_constraint_mode create_delay_corner create_diode create_exclusive_groups create_fillet create_flexfiller_route_blockage create_flexible_htree create_floorplan create_flow create_flow_step create_gate_array_filler_group create_generated_clock create_generated_clock_tree create_group create_gui_shape create_gui_text create_hinst create_histogram_png create_hnet create_hport create_ilm_from_files create_inst create_inst_space_group create_io_row create_library_set create_logic_hierarchy create_marker create_metric_page create_metric_table create_metric_table_heading create_module create_net create_net_group create_oa_lib create_oa_lib_property create_opcond create_parasitic_coordinate_transform create_partition create_partition_feedthru create_partition_wrapper create_path_category create_path_scope create_pg_keep_out create_pg_model_for_macro_place create_pg_pin create_physical_pin create_pin_blockage create_pin_group create_pin_guide create_pin_text create_pipeline_bus_guide create_pipeline_net_group create_place_blockage create_place_halo create_port create_property_alias create_proto_model create_proto_net_delay_model create_pushdown_eco create_rc_corner create_relative_floorplan create_resize_blockage create_route_blockage create_route_halo create_route_rule create_route_type create_row create_ruler create_scan_chain create_scan_chain_partition create_sdp create_shape create_signal_pin create_skew_group create_snapshot create_spare_module create_special_drc_region create_special_mark_layer_shape create_stress_rule create_structural_collection create_text create_timing_budget create_timing_condition create_tquantus_model_file create_tracks create_via create_via_definition create_virtual_shape_on_pg_wires current_design current_instance cut_box_list_from_power_domain cut_power_domain_by_overlaps
+[10/18 15:13:57    116s] @innovus 48> 
+
+[10/18 15:13:57    116s] @innovus 48> 
+
+[10/18 15:13:57    116s] @innovus 48> 
+
+[10/18 15:13:57    116s] @innovus 48> 
+
+[10/18 15:13:57    116s] @innovus 48> 
+
+[10/18 15:13:58    116s] @innovus 48> 
+
+[10/18 15:13:58    116s] @innovus 48> 
+@innovus 48> 
+[10/18 15:14:04    116s] *** INTERRUPTED *** [signal 1]

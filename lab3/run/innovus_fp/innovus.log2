@@ -1,0 +1,1484 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v21.14-s109_1, built Wed Jun 29 09:53:08 PDT 2022
+Options:	-stylus -files /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/flow.innovus.fp.tcl 
+Date:		Sun Oct 18 13:37:51 2026
+Host:		miet-cad-edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (32cores*32cpus*Common KVM processor 512KB)
+OS:		CentOS Linux release 7.9.2009 (Core)
+
+License:
+		[13:37:51.185249] Configured Lic search path (21.01-s002): 5280@srv-eda-05
+
+		invs	Innovus Implementation System	21.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+
+
+Create and set the environment variable TMPDIR to /tmp/innovus_temp_8353_miet-cad-edu_zzomda_zSL3lZ.
+
+The soft stacksize limit is either up to the hard limit or larger than 0.2% of RAM. No change is needed.
+
+**INFO:  MMMC transition support version v31-84 
+
+#@ Processing -files option
+@innovus 1> source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/flow.innovus.fp.tcl
+#@ Begin verbose source (pre): source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/flow.innovus.fp.tcl
+@file 1: #  ___       _ _   
+@file 2: # |_ _|_ __ (_) |_ 
+@file 3: #  | || '_ \| | __|
+@file 4: #  | || | | | | |_ 
+@file 5: # |___|_| |_|_|\__|
+@file 6:
+@file 7: source $::env(FLOW_DIR)/steps.innovus.tcl
+#@ Begin verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/steps.innovus.tcl (pre)
+@file 1: proc user_init_design {} \
+{
+ 
+    # ------------------
+    # Init design
+    # ------------------
+    if {[info exists ::env(TECH_SIZE)] && $::env(TECH_SIZE) ne ""} {
+        set_db design_process_node $::env(TECH_SIZE)
+    }
+
+    set_db init_netlist_files  $::env(ENV_NETLIST)
+    set_db init_lef_files      $::env(ENV_LEF_FILES)
+    set_db init_power_nets     $::env(ENV_POWER_NETS)
+    set_db init_ground_nets    $::env(ENV_GROUND_NETS)
+    set_db init_mmmc_files     $::env(ENV_MMMC)
+
+    read_mmmc     $::env(ENV_MMMC)
+    read_physical -lef $::env(ENV_LEF_FILES)
+
+    read_netlist  $::env(ENV_NETLIST) -top $::env(ENV_DESIGN)
+    init_design
+
+
+}
+@file 25:
+@file 26: proc user_read_floorplan {} {
+    # ----------------------------------------------------------
+    # Floorplan file Ã¡Ã¥Ã°Â¸Ã¬ Ã¨Ã§ ENV_FLOORPLAN_FILE (Ã±Ã¬. Makefile)
+    # ENV_INNOVUS_FP Â Ã½Ã²Ã® Ã¨Ã¬Ã¿ Ã§Ã Ã¯Ã³Ã±ÃªÃ Ã¥Ã¬Ã®Ã© Ã³Ã²Ã¨Ã«Ã¨Ã²Ã», ÃÃ Ã´Ã Ã©Ã« floorplan
+    # ----------------------------------------------------------
+    set fp_file ""
+
+    if {[info exists ::env(ENV_FLOORPLAN_FILE)] && $::env(ENV_FLOORPLAN_FILE) ne ""} {
+        set fp_file $::env(ENV_FLOORPLAN_FILE)
+    }
+
+    if {$fp_file eq ""} {
+        puts "WARN: ENV_FLOORPLAN_FILE is not set, skip read_floorplan"
+        return
+    }
+
+    if {![file exists $fp_file]} {
+        puts "WARN: floorplan file not found: $fp_file"
+        return
+    }
+
+    # ÃÃ¨Ã²Ã Ã¥Ã¬ floorplan
+    read_floorplan $fp_file
+
+    # ÃÃ®Ã¯Ã¨Ã°Ã³Ã¥Ã¬ Ã¨Ã±ÃµÃ®Ã¤Ã­Ã»Ã© .fp Ã¨ Ã¥Ã£Ã® .spr (Ã¥Ã±Ã«Ã¨ Ã¥Ã±Ã²Ã¼) Ã¢ ./in
+    if {![file exists ./in]} {
+        file mkdir ./in
+    }
+
+    file copy -force $fp_file ./in
+    puts "INFO: copied floorplan  -> ./in/[file tail $fp_file]"
+
+    set spr_file "${fp_file}.spr"
+    if {[file exists $spr_file]} {
+        file copy -force $spr_file ./in
+        puts "INFO: copied floorplan  -> ./in/[file tail $spr_file]"
+    }
+}
+@file 64:
+@file 65:
+@file 66: proc global_net {} \
+{
+    connect_global_net VDD -type pg_pin -pin_base_name VDD -inst_base_name *
+    connect_global_net VSS -type pg_pin -pin_base_name VSS -inst_base_name *
+
+
+
+}
+@file 74:
+@file 75:
+#@ End verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/steps.innovus.tcl
+@file 8:
+@file 9: user_init_design
+##  Process: 130           (User Set)               
+##     Node: (not set)                           
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+Applying the recommended capacitance filtering threshold values for 130nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.4.
+	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+	Capacitance filtering mode(extract_rc_cap_filter_mode option of the set_db) is 'relative_and_coupling' for all engines.
+	The accuracy mode for post_route extract_rc_effort_level low extraction will be set to 'standard'.
+	Default value for EffortLevel(extract_rc_effort_level option of the set_db) in post_route extraction mode is 'low'.
+#@ Begin verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/example_rtl/counter/mmmc.view (pre)
+@file 1:
+@file 2: # ################
+@file 3: # TYP
+@file 4: # ################
+@file 5: set lib_list_typ {}
+@file 6:
+@file 7: lappend lib_list_typ  " $::env(PDK_DIR)/IHP_Open_PDK/sg13g2_stdcell/lib/sg13g2_stdcell_typ_1p20V_25C.lib"
+@file 8:
+@@file 9: create_rc_corner -name typ -temperature {25} -pre_route_res {1} -pre_route_cap {1} -pre_route_clock_res {0} -pre_route_clock_cap {0} -post_route_res {1} -post_route_cap {1} -post_route_cross_cap {1} -post_route_clock_res {0} -post_route_clock_cap {0}
+@@file 10: create_library_set -name typ -timing $lib_list_typ
+@@file 11: create_opcond -name typ -process {1} -voltage {1.20} -temperature {25}
+@file 12: #set PVT
+@@file 13: create_timing_condition -name typ -opcond {typ} -library_sets {typ}
+@@file 14: create_delay_corner -name typ -timing_condition {typ} -rc_corner {typ}
+@file 15: #create corner
+@file 16:
+@file 17: # ################
+@file 18: # MAX
+@file 19: # ################
+@file 20: # set lib_list_max {}
+@file 21:
+@file 22: # lappend lib_list_max  <PLACEHOLDER>
+@file 23:
+@file 24: # create_rc_corner <PLACEHOLDER>
+@file 25: # create_library_set <PLACEHOLDER>
+@file 26: # create_opcond <PLACEHOLDER>
+@file 27: # create_timing_condition <PLACEHOLDER>
+@file 28: # create_delay_corner <PLACEHOLDER>
+@file 29:
+@file 30: # ################
+@file 31: # FINAL 
+@file 32: # ################
+@file 33:
+@@file 34: create_constraint_mode -name func -sdc_files "/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/blockB/statistics_unit.sdc"
+@@file 35: create_analysis_view -name typ -constraint_mode {func} -delay_corner {typ}
+@@file 36: set_analysis_view -setup {typ} -hold {typ}
+#@ End verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/example_rtl/counter/mmmc.view
+Reading typ timing library '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/PDK/IHP_Open_PDK/sg13g2_stdcell/lib/sg13g2_stdcell_typ_1p20V_25C.lib' ...
+Read 78 cells in library 'sg13g2_stdcell_typ_1p20V_25C' 
+
+Loading LEF file /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/../PDK//IHP_Open_PDK/sg13g2_stdcell/lef/sg13g2_tech.lef ...
+
+Loading LEF file /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/../PDK//IHP_Open_PDK/sg13g2_stdcell/lef/sg13g2_stdcell.lef ...
+Set DBUPerIGU to M1 pitch 480.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'sg13g2_antennanp' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+
+viaInitial starts at Sun Oct 18 13:38:15 2026
+viaInitial ends at Sun Oct 18 13:38:15 2026
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+#% Begin Load netlist data ... (date=10/18 13:38:15, mem=749.5M)
+*** Begin netlist parsing (mem=887.0M) ***
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_xor2_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_xor2_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_xnor2_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_xnor2_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_tielo' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_tielo' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_tiehi' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_tiehi' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_slgcp_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_slgcp_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_sighold' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_sighold' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_sdfbbp_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_sdfbbp_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_or4_2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_or4_2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_or4_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_or4_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_or3_2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_or3_2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (EMS-27):	Message (IMPVL-159) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+Created 78 new cells from 1 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilog netlist '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/run/genus/outputs/syn_opt/statistics_unit.v'
+
+*** Memory Usage v#1 (Current mem = 890.031M, initial mem = 383.109M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=890.0M) ***
+#% End Load netlist data ... (date=10/18 13:38:15, total cpu=0:00:00.0, real=0:00:00.0, peak res=754.0M, current mem=754.0M)
+Set top cell to statistics_unit.
+Hooked 78 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell statistics_unit ...
+*** Netlist is unique.
+** info: there are 79 modules.
+** info: there are 788 stdCell insts.
+
+*** Memory Usage v#1 (Current mem = 952.504M, initial mem = 383.109M) ***
+Adjust TopMetal1 preferred direction offset from 1.64 to 0.
+Start create_tracks
+Generated pitch 2.52 in TopMetal1 is different from 2.28 defined in technology file in preferred direction.
+Extraction setup Started 
+Initializing multi-corner RC extraction with 1 active RC Corners ...
+**WARN: (IMPEXT-2773):	The via resistance between layers M0 and M1 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M1 and M2 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M2 and M3 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M3 and M4 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M4 and M5 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M5 and M6 is not defined in the capacitance table file. The via resistance of 4 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M6 and M7 is not defined in the capacitance table file. The via resistance of 2.2 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M1 is not defined in the cap table. Therefore, the LEF value 0.135 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M2 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M3 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M4 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M5 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M6 is not defined in the cap table. Therefore, the LEF value 0.021 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M7 is not defined in the cap table. Therefore, the LEF value 0.0145 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+Summary of Active RC-Corners : 
+ 
+ Analysis View: typ
+    RC-Corner Name        : typ
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from Cap Table]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from Cap Table]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+Updating RC grid for preRoute extraction ...
+Initializing multi-corner resistance tables ...
+*Info: initialize multi-corner CTS.
+Reading timing constraints file '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/blockB/statistics_unit.sdc' ...
+Current (total cpu=0:00:38.0, real=0:00:25.0, peak res=1041.8M, current mem=1041.8M)
+INFO (CTE): Constraints read successfully.
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1062.5M, current mem=1062.5M)
+Current (total cpu=0:00:38.0, real=0:00:25.0, peak res=1062.5M, current mem=1062.5M)
+Total number of combinational cells: 62
+Total number of sequential cells: 10
+Total number of tristate cells: 6
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+List of usable buffers: sg13g2_buf_1 sg13g2_buf_16 sg13g2_buf_2 sg13g2_buf_4 sg13g2_buf_8
+Total number of usable buffers: 5
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: sg13g2_inv_1 sg13g2_inv_16 sg13g2_inv_2 sg13g2_inv_4 sg13g2_inv_8
+Total number of usable inverters: 5
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: sg13g2_dlygate4sd2_1 sg13g2_dlygate4sd1_1 sg13g2_dlygate4sd3_1
+Total number of identified usable delay cells: 3
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+@file 10: user_read_floorplan
+WARN: floorplan file not found: /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/my_rtl/floorplan/statistics_unit.fp
+@file 11:
+@file 12: global_net
+@file 13:
+@@file 14: gui_show
+@@file 15: gui_fit
+@file 16:
+@file 17:
+#@ End verbose source: /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/flow.innovus.fp.tcl
+@innovus 2> gui_select -point {30.51100 36.93800}
+@innovus 3> gui_pan -28.13800 2.34600
+@innovus 4> gui_pan -56.49000 28.76600
+@innovus 5> gui_pan -1.74800 178.24800
+@innovus 6> gui_pan -2.11100 84.39000
+@innovus 7> gui_select -point {82.49600 98.68800}
+@innovus 8> set_io_flow_flag 0
+@innovus 9> create_floorplan -site CoreSite -core_density_size 1 0.5 0.0 0.0 0.0 0.0
+Adjusting core size to PlacementGrid : width :161.76 height : 154.98
+Adjust TopMetal1 preferred direction offset from 1.64 to 0.
+Start create_tracks
+Generated pitch 2.52 in TopMetal1 is different from 2.28 defined in technology file in preferred direction.
+**WARN: (IMPFP-325):	Floorplan of the design is resized. All current create_floorplan objects are automatically derived based on specified new create_floorplan. This may change blocks, fixed standard cells, existing routes and blockages.
+@innovus 10> set_io_flow_flag 0
+@innovus 11> create_floorplan -site CoreSite -stdcell_density_size 0.958086053412 0.499168 0.0 0.0 0.0 0.0
+Adjusting core size to PlacementGrid : width :166.08 height : 151.2
+Adjust TopMetal1 preferred direction offset from 1.64 to 0.
+Start create_tracks
+Generated pitch 2.52 in TopMetal1 is different from 2.28 defined in technology file in preferred direction.
+**WARN: (IMPFP-325):	Floorplan of the design is resized. All current create_floorplan objects are automatically derived based on specified new create_floorplan. This may change blocks, fixed standard cells, existing routes and blockages.
+@innovus 12> set_io_flow_flag 0
+@innovus 13> create_floorplan -site CoreSite -stdcell_density_size 1 0.5 0.0 0.0 0.0 0.0
+Adjusting core size to PlacementGrid : width :161.76 height : 154.98
+Adjust TopMetal1 preferred direction offset from 1.64 to 0.
+Start create_tracks
+Generated pitch 2.52 in TopMetal1 is different from 2.28 defined in technology file in preferred direction.
+**WARN: (IMPFP-325):	Floorplan of the design is resized. All current create_floorplan objects are automatically derived based on specified new create_floorplan. This may change blocks, fixed standard cells, existing routes and blockages.
+@innovus 14> set_io_flow_flag 0
+@innovus 15> create_floorplan -core_margins_by die -site CoreSite -core_size 200 200 0.0 0.0 0.0 0.0
+Adjusting core size togrid(PlacementGrid): width :200.16 height : 199.92
+Adjust TopMetal1 preferred direction offset from 1.64 to 0.
+Start create_tracks
+Generated pitch 2.52 in TopMetal1 is different from 2.28 defined in technology file in preferred direction.
+**WARN: (IMPFP-325):	Floorplan of the design is resized. All current create_floorplan objects are automatically derived based on specified new create_floorplan. This may change blocks, fixed standard cells, existing routes and blockages.
+@innovus 16> set_io_flow_flag 0
+@innovus 17> create_floorplan -site CoreSite -box_size 0.0 0.0 200 200 0.0 0.0 200 200 20 20 180 180
+**WARN: (IMPFP-4031):	Adjusting 'coreBox'(according to PlacementGrid) from {(20.0000000000 , 20.0000000000) (180.0000000000 , 180.0000000000)} to {(20.1600000000 , 20.1600000000) (180.0000000000 , 180.1800000000)} due to track/row misalignment. To force the value, specify the -no_snap_to_grid option or use floorplan_set_snap_rule command to specify the die/core to different grid.
+**WARN: (IMPFP-4031):	Adjusting 'DieBox'(according to PlacementGrid) from {(0.0000000000 , 0.0000000000) (200.0000000000 , 200.0000000000)} to {(0.0000000000 , 0.0000000000) (200.1600000000 , 199.9200000000)} due to track/row misalignment. To force the value, specify the -no_snap_to_grid option or use floorplan_set_snap_rule command to specify the die/core to different grid.
+**WARN: (IMPFP-4031):	Adjusting 'ioBox'(according to PlacementGrid) from {(0.0000000000 , 0.0000000000) (200.0000000000 , 200.0000000000)} to {(0.0000000000 , 0.0000000000) (200.1600000000 , 199.9200000000)} due to track/row misalignment. To force the value, specify the -no_snap_to_grid option or use floorplan_set_snap_rule command to specify the die/core to different grid.
+Adjust TopMetal1 preferred direction offset from 1.64 to 0.
+Start create_tracks
+Generated pitch 2.52 in TopMetal1 is different from 2.28 defined in technology file in preferred direction.
+**WARN: (IMPFP-325):	Floorplan of the design is resized. All current create_floorplan objects are automatically derived based on specified new create_floorplan. This may change blocks, fixed standard cells, existing routes and blockages.
+@innovus 18> set_io_flow_flag 0
+@innovus 19> create_floorplan -site CoreSite -box_size 0.0 0.0 200.16 199.92 0.0 0.0 200.16 199.92 20.16 20.16 180.0 180.18
+Adjust TopMetal1 preferred direction offset from 1.64 to 0.
+Start create_tracks
+Generated pitch 2.52 in TopMetal1 is different from 2.28 defined in technology file in preferred direction.
+@innovus 20> gui_select -point {89.34900 112.08400}
+@innovus 21> set_partition_pin_status -partition statistics_unit -pins clear -status unplaced -quiet
+@innovus 22> set_partition_pin_status -partition statistics_unit -pins clk -status unplaced -quiet
+@innovus 23> set_partition_pin_status -partition statistics_unit -pins rst_n -status unplaced -quiet
+@innovus 24> set_partition_pin_status -partition statistics_unit -pins valid_in -status unplaced -quiet
+@innovus 25> set_db assign_pins_edit_in_batch true
+@innovus 26> edit_pin -fix_overlap 1 -unit micron -spread_direction clockwise -side Top -layer 1 -spread_type center -spacing 1.0 -pin {clear clk rst_n valid_in}
+**WARN: (IMPTR-2104):	Layer M6: Pitch=2280 is less than min width=1640 + min spacing=1640.
+**WARN: (IMPTR-2108):	For layer M6, the gaps of 78 out of 78 tracks are narrower than 3.280um (space 1.640 + width 1.640).
+Type 'man IMPTR-2108' for more detail.
+ As a result, your trialRoute congestion could be incorrect.
+Successfully spread [4] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:01.0, mem = 1500.2M).
+@innovus 27> set_db assign_pins_edit_in_batch false
+@innovus 28> gui_pan -2.14400 118.65300
+@innovus 29> gui_pan 1.81500 199.93900
+@innovus 30> set_db assign_pins_edit_in_batch true
+@innovus 31> edit_pin -pin_width 5.0 -pin_depth 15.0 -fix_overlap 1 -unit micron -spread_direction clockwise -side Top -layer 1 -spread_type center -spacing 1.44 -pin {clear clk rst_n valid_in}
+Successfully spread [4] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1501.2M).
+@innovus 32> set_db assign_pins_edit_in_batch false
+@innovus 33> set_db assign_pins_edit_in_batch true
+@innovus 34> edit_pin -pin_width 5.0 -pin_depth 20.0 -fix_overlap 1 -unit micron -spread_direction clockwise -side Top -layer 1 -spread_type center -spacing 5.28 -pin {clear clk rst_n valid_in}
+Successfully spread [4] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1501.2M).
+@innovus 35> set_db assign_pins_edit_in_batch false
+@innovus 36> set_db assign_pins_edit_in_batch true
+@innovus 37> edit_pin -pin_width 5.0 -pin_depth 20.0 -fix_overlap 1 -spread_direction clockwise -edge 3 -layer 1 -spread_type side -pin {{max[0]} {max[1]} {max[2]} {max[3]} {max[4]} {max[5]} {max[6]} {max[7]} {max[8]} {max[9]} {max[10]} {max[11]} {max[12]} {max[13]} {max[14]} {max[15]} {max[16]} {max[17]} {max[18]} {max[19]} {max[20]} {max[21]} {max[22]} {max[23]} {max[24]} {max[25]} {max[26]} {max[27]} {max[28]} {max[29]} {max[30]} {max[31]} {min[0]} {min[1]} {min[2]} {min[3]} {min[4]} {min[5]} {min[6]} {min[7]} {min[8]} {min[9]} {min[10]} {min[11]} {min[12]} {min[13]} {min[14]} {min[15]} {min[16]} {min[17]} {min[18]} {min[19]} {min[20]} {min[21]} {min[22]} {min[23]} {min[24]} {min[25]} {min[26]} {min[27]} {min[28]} {min[29]} {min[30]} {min[31]}}
+Selected [64] pin for spreading. Could not spread (27 out of 64) pins, either because space provided for spreading pins are less than required or because of constraints on the selected pins or because of some blockage (pin blockage, routing blockage, power stripes etc.) on the selected region.
+
+Following pins are not spread:
+  min[5]
+  min[6]
+  min[7]
+  min[8]
+  min[9]
+  min[10]
+  min[11]
+  min[12]
+  min[13]
+  min[14]
+  min[15]
+  min[16]
+  min[17]
+  min[18]
+  min[19]
+  min[20]
+  min[21]
+  min[22]
+  min[23]
+  min[24]
+  min[25]
+  min[26]
+  min[27]
+  min[28]
+  min[29]
+  min[30]
+  min[31]
+Ideal location for pin max[1] is (196.80, 0.00). It is placed at Location (192.00, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[2] is (193.44, 0.00). It is placed at Location (186.72, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[3] is (190.56, 0.00). It is placed at Location (181.44, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[4] is (187.20, 0.00). It is placed at Location (176.16, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[5] is (183.84, 0.00). It is placed at Location (170.88, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[6] is (180.96, 0.00). It is placed at Location (165.60, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[7] is (177.60, 0.00). It is placed at Location (160.32, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[8] is (174.72, 0.00). It is placed at Location (155.04, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[9] is (171.36, 0.00). It is placed at Location (149.76, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[10] is (168.00, 0.00). It is placed at Location (144.48, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[11] is (165.12, 0.00). It is placed at Location (139.20, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[12] is (161.76, 0.00). It is placed at Location (133.92, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[13] is (158.88, 0.00). It is placed at Location (128.64, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[14] is (155.52, 0.00). It is placed at Location (123.36, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[15] is (152.16, 0.00). It is placed at Location (118.08, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[16] is (149.28, 0.00). It is placed at Location (112.80, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[17] is (145.92, 0.00). It is placed at Location (107.52, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[18] is (143.04, 0.00). It is placed at Location (102.24, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[19] is (139.68, 0.00). It is placed at Location (96.96, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[20] is (136.32, 0.00). It is placed at Location (91.68, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[21] is (133.44, 0.00). It is placed at Location (86.40, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[22] is (130.08, 0.00). It is placed at Location (81.12, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[23] is (127.20, 0.00). It is placed at Location (75.84, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[24] is (123.84, 0.00). It is placed at Location (70.56, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[25] is (120.48, 0.00). It is placed at Location (65.28, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[26] is (117.60, 0.00). It is placed at Location (60.00, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[27] is (114.24, 0.00). It is placed at Location (54.72, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[28] is (111.36, 0.00). It is placed at Location (49.44, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[29] is (108.00, 0.00). It is placed at Location (44.16, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[30] is (104.64, 0.00). It is placed at Location (38.88, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[31] is (101.76, 0.00). It is placed at Location (33.60, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[0] is (98.40, 0.00). It is placed at Location (28.32, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[1] is (95.52, 0.00). It is placed at Location (23.04, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[2] is (92.16, 0.00). It is placed at Location (17.76, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[3] is (88.80, 0.00). It is placed at Location (12.48, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[4] is (85.92, 0.00). It is placed at Location (7.20, 0.00), which  is deviated more than its ideal spacing 3.17
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1501.2M).
+@innovus 38> set_db assign_pins_edit_in_batch false
+@innovus 39> gui_pan 20.88500 175.56200
+@innovus 40> gui_pan 23.80100 19.56400
+@innovus 41> gui_pan 22.85100 16.00600
+@innovus 42> set_db assign_pins_edit_in_batch true
+@innovus 43> edit_pin -pin_width 0.5 -pin_depth 20.0 -fix_overlap 1 -spread_direction clockwise -edge 3 -layer 1 -spread_type side -pin {{max[0]} {max[1]} {max[2]} {max[3]} {max[4]} {max[5]} {max[6]} {max[7]} {max[8]} {max[9]} {max[10]} {max[11]} {max[12]} {max[13]} {max[14]} {max[15]} {max[16]} {max[17]} {max[18]} {max[19]} {max[20]} {max[21]} {max[22]} {max[23]} {max[24]} {max[25]} {max[26]} {max[27]} {max[28]} {max[29]} {max[30]} {max[31]} {min[0]} {min[1]} {min[2]} {min[3]} {min[4]} {min[5]} {min[6]} {min[7]} {min[8]} {min[9]} {min[10]} {min[11]} {min[12]} {min[13]} {min[14]} {min[15]} {min[16]} {min[17]} {min[18]} {min[19]} {min[20]} {min[21]} {min[22]} {min[23]} {min[24]} {min[25]} {min[26]} {min[27]} {min[28]} {min[29]} {min[30]} {min[31]}}
+Successfully spread [64] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1502.2M).
+@innovus 44> set_db assign_pins_edit_in_batch false
+@innovus 45> set_db assign_pins_edit_in_batch true
+@innovus 46> edit_pin -pin_width 0.5 -pin_depth 20.0 -fix_overlap 1 -unit micron -spread_direction clockwise -edge 3 -layer 1 -spread_type center -spacing 7.68 -pin {{max[0]} {max[1]} {max[2]} {max[3]} {max[4]} {max[5]} {max[6]} {max[7]} {max[8]} {max[9]} {max[10]} {max[11]} {max[12]} {max[13]} {max[14]} {max[15]} {max[16]} {max[17]} {max[18]} {max[19]} {max[20]} {max[21]} {max[22]} {max[23]} {max[24]} {max[25]} {max[26]} {max[27]} {max[28]} {max[29]} {max[30]} {max[31]} {min[0]} {min[1]} {min[2]} {min[3]} {min[4]} {min[5]} {min[6]} {min[7]} {min[8]} {min[9]} {min[10]} {min[11]} {min[12]} {min[13]} {min[14]} {min[15]} {min[16]} {min[17]} {min[18]} {min[19]} {min[20]} {min[21]} {min[22]} {min[23]} {min[24]} {min[25]} {min[26]} {min[27]} {min[28]} {min[29]} {min[30]} {min[31]}}
+Selected [64] pin for spreading. Could not spread (38 out of 64) pins, either because space provided for spreading pins are less than required or because of constraints on the selected pins or because of some blockage (pin blockage, routing blockage, power stripes etc.) on the selected region.
+
+Following pins are not spread:
+  max[0]
+  max[1]
+  max[2]
+  max[3]
+  max[4]
+  max[5]
+  max[6]
+  max[7]
+  max[8]
+  max[9]
+  max[10]
+  max[11]
+  max[12]
+  max[13]
+  max[14]
+  max[15]
+  max[16]
+  max[17]
+  max[18]
+  min[13]
+  min[14]
+  min[15]
+  min[16]
+  min[17]
+  min[18]
+  min[19]
+  min[20]
+  min[21]
+  min[22]
+  min[23]
+  min[24]
+  min[25]
+  min[26]
+  min[27]
+  min[28]
+  min[29]
+  min[30]
+  min[31]
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1502.3M).
+@innovus 47> set_db assign_pins_edit_in_batch false
+@innovus 48> **ERROR: (IMPSYT-16269):	Need to specify 'start location'.
+set_db assign_pins_edit_in_batch true
+@innovus 49> edit_pin -fix_overlap 1 -spread_direction clockwise -edge 3 -layer 1 -spread_type side -pin {{max[0]} {max[1]} {max[2]} {max[3]} {max[4]} {max[5]} {max[6]} {max[7]} {max[8]} {max[9]} {max[10]} {max[11]} {max[12]} {max[13]} {max[14]} {max[15]} {max[16]} {max[17]} {max[18]} {max[19]} {max[20]} {max[21]} {max[22]} {max[23]} {max[24]} {max[25]} {max[26]} {max[27]} {max[28]} {max[29]} {max[30]} {max[31]} {min[0]} {min[1]} {min[2]} {min[3]} {min[4]} {min[5]} {min[6]} {min[7]} {min[8]} {min[9]} {min[10]} {min[11]} {min[12]} {min[13]} {min[14]} {min[15]} {min[16]} {min[17]} {min[18]} {min[19]} {min[20]} {min[21]} {min[22]} {min[23]} {min[24]} {min[25]} {min[26]} {min[27]} {min[28]} {min[29]} {min[30]} {min[31]}}
+Successfully spread [64] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1502.3M).
+@innovus 50> set_db assign_pins_edit_in_batch false
+@innovus 51> set_db assign_pins_edit_in_batch true
+@innovus 52> edit_pin -pin_width 3.0 -pin_depth 20.0 -fix_overlap 1 -spread_direction clockwise -edge 3 -layer 1 -spread_type side -pin {{max[0]} {max[1]} {max[2]} {max[3]} {max[4]} {max[5]} {max[6]} {max[7]} {max[8]} {max[9]} {max[10]} {max[11]} {max[12]} {max[13]} {max[14]} {max[15]} {max[16]} {max[17]} {max[18]} {max[19]} {max[20]} {max[21]} {max[22]} {max[23]} {max[24]} {max[25]} {max[26]} {max[27]} {max[28]} {max[29]} {max[30]} {max[31]} {min[0]} {min[1]} {min[2]} {min[3]} {min[4]} {min[5]} {min[6]} {min[7]} {min[8]} {min[9]} {min[10]} {min[11]} {min[12]} {min[13]} {min[14]} {min[15]} {min[16]} {min[17]} {min[18]} {min[19]} {min[20]} {min[21]} {min[22]} {min[23]} {min[24]} {min[25]} {min[26]} {min[27]} {min[28]} {min[29]} {min[30]} {min[31]}}
+Selected [64] pin for spreading. Could not spread (5 out of 64) pins, either because space provided for spreading pins are less than required or because of constraints on the selected pins or because of some blockage (pin blockage, routing blockage, power stripes etc.) on the selected region.
+
+Following pins are not spread:
+  min[27]
+  min[28]
+  min[29]
+  min[30]
+  min[31]
+Ideal location for pin max[8] is (174.72, 0.00). It is placed at Location (171.36, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[9] is (171.36, 0.00). It is placed at Location (168.00, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[10] is (168.00, 0.00). It is placed at Location (164.64, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[11] is (165.12, 0.00). It is placed at Location (161.28, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[12] is (161.76, 0.00). It is placed at Location (157.92, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[13] is (158.88, 0.00). It is placed at Location (154.56, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[14] is (155.52, 0.00). It is placed at Location (151.20, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[15] is (152.16, 0.00). It is placed at Location (147.84, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[16] is (149.28, 0.00). It is placed at Location (144.48, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[17] is (145.92, 0.00). It is placed at Location (141.12, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[18] is (143.04, 0.00). It is placed at Location (137.76, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[19] is (139.68, 0.00). It is placed at Location (134.40, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[20] is (136.32, 0.00). It is placed at Location (131.04, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[21] is (133.44, 0.00). It is placed at Location (127.68, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[22] is (130.08, 0.00). It is placed at Location (124.32, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[23] is (127.20, 0.00). It is placed at Location (120.96, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[24] is (123.84, 0.00). It is placed at Location (117.60, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[25] is (120.48, 0.00). It is placed at Location (114.24, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[26] is (117.60, 0.00). It is placed at Location (110.88, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[27] is (114.24, 0.00). It is placed at Location (107.52, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[28] is (111.36, 0.00). It is placed at Location (104.16, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[29] is (108.00, 0.00). It is placed at Location (100.80, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[30] is (104.64, 0.00). It is placed at Location (97.44, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin max[31] is (101.76, 0.00). It is placed at Location (94.08, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[0] is (98.40, 0.00). It is placed at Location (90.72, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[1] is (95.52, 0.00). It is placed at Location (87.36, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[2] is (92.16, 0.00). It is placed at Location (84.00, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[3] is (88.80, 0.00). It is placed at Location (80.64, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[4] is (85.92, 0.00). It is placed at Location (77.28, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[5] is (82.56, 0.00). It is placed at Location (73.92, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[6] is (79.68, 0.00). It is placed at Location (70.56, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[7] is (76.32, 0.00). It is placed at Location (67.20, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[8] is (72.96, 0.00). It is placed at Location (63.84, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[9] is (70.08, 0.00). It is placed at Location (60.48, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[10] is (66.72, 0.00). It is placed at Location (57.12, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[11] is (63.84, 0.00). It is placed at Location (53.76, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[12] is (60.48, 0.00). It is placed at Location (50.40, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[13] is (57.12, 0.00). It is placed at Location (47.04, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[14] is (54.24, 0.00). It is placed at Location (43.68, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[15] is (50.88, 0.00). It is placed at Location (40.32, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[16] is (48.00, 0.00). It is placed at Location (36.96, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[17] is (44.64, 0.00). It is placed at Location (33.60, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[18] is (41.28, 0.00). It is placed at Location (30.24, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[19] is (38.40, 0.00). It is placed at Location (26.88, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[20] is (35.04, 0.00). It is placed at Location (23.52, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[21] is (32.16, 0.00). It is placed at Location (20.16, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[22] is (28.80, 0.00). It is placed at Location (16.80, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[23] is (25.44, 0.00). It is placed at Location (13.44, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[24] is (22.56, 0.00). It is placed at Location (10.08, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[25] is (19.20, 0.00). It is placed at Location (6.72, 0.00), which  is deviated more than its ideal spacing 3.17
+Ideal location for pin min[26] is (16.32, 0.00). It is placed at Location (3.36, 0.00), which  is deviated more than its ideal spacing 3.17
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1502.3M).
+@innovus 53> set_db assign_pins_edit_in_batch false
+@innovus 54> set_db assign_pins_edit_in_batch true
+@innovus 55> edit_pin -pin_width 2.0 -pin_depth 20.0 -fix_overlap 1 -spread_direction clockwise -edge 3 -layer 1 -spread_type side -pin {{max[0]} {max[1]} {max[2]} {max[3]} {max[4]} {max[5]} {max[6]} {max[7]} {max[8]} {max[9]} {max[10]} {max[11]} {max[12]} {max[13]} {max[14]} {max[15]} {max[16]} {max[17]} {max[18]} {max[19]} {max[20]} {max[21]} {max[22]} {max[23]} {max[24]} {max[25]} {max[26]} {max[27]} {max[28]} {max[29]} {max[30]} {max[31]} {min[0]} {min[1]} {min[2]} {min[3]} {min[4]} {min[5]} {min[6]} {min[7]} {min[8]} {min[9]} {min[10]} {min[11]} {min[12]} {min[13]} {min[14]} {min[15]} {min[16]} {min[17]} {min[18]} {min[19]} {min[20]} {min[21]} {min[22]} {min[23]} {min[24]} {min[25]} {min[26]} {min[27]} {min[28]} {min[29]} {min[30]} {min[31]}}
+Successfully spread [64] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1502.3M).
+@innovus 56> set_db assign_pins_edit_in_batch false
+@innovus 57> set_db assign_pins_edit_in_batch true
+@innovus 58> edit_pin -pin_width 2.0 -pin_depth 20.0 -fix_overlap 1 -unit micron -spread_direction clockwise -edge 2 -layer 1 -spread_type center -spacing 7.68 -pin {{sum[0]} {sum[1]} {sum[2]} {sum[3]} {sum[4]} {sum[5]} {sum[6]} {sum[7]} {sum[8]} {sum[9]} {sum[10]} {sum[11]} {sum[12]} {sum[13]} {sum[14]} {sum[15]} {sum[16]} {sum[17]} {sum[18]} {sum[19]} {sum[20]} {sum[21]} {sum[22]} {sum[23]} {sum[24]} {sum[25]} {sum[26]} {sum[27]} {sum[28]} {sum[29]} {sum[30]} {sum[31]} {data_in[0]} {data_in[1]} {data_in[2]} {data_in[3]} {data_in[4]} {data_in[5]} {data_in[6]} {data_in[7]} {data_in[8]} {data_in[9]} {data_in[10]} {data_in[11]} {data_in[12]} {data_in[13]} {data_in[14]} {data_in[15]} {data_in[16]} {data_in[17]} {data_in[18]} {data_in[19]} {data_in[20]} {data_in[21]} {data_in[22]} {data_in[23]} {data_in[24]} {data_in[25]} {data_in[26]} {data_in[27]} {data_in[28]} {data_in[29]} {data_in[30]} {data_in[31]}}
+Selected [64] pin for spreading. Could not spread (41 out of 64) pins, either because space provided for spreading pins are less than required or because of constraints on the selected pins or because of some blockage (pin blockage, routing blockage, power stripes etc.) on the selected region.
+
+Following pins are not spread:
+  sum[0]
+  sum[1]
+  sum[2]
+  sum[3]
+  sum[4]
+  sum[5]
+  sum[6]
+  sum[7]
+  sum[8]
+  sum[9]
+  sum[10]
+  sum[11]
+  sum[12]
+  sum[13]
+  sum[14]
+  sum[15]
+  sum[16]
+  sum[17]
+  sum[18]
+  data_in[10]
+  data_in[11]
+  data_in[12]
+  data_in[13]
+  data_in[14]
+  data_in[15]
+  data_in[16]
+  data_in[17]
+  data_in[18]
+  data_in[19]
+  data_in[20]
+  data_in[21]
+  data_in[22]
+  data_in[23]
+  data_in[24]
+  data_in[25]
+  data_in[26]
+  data_in[27]
+  data_in[28]
+  data_in[29]
+  data_in[30]
+  data_in[31]
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1502.3M).
+@innovus 59> set_db assign_pins_edit_in_batch false
+@innovus 60> gui_pan -0.20200 50.65700
+@innovus 61> gui_pan 4.23100 92.96200
+@innovus 62> gui_pan 7.25200 131.03700
+@innovus 63> gui_pan 12.89300 93.16400
+@innovus 64> gui_pan -8.46100 69.02900
+@innovus 65> gui_pan 14.10200 -13.36600
+@innovus 66> gui_pan 6.64800 74.06400
+@innovus 67> set_db assign_pins_edit_in_batch true
+@innovus 68> edit_pin -fix_overlap 1 -spread_direction clockwise -edge 2 -layer 1 -spread_type side -pin {{sum[0]} {sum[1]} {sum[2]} {sum[3]} {sum[4]} {sum[5]} {sum[6]} {sum[7]} {sum[8]} {sum[9]} {sum[10]} {sum[11]} {sum[12]} {sum[13]} {sum[14]} {sum[15]} {sum[16]} {sum[17]} {sum[18]} {sum[19]} {sum[20]} {sum[21]} {sum[22]} {sum[23]} {sum[24]} {sum[25]} {sum[26]} {sum[27]} {sum[28]} {sum[29]} {sum[30]} {sum[31]} {data_in[0]} {data_in[1]} {data_in[2]} {data_in[3]} {data_in[4]} {data_in[5]} {data_in[6]} {data_in[7]} {data_in[8]} {data_in[9]} {data_in[10]} {data_in[11]} {data_in[12]} {data_in[13]} {data_in[14]} {data_in[15]} {data_in[16]} {data_in[17]} {data_in[18]} {data_in[19]} {data_in[20]} {data_in[21]} {data_in[22]} {data_in[23]} {data_in[24]} {data_in[25]} {data_in[26]} {data_in[27]} {data_in[28]} {data_in[29]} {data_in[30]} {data_in[31]}}
+Successfully spread [64] pins.
+Ideal location for pin data_in[26] is (200.16, 15.96). It is placed at Location (200.16, 21.00), which  is deviated more than its ideal spacing 3.62
+Ideal location for pin data_in[27] is (200.16, 13.02). It is placed at Location (200.16, 21.42), which  is deviated more than its ideal spacing 3.62
+Ideal location for pin data_in[28] is (200.16, 9.66). It is placed at Location (200.16, 21.84), which  is deviated more than its ideal spacing 3.62
+Ideal location for pin data_in[29] is (200.16, 6.72). It is placed at Location (200.16, 22.26), which  is deviated more than its ideal spacing 3.62
+Ideal location for pin data_in[30] is (200.16, 3.36). It is placed at Location (200.16, 23.10), which  is deviated more than its ideal spacing 3.62
+Ideal location for pin data_in[31] is (200.16, 0.42). It is placed at Location (200.16, 23.52), which  is deviated more than its ideal spacing 3.62
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1502.4M).
+@innovus 69> set_db assign_pins_edit_in_batch false
+@innovus 70> set_db assign_pins_edit_in_batch true
+@innovus 71> edit_pin -pin_width 2.0 -pin_depth 20.0 -fix_overlap 1 -spread_direction clockwise -edge 2 -layer 1 -spread_type side -pin {{sum[0]} {sum[1]} {sum[2]} {sum[3]} {sum[4]} {sum[5]} {sum[6]} {sum[7]} {sum[8]} {sum[9]} {sum[10]} {sum[11]} {sum[12]} {sum[13]} {sum[14]} {sum[15]} {sum[16]} {sum[17]} {sum[18]} {sum[19]} {sum[20]} {sum[21]} {sum[22]} {sum[23]} {sum[24]} {sum[25]} {sum[26]} {sum[27]} {sum[28]} {sum[29]} {sum[30]} {sum[31]} {data_in[0]} {data_in[1]} {data_in[2]} {data_in[3]} {data_in[4]} {data_in[5]} {data_in[6]} {data_in[7]} {data_in[8]} {data_in[9]} {data_in[10]} {data_in[11]} {data_in[12]} {data_in[13]} {data_in[14]} {data_in[15]} {data_in[16]} {data_in[17]} {data_in[18]} {data_in[19]} {data_in[20]} {data_in[21]} {data_in[22]} {data_in[23]} {data_in[24]} {data_in[25]} {data_in[26]} {data_in[27]} {data_in[28]} {data_in[29]} {data_in[30]} {data_in[31]}}
+Selected [64] pin for spreading. Could not spread (7 out of 64) pins, either because space provided for spreading pins are less than required or because of constraints on the selected pins or because of some blockage (pin blockage, routing blockage, power stripes etc.) on the selected region.
+
+Following pins are not spread:
+  data_in[25]
+  data_in[26]
+  data_in[27]
+  data_in[28]
+  data_in[29]
+  data_in[30]
+  data_in[31]
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1502.4M).
+@innovus 72> set_db assign_pins_edit_in_batch false
+@innovus 73> gui_pan 20.03500 -11.15300
+@innovus 74> gui_pan -10.87400 127.57100
+@innovus 75> gui_pan 78.73000 216.85000
+@innovus 76> gui_pan 17.77500 103.45800
+@innovus 77> set_db assign_pins_edit_in_batch true
+@innovus 78> edit_pin -pin_width 2.0 -pin_depth 20.0 -fix_overlap 1 -spread_direction clockwise -edge 2 -layer 1 -spread_type side -pin {{data_in[0]} {data_in[1]} {data_in[2]} {data_in[3]} {data_in[4]} {data_in[5]} {data_in[6]} {data_in[7]} {data_in[8]} {data_in[9]} {data_in[10]} {data_in[11]} {data_in[12]} {data_in[13]} {data_in[14]} {data_in[15]} {data_in[16]} {data_in[17]} {data_in[18]} {data_in[19]} {data_in[20]} {data_in[21]} {data_in[22]} {data_in[23]} {data_in[24]} {data_in[25]} {data_in[26]} {data_in[27]} {data_in[28]} {data_in[29]} {data_in[30]} {data_in[31]}}
+Selected [32] pin for spreading. Could not spread (8 out of 32) pins, either because space provided for spreading pins are less than required or because of constraints on the selected pins or because of some blockage (pin blockage, routing blockage, power stripes etc.) on the selected region.
+
+Following pins are not spread:
+  data_in[14]
+  data_in[15]
+  data_in[16]
+  data_in[17]
+  data_in[18]
+  data_in[19]
+  data_in[20]
+  data_in[21]
+Ideal location for pin data_in[0] is (200.16, 197.40). It is placed at Location (200.16, 99.12), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[1] is (200.16, 191.10). It is placed at Location (200.16, 96.60), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[2] is (200.16, 184.80). It is placed at Location (200.16, 94.08), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[3] is (200.16, 178.50). It is placed at Location (200.16, 91.56), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[4] is (200.16, 172.20). It is placed at Location (200.16, 89.04), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[5] is (200.16, 165.90). It is placed at Location (200.16, 86.52), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[6] is (200.16, 159.60). It is placed at Location (200.16, 84.00), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[7] is (200.16, 152.88). It is placed at Location (200.16, 81.48), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[8] is (200.16, 146.58). It is placed at Location (200.16, 78.96), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[9] is (200.16, 140.28). It is placed at Location (200.16, 76.44), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[10] is (200.16, 133.98). It is placed at Location (200.16, 73.92), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[11] is (200.16, 127.68). It is placed at Location (200.16, 71.40), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[12] is (200.16, 121.38). It is placed at Location (200.16, 68.88), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[13] is (200.16, 114.66). It is placed at Location (200.16, 66.36), which  is deviated more than its ideal spacing 7.28
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1504.4M).
+@innovus 79> set_db assign_pins_edit_in_batch false
+@innovus 80> set_db assign_pins_edit_in_batch true
+@innovus 81> edit_pin -pin_width 2.0 -pin_depth 20.0 -fix_overlap 1 -spread_direction clockwise -edge 2 -layer 1 -spread_type side -pin {{data_in[0]} {data_in[1]} {data_in[2]} {data_in[3]} {data_in[4]} {data_in[5]} {data_in[6]} {data_in[7]} {data_in[8]} {data_in[9]} {data_in[10]} {data_in[11]} {data_in[12]} {data_in[13]} {data_in[14]} {data_in[15]} {data_in[16]} {data_in[17]} {data_in[18]} {data_in[19]} {data_in[20]} {data_in[21]} {data_in[22]} {data_in[23]} {data_in[24]} {data_in[25]} {data_in[26]} {data_in[27]} {data_in[28]} {data_in[29]} {data_in[30]} {data_in[31]}}
+Selected [32] pin for spreading. Could not spread (8 out of 32) pins, either because space provided for spreading pins are less than required or because of constraints on the selected pins or because of some blockage (pin blockage, routing blockage, power stripes etc.) on the selected region.
+
+Following pins are not spread:
+  data_in[14]
+  data_in[15]
+  data_in[16]
+  data_in[17]
+  data_in[18]
+  data_in[19]
+  data_in[20]
+  data_in[21]
+Ideal location for pin data_in[0] is (200.16, 197.40). It is placed at Location (200.16, 99.12), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[1] is (200.16, 191.10). It is placed at Location (200.16, 96.60), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[2] is (200.16, 184.80). It is placed at Location (200.16, 94.08), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[3] is (200.16, 178.50). It is placed at Location (200.16, 91.56), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[4] is (200.16, 172.20). It is placed at Location (200.16, 89.04), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[5] is (200.16, 165.90). It is placed at Location (200.16, 86.52), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[6] is (200.16, 159.60). It is placed at Location (200.16, 84.00), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[7] is (200.16, 152.88). It is placed at Location (200.16, 81.48), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[8] is (200.16, 146.58). It is placed at Location (200.16, 78.96), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[9] is (200.16, 140.28). It is placed at Location (200.16, 76.44), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[10] is (200.16, 133.98). It is placed at Location (200.16, 73.92), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[11] is (200.16, 127.68). It is placed at Location (200.16, 71.40), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[12] is (200.16, 121.38). It is placed at Location (200.16, 68.88), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[13] is (200.16, 114.66). It is placed at Location (200.16, 66.36), which  is deviated more than its ideal spacing 7.28
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1504.4M).
+@innovus 82> set_db assign_pins_edit_in_batch false
+@innovus 83> set_db assign_pins_edit_in_batch true
+@innovus 84> edit_pin -pin_width 2.0 -pin_depth 20.0 -fix_overlap 1 -spread_direction clockwise -edge 2 -layer 1 -spread_type side -pin {{data_in[0]} {data_in[1]} {data_in[2]} {data_in[3]} {data_in[4]} {data_in[5]} {data_in[6]} {data_in[7]} {data_in[8]} {data_in[9]} {data_in[10]} {data_in[11]} {data_in[12]} {data_in[13]} {data_in[14]} {data_in[15]} {data_in[16]} {data_in[17]} {data_in[18]} {data_in[19]} {data_in[20]} {data_in[21]} {data_in[22]} {data_in[23]} {data_in[24]} {data_in[25]} {data_in[26]} {data_in[27]} {data_in[28]} {data_in[29]} {data_in[30]} {data_in[31]}}
+Selected [32] pin for spreading. Could not spread (8 out of 32) pins, either because space provided for spreading pins are less than required or because of constraints on the selected pins or because of some blockage (pin blockage, routing blockage, power stripes etc.) on the selected region.
+
+Following pins are not spread:
+  data_in[14]
+  data_in[15]
+  data_in[16]
+  data_in[17]
+  data_in[18]
+  data_in[19]
+  data_in[20]
+  data_in[21]
+Ideal location for pin data_in[0] is (200.16, 197.40). It is placed at Location (200.16, 99.12), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[1] is (200.16, 191.10). It is placed at Location (200.16, 96.60), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[2] is (200.16, 184.80). It is placed at Location (200.16, 94.08), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[3] is (200.16, 178.50). It is placed at Location (200.16, 91.56), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[4] is (200.16, 172.20). It is placed at Location (200.16, 89.04), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[5] is (200.16, 165.90). It is placed at Location (200.16, 86.52), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[6] is (200.16, 159.60). It is placed at Location (200.16, 84.00), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[7] is (200.16, 152.88). It is placed at Location (200.16, 81.48), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[8] is (200.16, 146.58). It is placed at Location (200.16, 78.96), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[9] is (200.16, 140.28). It is placed at Location (200.16, 76.44), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[10] is (200.16, 133.98). It is placed at Location (200.16, 73.92), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[11] is (200.16, 127.68). It is placed at Location (200.16, 71.40), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[12] is (200.16, 121.38). It is placed at Location (200.16, 68.88), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[13] is (200.16, 114.66). It is placed at Location (200.16, 66.36), which  is deviated more than its ideal spacing 7.28
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1504.4M).
+@innovus 85> set_db assign_pins_edit_in_batch false
+@innovus 86> set_db assign_pins_edit_in_batch true
+@innovus 87> edit_pin -pin_width 2.0 -pin_depth 20.0 -fix_overlap 1 -spread_direction clockwise -edge 2 -layer 1 -spread_type side -pin {{data_in[0]} {data_in[1]} {data_in[2]} {data_in[3]} {data_in[4]} {data_in[5]} {data_in[6]} {data_in[7]} {data_in[8]} {data_in[9]} {data_in[10]} {data_in[11]} {data_in[12]} {data_in[13]} {data_in[14]} {data_in[15]} {data_in[16]} {data_in[17]} {data_in[18]} {data_in[19]} {data_in[20]} {data_in[21]} {data_in[22]} {data_in[23]} {data_in[24]} {data_in[25]} {data_in[26]} {data_in[27]} {data_in[28]} {data_in[29]} {data_in[30]} {data_in[31]}}
+Selected [32] pin for spreading. Could not spread (8 out of 32) pins, either because space provided for spreading pins are less than required or because of constraints on the selected pins or because of some blockage (pin blockage, routing blockage, power stripes etc.) on the selected region.
+
+Following pins are not spread:
+  data_in[14]
+  data_in[15]
+  data_in[16]
+  data_in[17]
+  data_in[18]
+  data_in[19]
+  data_in[20]
+  data_in[21]
+Ideal location for pin data_in[0] is (200.16, 197.40). It is placed at Location (200.16, 99.12), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[1] is (200.16, 191.10). It is placed at Location (200.16, 96.60), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[2] is (200.16, 184.80). It is placed at Location (200.16, 94.08), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[3] is (200.16, 178.50). It is placed at Location (200.16, 91.56), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[4] is (200.16, 172.20). It is placed at Location (200.16, 89.04), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[5] is (200.16, 165.90). It is placed at Location (200.16, 86.52), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[6] is (200.16, 159.60). It is placed at Location (200.16, 84.00), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[7] is (200.16, 152.88). It is placed at Location (200.16, 81.48), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[8] is (200.16, 146.58). It is placed at Location (200.16, 78.96), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[9] is (200.16, 140.28). It is placed at Location (200.16, 76.44), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[10] is (200.16, 133.98). It is placed at Location (200.16, 73.92), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[11] is (200.16, 127.68). It is placed at Location (200.16, 71.40), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[12] is (200.16, 121.38). It is placed at Location (200.16, 68.88), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[13] is (200.16, 114.66). It is placed at Location (200.16, 66.36), which  is deviated more than its ideal spacing 7.28
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1504.4M).
+@innovus 88> set_db assign_pins_edit_in_batch false
+@innovus 89> gui_pan 13.51000 33.54100
+@innovus 90> gui_pan 2.96900 -26.38900
+@innovus 91> **ERROR: (IMPQTF-4044):	Error occurs when 'p}5��+' is executed with the error message: 'invalid command name "p}5��+"'. This is probably an inner GUI action error. Use the TCL command directly instead of the GUI interactive.
+gui_pan 0.44700 -22.55200
+@innovus 92> gui_pan 0.62600 -18.70800
+@innovus 93> gui_pan -53.80300 4.19700
+@innovus 94> gui_pan -5.21500 107.06300
+@innovus 95> set_partition_pin_status -partition statistics_unit -pins {data_in[0]} -status unplaced -quiet
+@innovus 96> set_partition_pin_status -partition statistics_unit -pins {data_in[1]} -status unplaced -quiet
+@innovus 97> set_partition_pin_status -partition statistics_unit -pins {data_in[2]} -status unplaced -quiet
+@innovus 98> set_partition_pin_status -partition statistics_unit -pins {data_in[3]} -status unplaced -quiet
+@innovus 99> set_partition_pin_status -partition statistics_unit -pins {data_in[4]} -status unplaced -quiet
+@innovus 100> set_partition_pin_status -partition statistics_unit -pins {data_in[5]} -status unplaced -quiet
+@innovus 101> set_partition_pin_status -partition statistics_unit -pins {data_in[6]} -status unplaced -quiet
+@innovus 102> set_partition_pin_status -partition statistics_unit -pins {data_in[7]} -status unplaced -quiet
+@innovus 103> set_partition_pin_status -partition statistics_unit -pins {data_in[8]} -status unplaced -quiet
+@innovus 104> set_partition_pin_status -partition statistics_unit -pins {data_in[9]} -status unplaced -quiet
+@innovus 105> set_partition_pin_status -partition statistics_unit -pins {data_in[10]} -status unplaced -quiet
+@innovus 106> set_partition_pin_status -partition statistics_unit -pins {data_in[11]} -status unplaced -quiet
+@innovus 107> set_partition_pin_status -partition statistics_unit -pins {data_in[12]} -status unplaced -quiet
+@innovus 108> set_partition_pin_status -partition statistics_unit -pins {data_in[13]} -status unplaced -quiet
+@innovus 109> set_partition_pin_status -partition statistics_unit -pins {data_in[14]} -status unplaced -quiet
+@innovus 110> set_partition_pin_status -partition statistics_unit -pins {data_in[15]} -status unplaced -quiet
+@innovus 111> set_partition_pin_status -partition statistics_unit -pins {data_in[16]} -status unplaced -quiet
+@innovus 112> set_partition_pin_status -partition statistics_unit -pins {data_in[17]} -status unplaced -quiet
+@innovus 113> set_partition_pin_status -partition statistics_unit -pins {data_in[18]} -status unplaced -quiet
+@innovus 114> set_partition_pin_status -partition statistics_unit -pins {data_in[19]} -status unplaced -quiet
+@innovus 115> set_partition_pin_status -partition statistics_unit -pins {data_in[20]} -status unplaced -quiet
+@innovus 116> set_partition_pin_status -partition statistics_unit -pins {data_in[21]} -status unplaced -quiet
+@innovus 117> set_partition_pin_status -partition statistics_unit -pins {data_in[22]} -status unplaced -quiet
+@innovus 118> set_partition_pin_status -partition statistics_unit -pins {data_in[23]} -status unplaced -quiet
+@innovus 119> set_partition_pin_status -partition statistics_unit -pins {data_in[24]} -status unplaced -quiet
+@innovus 120> set_partition_pin_status -partition statistics_unit -pins {data_in[25]} -status unplaced -quiet
+@innovus 121> set_partition_pin_status -partition statistics_unit -pins {data_in[26]} -status unplaced -quiet
+@innovus 122> set_partition_pin_status -partition statistics_unit -pins {data_in[27]} -status unplaced -quiet
+@innovus 123> set_partition_pin_status -partition statistics_unit -pins {data_in[28]} -status unplaced -quiet
+@innovus 124> set_partition_pin_status -partition statistics_unit -pins {data_in[29]} -status unplaced -quiet
+@innovus 125> set_partition_pin_status -partition statistics_unit -pins {data_in[30]} -status unplaced -quiet
+@innovus 126> set_partition_pin_status -partition statistics_unit -pins {data_in[31]} -status unplaced -quiet
+@innovus 127> set_db assign_pins_edit_in_batch true
+@innovus 128> edit_pin -fix_overlap 1 -spread_direction clockwise -edge 2 -layer 1 -spread_type side -pin {{count[0]} {count[1]} {count[2]} {count[3]} {count[4]} {count[5]} {count[6]} {count[7]} {count[8]} {count[9]} {count[10]} {count[11]} {count[12]} {count[13]} {count[14]} {count[15]}}
+Successfully spread [16] pins.
+Ideal location for pin count[15] is (200.16, 0.42). It is placed at Location (200.16, 21.00), which  is deviated more than its ideal spacing 15.04
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1504.5M).
+@innovus 129> set_db assign_pins_edit_in_batch false
+@innovus 130> set_db assign_pins_edit_in_batch true
+@innovus 131> edit_pin -pin_width 2.0 -pin_depth 20.0 -fix_overlap 1 -spread_direction clockwise -edge 2 -layer 1 -spread_type side -pin {{count[0]} {count[1]} {count[2]} {count[3]} {count[4]} {count[5]} {count[6]} {count[7]} {count[8]} {count[9]} {count[10]} {count[11]} {count[12]} {count[13]} {count[14]} {count[15]}}
+Successfully spread [16] pins.
+Ideal location for pin count[0] is (200.16, 197.40). It is placed at Location (200.16, 99.12), which  is deviated more than its ideal spacing 15.04
+Ideal location for pin count[1] is (200.16, 184.38). It is placed at Location (200.16, 96.60), which  is deviated more than its ideal spacing 15.04
+Ideal location for pin count[2] is (200.16, 171.36). It is placed at Location (200.16, 94.08), which  is deviated more than its ideal spacing 15.04
+Ideal location for pin count[3] is (200.16, 158.34). It is placed at Location (200.16, 91.56), which  is deviated more than its ideal spacing 15.04
+Ideal location for pin count[4] is (200.16, 144.90). It is placed at Location (200.16, 89.04), which  is deviated more than its ideal spacing 15.04
+Ideal location for pin count[5] is (200.16, 131.88). It is placed at Location (200.16, 86.52), which  is deviated more than its ideal spacing 15.04
+Ideal location for pin count[6] is (200.16, 118.44). It is placed at Location (200.16, 84.00), which  is deviated more than its ideal spacing 15.04
+Ideal location for pin count[7] is (200.16, 105.42). It is placed at Location (200.16, 81.48), which  is deviated more than its ideal spacing 15.04
+Ideal location for pin count[15] is (200.16, 0.42). It is placed at Location (200.16, 23.94), which  is deviated more than its ideal spacing 15.04
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1504.5M).
+@innovus 132> set_db assign_pins_edit_in_batch false
+@innovus 133> set_partition_pin_status -partition statistics_unit -pins {sum[0]} -status unplaced -quiet
+@innovus 134> set_partition_pin_status -partition statistics_unit -pins {sum[1]} -status unplaced -quiet
+@innovus 135> set_partition_pin_status -partition statistics_unit -pins {sum[2]} -status unplaced -quiet
+@innovus 136> set_partition_pin_status -partition statistics_unit -pins {sum[3]} -status unplaced -quiet
+@innovus 137> set_partition_pin_status -partition statistics_unit -pins {sum[4]} -status unplaced -quiet
+@innovus 138> set_partition_pin_status -partition statistics_unit -pins {sum[5]} -status unplaced -quiet
+@innovus 139> set_partition_pin_status -partition statistics_unit -pins {sum[6]} -status unplaced -quiet
+@innovus 140> set_partition_pin_status -partition statistics_unit -pins {sum[7]} -status unplaced -quiet
+@innovus 141> set_partition_pin_status -partition statistics_unit -pins {sum[8]} -status unplaced -quiet
+@innovus 142> set_partition_pin_status -partition statistics_unit -pins {sum[9]} -status unplaced -quiet
+@innovus 143> set_partition_pin_status -partition statistics_unit -pins {sum[10]} -status unplaced -quiet
+@innovus 144> set_partition_pin_status -partition statistics_unit -pins {sum[11]} -status unplaced -quiet
+@innovus 145> set_partition_pin_status -partition statistics_unit -pins {sum[12]} -status unplaced -quiet
+@innovus 146> set_partition_pin_status -partition statistics_unit -pins {sum[13]} -status unplaced -quiet
+@innovus 147> set_partition_pin_status -partition statistics_unit -pins {sum[14]} -status unplaced -quiet
+@innovus 148> set_partition_pin_status -partition statistics_unit -pins {sum[15]} -status unplaced -quiet
+@innovus 149> set_partition_pin_status -partition statistics_unit -pins {sum[16]} -status unplaced -quiet
+@innovus 150> set_partition_pin_status -partition statistics_unit -pins {sum[17]} -status unplaced -quiet
+@innovus 151> set_partition_pin_status -partition statistics_unit -pins {sum[18]} -status unplaced -quiet
+@innovus 152> set_partition_pin_status -partition statistics_unit -pins {sum[19]} -status unplaced -quiet
+@innovus 153> set_partition_pin_status -partition statistics_unit -pins {sum[20]} -status unplaced -quiet
+@innovus 154> set_partition_pin_status -partition statistics_unit -pins {sum[21]} -status unplaced -quiet
+@innovus 155> set_partition_pin_status -partition statistics_unit -pins {sum[22]} -status unplaced -quiet
+@innovus 156> set_partition_pin_status -partition statistics_unit -pins {sum[23]} -status unplaced -quiet
+@innovus 157> set_partition_pin_status -partition statistics_unit -pins {sum[24]} -status unplaced -quiet
+@innovus 158> set_partition_pin_status -partition statistics_unit -pins {sum[25]} -status unplaced -quiet
+@innovus 159> set_partition_pin_status -partition statistics_unit -pins {sum[26]} -status unplaced -quiet
+@innovus 160> set_partition_pin_status -partition statistics_unit -pins {sum[27]} -status unplaced -quiet
+@innovus 161> set_partition_pin_status -partition statistics_unit -pins {sum[28]} -status unplaced -quiet
+@innovus 162> set_partition_pin_status -partition statistics_unit -pins {sum[29]} -status unplaced -quiet
+@innovus 163> set_partition_pin_status -partition statistics_unit -pins {sum[30]} -status unplaced -quiet
+@innovus 164> set_partition_pin_status -partition statistics_unit -pins {sum[31]} -status unplaced -quiet
+@innovus 165> set_db assign_pins_edit_in_batch true
+@innovus 166> edit_pin -pin_width 2.0 -pin_depth 20.0 -fix_overlap 1 -spread_direction clockwise -edge 2 -layer 1 -spread_type side -pin {{count[0]} {count[1]} {count[2]} {count[3]} {count[4]} {count[5]} {count[6]} {count[7]} {count[8]} {count[9]} {count[10]} {count[11]} {count[12]} {count[13]} {count[14]} {count[15]}}
+Successfully spread [16] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1504.5M).
+@innovus 167> set_db assign_pins_edit_in_batch false
+@innovus 168> gui_pan 16.59200 21.24800
+@innovus 169> gui_pan -23.46200 -1.77000
+@innovus 170> gui_pan 22.96500 144.14800
+@innovus 171> set_db assign_pins_edit_in_batch true
+@innovus 172> edit_pin -pin_width 1.0 -pin_depth 20.0 -fix_overlap 1 -spread_direction clockwise -edge 2 -layer 1 -spread_type side -pin {{data_in[0]} {data_in[1]} {data_in[2]} {data_in[3]} {data_in[4]} {data_in[5]} {data_in[6]} {data_in[7]} {data_in[8]} {data_in[9]} {data_in[10]} {data_in[11]} {data_in[12]} {data_in[13]} {data_in[14]} {data_in[15]} {data_in[16]} {data_in[17]} {data_in[18]} {data_in[19]} {data_in[20]} {data_in[21]} {data_in[22]} {data_in[23]} {data_in[24]} {data_in[25]} {data_in[26]} {data_in[27]} {data_in[28]} {data_in[29]} {data_in[30]} {data_in[31]}}
+Successfully spread [32] pins.
+Ideal location for pin data_in[28] is (200.16, 19.32). It is placed at Location (200.16, 30.66), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[29] is (200.16, 13.02). It is placed at Location (200.16, 33.60), which  is deviated more than its ideal spacing 7.28
+Ideal location for pin data_in[30] is (200.16, 6.72). It is placed at Location (200.16, 34.86), which  is deviated more than its ideal spacing 7.28
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1504.6M).
+@innovus 173> set_db assign_pins_edit_in_batch false
+@innovus 174> gui_pan 54.77100 106.74800
+@innovus 175> gui_pan 33.24800 55.37300
+@innovus 176> gui_pan 14.70900 36.43100
+@innovus 177> gui_pan -28.26200 -18.05800
+@innovus 178> set_db assign_pins_edit_in_batch true
+@innovus 179> edit_pin -pin_width 2.0 -pin_depth 20.0 -fix_overlap 1 -unit micron -spread_direction clockwise -edge 0 -layer 1 -spread_type center -spacing 7.68 -pin {{sum[0]} {sum[1]} {sum[2]} {sum[3]} {sum[4]} {sum[5]} {sum[6]} {sum[7]} {sum[8]} {sum[9]} {sum[10]} {sum[11]} {sum[12]} {sum[13]} {sum[14]} {sum[15]} {sum[16]} {sum[17]} {sum[18]} {sum[19]} {sum[20]} {sum[21]} {sum[22]} {sum[23]} {sum[24]} {sum[25]} {sum[26]} {sum[27]} {sum[28]} {sum[29]} {sum[30]} {sum[31]}}
+Selected [32] pin for spreading. Could not spread (9 out of 32) pins, either because space provided for spreading pins are less than required or because of constraints on the selected pins or because of some blockage (pin blockage, routing blockage, power stripes etc.) on the selected region.
+
+Following pins are not spread:
+  sum[0]
+  sum[1]
+  sum[2]
+  sum[3]
+  sum[4]
+  sum[5]
+  sum[29]
+  sum[30]
+  sum[31]
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1504.6M).
+@innovus 180> set_db assign_pins_edit_in_batch false
+@innovus 181> gui_pan -108.93500 18.76800
+@innovus 182> gui_pan 3.08800 217.99900
+@innovus 183> gui_pan 6.56200 248.49600
+@innovus 184> set_db assign_pins_edit_in_batch true
+@innovus 185> edit_pin -fix_overlap 1 -unit micron -spread_direction clockwise -edge 0 -layer 1 -spread_type center -spacing 3 -pin {{sum[0]} {sum[1]} {sum[2]} {sum[3]} {sum[4]} {sum[5]} {sum[6]} {sum[7]} {sum[8]} {sum[9]} {sum[10]} {sum[11]} {sum[12]} {sum[13]} {sum[14]} {sum[15]} {sum[16]} {sum[17]} {sum[18]} {sum[19]} {sum[20]} {sum[21]} {sum[22]} {sum[23]} {sum[24]} {sum[25]} {sum[26]} {sum[27]} {sum[28]} {sum[29]} {sum[30]} {sum[31]}}
+Successfully spread [32] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1505.6M).
+@innovus 186> set_db assign_pins_edit_in_batch false
+@innovus 187> set_db assign_pins_edit_in_batch true
+@innovus 188> edit_pin -pin_width 2.0 -pin_depth 20.0 -fix_overlap 1 -unit micron -spread_direction clockwise -edge 0 -layer 1 -spread_type center -spacing 2.94 -pin {{sum[0]} {sum[1]} {sum[2]} {sum[3]} {sum[4]} {sum[5]} {sum[6]} {sum[7]} {sum[8]} {sum[9]} {sum[10]} {sum[11]} {sum[12]} {sum[13]} {sum[14]} {sum[15]} {sum[16]} {sum[17]} {sum[18]} {sum[19]} {sum[20]} {sum[21]} {sum[22]} {sum[23]} {sum[24]} {sum[25]} {sum[26]} {sum[27]} {sum[28]} {sum[29]} {sum[30]} {sum[31]}}
+Successfully spread [32] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1505.6M).
+@innovus 189> set_db assign_pins_edit_in_batch false
+@innovus 190> gui_pan -6.13600 160.95400
+@innovus 191> gui_pan 4.46300 202.51200
+@innovus 192> gui_pan 50.20400 147.28800
+@innovus 193> gui_pan 38.88200 -21.84900
+@innovus 194> gui_pan -52.89100 136.20000
+@innovus 195> gui_pan 17.78100 172.98300
+@innovus 196> gui_pan 23.23500 182.46600
+@innovus 197> gui_pan 2.84500 106.35800
+@innovus 198> gui_pan -58.08800 48.08100
+@innovus 199> gui_pan -68.34900 44.49000
+@innovus 200> gui_pan 8.39400 151.21000
+@innovus 201> gui_pan 16.44500 156.86300
+@innovus 202> edit_pin -pin_width 5.0 -pin_depth 2.0 -fix_overlap 1 -unit micron -spread_direction clockwise -side Top -layer 1 -spread_type center -spacing 1.44 -pin {clear clk rst_n valid_in}
+To speed up, if you have to run multiple edit_pin commands then wrap all edit_pin commands within  'set_db assign_pins_edit_in_batch true' (then edit_pin commands) and 'set_db assign_pins_edit_in_batch false'
+Successfully spread [4] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1505.7M).
+@innovus 203> edit_pin -pin_width 2.0 -pin_depth 3.0 -fix_overlap 1 -spread_dire [1Gction clockwise -edge 3 -layer 1 -spread_type side -pin {{max[0]} {max[1]} {max[ [1G2]} {max[3]} {max[4]} {max[5]} {max[6]} {max[7]} {max[8]} {max[9]} {max[10]} {ma [1Gx[11]} {max[12]} {max[13]} {max[14]} {max[15]} {max[16]} {max[17]} {max[18]} {ma [1Gx[19]} {max[20]} {max[21]} {max[22]} {max[23]} {max[24]} {max[25]} {max[26]} {ma [1Gx[27]} {max[28]} {max[29]} {max[30]} {max[31]} {min[0]} {min[1]} {min[2]} {min[3 [1G]} {min[4]} {min[5]} {min[6]} {min[7]} {min[8]} {min[9]} {min[10]} {min[11]} {mi [1Gn[12]} {min[13]} {min[14]} {min[15]} {min[16]} {min[17]} {min[18]} {min[19]} {mi [1Gn[20]} {min[21]} {min[22]} {min[23]} {min[24]} {min[25]} {min[26]} {min[27]} {mi [1Gn[28]} {min[29]} {min[30]} {min[31]}}
+edit_pin -pin_width 2.0 -pin_depth 3.0 -fix_overlap 1 -spread_direction clockwise -edge 3 -layer 1 -spread_type side -pin {{max[0]} {max[1]} {max[2]} {max[3]} {max[4]} {max[5]} {max[6]} {max[7]} {max[8]} {max[9]} {max[10]} {max[11]} {max[12]} {max[13]} {max[14]} {max[15]} {max[16]} {max[17]} {max[18]} {max[19]} {max[20]} {max[21]} {max[22]} {max[23]} {max[24]} {max[25]} {max[26]} {max[27]} {max[28]} {max[29]} {max[30]} {max[31]} {min[0]} {min[1]} {min[2]} {min[3]} {min[4]} {min[5]} {min[6]} {min[7]} {min[8]} {min[9]} {min[10]} {min[11]} {min[12]} {min[13]} {min[14]} {min[15]} {min[16]} {min[17]} {min[18]} {min[19]} {min[20]} {min[21]} {min[22]} {min[23]} {min[24]} {min[25]} {min[26]} {min[27]} {min[28]} {min[29]} {min[30]} {min[31]}}
+To speed up, if you have to run multiple edit_pin commands then wrap all edit_pin commands within  'set_db assign_pins_edit_in_batch true' (then edit_pin commands) and 'set_db assign_pins_edit_in_batch false'
+Successfully spread [64] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1505.7M).
+@innovus 204> edit_pin -pin_width 2.0 -pin_depth 3.0 -fix_overlap 1 -spread_dire [1Gction clockwise -edge 2 -layer 1 -spread_type side -pin {{count[0]} {count[1]} { [1Gcount[2]} {count[3]} {count[4]} {count[5]} {count[6]} {count[7]} {count[8]} {cou [1Gnt[9]} {count[10]} {count[11]} {count[12]} {count[13]} {count[14]} {count[15]}}
+edit_pin -pin_width 2.0 -pin_depth 3.0 -fix_overlap 1 -spread_direction clockwise -edge 2 -layer 1 -spread_type side -pin {{count[0]} {count[1]} {count[2]} {count[3]} {count[4]} {count[5]} {count[6]} {count[7]} {count[8]} {count[9]} {count[10]} {count[11]} {count[12]} {count[13]} {count[14]} {count[15]}}
+To speed up, if you have to run multiple edit_pin commands then wrap all edit_pin commands within  'set_db assign_pins_edit_in_batch true' (then edit_pin commands) and 'set_db assign_pins_edit_in_batch false'
+Successfully spread [16] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1505.7M).
+@innovus 205> edit_pin -pin_width 1.0 -pin_depth 3.0 -fix_overlap 1 -spread_dire [1Gction clockwise -edge 2 -layer 1 -spread_type side -pin {{data_in[0]} {data_in[1 [1G]} {data_in[2]} {data_in[3]} {data_in[4]} {data_in[5]} {data_in[6]} {data_in[7]} [1G {data_in[8]} {data_in[9]} {data_in[10]} {data_in[11]} {data_in[12]} {data_in[13 [1G]} {data_in[14]} {data_in[15]} {data_in[16]} {data_in[17]} {data_in[18]} {data_i [1Gn[19]} {data_in[20]} {data_in[21]} {data_in[22]} {data_in[23]} {data_in[24]} {da [1Gta_in[25]} {data_in[26]} {data_in[27]} {data_in[28]} {data_in[29]} {data_in[30]} [1G {data_in[31]}}
+edit_pin -pin_width 1.0 -pin_depth 3.0 -fix_overlap 1 -spread_direction clockwise -edge 2 -layer 1 -spread_type side -pin {{data_in[0]} {data_in[1]} {data_in[2]} {data_in[3]} {data_in[4]} {data_in[5]} {data_in[6]} {data_in[7]} {data_in[8]} {data_in[9]} {data_in[10]} {data_in[11]} {data_in[12]} {data_in[13]} {data_in[14]} {data_in[15]} {data_in[16]} {data_in[17]} {data_in[18]} {data_in[19]} {data_in[20]} {data_in[21]} {data_in[22]} {data_in[23]} {data_in[24]} {data_in[25]} {data_in[26]} {data_in[27]} {data_in[28]} {data_in[29]} {data_in[30]} {data_in[31]}}
+To speed up, if you have to run multiple edit_pin commands then wrap all edit_pin commands within  'set_db assign_pins_edit_in_batch true' (then edit_pin commands) and 'set_db assign_pins_edit_in_batch false'
+Successfully spread [32] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:01.0, mem = 1505.7M).
+@innovus 206> edit_pin -pin_width 2.0 -pin_depth 3.0 -fix_overlap 1 -unit micron [1G -spread_direction clockwise -edge 0 -layer 1 -spread_type center -spacing 2.94  [1G-pin {{sum[0]} {sum[1]} {sum[2]} {sum[3]} {sum[4]} {sum[5]} {sum[6]} {sum[7]} {s [1Gum[8]} {sum[9]} {sum[10]} {sum[11]} {sum[12]} {sum[13]} {sum[14]} {sum[15]} {sum [1G[16]} {sum[17]} {sum[18]} {sum[19]} {sum[20]} {sum[21]} {sum[22]} {sum[23]} {sum [1G[24]} {sum[25]} {sum[26]} {sum[27]} {sum[28]} {sum[29]} {sum[30]} {sum[31]}}
+edit_pin -pin_width 2.0 -pin_depth 3.0 -fix_overlap 1 -unit micron -spread_direction clockwise -edge 0 -layer 1 -spread_type center -spacing 2.94 -pin {{sum[0]} {sum[1]} {sum[2]} {sum[3]} {sum[4]} {sum[5]} {sum[6]} {sum[7]} {sum[8]} {sum[9]} {sum[10]} {sum[11]} {sum[12]} {sum[13]} {sum[14]} {sum[15]} {sum[16]} {sum[17]} {sum[18]} {sum[19]} {sum[20]} {sum[21]} {sum[22]} {sum[23]} {sum[24]} {sum[25]} {sum[26]} {sum[27]} {sum[28]} {sum[29]} {sum[30]} {sum[31]}}
+To speed up, if you have to run multiple edit_pin commands then wrap all edit_pin commands within  'set_db assign_pins_edit_in_batch true' (then edit_pin commands) and 'set_db assign_pins_edit_in_batch false'
+Successfully spread [32] pins.
+editPin : finished (cpu = 0:00:00.0 real = 0:00:00.0, mem = 1505.7M).
+@innovus 207> 
+
+@innovus 207> gui_pan 2.74100 128.25600
+@innovus 208> gui_pan 8.09000 120.97800
+@innovus 209> gui_pan -3.90500 91.68900
+@innovus 210> gui_pan 85.76200 37.12700
+@innovus 211> gui_pan -81.98400 -64.11800
+@innovus 212> gui_pan -2.62100 29.22400
+@innovus 213> gui_pan 6.13700 119.67800
+@innovus 214> set_db add_rings_target default ; set_db add_rings_extend_over_row 0 ; set_db add_rings_ignore_rows 0 ; set_db add_rings_avoid_short 0 ; set_db add_rings_skip_shared_inner_ring none ; set_db add_rings_stacked_via_top_layer TopMetal2 ; set_db add_rings_stacked_via_bottom_layer Metal1 ; set_db add_rings_via_using_exact_crossover_size 1 ; set_db add_rings_orthogonal_only true ; set_db add_rings_skip_via_on_pin {  standardcell } ; set_db add_rings_skip_via_on_wire_shape {  noshape }
+The ring targets are set to core/block ring wires.
+add_rings command will disallow rings to go over rows.
+add_rings command will consider rows while creating rings.
+add_rings command will ignore shorts while creating rings.
+@innovus 215> The ring targets are set to core/block ring wires.
+add_rings command will consider rows while creating rings.
+add_rings command will disallow rings to go over rows.
+add_rings command will ignore shorts while creating rings.
+add_rings -nets {VDD VSS} -type core_rings -follow core -layer {top TopMetal1 bottom TopMetal1 left TopMetal2 right TopMetal2} -width {top 4 bottom 4 left 4 right 4} -spacing {top 2 bottom 2 left 2 right 2} -offset {top 4 bottom 4 left 4 right 4} -center 0 -threshold 0 -jog_distance 0 -snap_wire_center_to_grid none
+#% Begin add_rings (date=10/18 14:23:45, mem=1358.2M)
+
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1514.4M)
+Ring generation is complete.
+vias are now being generated.
+add_rings created 8 wires.
+ViaGen created 8 vias, deleted 0 via to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+|TopMetal1|        4       |       NA       |
+| TopVia2|        8       |        0       |
+|TopMetal2|        4       |       NA       |
++--------+----------------+----------------+
+#% End add_rings (date=10/18 14:23:45, total cpu=0:00:00.0, real=0:00:00.0, peak res=1360.0M, current mem=1360.0M)
+@innovus 216> gui_pan 23.17800 77.47200
+@innovus 217> gui_pan 52.80600 -0.52800
+@innovus 218> gui_pan 9.12200 -123.18700
+@innovus 219> gui_pan 8.45200 -160.42300
+@innovus 220> set_db add_rings_target default ; set_db add_rings_extend_over_row 0 ; set_db add_rings_ignore_rows 0 ; set_db add_rings_avoid_short 0 ; set_db add_rings_skip_shared_inner_ring none ; set_db add_rings_stacked_via_top_layer TopMetal2 ; set_db add_rings_stacked_via_bottom_layer Metal1 ; set_db add_rings_via_using_exact_crossover_size 1 ; set_db add_rings_orthogonal_only true ; set_db add_rings_skip_via_on_pin {  standardcell } ; set_db add_rings_skip_via_on_wire_shape {  noshape }
+The ring targets are set to core/block ring wires.
+add_rings command will disallow rings to go over rows.
+add_rings command will consider rows while creating rings.
+add_rings command will ignore shorts while creating rings.
+@innovus 221> The ring targets are set to core/block ring wires.
+add_rings command will consider rows while creating rings.
+add_rings command will disallow rings to go over rows.
+add_rings command will ignore shorts while creating rings.
+add_rings -nets {VDD VSS} -type core_rings -follow core -layer {top TopMetal1 bottom TopMetal1 left TopMetal2 right TopMetal2} -width {top 4 bottom 4 left 4 right 4} -spacing {top 2 bottom 2 left 2 right 2} -offset {top 2 bottom 2 left 2 right 2} -center 0 -threshold 0 -jog_distance 0 -snap_wire_center_to_grid none
+#% Begin add_rings (date=10/18 14:24:47, mem=1360.4M)
+
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1514.5M)
+**WARN: (IMPPP-4051):	Failed to add rings, because the IO cells might contain gaps. Run the 'add_io_fillers' command to fill gaps between the cells and try again.
+Type 'man IMPPP-4051' for more detail.
+Ring generation is complete.
+#% End add_rings (date=10/18 14:24:47, total cpu=0:00:00.0, real=0:00:00.0, peak res=1360.5M, current mem=1360.5M)
+@innovus 222> set_db add_rings_target default ; set_db add_rings_extend_over_row 0 ; set_db add_rings_ignore_rows 0 ; set_db add_rings_avoid_short 0 ; set_db add_rings_skip_shared_inner_ring none ; set_db add_rings_stacked_via_top_layer TopMetal2 ; set_db add_rings_stacked_via_bottom_layer Metal1 ; set_db add_rings_via_using_exact_crossover_size 1 ; set_db add_rings_orthogonal_only true ; set_db add_rings_skip_via_on_pin {  standardcell } ; set_db add_rings_skip_via_on_wire_shape {  noshape }
+The ring targets are set to core/block ring wires.
+add_rings command will disallow rings to go over rows.
+add_rings command will consider rows while creating rings.
+add_rings command will ignore shorts while creating rings.
+@innovus 223> The ring targets are set to core/block ring wires.
+add_rings command will consider rows while creating rings.
+add_rings command will disallow rings to go over rows.
+add_rings command will ignore shorts while creating rings.
+add_rings -nets {VDD VSS} -type core_rings -follow core -layer {top TopMetal1 bottom TopMetal1 left TopMetal2 right TopMetal2} -width {top 4 bottom 4 left 4 right 4} -spacing {top 2 bottom 2 left 2 right 2} -offset {top 2 bottom 2 left 2 right 2} -center 0 -threshold 0 -jog_distance 0 -snap_wire_center_to_grid none
+#% Begin add_rings (date=10/18 14:24:48, mem=1360.4M)
+
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1514.5M)
+**WARN: (IMPPP-4051):	Failed to add rings, because the IO cells might contain gaps. Run the 'add_io_fillers' command to fill gaps between the cells and try again.
+Type 'man IMPPP-4051' for more detail.
+Ring generation is complete.
+#% End add_rings (date=10/18 14:24:48, total cpu=0:00:00.0, real=0:00:00.0, peak res=1360.4M, current mem=1360.4M)
+@innovus 224> gui_pan -18.85200 -156.42000
+@innovus 225> gui_pan 18.01600 -129.90800
+@innovus 226> set_db add_rings_target default ; set_db add_rings_extend_over_row 0 ; set_db add_rings_ignore_rows 0 ; set_db add_rings_avoid_short 0 ; set_db add_rings_skip_shared_inner_ring none ; set_db add_rings_stacked_via_top_layer TopMetal2 ; set_db add_rings_stacked_via_bottom_layer Metal1 ; set_db add_rings_via_using_exact_crossover_size 1 ; set_db add_rings_orthogonal_only true ; set_db add_rings_skip_via_on_pin {  standardcell } ; set_db add_rings_skip_via_on_wire_shape {  noshape }
+The ring targets are set to core/block ring wires.
+add_rings command will disallow rings to go over rows.
+add_rings command will consider rows while creating rings.
+add_rings command will ignore shorts while creating rings.
+@innovus 227> The ring targets are set to core/block ring wires.
+add_rings command will consider rows while creating rings.
+add_rings command will disallow rings to go over rows.
+add_rings command will ignore shorts while creating rings.
+add_rings -nets {VDD VSS} -type core_rings -follow core -layer {top TopMetal1 bottom TopMetal1 left TopMetal2 right TopMetal2} -width {top 4 bottom 4 left 4 right 4} -spacing {top 1.64 bottom 1.64 left 2 right 2} -offset {top 2 bottom 2 left 2 right 2} -center 0 -threshold 0 -jog_distance 0 -snap_wire_center_to_grid none
+#% Begin add_rings (date=10/18 14:25:17, mem=1360.3M)
+
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1514.6M)
+**WARN: (IMPPP-4051):	Failed to add rings, because the IO cells might contain gaps. Run the 'add_io_fillers' command to fill gaps between the cells and try again.
+Type 'man IMPPP-4051' for more detail.
+Ring generation is complete.
+#% End add_rings (date=10/18 14:25:17, total cpu=0:00:00.0, real=0:00:00.0, peak res=1360.4M, current mem=1360.4M)
+@innovus 228> set_db add_rings_target default ; set_db add_rings_extend_over_row 0 ; set_db add_rings_ignore_rows 0 ; set_db add_rings_avoid_short 0 ; set_db add_rings_skip_shared_inner_ring none ; set_db add_rings_stacked_via_top_layer TopMetal2 ; set_db add_rings_stacked_via_bottom_layer Metal1 ; set_db add_rings_via_using_exact_crossover_size 1 ; set_db add_rings_orthogonal_only true ; set_db add_rings_skip_via_on_pin {  standardcell } ; set_db add_rings_skip_via_on_wire_shape {  noshape }
+The ring targets are set to core/block ring wires.
+add_rings command will disallow rings to go over rows.
+add_rings command will consider rows while creating rings.
+add_rings command will ignore shorts while creating rings.
+@innovus 229> The ring targets are set to core/block ring wires.
+add_rings command will consider rows while creating rings.
+add_rings command will disallow rings to go over rows.
+add_rings command will ignore shorts while creating rings.
+add_rings -nets {VDD VSS} -type core_rings -follow core -layer {top TopMetal1 bottom TopMetal1 left TopMetal2 right TopMetal2} -width {top 4 bottom 4 left 4 right 4} -spacing {top 2 bottom 2 left 2 right 2} -offset {top 2 bottom 2 left 2 right 2} -center 0 -threshold 0 -jog_distance 0 -snap_wire_center_to_grid none
+#% Begin add_rings (date=10/18 14:25:22, mem=1360.5M)
+
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1514.6M)
+**WARN: (IMPPP-4051):	Failed to add rings, because the IO cells might contain gaps. Run the 'add_io_fillers' command to fill gaps between the cells and try again.
+Type 'man IMPPP-4051' for more detail.
+Ring generation is complete.
+#% End add_rings (date=10/18 14:25:22, total cpu=0:00:00.0, real=0:00:00.0, peak res=1360.5M, current mem=1360.5M)
+@innovus 230> gui_pan -10.08000 -153.22900
+@innovus 231> set_db add_rings_target default ; set_db add_rings_extend_over_row 0 ; set_db add_rings_ignore_rows 0 ; set_db add_rings_avoid_short 0 ; set_db add_rings_skip_shared_inner_ring none ; set_db add_rings_stacked_via_top_layer TopMetal2 ; set_db add_rings_stacked_via_bottom_layer Metal1 ; set_db add_rings_via_using_exact_crossover_size 1 ; set_db add_rings_orthogonal_only true ; set_db add_rings_skip_via_on_pin {  standardcell } ; set_db add_rings_skip_via_on_wire_shape {  noshape }
+The ring targets are set to core/block ring wires.
+add_rings command will disallow rings to go over rows.
+add_rings command will consider rows while creating rings.
+add_rings command will ignore shorts while creating rings.
+@innovus 232> The ring targets are set to core/block ring wires.
+add_rings command will consider rows while creating rings.
+add_rings command will disallow rings to go over rows.
+add_rings command will ignore shorts while creating rings.
+add_rings -nets {VDD VSS} -type core_rings -follow core -layer {top TopMetal1 bottom TopMetal1 left TopMetal2 right TopMetal2} -width {top 4 bottom 4 left 4 right 4} -spacing {top 2 bottom 2 left 2 right 2} -offset {top 2 bottom 2 left 2 right 2} -center 0 -threshold 0 -jog_distance 0 -snap_wire_center_to_grid none
+#% Begin add_rings (date=10/18 14:26:22, mem=1361.4M)
+
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1514.6M)
+**WARN: (IMPPP-4051):	Failed to add rings, because the IO cells might contain gaps. Run the 'add_io_fillers' command to fill gaps between the cells and try again.
+Type 'man IMPPP-4051' for more detail.
+Ring generation is complete.
+#% End add_rings (date=10/18 14:26:22, total cpu=0:00:00.0, real=0:00:01.0, peak res=1361.8M, current mem=1361.8M)
+@innovus 233> set_db add_rings_target default ; set_db add_rings_extend_over_row 0 ; set_db add_rings_ignore_rows 0 ; set_db add_rings_avoid_short 0 ; set_db add_rings_skip_shared_inner_ring none ; set_db add_rings_stacked_via_top_layer TopMetal2 ; set_db add_rings_stacked_via_bottom_layer Metal1 ; set_db add_rings_via_using_exact_crossover_size 1 ; set_db add_rings_orthogonal_only true ; set_db add_rings_skip_via_on_pin {  standardcell } ; set_db add_rings_skip_via_on_wire_shape {  noshape }
+The ring targets are set to core/block ring wires.
+add_rings command will disallow rings to go over rows.
+add_rings command will consider rows while creating rings.
+add_rings command will ignore shorts while creating rings.
+@innovus 234> The ring targets are set to core/block ring wires.
+add_rings command will consider rows while creating rings.
+add_rings command will disallow rings to go over rows.
+add_rings command will ignore shorts while creating rings.
+add_rings -nets {VDD VSS} -type core_rings -follow core -layer {top TopMetal1 bottom TopMetal1 left TopMetal2 right TopMetal2} -width {top 4 bottom 4 left 4 right 4} -spacing {top 2 bottom 2 left 2 right 2} -offset {top 0 bottom 0 left 0 right 0} -center 0 -threshold 0 -jog_distance 0 -snap_wire_center_to_grid none
+#% Begin add_rings (date=10/18 14:26:29, mem=1361.9M)
+
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1514.6M)
+Ring generation is complete.
+vias are now being generated.
+add_rings created 4 wires.
+ViaGen created 4 vias, deleted 0 via to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+|TopMetal1|        2       |       NA       |
+| TopVia2|        4       |        0       |
+|TopMetal2|        2       |       NA       |
++--------+----------------+----------------+
+#% End add_rings (date=10/18 14:26:29, total cpu=0:00:00.0, real=0:00:00.0, peak res=1362.0M, current mem=1362.0M)
+@innovus 235> set_db add_rings_target default ; set_db add_rings_extend_over_row 0 ; set_db add_rings_ignore_rows 0 ; set_db add_rings_avoid_short 0 ; set_db add_rings_skip_shared_inner_ring none ; set_db add_rings_stacked_via_top_layer TopMetal2 ; set_db add_rings_stacked_via_bottom_layer Metal1 ; set_db add_rings_via_using_exact_crossover_size 1 ; set_db add_rings_orthogonal_only true ; set_db add_rings_skip_via_on_pin {  standardcell } ; set_db add_rings_skip_via_on_wire_shape {  noshape }
+The ring targets are set to core/block ring wires.
+add_rings command will disallow rings to go over rows.
+add_rings command will consider rows while creating rings.
+add_rings command will ignore shorts while creating rings.
+@innovus 236> The ring targets are set to core/block ring wires.
+add_rings command will consider rows while creating rings.
+add_rings command will disallow rings to go over rows.
+add_rings command will ignore shorts while creating rings.
+add_rings -nets {VDD VSS} -type core_rings -follow core -layer {top TopMetal1 bottom TopMetal1 left TopMetal2 right TopMetal2} -width {top 4 bottom 4 left 4 right 4} -spacing {top 2 bottom 2 left 2 right 2} -offset {top 0 bottom 0 left 0 right 100} -center 0 -threshold 0 -jog_distance 0 -snap_wire_center_to_grid none
+#% Begin add_rings (date=10/18 14:26:34, mem=1361.9M)
+
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1514.7M)
+**WARN: (IMPPP-220):	The power planner does not create core rings outside the design boundary. Check the design boundary, or specify valid offsets.
+**WARN: (IMPPP-4051):	Failed to add rings, because the IO cells might contain gaps. Run the 'add_io_fillers' command to fill gaps between the cells and try again.
+Type 'man IMPPP-4051' for more detail.
+#% End add_rings (date=10/18 14:26:34, total cpu=0:00:00.0, real=0:00:00.0, peak res=1361.9M, current mem=1361.9M)
+@innovus 237> gui_pan -5.71500 -168.63000
+@innovus 238> gui_pan -62.89400 -100.92200
+@innovus 239> gui_pan 27.03200 174.19300
+@innovus 240> edit_cut_route -only_visible_wires -line { 2.906 197.174 14.533 185.547 }
+Cut-line is auto-snapped from (2.906000 185.547000 14.533000 197.174000) to (2.905000 185.545000 14.535000 197.175000).
+@innovus 241> edit_cut_route -only_visible_wires -line { 8.416 185.454 14.019 191.057 }
+Cut-line is auto-snapped from (8.416000 185.454000 14.019000 191.057000) to (8.415000 185.455000 14.020000 191.055000).
+@innovus 242> edit_cut_route -only_visible_wires -line { 14.299 191.057 15.093 191.057 }
+Cut-line is auto-snapped from (14.299000 191.057000 15.093000 191.057000) to (14.300000 191.055000 15.095000 191.055000).
+@innovus 243> edit_cut_route -only_visible_wires -line { 18.315 190.917 22.564 190.917 }
+Cut-line is auto-snapped from (18.315000 190.917000 22.564000 190.917000) to (18.315000 190.915000 22.565000 190.915000).
+@innovus 244> edit_cut_route -only_visible_wires -line { 25.272 190.357 25.459 190.357 }
+Cut-line is auto-snapped from (25.272000 190.357000 25.459000 190.357000) to (25.270000 190.355000 25.460000 190.355000).
+@innovus 245> gui_select -rect {2.43900 197.92100 18.36100 182.13900}
+@innovus 246> delete_selected_from_floorplan 
+@innovus 247> gui_select -point {9.21000 186.48100}
+@innovus 248> delete_selected_from_floorplan 
+@innovus 249> gui_select -point {17.14700 191.29100}
+@innovus 250> delete_selected_from_floorplan 
+@innovus 251> gui_pan 3.08200 179.79300
+@innovus 252> gui_select -point {16.53300 181.79400}
+@innovus 253> delete_selected_from_floorplan 
+@innovus 254> gui_select -point {17.40000 181.42200}
+@innovus 255> delete_selected_from_floorplan 
+@innovus 256> gui_select -point {16.90400 180.92700}
+@innovus 257> delete_selected_from_floorplan 
+@innovus 258> gui_select -point {14.92300 181.05100}
+@innovus 259> delete_selected_from_floorplan 
+@innovus 260> gui_select -point {14.55200 183.77500}
+@innovus 261> delete_selected_from_floorplan 
+@innovus 262> gui_pan 62.14100 99.54200
+@innovus 263> gui_pan 39.13400 -23.55400
+@innovus 264> gui_select -point {183.23300 17.96300}
+@innovus 265> delete_selected_from_floorplan 
+@innovus 266> gui_select -point {182.24200 17.83900}
+@innovus 267> delete_selected_from_floorplan 
+@innovus 268> gui_select -point {182.36600 16.72500}
+@innovus 269> delete_selected_from_floorplan 
+@innovus 270> gui_select -point {184.84200 14.12500}
+@innovus 271> delete_selected_from_floorplan 
+@innovus 272> gui_select -point {184.84200 14.12500}
+@innovus 273> delete_selected_from_floorplan 
+@innovus 274> gui_select -point {185.33800 15.48700}
+@innovus 275> delete_selected_from_floorplan 
+@innovus 276> gui_select -point {191.52800 10.65800}
+@innovus 277> delete_selected_from_floorplan 
+@innovus 278> gui_select -point {192.39500 7.56300}
+@innovus 279> delete_selected_from_floorplan 
+@innovus 280> set_db add_rings_target default ; set_db add_rings_extend_over_row 0 ; set_db add_rings_ignore_rows 0 ; set_db add_rings_avoid_short 0 ; set_db add_rings_skip_shared_inner_ring none ; set_db add_rings_stacked_via_top_layer TopMetal2 ; set_db add_rings_stacked_via_bottom_layer Metal1 ; set_db add_rings_via_using_exact_crossover_size 1 ; set_db add_rings_orthogonal_only true ; set_db add_rings_skip_via_on_pin {  standardcell } ; set_db add_rings_skip_via_on_wire_shape {  noshape }
+The ring targets are set to core/block ring wires.
+add_rings command will disallow rings to go over rows.
+add_rings command will consider rows while creating rings.
+add_rings command will ignore shorts while creating rings.
+@innovus 281> The ring targets are set to core/block ring wires.
+add_rings command will consider rows while creating rings.
+add_rings command will disallow rings to go over rows.
+add_rings command will ignore shorts while creating rings.
+add_rings -nets {VDD VSS} -type core_rings -follow core -layer {top TopMetal1 bottom TopMetal1 left TopMetal2 right TopMetal2} -width {top 4 bottom 4 left 4 right 4} -spacing {top 2 bottom 2 left 2 right 2} -offset {top 6 bottom 6 left 6 right 6} -center 0 -threshold 0 -jog_distance 0 -snap_wire_center_to_grid none
+#% Begin add_rings (date=10/18 14:28:00, mem=1362.8M)
+
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1514.8M)
+Ring generation is complete.
+vias are now being generated.
+add_rings created 8 wires.
+ViaGen created 8 vias, deleted 0 via to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+|TopMetal1|        4       |       NA       |
+| TopVia2|        8       |        0       |
+|TopMetal2|        4       |       NA       |
++--------+----------------+----------------+
+#% End add_rings (date=10/18 14:28:00, total cpu=0:00:00.0, real=0:00:00.0, peak res=1362.8M, current mem=1362.8M)
+@innovus 282> gui_pan 8.01800 -166.16000
+@innovus 283> gui_pan -50.63500 -141.83900
+@innovus 284> **INFO (INTERRUPT): One more Ctrl-C to exit Innovus ...
+gui_pan -57.64000 -5.96000
+@innovus 285> gui_pan 55.24500 -36.16600
+@innovus 286> gui_pan 8.53200 -143.48500
+@innovus 287> gui_pan -15.92500 -165.28800
+@innovus 288> gui_pan -48.91300 -104.06200
+@innovus 289> gui_pan -53.64500 -54.37800
+@innovus 290> gui_pan 8.39800 9.72200
+@innovus 291> set_db route_special_via_connect_to_shape { noshape }
+@innovus 292> route_special -connect {block_pin pad_pin pad_ring core_pin floating_stripe} -layer_change_range { Metal1(1) TopMetal2(7) } -block_pin_target {nearest_target} -pad_pin_port_connect {all_port one_geom} -pad_pin_target {nearest_target} -core_pin_target {first_after_row_end} -floating_stripe_target {block_ring pad_ring ring stripe ring_pin block_pin followpin} -allow_jogging 1 -crossover_via_layer_range { Metal1(1) TopMetal2(7) } -nets { VSS VDD } -allow_layer_change 1 -block_pin use_lef -target_via_layer_range { Metal1(1) TopMetal2(7) }
+#% Begin route_special (date=10/18 14:31:41, mem=1365.6M)
+*** Begin SPECIAL ROUTE on Sun Oct 18 14:31:41 2026 ***
+SPECIAL ROUTE ran on directory: /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/run/innovus_fp
+SPECIAL ROUTE ran on machine: miet-cad-edu (Linux 3.10.0-1160.119.1.el7.x86_64 x86_64 2.45Ghz)
+
+Begin option processing ...
+srouteConnectPowerBump set to false
+routeSelectNet set to "VSS VDD"
+routeSpecial set to true
+srouteBlockPin set to "useLef"
+srouteBottomLayerLimit set to 1
+srouteBottomTargetLayerLimit set to 1
+srouteConnectConverterPin set to false
+srouteCrossoverViaBottomLayer set to 1
+srouteCrossoverViaTopLayer set to 7
+srouteFloatingStripeTarget set to "blockring padring ring stripe ringpin blockpin followpin"
+srouteFollowCorePinEnd set to 3
+srouteJogControl set to "preferWithChanges differentLayer"
+srouteNoViaOnWireShape set to "padring ring stripe blockring blockpin coverpin blockwire corewire followpin iowire"
+sroutePadPinAllPorts set to true
+sroutePreserveExistingRoutes set to true
+srouteRoutePowerBarPortOnBothDir set to true
+srouteStopBlockPin set to "nearestTarget"
+srouteTopLayerLimit set to 7
+srouteTopTargetLayerLimit set to 7
+End option processing: cpu: 0:00:00, real: 0:00:00, peak: 2945.00 megs.
+
+Reading DB technology information...
+Finished reading DB technology information.
+Reading floorplan and netlist information...
+Finished reading floorplan and netlist information.
+Read in 15 layers, 7 routing layers, 1 overlap layer
+Read in 78 macros, 24 used
+Read in 23 components
+  23 core components: 23 unplaced, 0 placed, 0 fixed
+Read in 148 physical pins
+  148 physical pins: 0 unplaced, 148 placed, 0 fixed
+Read in 148 nets
+Read in 2 special nets, 2 routed
+Read in 194 terminals
+2 nets selected.
+
+Begin power routing ...
+**WARN: (IMPSR-1254):	Unable to connect the specified objects, since block pins of the VDD net were not found in the design. Check netlist or change the parameter value to include block pins in the design.
+**WARN: (IMPSR-1256):	Unable to find any CORE class pad pin of the VDD net due to unavailability of the pin or check netlist in the routing area or layer. Change routing area or layer to include the expected pin or check netlist. Alternatively, change port class in the technology file.
+Type 'man IMPSR-1256' for more detail.
+Cannot find any AREAIO class pad pin of net VDD. Check net list, or change port class in the technology file, or change option to include pin in given range.
+**WARN: (IMPSR-1254):	Unable to connect the specified objects, since block pins of the VSS net were not found in the design. Check netlist or change the parameter value to include block pins in the design.
+**WARN: (IMPSR-1256):	Unable to find any CORE class pad pin of the VSS net due to unavailability of the pin or check netlist in the routing area or layer. Change routing area or layer to include the expected pin or check netlist. Alternatively, change port class in the technology file.
+Type 'man IMPSR-1256' for more detail.
+Cannot find any AREAIO class pad pin of net VSS. Check net list, or change port class in the technology file, or change option to include pin in given range.
+CPU time for VDD FollowPin 0 seconds
+CPU time for VSS FollowPin 0 seconds
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+**WARN: (IMPPP-531):	ViaGen Warning: Due to SPACING rule violation, viaGen fail to generate via on layer TopVia1 at (-100.90, -100.78) (-99.26, -99.14).
+**WARN: (EMS-27):	Message (IMPPP-531) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+  Number of IO ports routed: 0
+  Number of Block ports routed: 0
+  Number of Stripe ports routed: 0
+  Number of Core ports routed: 86
+  Number of Pad ports routed: 0
+  Number of Power Bump ports routed: 0
+  Number of Followpin connections: 43
+End power routing: cpu: 0:00:00, real: 0:00:00, peak: 2955.00 megs.
+
+
+
+ Begin updating DB with routing results ...
+ Updating DB with 148 io pins ...
+ Updating DB with 0 via definition ...Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+
+route_special created 215 wires.
+ViaGen created 516 vias, deleted 0 via to avoid violation.
++--------+----------------+----------------+
+|  Layer |     Created    |     Deleted    |
++--------+----------------+----------------+
+| Metal1 |       129      |       NA       |
+|  Via1  |       86       |        0       |
+| Metal2 |       86       |       NA       |
+|  Via2  |       86       |        0       |
+|  Via3  |       86       |        0       |
+|  Via4  |       86       |        0       |
+| TopVia1|       86       |        0       |
+| TopVia2|       86       |        0       |
++--------+----------------+----------------+
+#% End route_special (date=10/18 14:31:41, total cpu=0:00:00.2, real=0:00:00.0, peak res=1377.9M, current mem=1372.1M)
+@innovus 293> set_db route_special_via_connect_to_shape { noshape }
+@innovus 294> route_special -connect {block_pin pad_pin pad_ring core_pin floating_stripe} -layer_change_range { Metal1(1) TopMetal2(7) } -block_pin_target {nearest_target} -pad_pin_port_connect {all_port one_geom} -pad_pin_target {nearest_target} -core_pin_target {first_after_row_end} -floating_stripe_target {block_ring pad_ring ring stripe ring_pin block_pin followpin} -allow_jogging 1 -crossover_via_layer_range { Metal1(1) TopMetal2(7) } -nets { VSS VDD } -allow_layer_change 1 -block_pin use_lef -target_via_layer_range { Metal1(1) TopMetal2(7) }
+#% Begin route_special (date=10/18 14:31:44, mem=1372.3M)
+*** Begin SPECIAL ROUTE on Sun Oct 18 14:31:44 2026 ***
+SPECIAL ROUTE ran on directory: /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/run/innovus_fp
+SPECIAL ROUTE ran on machine: miet-cad-edu (Linux 3.10.0-1160.119.1.el7.x86_64 x86_64 2.45Ghz)
+
+Begin option processing ...
+srouteConnectPowerBump set to false
+routeSelectNet set to "VSS VDD"
+routeSpecial set to true
+srouteBlockPin set to "useLef"
+srouteBottomLayerLimit set to 1
+srouteBottomTargetLayerLimit set to 1
+srouteConnectConverterPin set to false
+srouteCrossoverViaBottomLayer set to 1
+srouteCrossoverViaTopLayer set to 7
+srouteFloatingStripeTarget set to "blockring padring ring stripe ringpin blockpin followpin"
+srouteFollowCorePinEnd set to 3
+srouteJogControl set to "preferWithChanges differentLayer"
+srouteNoViaOnWireShape set to "padring ring stripe blockring blockpin coverpin blockwire corewire followpin iowire"
+sroutePadPinAllPorts set to true
+sroutePreserveExistingRoutes set to true
+srouteRoutePowerBarPortOnBothDir set to true
+srouteStopBlockPin set to "nearestTarget"
+srouteTopLayerLimit set to 7
+srouteTopTargetLayerLimit set to 7
+End option processing: cpu: 0:00:00, real: 0:00:00, peak: 2955.00 megs.
+
+Reading DB technology information...
+Finished reading DB technology information.
+Reading floorplan and netlist information...
+Finished reading floorplan and netlist information.
+Read in 15 layers, 7 routing layers, 1 overlap layer
+Read in 78 macros, 24 used
+Read in 23 components
+  23 core components: 23 unplaced, 0 placed, 0 fixed
+Read in 148 physical pins
+  148 physical pins: 0 unplaced, 148 placed, 0 fixed
+Read in 148 nets
+Read in 2 special nets, 2 routed
+Read in 194 terminals
+2 nets selected.
+
+Begin power routing ...
+**WARN: (IMPSR-1254):	Unable to connect the specified objects, since block pins of the VDD net were not found in the design. Check netlist or change the parameter value to include block pins in the design.
+**WARN: (IMPSR-1256):	Unable to find any CORE class pad pin of the VDD net due to unavailability of the pin or check netlist in the routing area or layer. Change routing area or layer to include the expected pin or check netlist. Alternatively, change port class in the technology file.
+Type 'man IMPSR-1256' for more detail.
+Cannot find any AREAIO class pad pin of net VDD. Check net list, or change port class in the technology file, or change option to include pin in given range.
+**WARN: (IMPSR-1254):	Unable to connect the specified objects, since block pins of the VSS net were not found in the design. Check netlist or change the parameter value to include block pins in the design.
+**WARN: (IMPSR-1256):	Unable to find any CORE class pad pin of the VSS net due to unavailability of the pin or check netlist in the routing area or layer. Change routing area or layer to include the expected pin or check netlist. Alternatively, change port class in the technology file.
+Type 'man IMPSR-1256' for more detail.
+Cannot find any AREAIO class pad pin of net VSS. Check net list, or change port class in the technology file, or change option to include pin in given range.
+CPU time for VDD FollowPin 0 seconds
+CPU time for VSS FollowPin 0 seconds
+  Number of IO ports routed: 0
+  Number of Block ports routed: 0
+  Number of Stripe ports routed: 0
+  Number of Core ports routed: 0
+  Number of Pad ports routed: 0
+  Number of Power Bump ports routed: 0
+End power routing: cpu: 0:00:00, real: 0:00:00, peak: 2959.00 megs.
+
+
+
+ Begin updating DB with routing results ...
+ Updating DB with 148 io pins ...
+ Updating DB with 0 via definition ...
+route_special created 0 wire.
+ViaGen created 0 via, deleted 0 via to avoid violation.
+#% End route_special (date=10/18 14:31:44, total cpu=0:00:00.1, real=0:00:01.0, peak res=1372.9M, current mem=1372.9M)
+@innovus 295> gui_pan -11.00900 7.44100
+@innovus 296> gui_pan 13.93900 17.66800
+@innovus 297> gui_pan 9.21900 53.36000
+@innovus 298> gui_pan 24.50200 20.14100
+@innovus 299> gui_pan 95.38000 -1.00700
+@innovus 300> gui_pan -13.72600 -153.68300
+@innovus 301> gui_pan 5.95400 -141.15800
+@innovus 302> gui_pan 1.97500 -148.32700
+@innovus 303> gui_pan 2.70000 -148.69900
+@innovus 304> gui_pan -19.73000 -150.91000
+@innovus 305> gui_pan 16.63300 68.74200
+@innovus 306> 
+@innovus 306> 
+@innovus 306> 
+
+@innovus 306> 
+
+@innovus 306> 
+
+@innovus 306> 
+
+@innovus 306> 
+
+@innovus 306> 
+@innovus 306> 
+@innovus 306> 
+@innovus 306> 
+
+@innovus 306> 
+
+@innovus 306> set_db add_rings_target default ; set_db add_rings_extend_over_row 0 ; set_db add_rings_ignore_rows 0 ; set_db add_rings_avoid_short 0 ; set_db add_rings_skip_shared_inner_ring none ; set_db add_rings_stacked_via_top_layer TopMetal2 ; set_db add_rings_stacked_via_bottom_layer Metal1 ; set_db add_rings_via_using_exact_crossover_size 1 ; set_db add_rings_orthogonal_only true ; set_db add_rings_skip_via_on_pin {  standardcell } ; set_db add_rings_skip_via_on_wire_shape {  noshape }
+The ring targets are set to core/block ring wires.
+add_rings command will disallow rings to go over rows.
+add_rings command will consider rows while creating rings.
+add_rings command will ignore shorts while creating rings.
+@innovus 307> The ring targets are set to core/block ring wires.
+add_rings command will consider rows while creating rings.
+add_rings command will disallow rings to go over rows.
+add_rings command will ignore shorts while creating rings.
+add_rings -nets {VDD VSS} -type core_rings -follow core -layer {top TopMetal1 bottom TopMetal1 left TopMetal2 right TopMetal2} -width {top 4 bottom 4 left 4 right 4} -spacing {top 2 bottom 2 left 2 right 2} -offset {top 6 bottom 6 left 6 right 6} -center 0 -threshold 0 -jog_distance 0 -snap_wire_center_to_grid none
+#% Begin add_rings (date=10/18 14:33:12, mem=1373.1M)
+
+Loading cell geometries (cpu: 0:00:00.0, real: 0:00:00.0, peak mem: 1526.5M)
+Ring generation is complete.
+#% End add_rings (date=10/18 14:33:12, total cpu=0:00:00.0, real=0:00:00.0, peak res=1373.4M, current mem=1373.4M)
+@innovus 308> 
+@innovus 308> 
+@innovus 308> 
+
+@innovus 308> 
+
+@innovus 308> 
+
+@innovus 308> 
+
+@innovus 308> 
+@innovus 308> 
+@innovus 308> jkuj
+
+invalid command name "jkuj"
+invalid command name "jkuj"
+@innovus 312> 
+
+@innovus 312> 
+
+@innovus 312> gbbb 
+
+invalid command name "gbbb"
+invalid command name "gbbb"
+@innovus 313> 
+
+@innovus 313> 
+
+@innovus 313> 
+
+@innovus 313> 
+
+@innovus 313> **INFO (INTERRUPT): One more Ctrl-C to exit Innovus ...
+Innovus terminated by user interrupt.
+QObject::~QObject: Timers cannot be stopped from another thread
+
+*** Memory Usage v#1 (Current mem = 1526.555M, initial mem = 383.109M) ***
+*** Message Summary: 282 warning(s), 3 error(s)
+
+--- Ending "Innovus" (totcpu=0:06:11, real=0:56:17, mem=1526.6M) ---

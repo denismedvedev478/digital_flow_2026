@@ -1,0 +1,253 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Sun Oct 18 17:03:48 2026                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v21.14-s109_1 (64bit) 06/29/2022 09:53 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: NanoRoute 21.14-s109_1 NR220628-1629/21_14-UB (database version 18.20.582) {superthreading v2.17}
+#@(#)CDS: AAE 21.14-s031 (64bit) 06/29/2022 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: CTE 21.14-s031_1 () Jun 22 2022 10:32:17 ( )
+#@(#)CDS: SYNTECH 21.14-s014_1 () May 29 2022 20:47:50 ( )
+#@(#)CDS: CPE v21.14-s062
+#@(#)CDS: IQuantus/TQuantus 21.1.1-w001 (64bit) Wed Jun 1 22:42:35 PDT 2022 (Linux 3.10.0-693.el7.x86_64)
+
+#@ source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/flow.innovus.fp.tcl
+#@ Begin verbose source (pre): source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/flow.innovus.fp.tcl
+#@ source $::env(FLOW_DIR)/steps.innovus.tcl
+#@ Begin verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/steps.innovus.tcl (pre)
+proc user_init_design {} \
+{
+ 
+    # ------------------
+    # Init design
+    # ------------------
+    if {[info exists ::env(TECH_SIZE)] && $::env(TECH_SIZE) ne ""} {
+        set_db design_process_node $::env(TECH_SIZE)
+    }
+
+    set_db init_netlist_files  $::env(ENV_NETLIST)
+    set_db init_lef_files      $::env(ENV_LEF_FILES)
+    set_db init_power_nets     $::env(ENV_POWER_NETS)
+    set_db init_ground_nets    $::env(ENV_GROUND_NETS)
+    set_db init_mmmc_files     $::env(ENV_MMMC)
+
+    read_mmmc     $::env(ENV_MMMC)
+    read_physical -lef $::env(ENV_LEF_FILES)
+
+    read_netlist  $::env(ENV_NETLIST) -top $::env(ENV_DESIGN)
+    init_design
+
+
+}
+proc user_read_floorplan {} {
+    # ----------------------------------------------------------
+    # Floorplan file Ã¡Ã¥Ã°Â¸Ã¬ Ã¨Ã§ ENV_FLOORPLAN_FILE (Ã±Ã¬. Makefile)
+    # ENV_INNOVUS_FP Â Ã½Ã²Ã® Ã¨Ã¬Ã¿ Ã§Ã Ã¯Ã³Ã±ÃªÃ Ã¥Ã¬Ã®Ã© Ã³Ã²Ã¨Ã«Ã¨Ã²Ã», ÃÃ Ã´Ã Ã©Ã« floorplan
+    # ----------------------------------------------------------
+    set fp_file ""
+
+    if {[info exists ::env(ENV_FLOORPLAN_FILE)] && $::env(ENV_FLOORPLAN_FILE) ne ""} {
+        set fp_file $::env(ENV_FLOORPLAN_FILE)
+    }
+
+    if {$fp_file eq ""} {
+        puts "WARN: ENV_FLOORPLAN_FILE is not set, skip read_floorplan"
+        return
+    }
+
+    if {![file exists $fp_file]} {
+        puts "WARN: floorplan file not found: $fp_file"
+        return
+    }
+
+    # ÃÃ¨Ã²Ã Ã¥Ã¬ floorplan
+    read_floorplan $fp_file
+
+    # ÃÃ®Ã¯Ã¨Ã°Ã³Ã¥Ã¬ Ã¨Ã±ÃµÃ®Ã¤Ã­Ã»Ã© .fp Ã¨ Ã¥Ã£Ã® .spr (Ã¥Ã±Ã«Ã¨ Ã¥Ã±Ã²Ã¼) Ã¢ ./in
+proc global_net {} \
+{
+    connect_global_net VDD -type pg_pin -pin_base_name VDD -inst_base_name *
+    connect_global_net VSS -type pg_pin -pin_base_name VSS -inst_base_name *
+
+
+
+}
+#@ End verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/steps.innovus.tcl
+user_init_design
+#@ Begin verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/example_rtl/counter/mmmc.view (pre)
+set lib_list_typ {}
+lappend lib_list_typ  " $::env(PDK_DIR)/IHP_Open_PDK/sg13g2_stdcell/lib/sg13g2_stdcell_typ_1p20V_25C.lib"
+create_rc_corner -name typ -temperature {25} -pre_route_res {1} -pre_route_cap {1} -pre_route_clock_res {0} -pre_route_clock_cap {0} -post_route_res {1} -post_route_cap {1} -post_route_cross_cap {1} -post_route_clock_res {0} -post_route_clock_cap {0}
+create_library_set -name typ -timing $lib_list_typ
+create_opcond -name typ -process {1} -voltage {1.20} -temperature {25}
+create_timing_condition -name typ -opcond {typ} -library_sets {typ}
+create_delay_corner -name typ -timing_condition {typ} -rc_corner {typ}
+create_constraint_mode -name func -sdc_files "/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/blockB/statistics_unit.sdc"
+create_analysis_view -name typ -constraint_mode {func} -delay_corner {typ}
+set_analysis_view -setup {typ} -hold {typ}
+#@ End verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/example_rtl/counter/mmmc.view
+user_read_floorplan
+global_net
+create_floorplan -no_snap_to_grid -site CoreSite -box_size 0.0 0.0 200.16 199.92 0.0 0.0 200.16 199.92 20.16 20.16 180.0 180.18
+gui_show
+gui_fit
+#@ End verbose source: /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/flow.innovus.fp.tcl
+gui_pan -102.45200 0.35700
+set_db assign_pins_edit_in_batch true
+edit_pin -fix_overlap 1 -unit micron -spread_direction clockwise -side Top -layer 1 -spread_type center -spacing 0.48 -pin clk
+set_db assign_pins_edit_in_batch false
+set_db assign_pins_edit_in_batch true
+edit_pin -pin_width 2.0 -pin_depth 10.0 -fix_overlap 1 -unit micron -spread_direction clockwise -side Bottom -layer 3 -spread_type center -spacing 0.48 -pin {clear rst_n valid_in}
+set_db assign_pins_edit_in_batch false
+gui_pan -39.77000 55.11700
+gui_pan 43.21800 93.04800
+gui_pan 6.35300 35.83400
+gui_pan 11.89100 170.12000
+set_db assign_pins_edit_in_batch true
+edit_pin -pin_width 5.0 -pin_depth 10.0 -fix_overlap 1 -unit micron -spread_direction clockwise -side Top -layer 3 -spread_type center -spacing 0.48 -pin clk
+set_db assign_pins_edit_in_batch false
+gui_pan -74.12100 124.47100
+gui_pan 35.93800 213.19200
+set_db assign_pins_edit_in_batch true
+edit_pin -pin_width 1.0 -pin_depth 10.0 -fix_overlap 1 -spread_direction clockwise -edge 0 -layer 1 -spread_type side -pin {{data_in[0]} {data_in[1]} {data_in[2]} {data_in[3]} {data_in[4]} {data_in[5]} {data_in[6]} {data_in[7]} {data_in[8]} {data_in[9]} {data_in[10]} {data_in[11]} {data_in[12]} {data_in[13]} {data_in[14]} {data_in[15]} {data_in[16]} {data_in[17]} {data_in[18]} {data_in[19]} {data_in[20]} {data_in[21]} {data_in[22]} {data_in[23]} {data_in[24]} {data_in[25]} {data_in[26]} {data_in[27]} {data_in[28]} {data_in[29]} {data_in[30]} {data_in[31]}}
+set_db assign_pins_edit_in_batch false
+gui_pan -3.48800 49.82900
+gui_pan 76.08700 182.02000
+gui_pan 30.00200 66.69000
+gui_pan 40.94200 272.98800
+gui_pan -17.50500 108.60400
+set_db assign_pins_edit_in_batch true
+edit_pin -pin_width 1.0 -pin_depth 10.0 -fix_overlap 1 -spread_direction clockwise -edge 0 -layer 3 -spread_type side -pin {{data_in[0]} {data_in[1]} {data_in[2]} {data_in[3]} {data_in[4]} {data_in[5]} {data_in[6]} {data_in[7]} {data_in[8]} {data_in[9]} {data_in[10]} {data_in[11]} {data_in[12]} {data_in[13]} {data_in[14]} {data_in[15]} {data_in[16]} {data_in[17]} {data_in[18]} {data_in[19]} {data_in[20]} {data_in[21]} {data_in[22]} {data_in[23]} {data_in[24]} {data_in[25]} {data_in[26]} {data_in[27]} {data_in[28]} {data_in[29]} {data_in[30]} {data_in[31]}}
+set_db assign_pins_edit_in_batch false
+set_db assign_pins_edit_in_batch true
+edit_pin -pin_width 1.0 -pin_depth 10.0 -fix_overlap 1 -spread_direction clockwise -edge 0 -layer 3 -spread_type range -offset_end 130 -offset_start 70 -pin {{data_in[0]} {data_in[1]} {data_in[2]} {data_in[3]} {data_in[4]} {data_in[5]} {data_in[6]} {data_in[7]} {data_in[8]} {data_in[9]} {data_in[10]} {data_in[11]} {data_in[12]} {data_in[13]} {data_in[14]} {data_in[15]} {data_in[16]} {data_in[17]} {data_in[18]} {data_in[19]} {data_in[20]} {data_in[21]} {data_in[22]} {data_in[23]} {data_in[24]} {data_in[25]} {data_in[26]} {data_in[27]} {data_in[28]} {data_in[29]} {data_in[30]} {data_in[31]}}
+set_db assign_pins_edit_in_batch false
+set_db assign_pins_edit_in_batch true
+set_db assign_pins_edit_in_batch false
+set_db assign_pins_edit_in_batch true
+set_db assign_pins_edit_in_batch false
+set_db assign_pins_edit_in_batch true
+set_db assign_pins_edit_in_batch false
+set_db assign_pins_edit_in_batch true
+set_db assign_pins_edit_in_batch false
+set_db assign_pins_edit_in_batch true
+set_db assign_pins_edit_in_batch false
+set_db assign_pins_edit_in_batch true
+set_db assign_pins_edit_in_batch false
+set_db assign_pins_edit_in_batch true
+set_db assign_pins_edit_in_batch false
+gui_select -point {-40.79900 77.99000}
+gui_pan -0.69000 90.73700
+gui_pan 2.40100 66.51700
+gui_pan 6.72200 135.78000
+gui_pan 3.60200 184.99700
+gui_pan 25.80200 152.30800
+gui_pan 11.53200 101.09400
+gui_pan -1.27300 137.28300
+set_partition_pin_status -partition statistics_unit -pins {count[0]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {count[1]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {count[2]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {count[3]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {count[4]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {count[5]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {count[6]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {count[7]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {count[8]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {count[9]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {count[10]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {count[11]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {count[12]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {count[13]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {count[14]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {count[15]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[0]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[1]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[2]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[3]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[4]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[5]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[6]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[7]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[8]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[9]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[10]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[11]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[12]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[13]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[14]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[15]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[16]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[17]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[18]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[19]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[20]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[21]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[22]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[23]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[24]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[25]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[26]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[27]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[28]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[29]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[30]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {max[31]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[0]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[1]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[2]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[3]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[4]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[5]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[6]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[7]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[8]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[9]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[10]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[11]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[12]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[13]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[14]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[15]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[16]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[17]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[18]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[19]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[20]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[21]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[22]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[23]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[24]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[25]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[26]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[27]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[28]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[29]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[30]} -status unplaced -quiet
+set_partition_pin_status -partition statistics_unit -pins {min[31]} -status unplaced -quiet
+set_db assign_pins_edit_in_batch true
+set_db assign_pins_edit_in_batch false
+set_db assign_pins_edit_in_batch true
+set_db assign_pins_edit_in_batch false
+set_db assign_pins_edit_in_batch true
+set_db assign_pins_edit_in_batch false
+gui_pan 1.47400 -70.11000
+gui_pan 1.82100 -61.77300
+gui_pan -2.07000 116.89200
+gui_pan -55.49600 182.23000
+set_db assign_pins_edit_in_batch true
+set_db assign_pins_edit_in_batch false
+set_db assign_pins_edit_in_batch true
+set_db assign_pins_edit_in_batch false
+set_db assign_pins_edit_in_batch true
+set_db assign_pins_edit_in_batch false
+gui_pan 21.61200 -91.70800
+set_db assign_pins_edit_in_batch true
+set_db assign_pins_edit_in_batch false
+set_db assign_pins_edit_in_batch true
+set_db assign_pins_edit_in_batch false
+gui_pan -40.32500 51.09900
+gui_pan -16.03400 148.04300
+gui_pan 57.68400 102.28700
+gui_pan 22.08400 -6.29500
