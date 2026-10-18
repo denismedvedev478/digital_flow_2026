@@ -6,12 +6,12 @@ export PDK_DIR     				= $(PWD)/../PDK/
 # Design settings
 # ============================================================
 
-export ENV_DESIGN               = counter
-export ENV_DESIGN_DIR           = $(PWD)/data/$(ENV_DESIGN)
-export ENV_MMMC                 = $(ENV_DESIGN_DIR)/mmmc.view
+export ENV_DESIGN               = statistics_unit
+export ENV_DESIGN_DIR           = $(PWD)/my_rtl
+export ENV_MMMC                 = /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/example_rtl/counter/mmmc.view
 export ENV_DEFINE               =
 export ENV_INIT_HDL_SEARCH_PATH = ${ENV_DESIGN_DIR}
-export ENV_RTL_LIST             = $(ENV_DESIGN_DIR)/$(ENV_DESIGN).lst
+export ENV_RTL_LIST             = $(ENV_DESIGN_DIR)/my_rtl.lst
 # ============================================================
 # Flow
 # ============================================================
@@ -41,8 +41,8 @@ export LEC_FILE  = $(GENUS_OUTPUT_DIR)/rtl2final.lec.do
 # Innovus Floorplan settings
 # ============================================================
 export TECH_SIZE            = 130
-export ENV_NETLIST          = $(GENUS_OUTPUT_DIR)/syn_opt/$(ENV_DESIGN).v 
-export ENV_FLOORPLAN_FILE   = $(ENV_DESIGN_DIR)/floorplan/counter.fp
+export ENV_NETLIST          = /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/run/genus/outputs/syn_opt/statistics_unit.v
+export ENV_FLOORPLAN_FILE   = $(ENV_DESIGN_DIR)/floorplan/statistics_unit.fp
 export ENV_LEF_FILES        = $(PDK_DIR)/IHP_Open_PDK/sg13g2_stdcell/lef/sg13g2_tech.lef $(PDK_DIR)/IHP_Open_PDK/sg13g2_stdcell/lef/sg13g2_stdcell.lef
 export ENV_POWER_NETS       = VDD
 export ENV_GROUND_NETS      = VSS
@@ -116,7 +116,7 @@ innovus.fp: $(INNOVUS_FP_RUN_DIR)
 	@echo "Power nets: $(ENV_POWER_NETS)"
 	@echo "Ground nets:$(ENV_GROUND_NETS)"
 	@echo "MMMC:       $(ENV_MMMC)"
-	cd $(INNOVUS_FP_RUN_DIR) && $(ENV_INNOVUS_FP) -no_gui $(INNOVUS_FP_OPTS) \
+	cd $(INNOVUS_FP_RUN_DIR) && $(ENV_INNOVUS_FP) $(INNOVUS_FP_OPTS) \
 		-files $(INNOVUS_FP_SCRIPT) 2>&1 | tee $(INNOVUS_FP_LOG)
 	@echo "=== Innovus Floorplan Complete ==="
 	@echo "Log saved to: $(INNOVUS_FP_LOG)"
