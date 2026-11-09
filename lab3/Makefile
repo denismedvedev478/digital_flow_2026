@@ -42,7 +42,7 @@ export LEC_FILE  = $(GENUS_OUTPUT_DIR)/rtl2final.lec.do
 # ============================================================
 export TECH_SIZE            = 130
 export ENV_NETLIST          = /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/run/genus/outputs/syn_opt/statistics_unit.v
-export ENV_FLOORPLAN_FILE   = $(ENV_DESIGN_DIR)/floorplan/statistics_unit.fp
+export ENV_FLOORPLAN_FILE   = $(ENV_DESIGN_DIR)/statistic_unit_4.fp
 export ENV_LEF_FILES        = $(PDK_DIR)/IHP_Open_PDK/sg13g2_stdcell/lef/sg13g2_tech.lef $(PDK_DIR)/IHP_Open_PDK/sg13g2_stdcell/lef/sg13g2_stdcell.lef
 export ENV_POWER_NETS       = VDD
 export ENV_GROUND_NETS      = VSS
