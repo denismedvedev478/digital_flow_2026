@@ -1,0 +1,97 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Sat Nov 14 16:00:33 2026                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v21.14-s109_1 (64bit) 06/29/2022 09:53 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: NanoRoute 21.14-s109_1 NR220628-1629/21_14-UB (database version 18.20.582) {superthreading v2.17}
+#@(#)CDS: AAE 21.14-s031 (64bit) 06/29/2022 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: CTE 21.14-s031_1 () Jun 22 2022 10:32:17 ( )
+#@(#)CDS: SYNTECH 21.14-s014_1 () May 29 2022 20:47:50 ( )
+#@(#)CDS: CPE v21.14-s062
+#@(#)CDS: IQuantus/TQuantus 21.1.1-w001 (64bit) Wed Jun 1 22:42:35 PDT 2022 (Linux 3.10.0-693.el7.x86_64)
+
+#@ source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.debug.tcl
+#@ Begin verbose source (pre): source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.debug.tcl
+read_db $::env(ENV_DB) 
+gui_show
+gui_fit
+group_path -name reg2reg -from [all_registers] -to [all_registers]
+report_timing -late -path_type full_clock -max_paths 1 -group reg2reg
+report_timing -early -path_type full_clock -max_paths 1 -group reg2reg
+set design_name [get_db current_design .name]
+set eco_start sum_reg[2]
+set eco_end   sum_reg[30]
+set eco_view  typ
+set eco_sink_pin {add_18_25_g2892__2883/Y}
+set eco_cell sg13g2_buf_4
+set eco_tag fix_setup_buffer
+set eco_report_dir ./reports/ECO.${eco_tag}
+file mkdir ./db
+file mkdir $eco_report_dir
+write_db ./db/DB.${design_name}.pre_eco.enc
+delete_filler -prefix FILLER
+set_db eco_honor_dont_touch       true
+set_db eco_honor_dont_use         true
+set_db eco_honor_fixed_status     true
+set_db eco_honor_fixed_wires      true
+set_db eco_inherit_net_attribute  true
+set_db eco_check_logical_equivalence true
+set_db eco_refine_place          false
+set_db eco_update_timing         false
+set_db eco_prefix ECO
+eco_add_repeater \
+    -cells $eco_cell \
+    -pins $eco_sink_pin
+place_detail -eco true
+check_place
+route_eco
+add_fillers \
+    -base_cells $::env(ENV_FILLER_CELLS) \
+    -prefix FILLER
+check_place
+check_connectivity \
+    -type all \
+    -out_file ${eco_report_dir}/connectivity.rpt
+check_drc \
+    -check_only all \
+    -out_file ${eco_report_dir}/drc.rpt
+reset_parasitics
+extract_rc
+report_timing -late -path_type full_clock -max_paths 1 -group reg2reg
+report_timing -early -path_type full_clock -max_paths 1 -group reg2reg
+select_obj FE_ECOC0_add_18_25_n_159
+set_db eco_refine_place  true
+set_db eco_update_timing true
+suspend
+resume 
+set_db eco_refine_place          false
+set_db eco_update_timing         false
+delete_filler -prefix FILLER
+eco_delete_repeater -insts FE_ECOC0_add_18_25_n_159
+place_detail -eco true
+check_place
+route_eco
+add_fillers \
+    -base_cells $::env(ENV_FILLER_CELLS) \
+    -prefix FILLER
+check_place
+set_db eco_refine_place  true
+set_db eco_update_timing true
+reset_parasitics
+extract_rc
+report_timing -late -path_type full_clock -max_paths 1 -group reg2reg
+report_timing -early -path_type full_clock -max_paths 1 -group reg2reg
+suspend
+gui_select -point {215.41800 18.50800}
+gui_pan 22.52800 23.37000
+gui_pan 2.66500 -71.97800
+gui_pan 0.37700 -78.49400
+gui_pan -0.34500 -78.68900
+gui_pan -63.20000 -23.12300
+resume 
+set_db eco_refine_place          false
+set_db eco_update_timing         false.
+#@ End verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.debug.tcl

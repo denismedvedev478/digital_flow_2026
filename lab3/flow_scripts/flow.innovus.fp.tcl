@@ -4,7 +4,7 @@
 #  | || | | | | |_ 
 # |___|_| |_|_|\__|
 
-source $::env(FLOW_DIR)/steps.innovus.tcl
+source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/flow_scripts/steps.innovus.tcl
 
 user_init_design
 user_read_floorplan

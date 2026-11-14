@@ -1,0 +1,441 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v21.14-s109_1, built Wed Jun 29 09:53:08 PDT 2022
+Options:	-stylus -files /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.fp.tcl 
+Date:		Sat Nov 14 09:15:22 2026
+Host:		miet-cad-edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (32cores*32cpus*Common KVM processor 512KB)
+OS:		CentOS Linux release 7.9.2009 (Core)
+
+License:
+		[09:15:22.185241] Configured Lic search path (21.01-s002): 5280@srv-eda-05
+
+		invs	Innovus Implementation System	21.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+
+
+**WARN: (IMPOPT-801):	Genus executable not found in PATH. Install Genus, add the path to the genus executable in the PATH variable and rerun Innovus.
+Create and set the environment variable TMPDIR to /tmp/innovus_temp_7821_miet-cad-edu_zzomda_D1QIR8.
+
+The soft stacksize limit is either up to the hard limit or larger than 0.2% of RAM. No change is needed.
+
+**INFO:  MMMC transition support version v31-84 
+
+#@ Processing -files option
+@innovus 1> source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.fp.tcl
+#@ Begin verbose source (pre): source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.fp.tcl
+@file 1: #  ___       _ _   
+@file 2: # |_ _|_ __ (_) |_ 
+@file 3: #  | || '_ \| | __|
+@file 4: #  | || | | | | |_ 
+@file 5: # |___|_| |_|_|\__|
+@file 6:
+@file 7: source $::env(FLOW_DIR)/steps.innovus.tcl
+#@ Begin verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/steps.innovus.tcl (pre)
+@file 1:
+@file 2: proc user_clock_tree_synthesis {args} \
+{
+    
+    #   ____ _            _       _                                    _   _               _     
+    #  / ___| | ___   ___| | __  | |_ _ __ ___  ___    ___ _   _ _ __ | |_| |__   ___  ___(_)___ 
+    # | |   | |/ _ \ / __| |/ /  | __| '__/ _ \/ _ \  / __| | | | '_ \| __| '_ \ / _ \/ __| / __|
+    # | |___| | (_) | (__|   <   | |_| | |  __/  __/  \__ \ |_| | | | | |_| | | |  __/\__ \ \__ \
+    #  \____|_|\___/ \___|_|\_\   \__|_|  \___|\___|  |___/\__, |_| |_|\__|_| |_|\___||___/_|___/
+    #                                                      |___/     
+
+    puts "\033\]2;[file tail $::env(PWD)] - [get_db current_design .name] \
+        - [set STAGE "Clock_tree_synthesis"] [clock format [clock seconds] -format "%R     %d / %m / %C%y"]\a"
+    # ------------------
+    # CTS options
+    # ------------------
+
+    # NDR for clock routing
+    create_route_rule -name CTS_2W2S -width_multiplier "$::env(TOP_CTS_LAYER_name):$::env(BOT_CTS_LAYER_name) 2"  -spacing_multiplier "$::env(TOP_CTS_LAYER_name):$::env(BOT_CTS_LAYER_name) 2"
+    create_route_type -name CTS_RULE   -bottom_preferred_layer $::env(BOT_CTS_LAYER_num) -top_preferred_layer $::env(TOP_CTS_LAYER_num) -route_rule CTS_2W2S
+
+    # Use specified route rules for clock nets
+    set_db cts_route_type_leaf   CTS_RULE
+    set_db cts_route_type_trunk  CTS_RULE
+    set_db cts_route_type_top    CTS_RULE
+
+    set_db timing_analysis_type ocv
+    set_db cts_target_max_transition_time 0.40
+    set_db cts_target_skew 0.10
+    set_db cts_top_fanout_threshold 50
+
+    set_db cts_buffer_cells {
+        sg13g2_buf_4
+        sg13g2_buf_8
+        sg13g2_buf_16
+    }
+
+    set_db cts_inverter_cells {
+        sg13g2_inv_4
+        sg13g2_inv_8
+        sg13g2_inv_16
+    }
+
+    set_db cts_clock_gating_cells {
+        sg13g2_lgcp_1
+        sg13g2_slgcp_1
+    }
+
+    set_db cts_use_inverters true
+
+    create_clock_tree_spec -out_file ccopt_default.spec
+    source ccopt_default.spec  
+
+    ccopt_design 
+
+    # ------------------
+    # reports
+    # ------------------
+    time_design -post_cts -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} 
+    time_design -post_cts -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} -hold
+
+    user_reports
+
+    # write db 
+    write_db ./db/DB.$::env(ENV_DESIGN).${STAGE}.enc
+
+}  
+@file 68:
+@file 69: proc user_3_otchet {args} \
+{
+    check_timing -verbose >  ./out/pre_place/time.rpt
+    report_analysis_views >  ./out/pre_place/views.rpt
+    report_ports > ./out/pre_place/port.rpt
+    report_path_exceptions -ignored > ./out/pre_place/except.rpt
+    report_clocks -description > ./out/pre_place/clk.rpt
+    #typ
+    get_db [get_db analysis_views -if {.is_setup}] .name 
+    #typ
+    get_db [get_db analysis_views -if {.is_hold}] .name 
+}
+@file 81:
+@file 82: proc user_write_lef {top_layer} \
+{
+    write_lef_abstract -stripe_pins -top_layer $top_layer -no_cut_obs ./out/[get_db current_design .name].lef
+}
+@file 86:
+@file 87:
+@file 88: proc user_route {args} \
+{
+
+    #  ____             _       
+    # |  _ \ ___  _   _| |_ ___ 
+    # | |_) / _ \| | | | __/ _ \
+    # |  _ < (_) | |_| | ||  __/
+    # |_| \_\___/ \__,_|\__\___|
+
+    puts "\033\]2;[file tail $::env(PWD)] - [get_db current_design .name] \
+        - [set STAGE "Route"] [clock format [clock seconds] -format "%R     %d / %m / %C%y"]\a"
+
+
+    route_design -global_detail
+    add_fillers -base_cells $::env(ENV_FILLER_CELLS) -prefix FILLER 
+
+    # ------------------
+    # reports
+    # ------------------
+    time_design -post_route -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} 
+    time_design -post_route -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} -hold
+
+    user_reports
+
+    # write db 
+    write_db ./db/DB.$::env(ENV_DESIGN).${STAGE}.enc
+
+        
+}
+@file 117:
+@file 118:
+@file 119: proc user_write_spef {args} \
+{
+    all_rc_corners -active
+    write_parasitics -spef_file ./out/[get_db current_design .name].typ.spef.gz -rc_corner typ
+}
+@file 124:
+@file 125:
+@file 126: proc user_write_gds {args} \
+{
+    write_stream ./out/[get_db current_design .name].gds -lib_name DesignLib -unit 1000 -mode ALL
+}
+@file 130:
+@file 131:
+@file 132:
+@file 133: proc user_init_design {} \
+{
+ 
+    # ------------------
+    # Init design
+    # ------------------
+    if {[info exists ::env(TECH_SIZE)] && $::env(TECH_SIZE) ne ""} {
+        set_db design_process_node $::env(TECH_SIZE)
+    }
+
+    set_db init_netlist_files  $::env(ENV_NETLIST)
+    set_db init_lef_files      $::env(ENV_LEF_FILES)
+    set_db init_power_nets     $::env(ENV_POWER_NETS)
+    set_db init_ground_nets    $::env(ENV_GROUND_NETS)
+    set_db init_mmmc_files     $::env(ENV_MMMC)
+
+    read_mmmc     $::env(ENV_MMMC)
+    read_physical -lef $::env(ENV_LEF_FILES)
+
+    read_netlist  $::env(ENV_NETLIST) -top $::env(ENV_DESIGN)
+    init_design
+
+
+}
+@file 157:
+@file 158:
+@file 159: proc global_net {} \
+{
+    connect_global_net VDD -type pg_pin -pin_base_name VDD -inst_base_name *
+    connect_global_net VSS -type pg_pin -pin_base_name VSS -inst_base_name *
+}
+@file 164:
+@file 165:
+@file 166:
+@file 167: proc user_read_floorplan {} {
+    # ----------------------------------------------------------
+    # Floorplan file Ã¡Ã¥Ã°Â¸Ã¬ Ã¨Ã§ ENV_FLOORPLAN_FILE (Ã±Ã¬. Makefile)
+    # ENV_INNOVUS_FP Â Ã½Ã²Ã® Ã¨Ã¬Ã¿ Ã§Ã Ã¯Ã³Ã±ÃªÃ Ã¥Ã¬Ã®Ã© Ã³Ã²Ã¨Ã«Ã¨Ã²Ã», ÃÃ Ã´Ã Ã©Ã« floorplan
+    # ----------------------------------------------------------
+    set fp_file ""
+
+    if {[info exists ::env(ENV_FLOORPLAN_FILE)] && $::env(ENV_FLOORPLAN_FILE) ne ""} {
+        set fp_file $::env(ENV_FLOORPLAN_FILE)
+    }
+
+    if {$fp_file eq ""} {
+        puts "WARN: ENV_FLOORPLAN_FILE is not set, skip read_floorplan"
+        return
+    }
+
+    if {![file exists $fp_file]} {
+        puts "WARN: floorplan file not found: $fp_file"
+        return
+    }
+
+    # ÃÃ¨Ã²Ã Ã¥Ã¬ floorplan
+    read_floorplan $fp_file
+
+    # ÃÃ®Ã¯Ã¨Ã°Ã³Ã¥Ã¬ Ã¨Ã±ÃµÃ®Ã¤Ã­Ã»Ã© .fp Ã¨ Ã¥Ã£Ã® .spr (Ã¥Ã±Ã«Ã¨ Ã¥Ã±Ã²Ã¼) Ã¢ ./in
+    if {![file exists ./in]} {
+        file mkdir ./in
+    }
+
+    file copy -force $fp_file ./in
+    puts "INFO: copied floorplan  -> ./in/[file tail $fp_file]"
+
+    set spr_file "${fp_file}.spr"
+    if {[file exists $spr_file]} {
+        file copy -force $spr_file ./in
+        puts "INFO: copied floorplan  -> ./in/[file tail $spr_file]"
+    }
+}
+@file 205:
+@file 206:
+@file 207:
+@file 208:
+@file 209: proc user_preplace {args} \
+{
+    
+    #                       _                
+    #  _ __  _ __ ___ _ __ | | __ _  ___ ___ 
+    # | '_ \| '__/ _ \ '_ \| |/ _` |/ __/ _ \
+    # | |_) | | |  __/ |_) | | (_| | (_|  __/
+    # | .__/|_|  \___| .__/|_|\__,_|\___\___|
+    # |_|            |_|  
+
+    puts "\033\]2;[file tail $::env(PWD)] - [get_db current_design .name] \
+        - [set STAGE "prePlace"] [clock format [clock seconds] -format "%R     %d / %m / %C%y"]\a"
+        
+    delete_buffer_trees
+
+    # ------------------
+    # reports
+    # ------------------
+    time_design -pre_place -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} 
+    time_design -pre_place -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} -hold
+
+    user_reports
+
+    # write db 
+    write_db ./db/DB.$::env(ENV_DESIGN).${STAGE}.enc
+
+
+
+
+}
+@file 239:
+@file 240:
+@file 241:
+@file 242: proc user_extract_rc {args} \
+{
+    #            _                  _   ____   ____ 
+    #   _____  _| |_ _ __ __ _  ___| |_|  _ \ / ___|
+    #  / _ \ \/ / __| '__/ _` |/ __| __| |_) | |    
+    # |  __/>  <| |_| | | (_| | (__| |_|  _ <| |___ 
+    #  \___/_/\_\\__|_|  \__,_|\___|\__|_| \_\\____|
+
+    puts "\033\]2;[file tail $::env(PWD)] - [get_db current_design .name] \
+        - [set STAGE "extract_rc"] [clock format [clock seconds] -format "%R     %d / %m / %C%y"]\a"
+                  
+    reset_parasitics
+    extract_rc
+
+    time_design -post_route -report_only -expanded_views \
+    -report_dir ./reports/final -report_prefix final_setup
+
+    time_design -post_route -report_only -expanded_views -hold \
+    -report_dir ./reports/final -report_prefix final_hold
+
+    report_timing -late -path_type full_clock -max_paths 1
+    report_timing -early -path_type full_clock -max_paths 1
+
+    check_place
+    check_connectivity -type all -out_file ./reports/final/connectivity.rpt
+    check_drc -check_only all -out_file ./reports/final/drc.rpt
+}
+@file 269:
+@file 270:
+@file 271: proc user_sta {args} \
+{
+    time_design -post_route -report_only -expanded_views -report_dir ./reports/sta -report_prefix sta 
+    time_design -post_route -report_only -expanded_views -report_dir ./reports/sta -report_prefix sta -hold
+}
+@file 276:
+@file 277: proc user_write_netlist {args} \
+{
+    write_netlist ./out/[get_db current_design .name].v
+    # write_netlist ./out/[get_db current_design .name]_flat.v -flat -line_length 10000
+
+}
+@file 283:
+@file 284: proc user_write_sdf {sdf_view} \
+{
+    
+    write_sdf ./out/[get_db current_design .name].sdf -target_application verilog -precision 4 \
+        -view "${sdf_view}"
+}
+@file 290:
+@file 291:
+@file 292:
+@file 293:
+@file 294: proc user_write_lib {setup_views hold_views } \
+{
+
+    set_analysis_view -setup $setup_views -hold $hold_views
+
+    set list [concat $setup_views $hold_views]
+
+    foreach view $list {
+    write_timing_model \
+        -view $view \
+        -blackbox_2d -force -include_power_ground \
+        -lib_name [get_db current_design .name]_${view} -cell_name [get_db current_design .name] \
+        ./out/[get_db current_design .name]_${view}.lib
+    }
+    
+}
+@file 310:
+@file 311:
+@file 312: proc user_write_def {args} \
+{
+    write_def ./out/[get_db current_design .name].def.gz -floorplan -netlist -routing -routing_to_specialnet -scan_chain 
+}
+@file 316:
+@file 317:
+@file 318:
+@file 319:
+@file 320:
+@file 321: proc user_reports {} {
+    upvar 1 STAGE STAGE
+    mkdir -p ./reports/R.${STAGE}
+    check_timing -verbose > ./reports/R.${STAGE}/checkTiming.rpt
+    check_netlist -out_file ./reports/R.${STAGE}/checkNetlist.rpt
+    report_area > ./reports/R.${STAGE}/report_area.rpt
+    report_power -out_file ./reports/R.${STAGE}/report_power.rep
+    user_report_Screenshot      
+    puts "${STAGE} [clock format [clock seconds] -format "%R     %d / %m / %C%y"]" >> ./reports/time_log.rep
+}
+@file 331:
+@file 332:
+@file 333: proc user_report_Screenshot {} {
+        upvar 1 STAGE STAGE
+        set_layer_preference node_layer -is_visible 1
+        set_layer_preference node_net -is_visible 1
+        set_layer_preference phyCell -is_visible 1
+        gui_set_draw_view place
+        gui_show
+        gui_fit
+        write_to_gif ./reports/R.${STAGE}/R.${STAGE}_Screenshot_place_mode.gif
+        delete_drc_markers
+        set_layer_preference node_net -is_visible 0
+        set_layer_preference clock -is_visible 1
+        write_to_gif ./reports/R.${STAGE}/R.${STAGE}_Screenshot_clock_mode.gif
+
+        set_layer_preference node_layer -is_visible 0
+        write_to_gif ./reports/R.${STAGE}/R.${STAGE}_Screenshot_cells_mode.gif
+
+        set_layer_preference node_layer -is_visible 1
+        set_layer_preference node_cell -is_visible 0
+        set_layer_preference node_net -is_visible 1
+        gui_hide
+
+    }
+@file 356:
+@file 357:
+@file 358: proc user_place {args} \
+{
+
+
+    #        _                
+    #  _ __ | | __ _  ___ ___ 
+    # | '_ \| |/ _` |/ __/ _ \
+    # | |_) | | (_| | (_|  __/
+    # | .__/|_|\__,_|\___\___|
+    # |_| 
+        
+    puts "\033\]2;[file tail $::env(PWD)] - [get_db current_design .name] \
+        - [set STAGE "place"] [clock format [clock seconds] -format "%R     %d / %m / %C%y"]\a"
+
+    place_opt_design
+
+    # ------------------
+    # reports
+    # ------------------
+    time_design -pre_cts -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} 
+    time_design -pre_cts -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} -hold
+
+    user_reports
+
+    # write db 
+    write_db ./db/DB.$::env(ENV_DESIGN).${STAGE}.enc
+
+}
+@file 386:
+@file 387:
+#@ End verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/steps.innovus.tcl
+@file 8:
+@file 9:
+@file 10:
+@@file 11: gui_show
+@@file 12: gui_fit
+@file 13:
+@file 14:
+#@ End verbose source: /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.fp.tcl
+@innovus 2> gui_select -point {0.01100 0.08200}
+@innovus 3> gui_select -rect {-0.08800 0.15100 0.02600 -0.10600}
+@innovus 4> **INFO (INTERRUPT): One more Ctrl-C to exit Innovus ...
+Innovus terminated by user interrupt.
+QObject::~QObject: Timers cannot be stopped from another thread
+
+*** Memory Usage v#1 (Current mem = 889.148M, initial mem = 376.109M) ***
+*** Message Summary: 1 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:44.5, real=0:01:32, mem=889.1M) ---

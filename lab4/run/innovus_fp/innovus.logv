@@ -1,0 +1,458 @@
+[11/14 09:15:22      0s] 
+[11/14 09:15:22      0s] Cadence Innovus(TM) Implementation System.
+[11/14 09:15:22      0s] Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+[11/14 09:15:22      0s] 
+[11/14 09:15:22      0s] Version:	v21.14-s109_1, built Wed Jun 29 09:53:08 PDT 2022
+[11/14 09:15:22      0s] Options:	-stylus -files /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.fp.tcl 
+[11/14 09:15:22      0s] Date:		Sat Nov 14 09:15:22 2026
+[11/14 09:15:22      0s] Host:		miet-cad-edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (32cores*32cpus*Common KVM processor 512KB)
+[11/14 09:15:22      0s] OS:		CentOS Linux release 7.9.2009 (Core)
+[11/14 09:15:22      0s] 
+[11/14 09:15:22      0s] License:
+[11/14 09:15:22      0s] 		[09:15:22.185241] Configured Lic search path (21.01-s002): 5280@srv-eda-05
+[11/14 09:15:22      0s] 
+[11/14 09:15:22      0s] 		invs	Innovus Implementation System	21.1	checkout succeeded
+[11/14 09:15:22      0s] 		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[11/14 09:15:33     21s] 
+[11/14 09:15:33     21s] 
+[11/14 09:15:37     30s] Reset Parastics called with the command setExtractRCMode -reset[11/14 09:15:39     31s] **WARN: (IMPOPT-801):	Genus executable not found in PATH. Install Genus, add the path to the genus executable in the PATH variable and rerun Innovus.
+@(#)CDS: Innovus v21.14-s109_1 (64bit) 06/29/2022 09:53 (Linux 3.10.0-693.el7.x86_64)
+[11/14 09:15:40     32s] @(#)CDS: NanoRoute 21.14-s109_1 NR220628-1629/21_14-UB (database version 18.20.582) {superthreading v2.17}
+[11/14 09:15:40     32s] @(#)CDS: AAE 21.14-s031 (64bit) 06/29/2022 (Linux 3.10.0-693.el7.x86_64)
+[11/14 09:15:40     32s] @(#)CDS: CTE 21.14-s031_1 () Jun 22 2022 10:32:17 ( )
+[11/14 09:15:40     32s] @(#)CDS: SYNTECH 21.14-s014_1 () May 29 2022 20:47:50 ( )
+[11/14 09:15:40     32s] @(#)CDS: CPE v21.14-s062
+[11/14 09:15:40     32s] @(#)CDS: IQuantus/TQuantus 21.1.1-w001 (64bit) Wed Jun 1 22:42:35 PDT 2022 (Linux 3.10.0-693.el7.x86_64)
+[11/14 09:15:40     32s] @(#)CDS: OA 22.60-p074 Tue Apr 12 12:08:19 2022
+[11/14 09:15:40     32s] @(#)CDS: SGN 20.10-d001 (01-Jun-2020) (64 bit executable, Qt5.9.0)
+[11/14 09:15:40     32s] @(#)CDS: RCDB 11.15.0
+[11/14 09:15:40     32s] @(#)CDS: STYLUS 21.12-s008_1 (04/27/2022 03:28 PDT)
+[11/14 09:15:40     32s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_7821_miet-cad-edu_zzomda_D1QIR8.
+
+[11/14 09:15:40     32s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_7821_miet-cad-edu_zzomda_D1QIR8.
+[11/14 09:15:40     32s] 
+[11/14 09:15:40     32s] The soft stacksize limit is either up to the hard limit or larger than 0.2% of RAM. No change is needed.
+[11/14 09:15:43     35s] 
+[11/14 09:15:43     35s] **INFO:  MMMC transition support version v31-84 
+[11/14 09:15:43     35s] 
+[11/14 09:15:46     38s] #@ Processing -files option
+[11/14 09:15:46     38s] @innovus 1> source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.fp.tcl
+[11/14 09:15:46     38s] #@ Begin verbose source (pre): source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.fp.tcl
+[11/14 09:15:46     38s] @file 1: #  ___       _ _   
+[11/14 09:15:46     38s] @file 2: # |_ _|_ __ (_) |_ 
+[11/14 09:15:46     38s] @file 3: #  | || '_ \| | __|
+[11/14 09:15:46     38s] @file 4: #  | || | | | | |_ 
+[11/14 09:15:46     38s] @file 5: # |___|_| |_|_|\__|
+[11/14 09:15:46     38s] @file 6:
+[11/14 09:15:46     38s] @file 7: source $::env(FLOW_DIR)/steps.innovus.tcl
+[11/14 09:15:46     38s] #@ Begin verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/steps.innovus.tcl (pre)
+[11/14 09:15:46     38s] @file 1:
+[11/14 09:15:46     38s] @file 2: proc user_clock_tree_synthesis {args} \
+[11/14 09:15:46     38s] {
+[11/14 09:15:46     38s]     
+[11/14 09:15:46     38s]     #   ____ _            _       _                                    _   _               _     
+[11/14 09:15:46     38s]     #  / ___| | ___   ___| | __  | |_ _ __ ___  ___    ___ _   _ _ __ | |_| |__   ___  ___(_)___ 
+[11/14 09:15:46     38s]     # | |   | |/ _ \ / __| |/ /  | __| '__/ _ \/ _ \  / __| | | | '_ \| __| '_ \ / _ \/ __| / __|
+[11/14 09:15:46     38s]     # | |___| | (_) | (__|   <   | |_| | |  __/  __/  \__ \ |_| | | | | |_| | | |  __/\__ \ \__ \
+[11/14 09:15:46     38s]     #  \____|_|\___/ \___|_|\_\   \__|_|  \___|\___|  |___/\__, |_| |_|\__|_| |_|\___||___/_|___/
+[11/14 09:15:46     38s]     #                                                      |___/     
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     puts "\033\]2;[file tail $::env(PWD)] - [get_db current_design .name] \
+[11/14 09:15:46     38s]         - [set STAGE "Clock_tree_synthesis"] [clock format [clock seconds] -format "%R     %d / %m / %C%y"]\a"
+[11/14 09:15:46     38s]     # ------------------
+[11/14 09:15:46     38s]     # CTS options
+[11/14 09:15:46     38s]     # ------------------
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     # NDR for clock routing
+[11/14 09:15:46     38s]     create_route_rule -name CTS_2W2S -width_multiplier "$::env(TOP_CTS_LAYER_name):$::env(BOT_CTS_LAYER_name) 2"  -spacing_multiplier "$::env(TOP_CTS_LAYER_name):$::env(BOT_CTS_LAYER_name) 2"
+[11/14 09:15:46     38s]     create_route_type -name CTS_RULE   -bottom_preferred_layer $::env(BOT_CTS_LAYER_num) -top_preferred_layer $::env(TOP_CTS_LAYER_num) -route_rule CTS_2W2S
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     # Use specified route rules for clock nets
+[11/14 09:15:46     38s]     set_db cts_route_type_leaf   CTS_RULE
+[11/14 09:15:46     38s]     set_db cts_route_type_trunk  CTS_RULE
+[11/14 09:15:46     38s]     set_db cts_route_type_top    CTS_RULE
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     set_db timing_analysis_type ocv
+[11/14 09:15:46     38s]     set_db cts_target_max_transition_time 0.40
+[11/14 09:15:46     38s]     set_db cts_target_skew 0.10
+[11/14 09:15:46     38s]     set_db cts_top_fanout_threshold 50
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     set_db cts_buffer_cells {
+[11/14 09:15:46     38s]         sg13g2_buf_4
+[11/14 09:15:46     38s]         sg13g2_buf_8
+[11/14 09:15:46     38s]         sg13g2_buf_16
+[11/14 09:15:46     38s]     }
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     set_db cts_inverter_cells {
+[11/14 09:15:46     38s]         sg13g2_inv_4
+[11/14 09:15:46     38s]         sg13g2_inv_8
+[11/14 09:15:46     38s]         sg13g2_inv_16
+[11/14 09:15:46     38s]     }
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     set_db cts_clock_gating_cells {
+[11/14 09:15:46     38s]         sg13g2_lgcp_1
+[11/14 09:15:46     38s]         sg13g2_slgcp_1
+[11/14 09:15:46     38s]     }
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     set_db cts_use_inverters true
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     create_clock_tree_spec -out_file ccopt_default.spec
+[11/14 09:15:46     38s]     source ccopt_default.spec  
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     ccopt_design 
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     # ------------------
+[11/14 09:15:46     38s]     # reports
+[11/14 09:15:46     38s]     # ------------------
+[11/14 09:15:46     38s]     time_design -post_cts -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} 
+[11/14 09:15:46     38s]     time_design -post_cts -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} -hold
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     user_reports
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     # write db 
+[11/14 09:15:46     38s]     write_db ./db/DB.$::env(ENV_DESIGN).${STAGE}.enc
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s] }  
+[11/14 09:15:46     38s] @file 68:
+[11/14 09:15:46     38s] @file 69: proc user_3_otchet {args} \
+[11/14 09:15:46     38s] {
+[11/14 09:15:46     38s]     check_timing -verbose >  ./out/pre_place/time.rpt
+[11/14 09:15:46     38s]     report_analysis_views >  ./out/pre_place/views.rpt
+[11/14 09:15:46     38s]     report_ports > ./out/pre_place/port.rpt
+[11/14 09:15:46     38s]     report_path_exceptions -ignored > ./out/pre_place/except.rpt
+[11/14 09:15:46     38s]     report_clocks -description > ./out/pre_place/clk.rpt
+[11/14 09:15:46     38s]     #typ
+[11/14 09:15:46     38s]     get_db [get_db analysis_views -if {.is_setup}] .name 
+[11/14 09:15:46     38s]     #typ
+[11/14 09:15:46     38s]     get_db [get_db analysis_views -if {.is_hold}] .name 
+[11/14 09:15:46     38s] }
+[11/14 09:15:46     38s] @file 81:
+[11/14 09:15:46     38s] @file 82: proc user_write_lef {top_layer} \
+[11/14 09:15:46     38s] {
+[11/14 09:15:46     38s]     write_lef_abstract -stripe_pins -top_layer $top_layer -no_cut_obs ./out/[get_db current_design .name].lef
+[11/14 09:15:46     38s] }
+[11/14 09:15:46     38s] @file 86:
+[11/14 09:15:46     38s] @file 87:
+[11/14 09:15:46     38s] @file 88: proc user_route {args} \
+[11/14 09:15:46     38s] {
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     #  ____             _       
+[11/14 09:15:46     38s]     # |  _ \ ___  _   _| |_ ___ 
+[11/14 09:15:46     38s]     # | |_) / _ \| | | | __/ _ \
+[11/14 09:15:46     38s]     # |  _ < (_) | |_| | ||  __/
+[11/14 09:15:46     38s]     # |_| \_\___/ \__,_|\__\___|
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     puts "\033\]2;[file tail $::env(PWD)] - [get_db current_design .name] \
+[11/14 09:15:46     38s]         - [set STAGE "Route"] [clock format [clock seconds] -format "%R     %d / %m / %C%y"]\a"
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     route_design -global_detail
+[11/14 09:15:46     38s]     add_fillers -base_cells $::env(ENV_FILLER_CELLS) -prefix FILLER 
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     # ------------------
+[11/14 09:15:46     38s]     # reports
+[11/14 09:15:46     38s]     # ------------------
+[11/14 09:15:46     38s]     time_design -post_route -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} 
+[11/14 09:15:46     38s]     time_design -post_route -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} -hold
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     user_reports
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     # write db 
+[11/14 09:15:46     38s]     write_db ./db/DB.$::env(ENV_DESIGN).${STAGE}.enc
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]         
+[11/14 09:15:46     38s] }
+[11/14 09:15:46     38s] @file 117:
+[11/14 09:15:46     38s] @file 118:
+[11/14 09:15:46     38s] @file 119: proc user_write_spef {args} \
+[11/14 09:15:46     38s] {
+[11/14 09:15:46     38s]     all_rc_corners -active
+[11/14 09:15:46     38s]     write_parasitics -spef_file ./out/[get_db current_design .name].typ.spef.gz -rc_corner typ
+[11/14 09:15:46     38s] }
+[11/14 09:15:46     38s] @file 124:
+[11/14 09:15:46     38s] @file 125:
+[11/14 09:15:46     38s] @file 126: proc user_write_gds {args} \
+[11/14 09:15:46     38s] {
+[11/14 09:15:46     38s]     write_stream ./out/[get_db current_design .name].gds -lib_name DesignLib -unit 1000 -mode ALL
+[11/14 09:15:46     38s] }
+[11/14 09:15:46     38s] @file 130:
+[11/14 09:15:46     38s] @file 131:
+[11/14 09:15:46     38s] @file 132:
+[11/14 09:15:46     38s] @file 133: proc user_init_design {} \
+[11/14 09:15:46     38s] {
+[11/14 09:15:46     38s]  
+[11/14 09:15:46     38s]     # ------------------
+[11/14 09:15:46     38s]     # Init design
+[11/14 09:15:46     38s]     # ------------------
+[11/14 09:15:46     38s]     if {[info exists ::env(TECH_SIZE)] && $::env(TECH_SIZE) ne ""} {
+[11/14 09:15:46     38s]         set_db design_process_node $::env(TECH_SIZE)
+[11/14 09:15:46     38s]     }
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     set_db init_netlist_files  $::env(ENV_NETLIST)
+[11/14 09:15:46     38s]     set_db init_lef_files      $::env(ENV_LEF_FILES)
+[11/14 09:15:46     38s]     set_db init_power_nets     $::env(ENV_POWER_NETS)
+[11/14 09:15:46     38s]     set_db init_ground_nets    $::env(ENV_GROUND_NETS)
+[11/14 09:15:46     38s]     set_db init_mmmc_files     $::env(ENV_MMMC)
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     read_mmmc     $::env(ENV_MMMC)
+[11/14 09:15:46     38s]     read_physical -lef $::env(ENV_LEF_FILES)
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     read_netlist  $::env(ENV_NETLIST) -top $::env(ENV_DESIGN)
+[11/14 09:15:46     38s]     init_design
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s] }
+[11/14 09:15:46     38s] @file 157:
+[11/14 09:15:46     38s] @file 158:
+[11/14 09:15:46     38s] @file 159: proc global_net {} \
+[11/14 09:15:46     38s] {
+[11/14 09:15:46     38s]     connect_global_net VDD -type pg_pin -pin_base_name VDD -inst_base_name *
+[11/14 09:15:46     38s]     connect_global_net VSS -type pg_pin -pin_base_name VSS -inst_base_name *
+[11/14 09:15:46     38s] }
+[11/14 09:15:46     38s] @file 164:
+[11/14 09:15:46     38s] @file 165:
+[11/14 09:15:46     38s] @file 166:
+[11/14 09:15:46     38s] @file 167: proc user_read_floorplan {} {
+[11/14 09:15:46     38s]     # ----------------------------------------------------------
+[11/14 09:15:46     38s]     # Floorplan file Ã¡Ã¥Ã°Â¸Ã¬ Ã¨Ã§ ENV_FLOORPLAN_FILE (Ã±Ã¬. Makefile)
+[11/14 09:15:46     38s]     # ENV_INNOVUS_FP Â Ã½Ã²Ã® Ã¨Ã¬Ã¿ Ã§Ã Ã¯Ã³Ã±ÃªÃ Ã¥Ã¬Ã®Ã© Ã³Ã²Ã¨Ã«Ã¨Ã²Ã», ÃÃ Ã´Ã Ã©Ã« floorplan
+[11/14 09:15:46     38s]     # ----------------------------------------------------------
+[11/14 09:15:46     38s]     set fp_file ""
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     if {[info exists ::env(ENV_FLOORPLAN_FILE)] && $::env(ENV_FLOORPLAN_FILE) ne ""} {
+[11/14 09:15:46     38s]         set fp_file $::env(ENV_FLOORPLAN_FILE)
+[11/14 09:15:46     38s]     }
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     if {$fp_file eq ""} {
+[11/14 09:15:46     38s]         puts "WARN: ENV_FLOORPLAN_FILE is not set, skip read_floorplan"
+[11/14 09:15:46     38s]         return
+[11/14 09:15:46     38s]     }
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     if {![file exists $fp_file]} {
+[11/14 09:15:46     38s]         puts "WARN: floorplan file not found: $fp_file"
+[11/14 09:15:46     38s]         return
+[11/14 09:15:46     38s]     }
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     # ÃÃ¨Ã²Ã Ã¥Ã¬ floorplan
+[11/14 09:15:46     38s]     read_floorplan $fp_file
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     # ÃÃ®Ã¯Ã¨Ã°Ã³Ã¥Ã¬ Ã¨Ã±ÃµÃ®Ã¤Ã­Ã»Ã© .fp Ã¨ Ã¥Ã£Ã® .spr (Ã¥Ã±Ã«Ã¨ Ã¥Ã±Ã²Ã¼) Ã¢ ./in
+[11/14 09:15:46     38s]     if {![file exists ./in]} {
+[11/14 09:15:46     38s]         file mkdir ./in
+[11/14 09:15:46     38s]     }
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     file copy -force $fp_file ./in
+[11/14 09:15:46     38s]     puts "INFO: copied floorplan  -> ./in/[file tail $fp_file]"
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     set spr_file "${fp_file}.spr"
+[11/14 09:15:46     38s]     if {[file exists $spr_file]} {
+[11/14 09:15:46     38s]         file copy -force $spr_file ./in
+[11/14 09:15:46     38s]         puts "INFO: copied floorplan  -> ./in/[file tail $spr_file]"
+[11/14 09:15:46     38s]     }
+[11/14 09:15:46     38s] }
+[11/14 09:15:46     38s] @file 205:
+[11/14 09:15:46     38s] @file 206:
+[11/14 09:15:46     38s] @file 207:
+[11/14 09:15:46     38s] @file 208:
+[11/14 09:15:46     38s] @file 209: proc user_preplace {args} \
+[11/14 09:15:46     38s] {
+[11/14 09:15:46     38s]     
+[11/14 09:15:46     38s]     #                       _                
+[11/14 09:15:46     38s]     #  _ __  _ __ ___ _ __ | | __ _  ___ ___ 
+[11/14 09:15:46     38s]     # | '_ \| '__/ _ \ '_ \| |/ _` |/ __/ _ \
+[11/14 09:15:46     38s]     # | |_) | | |  __/ |_) | | (_| | (_|  __/
+[11/14 09:15:46     38s]     # | .__/|_|  \___| .__/|_|\__,_|\___\___|
+[11/14 09:15:46     38s]     # |_|            |_|  
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     puts "\033\]2;[file tail $::env(PWD)] - [get_db current_design .name] \
+[11/14 09:15:46     38s]         - [set STAGE "prePlace"] [clock format [clock seconds] -format "%R     %d / %m / %C%y"]\a"
+[11/14 09:15:46     38s]         
+[11/14 09:15:46     38s]     delete_buffer_trees
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     # ------------------
+[11/14 09:15:46     38s]     # reports
+[11/14 09:15:46     38s]     # ------------------
+[11/14 09:15:46     38s]     time_design -pre_place -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} 
+[11/14 09:15:46     38s]     time_design -pre_place -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} -hold
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     user_reports
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     # write db 
+[11/14 09:15:46     38s]     write_db ./db/DB.$::env(ENV_DESIGN).${STAGE}.enc
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s] }
+[11/14 09:15:46     38s] @file 239:
+[11/14 09:15:46     38s] @file 240:
+[11/14 09:15:46     38s] @file 241:
+[11/14 09:15:46     38s] @file 242: proc user_extract_rc {args} \
+[11/14 09:15:46     38s] {
+[11/14 09:15:46     38s]     #            _                  _   ____   ____ 
+[11/14 09:15:46     38s]     #   _____  _| |_ _ __ __ _  ___| |_|  _ \ / ___|
+[11/14 09:15:46     38s]     #  / _ \ \/ / __| '__/ _` |/ __| __| |_) | |    
+[11/14 09:15:46     38s]     # |  __/>  <| |_| | | (_| | (__| |_|  _ <| |___ 
+[11/14 09:15:46     38s]     #  \___/_/\_\\__|_|  \__,_|\___|\__|_| \_\\____|
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     puts "\033\]2;[file tail $::env(PWD)] - [get_db current_design .name] \
+[11/14 09:15:46     38s]         - [set STAGE "extract_rc"] [clock format [clock seconds] -format "%R     %d / %m / %C%y"]\a"
+[11/14 09:15:46     38s]                   
+[11/14 09:15:46     38s]     reset_parasitics
+[11/14 09:15:46     38s]     extract_rc
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     time_design -post_route -report_only -expanded_views \
+[11/14 09:15:46     38s]     -report_dir ./reports/final -report_prefix final_setup
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     time_design -post_route -report_only -expanded_views -hold \
+[11/14 09:15:46     38s]     -report_dir ./reports/final -report_prefix final_hold
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     report_timing -late -path_type full_clock -max_paths 1
+[11/14 09:15:46     38s]     report_timing -early -path_type full_clock -max_paths 1
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     check_place
+[11/14 09:15:46     38s]     check_connectivity -type all -out_file ./reports/final/connectivity.rpt
+[11/14 09:15:46     38s]     check_drc -check_only all -out_file ./reports/final/drc.rpt
+[11/14 09:15:46     38s] }
+[11/14 09:15:46     38s] @file 269:
+[11/14 09:15:46     38s] @file 270:
+[11/14 09:15:46     38s] @file 271: proc user_sta {args} \
+[11/14 09:15:46     38s] {
+[11/14 09:15:46     38s]     time_design -post_route -report_only -expanded_views -report_dir ./reports/sta -report_prefix sta 
+[11/14 09:15:46     38s]     time_design -post_route -report_only -expanded_views -report_dir ./reports/sta -report_prefix sta -hold
+[11/14 09:15:46     38s] }
+[11/14 09:15:46     38s] @file 276:
+[11/14 09:15:46     38s] @file 277: proc user_write_netlist {args} \
+[11/14 09:15:46     38s] {
+[11/14 09:15:46     38s]     write_netlist ./out/[get_db current_design .name].v
+[11/14 09:15:46     38s]     # write_netlist ./out/[get_db current_design .name]_flat.v -flat -line_length 10000
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s] }
+[11/14 09:15:46     38s] @file 283:
+[11/14 09:15:46     38s] @file 284: proc user_write_sdf {sdf_view} \
+[11/14 09:15:46     38s] {
+[11/14 09:15:46     38s]     
+[11/14 09:15:46     38s]     write_sdf ./out/[get_db current_design .name].sdf -target_application verilog -precision 4 \
+[11/14 09:15:46     38s]         -view "${sdf_view}"
+[11/14 09:15:46     38s] }
+[11/14 09:15:46     38s] @file 290:
+[11/14 09:15:46     38s] @file 291:
+[11/14 09:15:46     38s] @file 292:
+[11/14 09:15:46     38s] @file 293:
+[11/14 09:15:46     38s] @file 294: proc user_write_lib {setup_views hold_views } \
+[11/14 09:15:46     38s] {
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     set_analysis_view -setup $setup_views -hold $hold_views
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     set list [concat $setup_views $hold_views]
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     foreach view $list {
+[11/14 09:15:46     38s]     write_timing_model \
+[11/14 09:15:46     38s]         -view $view \
+[11/14 09:15:46     38s]         -blackbox_2d -force -include_power_ground \
+[11/14 09:15:46     38s]         -lib_name [get_db current_design .name]_${view} -cell_name [get_db current_design .name] \
+[11/14 09:15:46     38s]         ./out/[get_db current_design .name]_${view}.lib
+[11/14 09:15:46     38s]     }
+[11/14 09:15:46     38s]     
+[11/14 09:15:46     38s] }
+[11/14 09:15:46     38s] @file 310:
+[11/14 09:15:46     38s] @file 311:
+[11/14 09:15:46     38s] @file 312: proc user_write_def {args} \
+[11/14 09:15:46     38s] {
+[11/14 09:15:46     38s]     write_def ./out/[get_db current_design .name].def.gz -floorplan -netlist -routing -routing_to_specialnet -scan_chain 
+[11/14 09:15:46     38s] }
+[11/14 09:15:46     38s] @file 316:
+[11/14 09:15:46     38s] @file 317:
+[11/14 09:15:46     38s] @file 318:
+[11/14 09:15:46     38s] @file 319:
+[11/14 09:15:46     38s] @file 320:
+[11/14 09:15:46     38s] @file 321: proc user_reports {} {
+[11/14 09:15:46     38s]     upvar 1 STAGE STAGE
+[11/14 09:15:46     38s]     mkdir -p ./reports/R.${STAGE}
+[11/14 09:15:46     38s]     check_timing -verbose > ./reports/R.${STAGE}/checkTiming.rpt
+[11/14 09:15:46     38s]     check_netlist -out_file ./reports/R.${STAGE}/checkNetlist.rpt
+[11/14 09:15:46     38s]     report_area > ./reports/R.${STAGE}/report_area.rpt
+[11/14 09:15:46     38s]     report_power -out_file ./reports/R.${STAGE}/report_power.rep
+[11/14 09:15:46     38s]     user_report_Screenshot      
+[11/14 09:15:46     38s]     puts "${STAGE} [clock format [clock seconds] -format "%R     %d / %m / %C%y"]" >> ./reports/time_log.rep
+[11/14 09:15:46     38s] }
+[11/14 09:15:46     38s] @file 331:
+[11/14 09:15:46     38s] @file 332:
+[11/14 09:15:46     38s] @file 333: proc user_report_Screenshot {} {
+[11/14 09:15:46     38s]         upvar 1 STAGE STAGE
+[11/14 09:15:46     38s]         set_layer_preference node_layer -is_visible 1
+[11/14 09:15:46     38s]         set_layer_preference node_net -is_visible 1
+[11/14 09:15:46     38s]         set_layer_preference phyCell -is_visible 1
+[11/14 09:15:46     38s]         gui_set_draw_view place
+[11/14 09:15:46     38s]         gui_show
+[11/14 09:15:46     38s]         gui_fit
+[11/14 09:15:46     38s]         write_to_gif ./reports/R.${STAGE}/R.${STAGE}_Screenshot_place_mode.gif
+[11/14 09:15:46     38s]         delete_drc_markers
+[11/14 09:15:46     38s]         set_layer_preference node_net -is_visible 0
+[11/14 09:15:46     38s]         set_layer_preference clock -is_visible 1
+[11/14 09:15:46     38s]         write_to_gif ./reports/R.${STAGE}/R.${STAGE}_Screenshot_clock_mode.gif
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]         set_layer_preference node_layer -is_visible 0
+[11/14 09:15:46     38s]         write_to_gif ./reports/R.${STAGE}/R.${STAGE}_Screenshot_cells_mode.gif
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]         set_layer_preference node_layer -is_visible 1
+[11/14 09:15:46     38s]         set_layer_preference node_cell -is_visible 0
+[11/14 09:15:46     38s]         set_layer_preference node_net -is_visible 1
+[11/14 09:15:46     38s]         gui_hide
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     }
+[11/14 09:15:46     38s] @file 356:
+[11/14 09:15:46     38s] @file 357:
+[11/14 09:15:46     38s] @file 358: proc user_place {args} \
+[11/14 09:15:46     38s] {
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     #        _                
+[11/14 09:15:46     38s]     #  _ __ | | __ _  ___ ___ 
+[11/14 09:15:46     38s]     # | '_ \| |/ _` |/ __/ _ \
+[11/14 09:15:46     38s]     # | |_) | | (_| | (_|  __/
+[11/14 09:15:46     38s]     # | .__/|_|\__,_|\___\___|
+[11/14 09:15:46     38s]     # |_| 
+[11/14 09:15:46     38s]         
+[11/14 09:15:46     38s]     puts "\033\]2;[file tail $::env(PWD)] - [get_db current_design .name] \
+[11/14 09:15:46     38s]         - [set STAGE "place"] [clock format [clock seconds] -format "%R     %d / %m / %C%y"]\a"
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     place_opt_design
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     # ------------------
+[11/14 09:15:46     38s]     # reports
+[11/14 09:15:46     38s]     # ------------------
+[11/14 09:15:46     38s]     time_design -pre_cts -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} 
+[11/14 09:15:46     38s]     time_design -pre_cts -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} -hold
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     user_reports
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s]     # write db 
+[11/14 09:15:46     38s]     write_db ./db/DB.$::env(ENV_DESIGN).${STAGE}.enc
+[11/14 09:15:46     38s] 
+[11/14 09:15:46     38s] }
+[11/14 09:15:46     38s] @file 386:
+[11/14 09:15:46     38s] @file 387:
+[11/14 09:15:46     38s] #@ End verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/steps.innovus.tcl
+[11/14 09:15:46     38s] @file 8:
+[11/14 09:15:46     38s] @file 9:
+[11/14 09:15:46     38s] @file 10:
+[11/14 09:15:46     38s] @@file 11: gui_show
+[11/14 09:15:46     38s] @@file 12: gui_fit
+[11/14 09:15:46     38s] @file 13:
+[11/14 09:15:46     38s] @file 14:
+[11/14 09:15:46     38s] #@ End verbose source: /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.fp.tcl
+[11/14 09:15:46     38s] @innovus 2> gui_select -point {0.01100 0.08200}
+[11/14 09:16:04     40s] @innovus 3> gui_select -rect {-0.08800 0.15100 0.02600 -0.10600}
+[11/14 09:16:06     40s] @innovus 4> **INFO (INTERRUPT): One more Ctrl-C to exit Innovus ...
+[11/14 09:16:54     44s] Innovus terminated by user interrupt.
+[11/14 09:16:54     44s] QObject::~QObject: Timers cannot be stopped from another thread
+[11/14 09:16:54     44s] 
+[11/14 09:16:54     44s] *** Memory Usage v#1 (Current mem = 889.148M, initial mem = 376.109M) ***
+[11/14 09:16:54     44s] 
+[11/14 09:16:54     44s] *** Summary of all messages that are not suppressed in this session:
+[11/14 09:16:54     44s] Severity  ID               Count  Summary                                  
+[11/14 09:16:54     44s] WARNING   IMPOPT-801           1  Genus executable not found in PATH%s. In...
+[11/14 09:16:54     44s] *** Message Summary: 1 warning(s), 0 error(s)
+[11/14 09:16:54     44s] 
+[11/14 09:16:54     44s] --- Ending "Innovus" (totcpu=0:00:44.5, real=0:01:32, mem=889.1M) ---

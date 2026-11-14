@@ -24,9 +24,35 @@ proc user_clock_tree_synthesis {args} \
     set_db cts_route_type_trunk  CTS_RULE
     set_db cts_route_type_top    CTS_RULE
 
+    set_db timing_analysis_type ocv
+    set_db cts_target_max_transition_time 0.40
+    set_db cts_target_skew 0.10
+    set_db cts_top_fanout_threshold 50
+
+    set_db cts_buffer_cells {
+        sg13g2_buf_4
+        sg13g2_buf_8
+        sg13g2_buf_16
+    }
+
+    set_db cts_inverter_cells {
+        sg13g2_inv_4
+        sg13g2_inv_8
+        sg13g2_inv_16
+    }
+
+    set_db cts_clock_gating_cells {
+        sg13g2_lgcp_1
+        sg13g2_slgcp_1
+    }
+
+    set_db cts_use_inverters true
+
     create_clock_tree_spec -out_file ccopt_default.spec
     source ccopt_default.spec  
-    clock_opt_design 
+
+    ccopt_design 
+    #clock_opt_design
 
     # ------------------
     # reports
@@ -39,9 +65,20 @@ proc user_clock_tree_synthesis {args} \
     # write db 
     write_db ./db/DB.$::env(ENV_DESIGN).${STAGE}.enc
 
-}    
+}  
 
-
+proc user_3_otchet {args} \
+{
+    check_timing -verbose >  ./out/pre_place/time.rpt
+    report_analysis_views >  ./out/pre_place/views.rpt
+    report_ports > ./out/pre_place/port.rpt
+    report_path_exceptions -ignored > ./out/pre_place/except.rpt
+    report_clocks -description > ./out/pre_place/clk.rpt
+    #typ
+    get_db [get_db analysis_views -if {.is_setup}] .name 
+    #typ
+    get_db [get_db analysis_views -if {.is_hold}] .name 
+}
 
 proc user_write_lef {top_layer} \
 {
@@ -205,7 +242,6 @@ proc user_preplace {args} \
 
 proc user_extract_rc {args} \
 {
-   
     #            _                  _   ____   ____ 
     #   _____  _| |_ _ __ __ _  ___| |_|  _ \ / ___|
     #  / _ \ \/ / __| '__/ _` |/ __| __| |_) | |    
@@ -217,6 +253,19 @@ proc user_extract_rc {args} \
                   
     reset_parasitics
     extract_rc
+
+    time_design -post_route -report_only -expanded_views \
+    -report_dir ./reports/final -report_prefix final_setup
+
+    time_design -post_route -report_only -expanded_views -hold \
+    -report_dir ./reports/final -report_prefix final_hold
+
+    report_timing -late -path_type full_clock -max_paths 1
+    report_timing -early -path_type full_clock -max_paths 1
+
+    check_place
+    check_connectivity -type all -out_file ./reports/final/connectivity.rpt
+    check_drc -check_only all -out_file ./reports/final/drc.rpt
 }
 
 

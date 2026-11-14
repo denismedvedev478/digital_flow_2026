@@ -1,0 +1,772 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v21.14-s109_1, built Wed Jun 29 09:53:08 PDT 2022
+Options:	-stylus -files /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.impl.tcl 
+Date:		Mon Nov  9 21:02:33 2026
+Host:		miet-cad-edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (32cores*32cpus*Common KVM processor 512KB)
+OS:		CentOS Linux release 7.9.2009 (Core)
+
+License:
+		[21:02:33.185177] Configured Lic search path (21.01-s002): 5280@srv-eda-05
+
+		invs	Innovus Implementation System	21.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+
+
+**WARN: (IMPOPT-801):	Genus executable not found in PATH. Install Genus, add the path to the genus executable in the PATH variable and rerun Innovus.
+Create and set the environment variable TMPDIR to /tmp/innovus_temp_23525_miet-cad-edu_zzomda_dS1SxW.
+
+The soft stacksize limit is either up to the hard limit or larger than 0.2% of RAM. No change is needed.
+
+**INFO:  MMMC transition support version v31-84 
+
+#@ Processing -files option
+@innovus 1> source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.impl.tcl
+#@ Begin verbose source (pre): source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.impl.tcl
+@file 1: #  ___       _ _   
+@file 2: # |_ _|_ __ (_) |_ 
+@file 3: #  | || '_ \| | __|
+@file 4: #  | || | | | | |_ 
+@file 5: # |___|_| |_|_|\__|
+@file 6:
+@file 7: source $::env(FLOW_DIR)/steps.innovus.tcl
+#@ Begin verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/steps.innovus.tcl (pre)
+@file 1:
+@file 2: proc user_clock_tree_synthesis {args} \
+{
+    
+    #   ____ _            _       _                                    _   _               _     
+    #  / ___| | ___   ___| | __  | |_ _ __ ___  ___    ___ _   _ _ __ | |_| |__   ___  ___(_)___ 
+    # | |   | |/ _ \ / __| |/ /  | __| '__/ _ \/ _ \  / __| | | | '_ \| __| '_ \ / _ \/ __| / __|
+    # | |___| | (_) | (__|   <   | |_| | |  __/  __/  \__ \ |_| | | | | |_| | | |  __/\__ \ \__ \
+    #  \____|_|\___/ \___|_|\_\   \__|_|  \___|\___|  |___/\__, |_| |_|\__|_| |_|\___||___/_|___/
+    #                                                      |___/     
+
+    puts "\033\]2;[file tail $::env(PWD)] - [get_db current_design .name] \
+        - [set STAGE "Clock_tree_synthesis"] [clock format [clock seconds] -format "%R     %d / %m / %C%y"]\a"
+    # ------------------
+    # CTS options
+    # ------------------
+
+    # NDR for clock routing
+    create_route_rule -name CTS_2W2S -width_multiplier "$::env(TOP_CTS_LAYER_name):$::env(BOT_CTS_LAYER_name) 2"  -spacing_multiplier "$::env(TOP_CTS_LAYER_name):$::env(BOT_CTS_LAYER_name) 2"
+    create_route_type -name CTS_RULE   -bottom_preferred_layer $::env(BOT_CTS_LAYER_num) -top_preferred_layer $::env(TOP_CTS_LAYER_num) -route_rule CTS_2W2S
+
+    # Use specified route rules for clock nets
+    set_db cts_route_type_leaf   CTS_RULE
+    set_db cts_route_type_trunk  CTS_RULE
+    set_db cts_route_type_top    CTS_RULE
+
+    create_clock_tree_spec -out_file ccopt_default.spec
+    source ccopt_default.spec  
+    clock_opt_design 
+
+    # ------------------
+    # reports
+    # ------------------
+    time_design -post_cts -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} 
+    time_design -post_cts -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} -hold
+
+    user_reports
+
+    # write db 
+    write_db ./db/DB.$::env(ENV_DESIGN).${STAGE}.enc
+
+}  
+@file 43:
+@file 44: proc user_3_otchet {args} \
+{
+    check_timing -out_file > ./out/pre_place/time.rpt
+    report_clocks -description -out_file > ./out/pre_place/clk.rpt
+    get_db [get_db analysis_views -if {.is_setup}] .name 
+    get_db [get_db analysis_views -if {.is_hold}] .name 
+
+    suspend
+}
+@file 53:
+@file 54: proc user_write_lef {top_layer} \
+{
+    write_lef_abstract -stripe_pins -top_layer $top_layer -no_cut_obs ./out/[get_db current_design .name].lef
+}
+@file 58:
+@file 59:
+@file 60: proc user_route {args} \
+{
+
+    #  ____             _       
+    # |  _ \ ___  _   _| |_ ___ 
+    # | |_) / _ \| | | | __/ _ \
+    # |  _ < (_) | |_| | ||  __/
+    # |_| \_\___/ \__,_|\__\___|
+
+    puts "\033\]2;[file tail $::env(PWD)] - [get_db current_design .name] \
+        - [set STAGE "Route"] [clock format [clock seconds] -format "%R     %d / %m / %C%y"]\a"
+
+
+    route_design -global_detail
+    add_fillers -base_cells $::env(ENV_FILLER_CELLS) -prefix FILLER 
+
+    # ------------------
+    # reports
+    # ------------------
+    time_design -post_route -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} 
+    time_design -post_route -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} -hold
+
+    user_reports
+
+    # write db 
+    write_db ./db/DB.$::env(ENV_DESIGN).${STAGE}.enc
+
+        
+}
+@file 89:
+@file 90:
+@file 91: proc user_write_spef {args} \
+{
+    all_rc_corners -active
+    write_parasitics -spef_file ./out/[get_db current_design .name].typ.spef.gz -rc_corner typ
+}
+@file 96:
+@file 97:
+@file 98: proc user_write_gds {args} \
+{
+    write_stream ./out/[get_db current_design .name].gds -lib_name DesignLib -unit 1000 -mode ALL
+}
+@file 102:
+@file 103:
+@file 104:
+@file 105: proc user_init_design {} \
+{
+ 
+    # ------------------
+    # Init design
+    # ------------------
+    if {[info exists ::env(TECH_SIZE)] && $::env(TECH_SIZE) ne ""} {
+        set_db design_process_node $::env(TECH_SIZE)
+    }
+
+    set_db init_netlist_files  $::env(ENV_NETLIST)
+    set_db init_lef_files      $::env(ENV_LEF_FILES)
+    set_db init_power_nets     $::env(ENV_POWER_NETS)
+    set_db init_ground_nets    $::env(ENV_GROUND_NETS)
+    set_db init_mmmc_files     $::env(ENV_MMMC)
+
+    read_mmmc     $::env(ENV_MMMC)
+    read_physical -lef $::env(ENV_LEF_FILES)
+
+    read_netlist  $::env(ENV_NETLIST) -top $::env(ENV_DESIGN)
+    init_design
+
+
+}
+@file 129:
+@file 130:
+@file 131: proc global_net {} \
+{
+    connect_global_net VDD -type pg_pin -pin_base_name VDD -inst_base_name *
+    connect_global_net VSS -type pg_pin -pin_base_name VSS -inst_base_name *
+}
+@file 136:
+@file 137:
+@file 138:
+@file 139: proc user_read_floorplan {} {
+    # ----------------------------------------------------------
+    # Floorplan file Ã¡Ã¥Ã°Â¸Ã¬ Ã¨Ã§ ENV_FLOORPLAN_FILE (Ã±Ã¬. Makefile)
+    # ENV_INNOVUS_FP Â Ã½Ã²Ã® Ã¨Ã¬Ã¿ Ã§Ã Ã¯Ã³Ã±ÃªÃ Ã¥Ã¬Ã®Ã© Ã³Ã²Ã¨Ã«Ã¨Ã²Ã», ÃÃ Ã´Ã Ã©Ã« floorplan
+    # ----------------------------------------------------------
+    set fp_file ""
+
+    if {[info exists ::env(ENV_FLOORPLAN_FILE)] && $::env(ENV_FLOORPLAN_FILE) ne ""} {
+        set fp_file $::env(ENV_FLOORPLAN_FILE)
+    }
+
+    if {$fp_file eq ""} {
+        puts "WARN: ENV_FLOORPLAN_FILE is not set, skip read_floorplan"
+        return
+    }
+
+    if {![file exists $fp_file]} {
+        puts "WARN: floorplan file not found: $fp_file"
+        return
+    }
+
+    # ÃÃ¨Ã²Ã Ã¥Ã¬ floorplan
+    read_floorplan $fp_file
+
+    # ÃÃ®Ã¯Ã¨Ã°Ã³Ã¥Ã¬ Ã¨Ã±ÃµÃ®Ã¤Ã­Ã»Ã© .fp Ã¨ Ã¥Ã£Ã® .spr (Ã¥Ã±Ã«Ã¨ Ã¥Ã±Ã²Ã¼) Ã¢ ./in
+    if {![file exists ./in]} {
+        file mkdir ./in
+    }
+
+    file copy -force $fp_file ./in
+    puts "INFO: copied floorplan  -> ./in/[file tail $fp_file]"
+
+    set spr_file "${fp_file}.spr"
+    if {[file exists $spr_file]} {
+        file copy -force $spr_file ./in
+        puts "INFO: copied floorplan  -> ./in/[file tail $spr_file]"
+    }
+}
+@file 177:
+@file 178:
+@file 179:
+@file 180:
+@file 181: proc user_preplace {args} \
+{
+    
+    #                       _                
+    #  _ __  _ __ ___ _ __ | | __ _  ___ ___ 
+    # | '_ \| '__/ _ \ '_ \| |/ _` |/ __/ _ \
+    # | |_) | | |  __/ |_) | | (_| | (_|  __/
+    # | .__/|_|  \___| .__/|_|\__,_|\___\___|
+    # |_|            |_|  
+
+    puts "\033\]2;[file tail $::env(PWD)] - [get_db current_design .name] \
+        - [set STAGE "prePlace"] [clock format [clock seconds] -format "%R     %d / %m / %C%y"]\a"
+        
+    delete_buffer_trees
+
+    # ------------------
+    # reports
+    # ------------------
+    time_design -pre_place -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} 
+    time_design -pre_place -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} -hold
+
+    user_reports
+
+    # write db 
+    write_db ./db/DB.$::env(ENV_DESIGN).${STAGE}.enc
+
+
+
+
+}
+@file 211:
+@file 212:
+@file 213:
+@file 214: proc user_extract_rc {args} \
+{
+   
+    #            _                  _   ____   ____ 
+    #   _____  _| |_ _ __ __ _  ___| |_|  _ \ / ___|
+    #  / _ \ \/ / __| '__/ _` |/ __| __| |_) | |    
+    # |  __/>  <| |_| | | (_| | (__| |_|  _ <| |___ 
+    #  \___/_/\_\\__|_|  \__,_|\___|\__|_| \_\\____|
+
+    puts "\033\]2;[file tail $::env(PWD)] - [get_db current_design .name] \
+        - [set STAGE "extract_rc"] [clock format [clock seconds] -format "%R     %d / %m / %C%y"]\a"
+                  
+    reset_parasitics
+    extract_rc
+}
+@file 229:
+@file 230:
+@file 231: proc user_sta {args} \
+{
+    time_design -post_route -report_only -expanded_views -report_dir ./reports/sta -report_prefix sta 
+    time_design -post_route -report_only -expanded_views -report_dir ./reports/sta -report_prefix sta -hold
+}
+@file 236:
+@file 237: proc user_write_netlist {args} \
+{
+    write_netlist ./out/[get_db current_design .name].v
+    # write_netlist ./out/[get_db current_design .name]_flat.v -flat -line_length 10000
+
+}
+@file 243:
+@file 244: proc user_write_sdf {sdf_view} \
+{
+    
+    write_sdf ./out/[get_db current_design .name].sdf -target_application verilog -precision 4 \
+        -view "${sdf_view}"
+}
+@file 250:
+@file 251:
+@file 252:
+@file 253:
+@file 254: proc user_write_lib {setup_views hold_views } \
+{
+
+    set_analysis_view -setup $setup_views -hold $hold_views
+
+    set list [concat $setup_views $hold_views]
+
+    foreach view $list {
+    write_timing_model \
+        -view $view \
+        -blackbox_2d -force -include_power_ground \
+        -lib_name [get_db current_design .name]_${view} -cell_name [get_db current_design .name] \
+        ./out/[get_db current_design .name]_${view}.lib
+    }
+    
+}
+@file 270:
+@file 271:
+@file 272: proc user_write_def {args} \
+{
+    write_def ./out/[get_db current_design .name].def.gz -floorplan -netlist -routing -routing_to_specialnet -scan_chain 
+}
+@file 276:
+@file 277:
+@file 278:
+@file 279:
+@file 280:
+@file 281: proc user_reports {} {
+    upvar 1 STAGE STAGE
+    mkdir -p ./reports/R.${STAGE}
+    check_timing -verbose > ./reports/R.${STAGE}/checkTiming.rpt
+    check_netlist -out_file ./reports/R.${STAGE}/checkNetlist.rpt
+    report_area > ./reports/R.${STAGE}/report_area.rpt
+    report_power -out_file ./reports/R.${STAGE}/report_power.rep
+    user_report_Screenshot      
+    puts "${STAGE} [clock format [clock seconds] -format "%R     %d / %m / %C%y"]" >> ./reports/time_log.rep
+}
+@file 291:
+@file 292:
+@file 293: proc user_report_Screenshot {} {
+        upvar 1 STAGE STAGE
+        set_layer_preference node_layer -is_visible 1
+        set_layer_preference node_net -is_visible 1
+        set_layer_preference phyCell -is_visible 1
+        gui_set_draw_view place
+        gui_show
+        gui_fit
+        write_to_gif ./reports/R.${STAGE}/R.${STAGE}_Screenshot_place_mode.gif
+        delete_drc_markers
+        set_layer_preference node_net -is_visible 0
+        set_layer_preference clock -is_visible 1
+        write_to_gif ./reports/R.${STAGE}/R.${STAGE}_Screenshot_clock_mode.gif
+
+        set_layer_preference node_layer -is_visible 0
+        write_to_gif ./reports/R.${STAGE}/R.${STAGE}_Screenshot_cells_mode.gif
+
+        set_layer_preference node_layer -is_visible 1
+        set_layer_preference node_cell -is_visible 0
+        set_layer_preference node_net -is_visible 1
+        gui_hide
+
+    }
+@file 316:
+@file 317:
+@file 318: proc user_place {args} \
+{
+
+
+    #        _                
+    #  _ __ | | __ _  ___ ___ 
+    # | '_ \| |/ _` |/ __/ _ \
+    # | |_) | | (_| | (_|  __/
+    # | .__/|_|\__,_|\___\___|
+    # |_| 
+        
+    puts "\033\]2;[file tail $::env(PWD)] - [get_db current_design .name] \
+        - [set STAGE "place"] [clock format [clock seconds] -format "%R     %d / %m / %C%y"]\a"
+
+    place_opt_design
+
+    # ------------------
+    # reports
+    # ------------------
+    time_design -pre_cts -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} 
+    time_design -pre_cts -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} -hold
+
+    user_reports
+
+    # write db 
+    write_db ./db/DB.$::env(ENV_DESIGN).${STAGE}.enc
+
+}
+@file 346:
+@file 347:
+#@ End verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/steps.innovus.tcl
+@file 8:
+@file 9: user_init_design
+##  Process: 130           (User Set)               
+##     Node: (not set)                           
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+Applying the recommended capacitance filtering threshold values for 130nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.4.
+	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+	Capacitance filtering mode(extract_rc_cap_filter_mode option of the set_db) is 'relative_and_coupling' for all engines.
+	The accuracy mode for post_route extract_rc_effort_level low extraction will be set to 'standard'.
+	Default value for EffortLevel(extract_rc_effort_level option of the set_db) in post_route extraction mode is 'low'.
+#@ Begin verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/example_rtl/counter/mmmc.view (pre)
+@file 1:
+@file 2: # ################
+@file 3: # TYP
+@file 4: # ################
+@file 5: set lib_list_typ {}
+@file 6:
+@file 7: lappend lib_list_typ  " $::env(PDK_DIR)/IHP_Open_PDK/sg13g2_stdcell/lib/sg13g2_stdcell_typ_1p20V_25C.lib"
+@file 8:
+@@file 9: create_rc_corner -name typ -temperature {25} -pre_route_res {1} -pre_route_cap {1} -pre_route_clock_res {0} -pre_route_clock_cap {0} -post_route_res {1} -post_route_cap {1} -post_route_cross_cap {1} -post_route_clock_res {0} -post_route_clock_cap {0}
+@@file 10: create_library_set -name typ -timing $lib_list_typ
+@@file 11: create_opcond -name typ -process {1} -voltage {1.20} -temperature {25}
+@file 12: #set PVT
+@@file 13: create_timing_condition -name typ -opcond {typ} -library_sets {typ}
+@@file 14: create_delay_corner -name typ -timing_condition {typ} -rc_corner {typ}
+@file 15: #create corner
+@file 16:
+@file 17: # ################
+@file 18: # MAX
+@file 19: # ################
+@file 20: # set lib_list_max {}
+@file 21:
+@file 22: # lappend lib_list_max  <PLACEHOLDER>
+@file 23:
+@file 24: # create_rc_corner <PLACEHOLDER>
+@file 25: # create_library_set <PLACEHOLDER>
+@file 26: # create_opcond <PLACEHOLDER>
+@file 27: # create_timing_condition <PLACEHOLDER>
+@file 28: # create_delay_corner <PLACEHOLDER>
+@file 29:
+@file 30: # ################
+@file 31: # FINAL 
+@file 32: # ################
+@file 33:
+@@file 34: create_constraint_mode -name func -sdc_files "/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/blockB/statistics_unit.sdc"
+@@file 35: create_analysis_view -name typ -constraint_mode {func} -delay_corner {typ}
+@@file 36: set_analysis_view -setup {typ} -hold {typ}
+#@ End verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/example_rtl/counter/mmmc.view
+Reading typ timing library '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/PDK/IHP_Open_PDK/sg13g2_stdcell/lib/sg13g2_stdcell_typ_1p20V_25C.lib' ...
+Read 78 cells in library 'sg13g2_stdcell_typ_1p20V_25C' 
+
+Loading LEF file /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/../PDK//IHP_Open_PDK/sg13g2_stdcell/lef/sg13g2_tech.lef ...
+
+Loading LEF file /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/../PDK//IHP_Open_PDK/sg13g2_stdcell/lef/sg13g2_stdcell.lef ...
+Set DBUPerIGU to M1 pitch 480.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'sg13g2_antennanp' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+
+viaInitial starts at Mon Nov  9 21:02:57 2026
+viaInitial ends at Mon Nov  9 21:02:57 2026
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+#% Begin Load netlist data ... (date=11/09 21:02:57, mem=749.7M)
+*** Begin netlist parsing (mem=887.0M) ***
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_xor2_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_xor2_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_xnor2_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_xnor2_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_tielo' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_tielo' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_tiehi' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_tiehi' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_slgcp_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_slgcp_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_sighold' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_sighold' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_sdfbbp_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_sdfbbp_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_or4_2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_or4_2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_or4_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_or4_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_or3_2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_or3_2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (EMS-27):	Message (IMPVL-159) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+Created 78 new cells from 1 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilog netlist '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/run/genus/outputs/syn_opt/statistics_unit.v'
+
+*** Memory Usage v#1 (Current mem = 890.023M, initial mem = 384.109M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=890.0M) ***
+#% End Load netlist data ... (date=11/09 21:02:57, total cpu=0:00:00.0, real=0:00:00.0, peak res=754.1M, current mem=754.1M)
+Set top cell to statistics_unit.
+Hooked 78 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell statistics_unit ...
+*** Netlist is unique.
+** info: there are 79 modules.
+** info: there are 788 stdCell insts.
+
+*** Memory Usage v#1 (Current mem = 952.496M, initial mem = 384.109M) ***
+Adjust TopMetal1 preferred direction offset from 1.64 to 0.
+Start create_tracks
+Generated pitch 2.52 in TopMetal1 is different from 2.28 defined in technology file in preferred direction.
+Extraction setup Started 
+Initializing multi-corner RC extraction with 1 active RC Corners ...
+**WARN: (IMPEXT-2773):	The via resistance between layers M0 and M1 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M1 and M2 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M2 and M3 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M3 and M4 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M4 and M5 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M5 and M6 is not defined in the capacitance table file. The via resistance of 4 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M6 and M7 is not defined in the capacitance table file. The via resistance of 2.2 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M1 is not defined in the cap table. Therefore, the LEF value 0.135 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M2 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M3 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M4 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M5 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M6 is not defined in the cap table. Therefore, the LEF value 0.021 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M7 is not defined in the cap table. Therefore, the LEF value 0.0145 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+Summary of Active RC-Corners : 
+ 
+ Analysis View: typ
+    RC-Corner Name        : typ
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from Cap Table]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from Cap Table]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+Updating RC grid for preRoute extraction ...
+Initializing multi-corner resistance tables ...
+*Info: initialize multi-corner CTS.
+Reading timing constraints file '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/blockB/statistics_unit.sdc' ...
+Current (total cpu=0:00:38.2, real=0:00:25.0, peak res=1044.8M, current mem=1044.8M)
+INFO (CTE): Constraints read successfully.
+Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=1062.6M, current mem=1062.6M)
+Current (total cpu=0:00:38.3, real=0:00:25.0, peak res=1062.6M, current mem=1062.6M)
+Total number of combinational cells: 62
+Total number of sequential cells: 10
+Total number of tristate cells: 6
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+List of usable buffers: sg13g2_buf_1 sg13g2_buf_16 sg13g2_buf_2 sg13g2_buf_4 sg13g2_buf_8
+Total number of usable buffers: 5
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: sg13g2_inv_1 sg13g2_inv_16 sg13g2_inv_2 sg13g2_inv_4 sg13g2_inv_8
+Total number of usable inverters: 5
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: sg13g2_dlygate4sd2_1 sg13g2_dlygate4sd1_1 sg13g2_dlygate4sd3_1
+Total number of identified usable delay cells: 3
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+@file 10: global_net
+@file 11:
+@file 12: user_read_floorplan
+WARN: floorplan file not found: /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/my_rtl/statistic_unit_4.fp
+@file 13:
+@file 14: user_3_otchet
+**ERROR: (TCLCMD-920):	The '-out_file' option is unsupported
+**ERROR: (TCLCMD-113):	Could not open file '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/run/innovus_impl/./out/pre_place/time.rpt' to write
+**ERROR: (IMPSE-110):	File '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.impl.tcl' line 15: errors out.
+#@ End verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.impl.tcl
+**ERROR: (IMPSYT-6692):	Invalid return code while executing '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.impl.tcl' was returned and script processing was stopped. Review the following error in '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.impl.tcl' then restart.
+Error info: /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.impl.tcl: 
+    while executing
+"check_timing -out_file > ./out/pre_place/time.rpt"
+    (procedure "user_3_otchet" line 2)
+    invoked from within
+"user_3_otchet"
+    (file "/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.impl.tcl" line 14)
+    invoked from within
+"::se_source_orig /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.impl.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel [concat ::se_source_orig $args]"
+    invoked from within
+"if {[::SE::source_verbose_file_state $file_name] == 1} {
+              ::SE::source_verbose_start $file_name
+              set st [uplevel [concat ::s..."
+    invoked from within
+"if {$useTclVerbose} {
+          # use tcl internal method
+          set st ""
+          if {[::SE::source_verbose_file_state $file_name] == 1} {
+     ..."
+    invoked from within
+"if {$largeFile == 1} {
+    if {$enableVerbose == 0 && [::SE::isEchoFile] == 1} {
+      $putCmd "Sourcing $file_name"
+    }
+    set st [uplevel [concat..."
+    (procedure "source" line 157)
+    invoked from within
+"source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.impl.tcl"
+    invoked from within
+"::se::run_command_from_console "source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.impl.tcl""
+    invoked from within
+"eval_novus {::se::run_command_from_console "source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.impl.tcl"}"
+    (in namespace inscope "::" script line 1)
+    invoked from within
+"namespace inscope :: eval_novus "::se::run_command_from_console \"source $fileName\""".
+@innovus 2> 
+@innovus 2> check_timing -out_file  ./out/pre_place/time.rpt
+
+Usage: check_timing [-help] [-check_only <warning_list>] [-exclude_warnings <warning_list>] [-include_warnings <warning_list>] [-tcl_list]
+                    [-type <type_list>] [-verbose] [-view <view_name>] [> <file_name[.gz]>] [>> <file_name[.gz]>] [ <port_or_pin_list>]
+
+**ERROR: (IMPTCM-48):	"./out/pre_place/time.rpt" is not a legal option for command "check_timing". Either the current option or an option prior to it is not specified correctly.
+
+
+@innovus 3> check_timing -out_file >  ./out/pre_place/time.rpt
+**ERROR: (TCLCMD-920):	The '-out_file' option is unsupported
+**ERROR: (TCLCMD-113):	Could not open file '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/run/innovus_impl/./out/pre_place/time.rpt' to write
+
+
+@innovus 4> mkdir ./out/pre_place
+/usr/bin/mkdir: cannot create directory './out/pre_place': No such file or directory
+child process exited abnormally
+child process exited abnormally
+@innovus 5> mkdir ./out/
+@innovus 6> mkdir ./out/pre_place
+@innovus 7> pwd
+
+/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/run/innovus_impl
+@innovus 8> user_3_otchet
+**ERROR: (TCLCMD-920):	The '-out_file' option is unsupported
+
+
+@innovus 9> user_3_otchet
+
+**ERROR: (TCLCMD-920):	The '-out_file' option is unsupported
+
+
+@innovus 10>     check_timing  ./out/pre_place/time.rpt
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern './out/pre_place/time.rpt'
+**ERROR: (TCLCMD-917):	Cannot find 'pins or ports' that match './out/pre_place/time.rpt'
+###############################################################
+#  Generated by:      Cadence Innovus 21.14-s109_1
+#  OS:                Linux x86_64(Host ID miet-cad-edu)
+#  Generated on:      Mon Nov  9 21:06:03 2026
+#  Design:            statistics_unit
+#  Command:           check_timing  ./out/pre_place/time.rpt
+###############################################################
+
+
+@innovus 11>     report_clocks -description > ./out/pre_place/clk.rpt
+    report_clocks -description > ./out/pre_place/clk.rpt
+@innovus 12>     get_db [get_db analysis_views -if {.is_setup}] .name 
+    get_db [get_db analysis_views -if {.is_setup}] .name 
+typ
+@innovus 13>     get_db [get_db analysis_views -if {.is_hold}] .name     get_db [get_db analysis_views -if {.is_hold}] .name 
+
+typ
+@innovus 14> check_timing >  ./out/pre_place/time.rpt
+AAE_INFO: opIsDesignInPostRouteState() is 0
+AAE DB initialization (MEM=1268.61 CPU=0:00:00.0 REAL=0:00:00.0) 
+#################################################################################
+# Design Stage: PreRoute
+# Design Name: statistics_unit
+# Design Mode: 130nm
+# Analysis Mode: MMMC Non-OCV 
+# Parasitics Mode: No SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Calculate delays in Single mode...
+Start delay calculation (fullDC) (1 T). (MEM=1286.42)
+siFlow : Timing analysis mode is single, using late cdB files
+Total number of fetched objects 937
+AAE_INFO: Total number of nets for which stage creation was skipped for all views 0
+End delay calculation. (MEM=1426.39 CPU=0:00:00.1 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=1389.77 CPU=0:00:00.2 REAL=0:00:00.0)
+@innovus 15> report_clocks -description > ./out/pre_place/clk.rpt
+@innovus 16>  get_db [get_db analysis_views -if {.is_setup}] .name 
+
+typ
+@innovus 17> get_db [get_db analysis_views -if {.is_hold}] .name 
+typ
+@innovus 18> get_db [get_db analysis_views -if {.is_setup}] .name  #typ
+@innovus 19> get_db [get_db analysis_views -if {.is_setup}] .name  #typ
+@innovus 20> get_db [get_db analysis_views -if {.is_setup}] .name  
+
+typ
+@innovus 21> user_3_otchet
+**ERROR: (TCLCMD-920):	The '-out_file' option is unsupported
+
+
+@innovus 22> mkdir ./out/pre_place
+/usr/bin/mkdir: cannot create directory './out/pre_place': File exists
+child process exited abnormally
+child process exited abnormally
+@innovus 23>     check_timing -verbose >  ./out/pre_place/time.rpt
+    check_timing -verbose >  ./out/pre_place/time.rpt
+@innovus 24>     report_analysis_views >  ./out/pre_place/views.rpt
+    report_analysis_views >  ./out/pre_place/views.rpt
+@innovus 25>     report_ports > ./out/pre_place/port.rpt
+    report_ports > ./out/pre_place/port.rpt
+@innovus 26>     report_path_exceptions -ignored > ./out/pre_place/except.rpt
+    report_path_exceptions -ignored > ./out/pre_place/except.rpt
+@innovus 27>     report_clocks -description > ./out/pre_place/clk.rpt
+    report_clocks -description > ./out/pre_place/clk.rpt
+@innovus 28>     #typ
+    #typ
+@innovus 29>     get_db [get_db analysis_views -if {.is_setup}] .name 
+    get_db [get_db analysis_views -if {.is_setup}] .name 
+**WARN: (TCLCMD-1681):	The software has performed a full/partial timing reset. All existing timing path and timing point collection references have been invalidated and may no longer be referenced.
+typ
+@innovus 30>     #typ
+    #typ
+@innovus 31>     get_db [get_db analysis_views -if {.is_hold}] .name 
+    get_db [get_db analysis_views -if {.is_hold}] .name 
+typ
+@innovus 32> mkdir reports
+/usr/bin/mkdir: cannot create directory 'reports': File exists
+child process exited abnormally
+child process exited abnormally
+@innovus 33> mkdir ./reports
+/usr/bin/mkdir: cannot create directory './reports': File exists
+child process exited abnormally
+child process exited abnormally
+@innovus 34> mkdir ./reports/
+/usr/bin/mkdir: cannot create directory './reports/': File exists
+child process exited abnormally
+child process exited abnormally
+@innovus 35> mkdir ./reports
+/usr/bin/mkdir: cannot create directory './reports': File exists
+child process exited abnormally
+child process exited abnormally
+@innovus 36> pwd
+/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/run/innovus_impl
+@innovus 37> ls -a
+
+@innovus 38> gui_select -point {0.08400 0.02300}
+@innovus 39> **INFO (INTERRUPT): One more Ctrl-C to exit Innovus ...
+Innovus terminated by user interrupt.
+
+*** Memory Usage v#1 (Current mem = 1349.773M, initial mem = 384.109M) ***
+*** Message Summary: 174 warning(s), 11 error(s)
+
+--- Ending "Innovus" (totcpu=0:01:36, real=0:12:55, mem=1349.8M) ---

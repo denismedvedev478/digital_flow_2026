@@ -1,0 +1,707 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v21.14-s109_1, built Wed Jun 29 09:53:08 PDT 2022
+Options:	-stylus -files /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.debug.tcl 
+Date:		Sat Nov 14 15:02:07 2026
+Host:		miet-cad-edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (32cores*32cpus*Common KVM processor 512KB)
+OS:		CentOS Linux release 7.9.2009 (Core)
+
+License:
+		[15:02:07.185209] Configured Lic search path (21.01-s002): 5280@srv-eda-05
+
+		invs	Innovus Implementation System	21.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+
+
+**WARN: (IMPOPT-801):	Genus executable not found in PATH. Install Genus, add the path to the genus executable in the PATH variable and rerun Innovus.
+Create and set the environment variable TMPDIR to /tmp/innovus_temp_7484_miet-cad-edu_zzomda_veGcOq.
+
+The soft stacksize limit is either up to the hard limit or larger than 0.2% of RAM. No change is needed.
+
+**INFO:  MMMC transition support version v31-84 
+
+#@ Processing -files option
+@innovus 1> source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.debug.tcl
+#@ Begin verbose source (pre): source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.debug.tcl
+@file 1:
+@@file 2: read_db $::env(ENV_DB) 
+#% Begin load design ... (date=11/14 15:02:31, mem=740.8M)
+Set Default Net Delay as 1000 ps.
+Set Default Net Load as 0.5 pF. 
+Set Default Input Pin Transition as 0.1 ps.
+Set Using Default Delay Limit as 1000.
+##  Process: 130           (User Set)               
+##     Node: (not set)                           
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+Applying the recommended capacitance filtering threshold values for 130nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.4.
+	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+	Capacitance filtering mode(extract_rc_cap_filter_mode option of the set_db) is 'relative_and_coupling' for all engines.
+	The accuracy mode for post_route extract_rc_effort_level low extraction will be set to 'standard'.
+	Default value for EffortLevel(extract_rc_effort_level option of the set_db) in post_route extraction mode is 'low'.
+**WARN: (IMPUDM-33):	Global variable "timing_enable_separate_device_slew_effect_sensitivities" is obsolete and will be removed in a future release. The obsolete variable still works in this release, but to avoid this warning and to ensure compatibility with future releases, remove the obsolete variable from your script.
+**WARN: (IMPUDM-33):	Global variable "timing_enable_separate_device_slew_effect_sensitivities" is obsolete and will be removed in a future release. The obsolete variable still works in this release, but to avoid this warning and to ensure compatibility with future releases, remove the obsolete variable from your script.
+**WARN: (IMPDBTCL-321):	The attribute 'timing_enable_separate_device_slew_effect_sensitivities' still works but will be obsolete in a future major release. You should remove it from your script before the next major release to avoid errors.
+**WARN: (IMPUDM-33):	Global variable "timing_enable_separate_device_slew_effect_sensitivities" is obsolete and will be removed in a future release. The obsolete variable still works in this release, but to avoid this warning and to ensure compatibility with future releases, remove the obsolete variable from your script.
+Set Default Input Pin Transition as 0.1 ps.
+Loading design 'statistics_unit' saved by 'Innovus' '21.14-s109_1' on 'Sat Nov 14 11:48:24 2026'.
+Reading typ timing library '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/PDK/IHP_Open_PDK/sg13g2_stdcell/lib/sg13g2_stdcell_typ_1p20V_25C.lib' ...
+Read 78 cells in library 'sg13g2_stdcell_typ_1p20V_25C' 
+typ
+typ
+
+Loading LEF file /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/run/innovus_impl/db/DB.statistics_unit.final.enc/libs/lef/sg13g2_tech.lef ...
+
+Loading LEF file /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/run/innovus_impl/db/DB.statistics_unit.final.enc/libs/lef/sg13g2_stdcell.lef ...
+Set DBUPerIGU to M1 pitch 480.
+**WARN: (IMPLF-200):	Pin 'A' in macro 'sg13g2_antennanp' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+Type 'man IMPLF-200' for more detail.
+
+viaInitial starts at Sat Nov 14 15:02:32 2026
+viaInitial ends at Sat Nov 14 15:02:32 2026
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+Loading view definition file from /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/run/innovus_impl/db/DB.statistics_unit.final.enc/viewDefinition.tcl
+% Begin Load netlist data ... (date=11/14 15:02:32, mem=754.3M)
+*** Begin netlist parsing (mem=891.9M) ***
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_xor2_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_xor2_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_xnor2_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_xnor2_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_tielo' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_tielo' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_tiehi' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_tiehi' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_slgcp_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_slgcp_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_sighold' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_sighold' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_sdfbbp_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_sdfbbp_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_or4_2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_or4_2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_or4_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_or4_1' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_or3_2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_or3_2' is defined in LEF but not in the timing library.
+Type 'man IMPVL-159' for more detail.
+**WARN: (EMS-27):	Message (IMPVL-159) has exceeded the current message display limit of 20.
+To increase the message display limit, refer to the product command reference manual.
+Created 78 new cells from 1 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilogBinary netlist '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/run/innovus_impl/db/DB.statistics_unit.final.enc/statistics_unit.v.bin'
+
+*** Memory Usage v#1 (Current mem = 901.957M, initial mem = 384.109M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=902.0M) ***
+% End Load netlist data ... (date=11/14 15:02:32, total cpu=0:00:00.0, real=0:00:00.0, peak res=758.2M, current mem=758.2M)
+Set top cell to statistics_unit.
+Hooked 78 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell statistics_unit ...
+*** Netlist is unique.
+** info: there are 79 modules.
+** info: there are 1013 stdCell insts.
+
+*** Memory Usage v#1 (Current mem = 956.430M, initial mem = 384.109M) ***
+*info: set bottom ioPad orient R0
+Adjusting Core to Left to: 12.4800. Core to Bottom to: 12.1800.
+Adjust TopMetal1 preferred direction offset from 1.64 to 0.
+Start create_tracks
+Generated pitch 2.52 in TopMetal1 is different from 2.28 defined in technology file in preferred direction.
+Loading preference file /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/run/innovus_impl/db/DB.statistics_unit.final.enc/gui.pref.tcl ...
+##  Process: 130           (User Set)               
+##     Node: (not set)                           
+
+##  Check design process and node:  
+##  Design tech node is not set.
+
+Applying the recommended capacitance filtering threshold values for 130nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.4.
+	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+	Capacitance filtering mode(extract_rc_cap_filter_mode option of the set_db) is 'relative_and_coupling' for all engines.
+	The accuracy mode for post_route extract_rc_effort_level low extraction will be set to 'standard'.
+	Default value for EffortLevel(extract_rc_effort_level option of the set_db) in post_route extraction mode is 'low'.
+Effort level <high> specified for reg2reg path_group
+Effort level <high> specified for tdgp_reg2reg_default path_group
+Change floorplan default-technical-site to 'CoreSite'.
+*Info: initialize multi-corner CTS.
+Total number of combinational cells: 62
+Total number of sequential cells: 10
+Total number of tristate cells: 6
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+List of usable buffers: sg13g2_buf_1 sg13g2_buf_16 sg13g2_buf_2 sg13g2_buf_4 sg13g2_buf_8
+Total number of usable buffers: 5
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: sg13g2_inv_1 sg13g2_inv_16 sg13g2_inv_2 sg13g2_inv_4 sg13g2_inv_8
+Total number of usable inverters: 5
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: sg13g2_dlygate4sd2_1 sg13g2_dlygate4sd1_1 sg13g2_dlygate4sd3_1
+Total number of identified usable delay cells: 3
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+Reading floorplan file - /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/run/innovus_impl/db/DB.statistics_unit.final.enc/statistics_unit.fp.gz (mem = 1238.8M).
+% Begin Load floorplan data ... (date=11/14 15:02:34, mem=1080.9M)
+*info: reset 1164 existing net BottomPreferredLayer and AvoidDetour
+Deleting old partition specification.
+Set FPlanBox to (0 0 200160 199920)
+Adjust TopMetal1 preferred direction offset from 1.64 to 0.
+Start create_tracks
+Generated pitch 2.52 in TopMetal1 is different from 2.28 defined in technology file in preferred direction.
+ ... processed partition successfully.
+Reading binary special route file /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/run/innovus_impl/db/DB.statistics_unit.final.enc/statistics_unit.fp.spr.gz (Created by Innovus v21.14-s109_1 on Sat Nov 14 11:48:23 2026, version: 1)
+Ending "Read special route file" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1081.7M, current mem=1081.7M)
+There are 4 nets with weight being set
+There are 4 nets with bottomPreferredRoutingLayer being set
+There are 4 nets with avoidDetour being set
+Extracting standard cell pins and blockage ...... 
+**WARN: (IMPTR-2104):	Layer M6: Pitch=2280 is less than min width=1640 + min spacing=1640.
+**WARN: (IMPTR-2108):	For layer M6, the gaps of 78 out of 78 tracks are narrower than 3.280um (space 1.640 + width 1.640).
+Type 'man IMPTR-2108' for more detail.
+ As a result, your trialRoute congestion could be incorrect.
+Pin and blockage extraction finished
+Delete all existing relative floorplan constraints.
+% End Load floorplan data ... (date=11/14 15:02:35, total cpu=0:00:00.0, real=0:00:01.0, peak res=1082.4M, current mem=1082.4M)
+Reading congestion map file /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/run/innovus_impl/db/DB.statistics_unit.final.enc/statistics_unit.route.congmap.gz ...
+% Begin Load SymbolTable ... (date=11/14 15:02:35, mem=1082.8M)
+Suppress "**WARN ..." messages.
+Un-suppress "**WARN ..." messages.
+% End Load SymbolTable ... (date=11/14 15:02:35, total cpu=0:00:00.0, real=0:00:00.0, peak res=1083.2M, current mem=1083.2M)
+Loading place ...
+% Begin Load placement data ... (date=11/14 15:02:35, mem=1083.2M)
+Reading placement file - /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/run/innovus_impl/db/DB.statistics_unit.final.enc/statistics_unit.place.gz.
+** Reading stdCellPlacement_binary (Created by Innovus v21.14-s109_1 on Sat Nov 14 11:48:24 2026, version# 2) ...
+Read Views for adaptive view pruning ...
+Read 0 views from Binary DB for adaptive view pruning
+*** Checked 2 GNC rules.
+*** applyConnectGlobalNets disabled.
+*** Completed restorePlace (cpu=0:00:00.0 real=0:00:00.0 mem=1241.8M) ***
+Total net length = 2.891e+04 (1.987e+04 9.041e+03) (ext = 9.830e+03)
+% End Load placement data ... (date=11/14 15:02:35, total cpu=0:00:00.0, real=0:00:00.0, peak res=1084.1M, current mem=1083.9M)
+Reading PG file /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/run/innovus_impl/db/DB.statistics_unit.final.enc/statistics_unit.pg.gz, version#2, (Created by Innovus v21.14-s109_1 on       Sat Nov 14 11:48:23 2026)
+*** Completed restorePGFile (cpu=0:00:00.0 real=0:00:00.0 mem=1238.8M) ***
+% Begin Load routing data ... (date=11/14 15:02:35, mem=1084.1M)
+Reading routing file - /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/run/innovus_impl/db/DB.statistics_unit.final.enc/statistics_unit.route.gz.
+Reading Innovus routing data (Created by Innovus v21.14-s109_1 on Sat Nov 14 11:48:24 2026 Format: 20.1) ...
+*** Total 1164 nets are successfully restored.
+*** Completed restoreRoute (cpu=0:00:00.0 real=0:00:00.0 mem=1239.8M) ***
+% End Load routing data ... (date=11/14 15:02:35, total cpu=0:00:00.0, real=0:00:00.0, peak res=1086.7M, current mem=1085.7M)
+Loading Drc markers ...
+... 11 markers are loaded ...
+... 11 geometry drc markers are loaded ...
+... 0 antenna drc markers are loaded ...
+TAT_INFO: restoreCongMap REAL = 0 : CPU = 0 : MEM = 0.
+Reading property file /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/run/innovus_impl/db/DB.statistics_unit.final.enc/statistics_unit.prop
+*** Completed restoreProperty (cpu=0:00:00.0 real=0:00:00.0 mem=1243.8M) ***
+Reading dirtyarea snapshot file /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/run/innovus_impl/db/DB.statistics_unit.final.enc/statistics_unit.db.da.gz (Create by Innovus v21.14-s109_1 on Sat Nov 14 11:48:24 2026, version: 4).
+Change floorplan default-technical-site to 'CoreSite'.
+Extraction setup Started 
+Initializing multi-corner RC extraction with 1 active RC Corners ...
+**WARN: (IMPEXT-2773):	The via resistance between layers M0 and M1 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+Type 'man IMPEXT-2773' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M1 and M2 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M2 and M3 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M3 and M4 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M4 and M5 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M5 and M6 is not defined in the capacitance table file. The via resistance of 4 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2776):	The via resistance between layers M6 and M7 is not defined in the capacitance table file. The via resistance of 2.2 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+Type 'man IMPEXT-2776' for more detail.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M1 is not defined in the cap table. Therefore, the LEF value 0.135 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M2 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M3 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M4 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M5 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M6 is not defined in the cap table. Therefore, the LEF value 0.021 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+**WARN: (IMPEXT-2766):	The sheet resistance for layer M7 is not defined in the cap table. Therefore, the LEF value 0.0145 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+Summary of Active RC-Corners : 
+ 
+ Analysis View: typ
+    RC-Corner Name        : typ
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 25 Celsius
+    RC-Corner Cap Table   : ''
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from Cap Table]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from Cap Table]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 
+    RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+Updating RC grid for preRoute extraction ...
+Initializing multi-corner resistance tables ...
+Start generating vias ..
+#Skip building auto via since it is not turned on.
+Extracting standard cell pins and blockage ...... 
+**WARN: (IMPTR-2104):	Layer M6: Pitch=2280 is less than min width=1640 + min spacing=1640.
+**WARN: (IMPTR-2108):	For layer M6, the gaps of 78 out of 78 tracks are narrower than 3.280um (space 1.640 + width 1.640).
+Type 'man IMPTR-2108' for more detail.
+ As a result, your trialRoute congestion could be incorrect.
+Pin and blockage extraction finished
+Via generation completed.
+% Begin Load power constraints ... (date=11/14 15:02:36, mem=1091.3M)
+source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/run/innovus_impl/db/DB.statistics_unit.final.enc/statistics_unit_power_constraints.tcl
+'set_default_switching_activity' finished successfully.
+% End Load power constraints ... (date=11/14 15:02:36, total cpu=0:00:00.0, real=0:00:00.0, peak res=1097.8M, current mem=1097.8M)
+typ
+% Begin load AAE data ... (date=11/14 15:02:36, mem=1106.4M)
+**WARN: (IMPESI-3505):	set_db delaycal_eng_taskCompressionMode 2 (default=2) will be obsoleted along with its sgs2set equivalent.  This parameter will continue to be supported in the current release, but will be removed in the next major release of the software.
+AAE DB initialization (MEM=1283.3 CPU=0:00:00.0 REAL=0:00:00.0) 
+% End load AAE data ... (date=11/14 15:02:37, total cpu=0:00:00.6, real=0:00:01.0, peak res=1112.0M, current mem=1112.0M)
+Restoring CCOpt config...
+  Extracting original clock gating for clk...
+    clock_tree clk contains 113 sinks and 0 clock gates.
+  Extracting original clock gating for clk done.
+  The skew group clk/func was created. It contains 113 sinks and 1 sources.
+  The skew group clk/func was created. It contains 113 sinks and 1 sources.
+Restoring CCOpt config done.
+Total number of combinational cells: 62
+Total number of sequential cells: 10
+Total number of tristate cells: 6
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+List of usable buffers: sg13g2_buf_1 sg13g2_buf_16 sg13g2_buf_2 sg13g2_buf_4 sg13g2_buf_8
+Total number of usable buffers: 5
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: sg13g2_inv_1 sg13g2_inv_16 sg13g2_inv_2 sg13g2_inv_4 sg13g2_inv_8
+Total number of usable inverters: 5
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells: sg13g2_dlygate4sd2_1 sg13g2_dlygate4sd1_1 sg13g2_dlygate4sd3_1
+Total number of identified usable delay cells: 3
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+**WARN: (IMPCTE-107):	The following globals have been obsoleted since version . They will be removed in the next release. 
+timing_enable_separate_device_slew_effect_sensitivities
+#% End load design ... (date=11/14 15:02:37, total cpu=0:00:03.8, real=0:00:06.0, peak res=1136.9M, current mem=1115.0M)
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+WARNING   IMPDBTCL-321         1  The attribute '%s' still works but will ...
+WARNING   IMPEXT-2766          7  The sheet resistance for layer %s is not...
+WARNING   IMPEXT-2773          1  The via resistance between layers %s and...
+WARNING   IMPEXT-2776          6  The via resistance between layers %s and...
+WARNING   IMPVL-159          156  Pin '%s' of cell '%s' is defined in LEF ...
+WARNING   IMPESI-3505          1  set_db delaycal_eng_%s (default=%s) will...
+WARNING   IMPTR-2104           2  Layer %s: Pitch=%d is less than min widt...
+WARNING   IMPTR-2108           2  For layer M%d, the gaps of %d out of %d ...
+WARNING   IMPCTE-107           1  The following globals have been obsolete...
+WARNING   IMPUDM-33            3  Global variable "%s" is obsolete and wil...
+*** Message Summary: 181 warning(s), 0 error(s)
+
+@file 3:
+@@file 4: gui_show
+@@file 5: gui_fit
+@file 6:
+@@file 7: report_timing -late -path_type full_clock -max_paths 1
+###############################################################
+#  Generated by:      Cadence Innovus 21.14-s109_1
+#  OS:                Linux x86_64(Host ID miet-cad-edu)
+#  Generated on:      Sat Nov 14 15:02:37 2026
+#  Design:            statistics_unit
+#  Command:           report_timing -late -path_type full_clock -max_paths 1
+###############################################################
+AAE_INFO: opIsDesignInPostRouteState() is 1
+#################################################################################
+# Design Stage: PostRoute
+# Design Name: statistics_unit
+# Design Mode: 130nm
+# Analysis Mode: MMMC OCV 
+# Parasitics Mode: No SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Extraction called for design 'statistics_unit' of instances=3404 and nets=1164 using extraction engine 'pre_route' .
+pre_route RC Extraction called for design statistics_unit.
+RC Extraction called in multi-corner(1) mode.
+**WARN: (IMPEXT-6197):	The Cap table file is not specified. This will result in lower parasitic accuracy when using pre_route extraction or post_route extraction with effort level 'low'. It is recommended to generate the Cap table file using the 'write_cap_table' command and specify it before extraction using 'create_rc_corner/update_rc_corner -cap_table'.
+Type 'man IMPEXT-6197' for more detail.
+RCMode: PreRoute
+      RC Corner Indexes            0   
+Capacitance Scaling Factor   : 1.00000 
+Resistance Scaling Factor    : 1.00000 
+Clock Cap. Scaling Factor    : 1.00000 
+Clock Res. Scaling Factor    : 1.00000 
+Shrink Factor                : 1.00000
+PreRoute extraction is honoring NDR/Shielding/ExtraSpace for clock nets.
+Updating RC grid for preRoute extraction ...
+Initializing multi-corner resistance tables ...
+PreRoute RC Extraction DONE (CPU Time: 0:00:00.0  Real Time: 0:00:00.0  MEM: 1289.320M)
+Start delay calculation (fullDC) (1 T). (MEM=1307.64)
+Total number of fetched objects 1162
+AAE_INFO: Total number of nets for which stage creation was skipped for all views 0
+End delay calculation. (MEM=1457.82 CPU=0:00:00.2 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=1421.21 CPU=0:00:00.4 REAL=0:00:00.0)
+Path 1: MET (2.120 ns) Setup Check with Pin sum_reg[30]/CLK->D
+               View: typ
+              Group: clk
+         Startpoint: (R) data_in[0]
+              Clock: (R) clk
+           Endpoint: (R) sum_reg[30]/D
+              Clock: (R) clk
+
+                       Capture       Launch
+         Clock Edge:+   10.000        0.000
+         Drv Adjust:+    0.054        0.100
+        Src Latency:+   -0.184        0.000
+        Net Latency:+    0.125 (P)    0.000 (I)
+            Arrival:=    9.996        0.100
+
+              Setup:-    0.133
+        Uncertainty:-    0.200
+      Required Time:=    9.663
+       Launch Clock:=    0.100
+        Input Delay:+    2.000
+          Data Path:+    5.443
+              Slack:=    2.120
+     Timing Path:
+
+#--------------------------------------------------------------------------------------------------
+# Timing Point             Flags  Arc         Edge  Cell             Fanout  Trans   Delay  Arrival  
+#                                                                             (ns)    (ns)     (ns)  
+#--------------------------------------------------------------------------------------------------
+  data_in[0]               -      data_in[0]  R     (arrival)             6  0.100   0.004    2.105  
+  add_18_25_g3047__6783/Y  -      A->Y        F     sg13g2_nand2_1        2  0.100   0.106    2.211  
+  add_18_25_g2958__5107/Y  -      A1->Y       R     sg13g2_o21ai_1        2  0.084   0.154    2.365  
+  add_18_25_g2950__2346/Y  -      A1->Y       F     sg13g2_a21oi_1        2  0.133   0.129    2.495  
+  add_18_25_g2947__9315/Y  -      A2->Y       R     sg13g2_o21ai_1        2  0.095   0.160    2.655  
+  add_18_25_g2945__4733/Y  -      A1->Y       F     sg13g2_a21oi_1        2  0.147   0.148    2.803  
+  add_18_25_g2943__5115/Y  -      A2->Y       R     sg13g2_o21ai_1        2  0.111   0.161    2.963  
+  add_18_25_g2941__6131/Y  -      A1->Y       F     sg13g2_a21oi_1        2  0.142   0.139    3.102  
+  add_18_25_g2939__8246/Y  -      A2->Y       R     sg13g2_o21ai_1        2  0.103   0.163    3.265  
+  add_18_25_g2937__1705/Y  -      A1->Y       F     sg13g2_a21oi_1        2  0.147   0.143    3.408  
+  add_18_25_g2935__1617/Y  -      A2->Y       R     sg13g2_o21ai_1        2  0.105   0.156    3.564  
+  add_18_25_g2933__6783/Y  -      A1->Y       F     sg13g2_a21oi_1        2  0.138   0.133    3.697  
+  add_18_25_g2931__8428/Y  -      A2->Y       R     sg13g2_o21ai_1        2  0.098   0.159    3.856  
+  add_18_25_g2929__6260/Y  -      A1->Y       F     sg13g2_a21oi_1        2  0.144   0.142    3.998  
+  add_18_25_g2927__2398/Y  -      A2->Y       R     sg13g2_o21ai_1        2  0.105   0.157    4.154  
+  add_18_25_g2925__6417/Y  -      A1->Y       F     sg13g2_a21oi_1        2  0.139   0.133    4.287  
+  add_18_25_g2923__1666/Y  -      A2->Y       R     sg13g2_o21ai_1        3  0.097   0.181    4.468  
+  add_18_25_g2922__2346/Y  -      A->Y        F     sg13g2_nand3_1        2  0.171   0.136    4.604  
+  add_18_25_g2918__9315/Y  -      B->Y        R     sg13g2_nor2_1         1  0.107   0.086    4.691  
+  add_18_25_g2914__5115/Y  -      B1->Y       F     sg13g2_a221oi_1       3  0.072   0.129    4.819  
+  add_18_25_g2913__1881/Y  -      C->Y        R     sg13g2_nor3_1         2  0.134   0.148    4.968  
+  add_18_25_g2908__1705/Y  -      B_N->Y      R     sg13g2_nor2b_1        1  0.140   0.134    5.101  
+  add_18_25_g2904__6783/Y  -      B1->Y       F     sg13g2_a221oi_1       3  0.058   0.131    5.233  
+  add_18_25_g2903__5526/Y  -      C->Y        R     sg13g2_nor3_1         1  0.144   0.115    5.348  
+  add_18_25_g2899__5107/Y  -      B->Y        F     sg13g2_nor2_1         2  0.101   0.077    5.425  
+  add_18_25_g2896__6417/Y  -      A2->Y       R     sg13g2_o21ai_1        2  0.052   0.137    5.563  
+  add_18_25_g2894__1666/Y  -      A1->Y       F     sg13g2_a21oi_1        2  0.136   0.130    5.692  
+  add_18_25_g2892__2883/Y  -      A2->Y       R     sg13g2_o21ai_1        2  0.095   0.153    5.845  
+  add_18_25_g2890__9315/Y  -      A1->Y       F     sg13g2_a21oi_1        2  0.137   0.129    5.974  
+  add_18_25_g2888__4733/Y  -      A2->Y       R     sg13g2_o21ai_1        1  0.094   0.121    6.094  
+  add_18_25_g2887__7482/X  -      B->X        R     sg13g2_xor2_1         3  0.099   0.178    6.272  
+  g8066__1705/Y            -      B->Y        F     sg13g2_nor2_1         1  0.135   0.061    6.333  
+  g8043__4319/Y            -      C1->Y       R     sg13g2_a221oi_1       5  0.047   0.350    6.682  
+  g8040/Y                  -      A->Y        F     sg13g2_inv_1          2  0.449   0.118    6.801  
+  g8017__3680/X            -      B->X        F     sg13g2_or2_1         44  0.094   0.625    7.425  
+  g7882__6783/Y            -      A->Y        R     sg13g2_nand2_1        1  0.685   0.118    7.543  
+  sum_reg[30]/D            -      D           R     sg13g2_dfrbp_1        1  0.123   0.000    7.543  
+#--------------------------------------------------------------------------------------------------
+     Other End Path:
+
+#-----------------------------------------------------------------------------------------
+# Timing Point           Flags  Arc   Edge  Cell            Fanout  Trans   Delay  Arrival  
+#                                                                    (ns)    (ns)     (ns)  
+#-----------------------------------------------------------------------------------------
+  clk                    -      clk   R     (arrival)            1  0.054   0.005    9.876  
+  CTS_ccl_a_inv_00003/Y  -      A->Y  F     sg13g2_inv_16        2  0.054   0.047    9.923  
+  CTS_ccl_a_inv_00001/Y  -      A->Y  R     sg13g2_inv_16       56  0.035   0.073    9.996  
+  sum_reg[30]/CLK        -      CLK   R     sg13g2_dfrbp_1      56  0.085   0.000    9.996  
+#-----------------------------------------------------------------------------------------
+
+@@file 8: report_timing -early -path_type full_clock -max_paths 1
+###############################################################
+#  Generated by:      Cadence Innovus 21.14-s109_1
+#  OS:                Linux x86_64(Host ID miet-cad-edu)
+#  Generated on:      Sat Nov 14 15:02:37 2026
+#  Design:            statistics_unit
+#  Command:           report_timing -early -path_type full_clock -max_paths 1
+###############################################################
+AAE_INFO: opIsDesignInPostRouteState() is 1
+#################################################################################
+# Design Stage: PostRoute
+# Design Name: statistics_unit
+# Design Mode: 130nm
+# Analysis Mode: MMMC OCV 
+# Parasitics Mode: No SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Start delay calculation (fullDC) (1 T). (MEM=1401.48)
+Total number of fetched objects 1162
+AAE_INFO: Total number of nets for which stage creation was skipped for all views 0
+End delay calculation. (MEM=1440.29 CPU=0:00:00.2 REAL=0:00:01.0)
+End delay calculation (fullDC). (MEM=1440.29 CPU=0:00:00.2 REAL=0:00:01.0)
+Path 1: MET (0.050 ns) Hold Check with Pin min_reg[30]/CLK->D
+               View: typ
+              Group: clk
+         Startpoint: (F) data_in[30]
+              Clock: (R) clk
+           Endpoint: (F) min_reg[30]/D
+              Clock: (R) clk
+
+                       Capture       Launch
+         Clock Edge:+    0.000        0.000
+         Drv Adjust:+    0.054        0.089
+        Src Latency:+   -0.184        0.000
+        Net Latency:+    0.128 (P)    0.000 (I)
+            Arrival:=   -0.001        0.089
+
+               Hold:+   -0.019
+        Uncertainty:+    0.200
+      Required Time:=    0.180
+       Launch Clock:=    0.089
+          Data Path:+    0.141
+              Slack:=    0.050
+     Timing Path:
+
+#----------------------------------------------------------------------------------------
+# Timing Point   Flags  Arc          Edge  Cell            Fanout  Trans   Delay  Arrival  
+#                                                                   (ns)    (ns)     (ns)  
+#----------------------------------------------------------------------------------------
+  data_in[30]    -      data_in[30]  F     (arrival)            8  0.089   0.006    0.095  
+  g8036__7410/Y  -      A2->Y        R     sg13g2_a22oi_1       1  0.089   0.097    0.191  
+  g7848__2398/Y  -      B->Y         F     sg13g2_nor2_1        1  0.055   0.038    0.229  
+  min_reg[30]/D  -      D            F     sg13g2_dfrbp_1       1  0.023   0.000    0.229  
+#----------------------------------------------------------------------------------------
+     Other End Path:
+
+#-----------------------------------------------------------------------------------------
+# Timing Point           Flags  Arc   Edge  Cell            Fanout  Trans   Delay  Arrival  
+#                                                                    (ns)    (ns)     (ns)  
+#-----------------------------------------------------------------------------------------
+  clk                    -      clk   R     (arrival)            1  0.054   0.005   -0.124  
+  CTS_ccl_a_inv_00003/Y  -      A->Y  F     sg13g2_inv_16        2  0.054   0.047   -0.077  
+  CTS_ccl_a_inv_00001/Y  -      A->Y  R     sg13g2_inv_16       56  0.035   0.076   -0.001  
+  min_reg[30]/CLK        -      CLK   R     sg13g2_dfrbp_1      56  0.085   0.000   -0.001  
+#-----------------------------------------------------------------------------------------
+
+@file 9:
+@file 10: set design_name [get_db current_design .name]
+@file 11:
+#@ End verbose source: /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.debug.tcl
+@innovus 2> 
+@innovus 2> gui_select -point {57.03400 183.79400}
+@innovus 3> Clock tree timing engine global stage delay update for typ:both.late...
+Clock tree timing engine global stage delay update for typ:both.late done. (took cpu=0:00:00.0 real=0:00:00.0)
+
+@innovus 3> report_timing -late -path_type full_clock -max_paths 1 -group reg2reg
+
+###############################################################
+#  Generated by:      Cadence Innovus 21.14-s109_1
+#  OS:                Linux x86_64(Host ID miet-cad-edu)
+#  Generated on:      Sat Nov 14 15:04:21 2026
+#  Design:            statistics_unit
+#  Command:           report_timing -late -path_type full_clock -max_paths 1 -group reg2reg
+###############################################################
+AAE_INFO: opIsDesignInPostRouteState() is 1
+#################################################################################
+# Design Stage: PostRoute
+# Design Name: statistics_unit
+# Design Mode: 130nm
+# Analysis Mode: MMMC OCV 
+# Parasitics Mode: No SPEF/RCDB 
+# Signoff Settings: SI Off 
+#################################################################################
+Start delay calculation (fullDC) (1 T). (MEM=1584.68)
+Total number of fetched objects 1162
+AAE_INFO: Total number of nets for which stage creation was skipped for all views 0
+End delay calculation. (MEM=1652.1 CPU=0:00:00.2 REAL=0:00:01.0)
+End delay calculation (fullDC). (MEM=1652.1 CPU=0:00:00.2 REAL=0:00:01.0)
+**WARN: (TA-201):	The software could not find a defined path group matching the name 'reg2reg'. You can use the report_path_groups or get_path_groups commands to see the currently defined path groups.
+No constrained timing paths found.
+Design may not be constrained or  library is missing timing information.
+
+@innovus 4> man report_timing -late -path_type full_clock -max_paths 1 -
+@innovus 5> report_timing -late -path_type full_clock -max_paths 1 -group reg2reg
+###############################################################
+#  Generated by:      Cadence Innovus 21.14-s109_1
+#  OS:                Linux x86_64(Host ID miet-cad-edu)
+#  Generated on:      Sat Nov 14 15:08:37 2026
+#  Design:            statistics_unit
+#  Command:           report_timing -late -path_type full_clock -max_paths 1 -group reg2reg
+###############################################################
+**WARN: (TA-201):	The software could not find a defined path group matching the name 'reg2reg'. You can use the report_path_groups or get_path_groups commands to see the currently defined path groups.
+No constrained timing paths found.
+Design may not be constrained or  library is missing timing information.
+
+@innovus 6> report_timing -late -path_type full_clock -max_paths 1 -group r2r
+###############################################################
+#  Generated by:      Cadence Innovus 21.14-s109_1
+#  OS:                Linux x86_64(Host ID miet-cad-edu)
+#  Generated on:      Sat Nov 14 15:08:44 2026
+#  Design:            statistics_unit
+#  Command:           report_timing -late -path_type full_clock -max_paths 1 -group r2r
+###############################################################
+**WARN: (TA-201):	The software could not find a defined path group matching the name 'r2r'. You can use the report_path_groups or get_path_groups commands to see the currently defined path groups.
+No constrained timing paths found.
+Design may not be constrained or  library is missing timing information.
+
+@innovus 7> report_timing -late -path_type full_clock -max_paths 1 -group r2r
+###############################################################
+#  Generated by:      Cadence Innovus 21.14-s109_1
+#  OS:                Linux x86_64(Host ID miet-cad-edu)
+#  Generated on:      Sat Nov 14 15:09:51 2026
+#  Design:            statistics_unit
+#  Command:           report_timing -late -path_type full_clock -max_paths 1 -group r2r
+###############################################################
+**WARN: (TA-201):	The software could not find a defined path group matching the name 'r2r'. You can use the report_path_groups or get_path_groups commands to see the currently defined path groups.
+No constrained timing paths found.
+Design may not be constrained or  library is missing timing information.
+
+@innovus 8> report_path_groups
+###############################################################
+#  Generated by:      Cadence Innovus 21.14-s109_1
+#  OS:                Linux x86_64(Host ID miet-cad-edu)
+#  Generated on:      Sat Nov 14 15:09:53 2026
+#  Design:            statistics_unit
+#  Command:           report_path_groups
+###############################################################
+@innovus 9> report_timing -late -path_type full_clock -max_paths 1 -from [all_registers] -to [all_registers]
+**WARN: (TCLCMD-1681):	The software has performed a full/partial timing reset. All existing timing path and timing point collection references have been invalidated and may no longer be referenced.
+###############################################################
+#  Generated by:      Cadence Innovus 21.14-s109_1
+#  OS:                Linux x86_64(Host ID miet-cad-edu)
+#  Generated on:      Sat Nov 14 15:10:55 2026
+#  Design:            statistics_unit
+#  Command:           report_timing -late -path_type full_clock -max_paths 1 -from [all_registers] -to [all_registers]
+###############################################################
+Path 1: MET (3.888 ns) Setup Check with Pin sum_reg[30]/CLK->D
+               View: typ
+              Group: clk
+         Startpoint: (R) sum_reg[2]/CLK
+              Clock: (R) clk
+           Endpoint: (R) sum_reg[30]/D
+              Clock: (R) clk
+
+                       Capture       Launch
+         Clock Edge:+   10.000        0.000
+         Drv Adjust:+    0.054        0.054
+        Src Latency:+   -0.184       -0.184
+        Net Latency:+    0.125 (P)    0.128 (P)
+            Arrival:=    9.996       -0.002
+
+              Setup:-    0.133
+        Uncertainty:-    0.200
+      Required Time:=    9.663
+       Launch Clock:=   -0.002
+          Data Path:+    5.777
+              Slack:=    3.888
+     Timing Path:
+
+#----------------------------------------------------------------------------------------------
+# Timing Point             Flags  Arc     Edge  Cell             Fanout  Trans   Delay  Arrival  
+#                                                                         (ns)    (ns)     (ns)  
+#----------------------------------------------------------------------------------------------
+  clk                      -      clk     R     (arrival)             1  0.054   0.005   -0.124  
+  CTS_ccl_a_inv_00003/Y    -      A->Y    F     sg13g2_inv_16         2  0.054   0.047   -0.077  
+  CTS_ccl_a_inv_00001/Y    -      A->Y    R     sg13g2_inv_16        56  0.035   0.075   -0.002  
+  sum_reg[2]/Q             <<<    CLK->Q  R     sg13g2_dfrbp_1        1  0.085   0.239    0.237  
+  FE_OFC104_sum_2/Y        -      A->Y    F     sg13g2_inv_1          2  0.033   0.162    0.400  
+  FE_OFC107_sum_2/Y        -      A->Y    R     sg13g2_inv_1          3  0.188   0.119    0.518  
+  add_18_25_g3002__7482/X  -      A->X    R     sg13g2_or2_1          2  0.092   0.113    0.632  
+  add_18_25_g2950__2346/Y  -      A2->Y   F     sg13g2_a21oi_1        2  0.045   0.095    0.727  
+  add_18_25_g2947__9315/Y  -      A2->Y   R     sg13g2_o21ai_1        2  0.095   0.160    0.887  
+  add_18_25_g2945__4733/Y  -      A1->Y   F     sg13g2_a21oi_1        2  0.147   0.148    1.035  
+  add_18_25_g2943__5115/Y  -      A2->Y   R     sg13g2_o21ai_1        2  0.111   0.160    1.196  
+  add_18_25_g2941__6131/Y  -      A1->Y   F     sg13g2_a21oi_1        2  0.142   0.139    1.334  
+  add_18_25_g2939__8246/Y  -      A2->Y   R     sg13g2_o21ai_1        2  0.103   0.163    1.497  
+  add_18_25_g2937__1705/Y  -      A1->Y   F     sg13g2_a21oi_1        2  0.147   0.143    1.640  
+  add_18_25_g2935__1617/Y  -      A2->Y   R     sg13g2_o21ai_1        2  0.105   0.156    1.796  
+  add_18_25_g2933__6783/Y  -      A1->Y   F     sg13g2_a21oi_1        2  0.138   0.133    1.930  
+  add_18_25_g2931__8428/Y  -      A2->Y   R     sg13g2_o21ai_1        2  0.098   0.159    2.088  
+  add_18_25_g2929__6260/Y  -      A1->Y   F     sg13g2_a21oi_1        2  0.144   0.142    2.230  
+  add_18_25_g2927__2398/Y  -      A2->Y   R     sg13g2_o21ai_1        2  0.105   0.156    2.387  
+  add_18_25_g2925__6417/Y  -      A1->Y   F     sg13g2_a21oi_1        2  0.139   0.133    2.519  
+  add_18_25_g2923__1666/Y  -      A2->Y   R     sg13g2_o21ai_1        3  0.097   0.181    2.700  
+  add_18_25_g2922__2346/Y  -      A->Y    F     sg13g2_nand3_1        2  0.171   0.136    2.837  
+  add_18_25_g2918__9315/Y  -      B->Y    R     sg13g2_nor2_1         1  0.107   0.086    2.923  
+  add_18_25_g2914__5115/Y  -      B1->Y   F     sg13g2_a221oi_1       3  0.072   0.129    3.052  
+  add_18_25_g2913__1881/Y  -      C->Y    R     sg13g2_nor3_1         2  0.134   0.148    3.200  
+  add_18_25_g2908__1705/Y  -      B_N->Y  R     sg13g2_nor2b_1        1  0.140   0.133    3.333  
+  add_18_25_g2904__6783/Y  -      B1->Y   F     sg13g2_a221oi_1       3  0.058   0.132    3.465  
+  add_18_25_g2903__5526/Y  -      C->Y    R     sg13g2_nor3_1         1  0.144   0.115    3.580  
+  add_18_25_g2899__5107/Y  -      B->Y    F     sg13g2_nor2_1         2  0.101   0.077    3.658  
+  add_18_25_g2896__6417/Y  -      A2->Y   R     sg13g2_o21ai_1        2  0.052   0.137    3.795  
+  add_18_25_g2894__1666/Y  -      A1->Y   F     sg13g2_a21oi_1        2  0.136   0.130    3.925  
+  add_18_25_g2892__2883/Y  -      A2->Y   R     sg13g2_o21ai_1        2  0.095   0.153    4.077  
+  add_18_25_g2890__9315/Y  -      A1->Y   F     sg13g2_a21oi_1        2  0.137   0.129    4.206  
+  add_18_25_g2888__4733/Y  -      A2->Y   R     sg13g2_o21ai_1        1  0.094   0.121    4.327  
+  add_18_25_g2887__7482/X  -      B->X    R     sg13g2_xor2_1         3  0.099   0.178    4.504  
+  g8066__1705/Y            -      B->Y    F     sg13g2_nor2_1         1  0.135   0.061    4.565  
+  g8043__4319/Y            -      C1->Y   R     sg13g2_a221oi_1       5  0.047   0.350    4.915  
+  g8040/Y                  -      A->Y    F     sg13g2_inv_1          2  0.449   0.118    5.033  
+  g8017__3680/X            -      B->X    F     sg13g2_or2_1         44  0.094   0.625    5.658  
+  g7882__6783/Y            -      A->Y    R     sg13g2_nand2_1        1  0.685   0.118    5.775  
+  sum_reg[30]/D            <<<    D       R     sg13g2_dfrbp_1        1  0.123   0.000    5.775  
+#----------------------------------------------------------------------------------------------
+     Other End Path:
+
+#-----------------------------------------------------------------------------------------
+# Timing Point           Flags  Arc   Edge  Cell            Fanout  Trans   Delay  Arrival  
+#                                                                    (ns)    (ns)     (ns)  
+#-----------------------------------------------------------------------------------------
+  clk                    -      clk   R     (arrival)            1  0.054   0.005    9.876  
+  CTS_ccl_a_inv_00003/Y  -      A->Y  F     sg13g2_inv_16        2  0.054   0.047    9.923  
+  CTS_ccl_a_inv_00001/Y  -      A->Y  R     sg13g2_inv_16       56  0.035   0.073    9.996  
+  sum_reg[30]/CLK        -      CLK   R     sg13g2_dfrbp_1      56  0.085   0.000    9.996  
+#-----------------------------------------------------------------------------------------
+
+@innovus 10> set design_name [get_db current_design .name]
+statistics_unit
+@innovus 11> 
+@innovus 11> 
+
+@innovus 11> **INFO (INTERRUPT): One more Ctrl-C to exit Innovus ...
+Innovus terminated by user interrupt.
+
+*** Memory Usage v#1 (Current mem = 1621.098M, initial mem = 384.109M) ***
+*** Message Summary: 188 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:03:18, real=0:37:01, mem=1621.1M) ---

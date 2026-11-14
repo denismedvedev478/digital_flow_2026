@@ -1,0 +1,769 @@
+[11/10 21:21:13      0s] 
+[11/10 21:21:13      0s] Cadence Innovus(TM) Implementation System.
+[11/10 21:21:13      0s] Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+[11/10 21:21:13      0s] 
+[11/10 21:21:13      0s] Version:	v21.14-s109_1, built Wed Jun 29 09:53:08 PDT 2022
+[11/10 21:21:13      0s] Options:	-stylus -files /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.impl.tcl 
+[11/10 21:21:13      0s] Date:		Tue Nov 10 21:21:13 2026
+[11/10 21:21:13      0s] Host:		miet-cad-edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (32cores*32cpus*Common KVM processor 512KB)
+[11/10 21:21:13      0s] OS:		CentOS Linux release 7.9.2009 (Core)
+[11/10 21:21:13      0s] 
+[11/10 21:21:13      0s] License:
+[11/10 21:21:13      0s] 		[21:21:13.185169] Configured Lic search path (21.01-s002): 5280@srv-eda-05
+[11/10 21:21:13      0s] 
+[11/10 21:21:13      0s] 		invs	Innovus Implementation System	21.1	checkout succeeded
+[11/10 21:21:13      0s] 		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[11/10 21:21:23     20s] 
+[11/10 21:21:23     20s] 
+[11/10 21:21:28     28s] Reset Parastics called with the command setExtractRCMode -reset[11/10 21:21:29     29s] **WARN: (IMPOPT-801):	Genus executable not found in PATH. Install Genus, add the path to the genus executable in the PATH variable and rerun Innovus.
+@(#)CDS: Innovus v21.14-s109_1 (64bit) 06/29/2022 09:53 (Linux 3.10.0-693.el7.x86_64)
+[11/10 21:21:31     31s] @(#)CDS: NanoRoute 21.14-s109_1 NR220628-1629/21_14-UB (database version 18.20.582) {superthreading v2.17}
+[11/10 21:21:31     31s] @(#)CDS: AAE 21.14-s031 (64bit) 06/29/2022 (Linux 3.10.0-693.el7.x86_64)
+[11/10 21:21:31     31s] @(#)CDS: CTE 21.14-s031_1 () Jun 22 2022 10:32:17 ( )
+[11/10 21:21:31     31s] @(#)CDS: SYNTECH 21.14-s014_1 () May 29 2022 20:47:50 ( )
+[11/10 21:21:31     31s] @(#)CDS: CPE v21.14-s062
+[11/10 21:21:31     31s] @(#)CDS: IQuantus/TQuantus 21.1.1-w001 (64bit) Wed Jun 1 22:42:35 PDT 2022 (Linux 3.10.0-693.el7.x86_64)
+[11/10 21:21:31     31s] @(#)CDS: OA 22.60-p074 Tue Apr 12 12:08:19 2022
+[11/10 21:21:31     31s] @(#)CDS: SGN 20.10-d001 (01-Jun-2020) (64 bit executable, Qt5.9.0)
+[11/10 21:21:31     31s] @(#)CDS: RCDB 11.15.0
+[11/10 21:21:31     31s] @(#)CDS: STYLUS 21.12-s008_1 (04/27/2022 03:28 PDT)
+[11/10 21:21:31     31s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_27464_miet-cad-edu_zzomda_IFwnUW.
+
+[11/10 21:21:31     31s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_27464_miet-cad-edu_zzomda_IFwnUW.
+[11/10 21:21:31     31s] 
+[11/10 21:21:31     31s] The soft stacksize limit is either up to the hard limit or larger than 0.2% of RAM. No change is needed.
+[11/10 21:21:33     33s] 
+[11/10 21:21:33     33s] **INFO:  MMMC transition support version v31-84 
+[11/10 21:21:33     33s] 
+[11/10 21:21:36     36s] #@ Processing -files option
+[11/10 21:21:36     36s] @innovus 1> source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.impl.tcl
+[11/10 21:21:36     36s] #@ Begin verbose source (pre): source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.impl.tcl
+[11/10 21:21:36     36s] @file 1: #  ___       _ _   
+[11/10 21:21:36     36s] @file 2: # |_ _|_ __ (_) |_ 
+[11/10 21:21:36     36s] @file 3: #  | || '_ \| | __|
+[11/10 21:21:36     36s] @file 4: #  | || | | | | |_ 
+[11/10 21:21:36     36s] @file 5: # |___|_| |_|_|\__|
+[11/10 21:21:36     36s] @file 6:
+[11/10 21:21:36     36s] @file 7: source $::env(FLOW_DIR)/steps.innovus.tcl
+[11/10 21:21:36     36s] #@ Begin verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/steps.innovus.tcl (pre)
+[11/10 21:21:36     36s] @file 1:
+[11/10 21:21:36     36s] @file 2: proc user_clock_tree_synthesis {args} \
+[11/10 21:21:36     36s] {
+[11/10 21:21:36     36s]     
+[11/10 21:21:36     36s]     #   ____ _            _       _                                    _   _               _     
+[11/10 21:21:36     36s]     #  / ___| | ___   ___| | __  | |_ _ __ ___  ___    ___ _   _ _ __ | |_| |__   ___  ___(_)___ 
+[11/10 21:21:36     36s]     # | |   | |/ _ \ / __| |/ /  | __| '__/ _ \/ _ \  / __| | | | '_ \| __| '_ \ / _ \/ __| / __|
+[11/10 21:21:36     36s]     # | |___| | (_) | (__|   <   | |_| | |  __/  __/  \__ \ |_| | | | | |_| | | |  __/\__ \ \__ \
+[11/10 21:21:36     36s]     #  \____|_|\___/ \___|_|\_\   \__|_|  \___|\___|  |___/\__, |_| |_|\__|_| |_|\___||___/_|___/
+[11/10 21:21:36     36s]     #                                                      |___/     
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     puts "\033\]2;[file tail $::env(PWD)] - [get_db current_design .name] \
+[11/10 21:21:36     36s]         - [set STAGE "Clock_tree_synthesis"] [clock format [clock seconds] -format "%R     %d / %m / %C%y"]\a"
+[11/10 21:21:36     36s]     # ------------------
+[11/10 21:21:36     36s]     # CTS options
+[11/10 21:21:36     36s]     # ------------------
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     # NDR for clock routing
+[11/10 21:21:36     36s]     create_route_rule -name CTS_2W2S -width_multiplier "$::env(TOP_CTS_LAYER_name):$::env(BOT_CTS_LAYER_name) 2"  -spacing_multiplier "$::env(TOP_CTS_LAYER_name):$::env(BOT_CTS_LAYER_name) 2"
+[11/10 21:21:36     36s]     create_route_type -name CTS_RULE   -bottom_preferred_layer $::env(BOT_CTS_LAYER_num) -top_preferred_layer $::env(TOP_CTS_LAYER_num) -route_rule CTS_2W2S
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     # Use specified route rules for clock nets
+[11/10 21:21:36     36s]     set_db cts_route_type_leaf   CTS_RULE
+[11/10 21:21:36     36s]     set_db cts_route_type_trunk  CTS_RULE
+[11/10 21:21:36     36s]     set_db cts_route_type_top    CTS_RULE
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     create_clock_tree_spec -out_file ccopt_default.spec
+[11/10 21:21:36     36s]     source ccopt_default.spec  
+[11/10 21:21:36     36s]     clock_opt_design 
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     # ------------------
+[11/10 21:21:36     36s]     # reports
+[11/10 21:21:36     36s]     # ------------------
+[11/10 21:21:36     36s]     time_design -post_cts -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} 
+[11/10 21:21:36     36s]     time_design -post_cts -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} -hold
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     user_reports
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     # write db 
+[11/10 21:21:36     36s]     write_db ./db/DB.$::env(ENV_DESIGN).${STAGE}.enc
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s] }  
+[11/10 21:21:36     36s] @file 43:
+[11/10 21:21:36     36s] @file 44: proc user_3_otchet {args} \
+[11/10 21:21:36     36s] {
+[11/10 21:21:36     36s]     check_timing -verbose >  ./out/pre_place/time.rpt
+[11/10 21:21:36     36s]     report_analysis_views >  ./out/pre_place/views.rpt
+[11/10 21:21:36     36s]     report_ports > ./out/pre_place/port.rpt
+[11/10 21:21:36     36s]     report_path_exceptions -ignored > ./out/pre_place/except.rpt
+[11/10 21:21:36     36s]     report_clocks -description > ./out/pre_place/clk.rpt
+[11/10 21:21:36     36s]     #typ
+[11/10 21:21:36     36s]     get_db [get_db analysis_views -if {.is_setup}] .name 
+[11/10 21:21:36     36s]     #typ
+[11/10 21:21:36     36s]     get_db [get_db analysis_views -if {.is_hold}] .name 
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     suspend
+[11/10 21:21:36     36s] }
+[11/10 21:21:36     36s] @file 59:
+[11/10 21:21:36     36s] @file 60: proc user_write_lef {top_layer} \
+[11/10 21:21:36     36s] {
+[11/10 21:21:36     36s]     write_lef_abstract -stripe_pins -top_layer $top_layer -no_cut_obs ./out/[get_db current_design .name].lef
+[11/10 21:21:36     36s] }
+[11/10 21:21:36     36s] @file 64:
+[11/10 21:21:36     36s] @file 65:
+[11/10 21:21:36     36s] @file 66: proc user_route {args} \
+[11/10 21:21:36     36s] {
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     #  ____             _       
+[11/10 21:21:36     36s]     # |  _ \ ___  _   _| |_ ___ 
+[11/10 21:21:36     36s]     # | |_) / _ \| | | | __/ _ \
+[11/10 21:21:36     36s]     # |  _ < (_) | |_| | ||  __/
+[11/10 21:21:36     36s]     # |_| \_\___/ \__,_|\__\___|
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     puts "\033\]2;[file tail $::env(PWD)] - [get_db current_design .name] \
+[11/10 21:21:36     36s]         - [set STAGE "Route"] [clock format [clock seconds] -format "%R     %d / %m / %C%y"]\a"
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     route_design -global_detail
+[11/10 21:21:36     36s]     add_fillers -base_cells $::env(ENV_FILLER_CELLS) -prefix FILLER 
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     # ------------------
+[11/10 21:21:36     36s]     # reports
+[11/10 21:21:36     36s]     # ------------------
+[11/10 21:21:36     36s]     time_design -post_route -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} 
+[11/10 21:21:36     36s]     time_design -post_route -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} -hold
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     user_reports
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     # write db 
+[11/10 21:21:36     36s]     write_db ./db/DB.$::env(ENV_DESIGN).${STAGE}.enc
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]         
+[11/10 21:21:36     36s] }
+[11/10 21:21:36     36s] @file 95:
+[11/10 21:21:36     36s] @file 96:
+[11/10 21:21:36     36s] @file 97: proc user_write_spef {args} \
+[11/10 21:21:36     36s] {
+[11/10 21:21:36     36s]     all_rc_corners -active
+[11/10 21:21:36     36s]     write_parasitics -spef_file ./out/[get_db current_design .name].typ.spef.gz -rc_corner typ
+[11/10 21:21:36     36s] }
+[11/10 21:21:36     36s] @file 102:
+[11/10 21:21:36     36s] @file 103:
+[11/10 21:21:36     36s] @file 104: proc user_write_gds {args} \
+[11/10 21:21:36     36s] {
+[11/10 21:21:36     36s]     write_stream ./out/[get_db current_design .name].gds -lib_name DesignLib -unit 1000 -mode ALL
+[11/10 21:21:36     36s] }
+[11/10 21:21:36     36s] @file 108:
+[11/10 21:21:36     36s] @file 109:
+[11/10 21:21:36     36s] @file 110:
+[11/10 21:21:36     36s] @file 111: proc user_init_design {} \
+[11/10 21:21:36     36s] {
+[11/10 21:21:36     36s]  
+[11/10 21:21:36     36s]     # ------------------
+[11/10 21:21:36     36s]     # Init design
+[11/10 21:21:36     36s]     # ------------------
+[11/10 21:21:36     36s]     if {[info exists ::env(TECH_SIZE)] && $::env(TECH_SIZE) ne ""} {
+[11/10 21:21:36     36s]         set_db design_process_node $::env(TECH_SIZE)
+[11/10 21:21:36     36s]     }
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     set_db init_netlist_files  $::env(ENV_NETLIST)
+[11/10 21:21:36     36s]     set_db init_lef_files      $::env(ENV_LEF_FILES)
+[11/10 21:21:36     36s]     set_db init_power_nets     $::env(ENV_POWER_NETS)
+[11/10 21:21:36     36s]     set_db init_ground_nets    $::env(ENV_GROUND_NETS)
+[11/10 21:21:36     36s]     set_db init_mmmc_files     $::env(ENV_MMMC)
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     read_mmmc     $::env(ENV_MMMC)
+[11/10 21:21:36     36s]     read_physical -lef $::env(ENV_LEF_FILES)
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     read_netlist  $::env(ENV_NETLIST) -top $::env(ENV_DESIGN)
+[11/10 21:21:36     36s]     init_design
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s] }
+[11/10 21:21:36     36s] @file 135:
+[11/10 21:21:36     36s] @file 136:
+[11/10 21:21:36     36s] @file 137: proc global_net {} \
+[11/10 21:21:36     36s] {
+[11/10 21:21:36     36s]     connect_global_net VDD -type pg_pin -pin_base_name VDD -inst_base_name *
+[11/10 21:21:36     36s]     connect_global_net VSS -type pg_pin -pin_base_name VSS -inst_base_name *
+[11/10 21:21:36     36s] }
+[11/10 21:21:36     36s] @file 142:
+[11/10 21:21:36     36s] @file 143:
+[11/10 21:21:36     36s] @file 144:
+[11/10 21:21:36     36s] @file 145: proc user_read_floorplan {} {
+[11/10 21:21:36     36s]     # ----------------------------------------------------------
+[11/10 21:21:36     36s]     # Floorplan file Ã¡Ã¥Ã°Â¸Ã¬ Ã¨Ã§ ENV_FLOORPLAN_FILE (Ã±Ã¬. Makefile)
+[11/10 21:21:36     36s]     # ENV_INNOVUS_FP Â Ã½Ã²Ã® Ã¨Ã¬Ã¿ Ã§Ã Ã¯Ã³Ã±ÃªÃ Ã¥Ã¬Ã®Ã© Ã³Ã²Ã¨Ã«Ã¨Ã²Ã», ÃÃ Ã´Ã Ã©Ã« floorplan
+[11/10 21:21:36     36s]     # ----------------------------------------------------------
+[11/10 21:21:36     36s]     set fp_file ""
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     if {[info exists ::env(ENV_FLOORPLAN_FILE)] && $::env(ENV_FLOORPLAN_FILE) ne ""} {
+[11/10 21:21:36     36s]         set fp_file $::env(ENV_FLOORPLAN_FILE)
+[11/10 21:21:36     36s]     }
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     if {$fp_file eq ""} {
+[11/10 21:21:36     36s]         puts "WARN: ENV_FLOORPLAN_FILE is not set, skip read_floorplan"
+[11/10 21:21:36     36s]         return
+[11/10 21:21:36     36s]     }
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     if {![file exists $fp_file]} {
+[11/10 21:21:36     36s]         puts "WARN: floorplan file not found: $fp_file"
+[11/10 21:21:36     36s]         return
+[11/10 21:21:36     36s]     }
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     # ÃÃ¨Ã²Ã Ã¥Ã¬ floorplan
+[11/10 21:21:36     36s]     read_floorplan $fp_file
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     # ÃÃ®Ã¯Ã¨Ã°Ã³Ã¥Ã¬ Ã¨Ã±ÃµÃ®Ã¤Ã­Ã»Ã© .fp Ã¨ Ã¥Ã£Ã® .spr (Ã¥Ã±Ã«Ã¨ Ã¥Ã±Ã²Ã¼) Ã¢ ./in
+[11/10 21:21:36     36s]     if {![file exists ./in]} {
+[11/10 21:21:36     36s]         file mkdir ./in
+[11/10 21:21:36     36s]     }
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     file copy -force $fp_file ./in
+[11/10 21:21:36     36s]     puts "INFO: copied floorplan  -> ./in/[file tail $fp_file]"
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     set spr_file "${fp_file}.spr"
+[11/10 21:21:36     36s]     if {[file exists $spr_file]} {
+[11/10 21:21:36     36s]         file copy -force $spr_file ./in
+[11/10 21:21:36     36s]         puts "INFO: copied floorplan  -> ./in/[file tail $spr_file]"
+[11/10 21:21:36     36s]     }
+[11/10 21:21:36     36s] }
+[11/10 21:21:36     36s] @file 183:
+[11/10 21:21:36     36s] @file 184:
+[11/10 21:21:36     36s] @file 185:
+[11/10 21:21:36     36s] @file 186:
+[11/10 21:21:36     36s] @file 187: proc user_preplace {args} \
+[11/10 21:21:36     36s] {
+[11/10 21:21:36     36s]     
+[11/10 21:21:36     36s]     #                       _                
+[11/10 21:21:36     36s]     #  _ __  _ __ ___ _ __ | | __ _  ___ ___ 
+[11/10 21:21:36     36s]     # | '_ \| '__/ _ \ '_ \| |/ _` |/ __/ _ \
+[11/10 21:21:36     36s]     # | |_) | | |  __/ |_) | | (_| | (_|  __/
+[11/10 21:21:36     36s]     # | .__/|_|  \___| .__/|_|\__,_|\___\___|
+[11/10 21:21:36     36s]     # |_|            |_|  
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     puts "\033\]2;[file tail $::env(PWD)] - [get_db current_design .name] \
+[11/10 21:21:36     36s]         - [set STAGE "prePlace"] [clock format [clock seconds] -format "%R     %d / %m / %C%y"]\a"
+[11/10 21:21:36     36s]         
+[11/10 21:21:36     36s]     delete_buffer_trees
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     # ------------------
+[11/10 21:21:36     36s]     # reports
+[11/10 21:21:36     36s]     # ------------------
+[11/10 21:21:36     36s]     time_design -pre_place -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} 
+[11/10 21:21:36     36s]     time_design -pre_place -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} -hold
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     user_reports
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     # write db 
+[11/10 21:21:36     36s]     write_db ./db/DB.$::env(ENV_DESIGN).${STAGE}.enc
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s] }
+[11/10 21:21:36     36s] @file 217:
+[11/10 21:21:36     36s] @file 218:
+[11/10 21:21:36     36s] @file 219:
+[11/10 21:21:36     36s] @file 220: proc user_extract_rc {args} \
+[11/10 21:21:36     36s] {
+[11/10 21:21:36     36s]     #            _                  _   ____   ____ 
+[11/10 21:21:36     36s]     #   _____  _| |_ _ __ __ _  ___| |_|  _ \ / ___|
+[11/10 21:21:36     36s]     #  / _ \ \/ / __| '__/ _` |/ __| __| |_) | |    
+[11/10 21:21:36     36s]     # |  __/>  <| |_| | | (_| | (__| |_|  _ <| |___ 
+[11/10 21:21:36     36s]     #  \___/_/\_\\__|_|  \__,_|\___|\__|_| \_\\____|
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     puts "\033\]2;[file tail $::env(PWD)] - [get_db current_design .name] \
+[11/10 21:21:36     36s]         - [set STAGE "extract_rc"] [clock format [clock seconds] -format "%R     %d / %m / %C%y"]\a"
+[11/10 21:21:36     36s]                   
+[11/10 21:21:36     36s]     reset_parasitics
+[11/10 21:21:36     36s]     extract_rc
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     time_design -post_route -report_only -expanded_views \
+[11/10 21:21:36     36s]     -report_dir ./reports/final -report_prefix final_setup
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     time_design -post_route -report_only -expanded_views -hold \
+[11/10 21:21:36     36s]     -report_dir ./reports/final -report_prefix final_hold
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     report_timing -late -path_type full_clock -max_paths 1
+[11/10 21:21:36     36s]     report_timing -early -path_type full_clock -max_paths 1
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     check_place
+[11/10 21:21:36     36s]     check_connectivity -type all -out_file ./reports/final/connectivity.rpt
+[11/10 21:21:36     36s]     check_drc -check_only all -out_file ./reports/final/drc.rpt
+[11/10 21:21:36     36s] }
+[11/10 21:21:36     36s] @file 247:
+[11/10 21:21:36     36s] @file 248:
+[11/10 21:21:36     36s] @file 249: proc user_sta {args} \
+[11/10 21:21:36     36s] {
+[11/10 21:21:36     36s]     time_design -post_route -report_only -expanded_views -report_dir ./reports/sta -report_prefix sta 
+[11/10 21:21:36     36s]     time_design -post_route -report_only -expanded_views -report_dir ./reports/sta -report_prefix sta -hold
+[11/10 21:21:36     36s] }
+[11/10 21:21:36     36s] @file 254:
+[11/10 21:21:36     36s] @file 255: proc user_write_netlist {args} \
+[11/10 21:21:36     36s] {
+[11/10 21:21:36     36s]     write_netlist ./out/[get_db current_design .name].v
+[11/10 21:21:36     36s]     # write_netlist ./out/[get_db current_design .name]_flat.v -flat -line_length 10000
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s] }
+[11/10 21:21:36     36s] @file 261:
+[11/10 21:21:36     36s] @file 262: proc user_write_sdf {sdf_view} \
+[11/10 21:21:36     36s] {
+[11/10 21:21:36     36s]     
+[11/10 21:21:36     36s]     write_sdf ./out/[get_db current_design .name].sdf -target_application verilog -precision 4 \
+[11/10 21:21:36     36s]         -view "${sdf_view}"
+[11/10 21:21:36     36s] }
+[11/10 21:21:36     36s] @file 268:
+[11/10 21:21:36     36s] @file 269:
+[11/10 21:21:36     36s] @file 270:
+[11/10 21:21:36     36s] @file 271:
+[11/10 21:21:36     36s] @file 272: proc user_write_lib {setup_views hold_views } \
+[11/10 21:21:36     36s] {
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     set_analysis_view -setup $setup_views -hold $hold_views
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     set list [concat $setup_views $hold_views]
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     foreach view $list {
+[11/10 21:21:36     36s]     write_timing_model \
+[11/10 21:21:36     36s]         -view $view \
+[11/10 21:21:36     36s]         -blackbox_2d -force -include_power_ground \
+[11/10 21:21:36     36s]         -lib_name [get_db current_design .name]_${view} -cell_name [get_db current_design .name] \
+[11/10 21:21:36     36s]         ./out/[get_db current_design .name]_${view}.lib
+[11/10 21:21:36     36s]     }
+[11/10 21:21:36     36s]     
+[11/10 21:21:36     36s] }
+[11/10 21:21:36     36s] @file 288:
+[11/10 21:21:36     36s] @file 289:
+[11/10 21:21:36     36s] @file 290: proc user_write_def {args} \
+[11/10 21:21:36     36s] {
+[11/10 21:21:36     36s]     write_def ./out/[get_db current_design .name].def.gz -floorplan -netlist -routing -routing_to_specialnet -scan_chain 
+[11/10 21:21:36     36s] }
+[11/10 21:21:36     36s] @file 294:
+[11/10 21:21:36     36s] @file 295:
+[11/10 21:21:36     36s] @file 296:
+[11/10 21:21:36     36s] @file 297:
+[11/10 21:21:36     36s] @file 298:
+[11/10 21:21:36     36s] @file 299: proc user_reports {} {
+[11/10 21:21:36     36s]     upvar 1 STAGE STAGE
+[11/10 21:21:36     36s]     mkdir -p ./reports/R.${STAGE}
+[11/10 21:21:36     36s]     check_timing -verbose > ./reports/R.${STAGE}/checkTiming.rpt
+[11/10 21:21:36     36s]     check_netlist -out_file ./reports/R.${STAGE}/checkNetlist.rpt
+[11/10 21:21:36     36s]     report_area > ./reports/R.${STAGE}/report_area.rpt
+[11/10 21:21:36     36s]     report_power -out_file ./reports/R.${STAGE}/report_power.rep
+[11/10 21:21:36     36s]     user_report_Screenshot      
+[11/10 21:21:36     36s]     puts "${STAGE} [clock format [clock seconds] -format "%R     %d / %m / %C%y"]" >> ./reports/time_log.rep
+[11/10 21:21:36     36s] }
+[11/10 21:21:36     36s] @file 309:
+[11/10 21:21:36     36s] @file 310:
+[11/10 21:21:36     36s] @file 311: proc user_report_Screenshot {} {
+[11/10 21:21:36     36s]         upvar 1 STAGE STAGE
+[11/10 21:21:36     36s]         set_layer_preference node_layer -is_visible 1
+[11/10 21:21:36     36s]         set_layer_preference node_net -is_visible 1
+[11/10 21:21:36     36s]         set_layer_preference phyCell -is_visible 1
+[11/10 21:21:36     36s]         gui_set_draw_view place
+[11/10 21:21:36     36s]         gui_show
+[11/10 21:21:36     36s]         gui_fit
+[11/10 21:21:36     36s]         write_to_gif ./reports/R.${STAGE}/R.${STAGE}_Screenshot_place_mode.gif
+[11/10 21:21:36     36s]         delete_drc_markers
+[11/10 21:21:36     36s]         set_layer_preference node_net -is_visible 0
+[11/10 21:21:36     36s]         set_layer_preference clock -is_visible 1
+[11/10 21:21:36     36s]         write_to_gif ./reports/R.${STAGE}/R.${STAGE}_Screenshot_clock_mode.gif
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]         set_layer_preference node_layer -is_visible 0
+[11/10 21:21:36     36s]         write_to_gif ./reports/R.${STAGE}/R.${STAGE}_Screenshot_cells_mode.gif
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]         set_layer_preference node_layer -is_visible 1
+[11/10 21:21:36     36s]         set_layer_preference node_cell -is_visible 0
+[11/10 21:21:36     36s]         set_layer_preference node_net -is_visible 1
+[11/10 21:21:36     36s]         gui_hide
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     }
+[11/10 21:21:36     36s] @file 334:
+[11/10 21:21:36     36s] @file 335:
+[11/10 21:21:36     36s] @file 336: proc user_place {args} \
+[11/10 21:21:36     36s] {
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     #        _                
+[11/10 21:21:36     36s]     #  _ __ | | __ _  ___ ___ 
+[11/10 21:21:36     36s]     # | '_ \| |/ _` |/ __/ _ \
+[11/10 21:21:36     36s]     # | |_) | | (_| | (_|  __/
+[11/10 21:21:36     36s]     # | .__/|_|\__,_|\___\___|
+[11/10 21:21:36     36s]     # |_| 
+[11/10 21:21:36     36s]         
+[11/10 21:21:36     36s]     puts "\033\]2;[file tail $::env(PWD)] - [get_db current_design .name] \
+[11/10 21:21:36     36s]         - [set STAGE "place"] [clock format [clock seconds] -format "%R     %d / %m / %C%y"]\a"
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     place_opt_design
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     # ------------------
+[11/10 21:21:36     36s]     # reports
+[11/10 21:21:36     36s]     # ------------------
+[11/10 21:21:36     36s]     time_design -pre_cts -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} 
+[11/10 21:21:36     36s]     time_design -pre_cts -report_only -expanded_views -report_dir ./reports/R.${STAGE} -report_prefix R.${STAGE} -hold
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     user_reports
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s]     # write db 
+[11/10 21:21:36     36s]     write_db ./db/DB.$::env(ENV_DESIGN).${STAGE}.enc
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s] }
+[11/10 21:21:36     36s] @file 364:
+[11/10 21:21:36     36s] @file 365:
+[11/10 21:21:36     36s] #@ End verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/steps.innovus.tcl
+[11/10 21:21:36     36s] @file 8:
+[11/10 21:21:36     36s] @file 9: user_init_design
+[11/10 21:21:36     36s] ##  Process: 130           (User Set)               
+[11/10 21:21:36     36s] ##     Node: (not set)                           
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s] ##  Check design process and node:  
+[11/10 21:21:36     36s] ##  Design tech node is not set.
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s] Applying the recommended capacitance filtering threshold values for 130nm process node: total_c_th=0, relative_c_th=1 and coupling_c_th=0.4.
+[11/10 21:21:36     36s] 	These values will be used by all post-route extraction engines, including TQuantus, IQuantus and Quantus QRC extraction.
+[11/10 21:21:36     36s] 	Capacitance filtering mode(extract_rc_cap_filter_mode option of the set_db) is 'relative_and_coupling' for all engines.
+[11/10 21:21:36     36s] 	The accuracy mode for post_route extract_rc_effort_level low extraction will be set to 'standard'.
+[11/10 21:21:36     36s] 	Default value for EffortLevel(extract_rc_effort_level option of the set_db) in post_route extraction mode is 'low'.
+[11/10 21:21:36     36s] #@ Begin verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/example_rtl/counter/mmmc.view (pre)
+[11/10 21:21:36     36s] @file 1:
+[11/10 21:21:36     36s] @file 2: # ################
+[11/10 21:21:36     36s] @file 3: # TYP
+[11/10 21:21:36     36s] @file 4: # ################
+[11/10 21:21:36     36s] @file 5: set lib_list_typ {}
+[11/10 21:21:36     36s] @file 6:
+[11/10 21:21:36     36s] @file 7: lappend lib_list_typ  " $::env(PDK_DIR)/IHP_Open_PDK/sg13g2_stdcell/lib/sg13g2_stdcell_typ_1p20V_25C.lib"
+[11/10 21:21:36     36s] @file 8:
+[11/10 21:21:36     36s] @@file 9: create_rc_corner -name typ -temperature {25} -pre_route_res {1} -pre_route_cap {1} -pre_route_clock_res {0} -pre_route_clock_cap {0} -post_route_res {1} -post_route_cap {1} -post_route_cross_cap {1} -post_route_clock_res {0} -post_route_clock_cap {0}
+[11/10 21:21:36     36s] @@file 10: create_library_set -name typ -timing $lib_list_typ
+[11/10 21:21:36     36s] @@file 11: create_opcond -name typ -process {1} -voltage {1.20} -temperature {25}
+[11/10 21:21:36     36s] @file 12: #set PVT
+[11/10 21:21:36     36s] @@file 13: create_timing_condition -name typ -opcond {typ} -library_sets {typ}
+[11/10 21:21:36     36s] @@file 14: create_delay_corner -name typ -timing_condition {typ} -rc_corner {typ}
+[11/10 21:21:36     36s] @file 15: #create corner
+[11/10 21:21:36     36s] @file 16:
+[11/10 21:21:36     36s] @file 17: # ################
+[11/10 21:21:36     36s] @file 18: # MAX
+[11/10 21:21:36     36s] @file 19: # ################
+[11/10 21:21:36     36s] @file 20: # set lib_list_max {}
+[11/10 21:21:36     36s] @file 21:
+[11/10 21:21:36     36s] @file 22: # lappend lib_list_max  <PLACEHOLDER>
+[11/10 21:21:36     36s] @file 23:
+[11/10 21:21:36     36s] @file 24: # create_rc_corner <PLACEHOLDER>
+[11/10 21:21:36     36s] @file 25: # create_library_set <PLACEHOLDER>
+[11/10 21:21:36     36s] @file 26: # create_opcond <PLACEHOLDER>
+[11/10 21:21:36     36s] @file 27: # create_timing_condition <PLACEHOLDER>
+[11/10 21:21:36     36s] @file 28: # create_delay_corner <PLACEHOLDER>
+[11/10 21:21:36     36s] @file 29:
+[11/10 21:21:36     36s] @file 30: # ################
+[11/10 21:21:36     36s] @file 31: # FINAL 
+[11/10 21:21:36     36s] @file 32: # ################
+[11/10 21:21:36     36s] @file 33:
+[11/10 21:21:36     36s] @@file 34: create_constraint_mode -name func -sdc_files "/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/blockB/statistics_unit.sdc"
+[11/10 21:21:36     36s] @@file 35: create_analysis_view -name typ -constraint_mode {func} -delay_corner {typ}
+[11/10 21:21:36     36s] @@file 36: set_analysis_view -setup {typ} -hold {typ}
+[11/10 21:21:36     36s] #@ End verbose source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/example_rtl/counter/mmmc.view
+[11/10 21:21:36     36s] Reading typ timing library '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/PDK/IHP_Open_PDK/sg13g2_stdcell/lib/sg13g2_stdcell_typ_1p20V_25C.lib' ...
+[11/10 21:21:36     36s] Read 78 cells in library 'sg13g2_stdcell_typ_1p20V_25C' 
+[11/10 21:21:36     36s] Ending "PreSetAnalysisView" (total cpu=0:00:00.1, real=0:00:00.0, peak res=777.5M, current mem=746.8M)
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s] Loading LEF file /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/../PDK//IHP_Open_PDK/sg13g2_stdcell/lef/sg13g2_tech.lef ...
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s] Loading LEF file /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/../PDK//IHP_Open_PDK/sg13g2_stdcell/lef/sg13g2_stdcell.lef ...
+[11/10 21:21:36     36s] Set DBUPerIGU to M1 pitch 480.
+[11/10 21:21:36     36s] **WARN: (IMPLF-200):	Pin 'A' in macro 'sg13g2_antennanp' has no ANTENNAGATEAREA value defined. The library data is incomplete and some process antenna rules will not be checked correctly.
+[11/10 21:21:36     36s] Type 'man IMPLF-200' for more detail.
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s] viaInitial starts at Tue Nov 10 21:21:36 2026
+[11/10 21:21:36     36s] viaInitial ends at Tue Nov 10 21:21:36 2026
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s] ##  Check design process and node:  
+[11/10 21:21:36     36s] ##  Design tech node is not set.
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s] #% Begin Load netlist data ... (date=11/10 21:21:36, mem=751.1M)
+[11/10 21:21:36     36s] *** Begin netlist parsing (mem=887.4M) ***
+[11/10 21:21:36     36s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_xor2_1' is defined in LEF but not in the timing library.
+[11/10 21:21:36     36s] Type 'man IMPVL-159' for more detail.
+[11/10 21:21:36     36s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_xor2_1' is defined in LEF but not in the timing library.
+[11/10 21:21:36     36s] Type 'man IMPVL-159' for more detail.
+[11/10 21:21:36     36s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_xnor2_1' is defined in LEF but not in the timing library.
+[11/10 21:21:36     36s] Type 'man IMPVL-159' for more detail.
+[11/10 21:21:36     36s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_xnor2_1' is defined in LEF but not in the timing library.
+[11/10 21:21:36     36s] Type 'man IMPVL-159' for more detail.
+[11/10 21:21:36     36s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_tielo' is defined in LEF but not in the timing library.
+[11/10 21:21:36     36s] Type 'man IMPVL-159' for more detail.
+[11/10 21:21:36     36s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_tielo' is defined in LEF but not in the timing library.
+[11/10 21:21:36     36s] Type 'man IMPVL-159' for more detail.
+[11/10 21:21:36     36s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_tiehi' is defined in LEF but not in the timing library.
+[11/10 21:21:36     36s] Type 'man IMPVL-159' for more detail.
+[11/10 21:21:36     36s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_tiehi' is defined in LEF but not in the timing library.
+[11/10 21:21:36     36s] Type 'man IMPVL-159' for more detail.
+[11/10 21:21:36     36s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_slgcp_1' is defined in LEF but not in the timing library.
+[11/10 21:21:36     36s] Type 'man IMPVL-159' for more detail.
+[11/10 21:21:36     36s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_slgcp_1' is defined in LEF but not in the timing library.
+[11/10 21:21:36     36s] Type 'man IMPVL-159' for more detail.
+[11/10 21:21:36     36s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_sighold' is defined in LEF but not in the timing library.
+[11/10 21:21:36     36s] Type 'man IMPVL-159' for more detail.
+[11/10 21:21:36     36s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_sighold' is defined in LEF but not in the timing library.
+[11/10 21:21:36     36s] Type 'man IMPVL-159' for more detail.
+[11/10 21:21:36     36s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_sdfbbp_1' is defined in LEF but not in the timing library.
+[11/10 21:21:36     36s] Type 'man IMPVL-159' for more detail.
+[11/10 21:21:36     36s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_sdfbbp_1' is defined in LEF but not in the timing library.
+[11/10 21:21:36     36s] Type 'man IMPVL-159' for more detail.
+[11/10 21:21:36     36s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_or4_2' is defined in LEF but not in the timing library.
+[11/10 21:21:36     36s] Type 'man IMPVL-159' for more detail.
+[11/10 21:21:36     36s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_or4_2' is defined in LEF but not in the timing library.
+[11/10 21:21:36     36s] Type 'man IMPVL-159' for more detail.
+[11/10 21:21:36     36s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_or4_1' is defined in LEF but not in the timing library.
+[11/10 21:21:36     36s] Type 'man IMPVL-159' for more detail.
+[11/10 21:21:36     36s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_or4_1' is defined in LEF but not in the timing library.
+[11/10 21:21:36     36s] Type 'man IMPVL-159' for more detail.
+[11/10 21:21:36     36s] **WARN: (IMPVL-159):	Pin 'VDD' of cell 'sg13g2_or3_2' is defined in LEF but not in the timing library.
+[11/10 21:21:36     36s] Type 'man IMPVL-159' for more detail.
+[11/10 21:21:36     36s] **WARN: (IMPVL-159):	Pin 'VSS' of cell 'sg13g2_or3_2' is defined in LEF but not in the timing library.
+[11/10 21:21:36     36s] Type 'man IMPVL-159' for more detail.
+[11/10 21:21:36     36s] **WARN: (EMS-27):	Message (IMPVL-159) has exceeded the current message display limit of 20.
+[11/10 21:21:36     36s] To increase the message display limit, refer to the product command reference manual.
+[11/10 21:21:36     36s] Created 78 new cells from 1 timing libraries.
+[11/10 21:21:36     36s] Reading netlist ...
+[11/10 21:21:36     36s] Backslashed names will retain backslash and a trailing blank character.
+[11/10 21:21:36     36s] Reading verilog netlist '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/run/genus/outputs/syn_opt/statistics_unit.v'
+[11/10 21:21:36     36s] 
+[11/10 21:21:36     36s] *** Memory Usage v#1 (Current mem = 890.430M, initial mem = 376.109M) ***
+[11/10 21:21:36     36s] *** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=890.4M) ***
+[11/10 21:21:36     36s] #% End Load netlist data ... (date=11/10 21:21:36, total cpu=0:00:00.0, real=0:00:00.0, peak res=755.5M, current mem=755.5M)
+[11/10 21:21:36     36s] Set top cell to statistics_unit.
+[11/10 21:21:37     37s] Hooked 78 DB cells to tlib cells.
+[11/10 21:21:37     37s] Ending "BindLib:" (total cpu=0:00:00.0, real=0:00:00.0, peak res=761.9M, current mem=761.9M)
+[11/10 21:21:37     37s] Starting recursive module instantiation check.
+[11/10 21:21:37     37s] No recursion found.
+[11/10 21:21:37     37s] Building hierarchical netlist for Cell statistics_unit ...
+[11/10 21:21:37     37s] *** Netlist is unique.
+[11/10 21:21:37     37s] Setting Std. cell height to 3780 DBU (smallest netlist inst).
+[11/10 21:21:37     37s] ** info: there are 79 modules.
+[11/10 21:21:37     37s] ** info: there are 788 stdCell insts.
+[11/10 21:21:37     37s] 
+[11/10 21:21:37     37s] *** Memory Usage v#1 (Current mem = 952.902M, initial mem = 376.109M) ***
+[11/10 21:21:37     37s] Adjust TopMetal1 preferred direction offset from 1.64 to 0.
+[11/10 21:21:37     37s] Start create_tracks
+[11/10 21:21:37     37s] Generated pitch 2.52 in TopMetal1 is different from 2.28 defined in technology file in preferred direction.
+[11/10 21:21:37     37s] Extraction setup Started 
+[11/10 21:21:37     37s] 
+[11/10 21:21:37     37s] Trim Metal Layers:
+[11/10 21:21:37     37s] Initializing multi-corner RC extraction with 1 active RC Corners ...
+[11/10 21:21:37     37s] **WARN: (IMPEXT-2773):	The via resistance between layers M0 and M1 could not be determined from the LEF technology file because the via resistance specification is missing. A default of 4 Ohms will be used as via resistance between these layers.
+[11/10 21:21:37     37s] Type 'man IMPEXT-2773' for more detail.
+[11/10 21:21:37     37s] **WARN: (IMPEXT-2776):	The via resistance between layers M1 and M2 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+[11/10 21:21:37     37s] Type 'man IMPEXT-2776' for more detail.
+[11/10 21:21:37     37s] **WARN: (IMPEXT-2776):	The via resistance between layers M2 and M3 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+[11/10 21:21:37     37s] Type 'man IMPEXT-2776' for more detail.
+[11/10 21:21:37     37s] **WARN: (IMPEXT-2776):	The via resistance between layers M3 and M4 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+[11/10 21:21:37     37s] Type 'man IMPEXT-2776' for more detail.
+[11/10 21:21:37     37s] **WARN: (IMPEXT-2776):	The via resistance between layers M4 and M5 is not defined in the capacitance table file. The via resistance of 20 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+[11/10 21:21:37     37s] Type 'man IMPEXT-2776' for more detail.
+[11/10 21:21:37     37s] **WARN: (IMPEXT-2776):	The via resistance between layers M5 and M6 is not defined in the capacitance table file. The via resistance of 4 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+[11/10 21:21:37     37s] Type 'man IMPEXT-2776' for more detail.
+[11/10 21:21:37     37s] **WARN: (IMPEXT-2776):	The via resistance between layers M6 and M7 is not defined in the capacitance table file. The via resistance of 2.2 Ohms defined in the LEF technology file will be used as via resistance between these layers.
+[11/10 21:21:37     37s] Type 'man IMPEXT-2776' for more detail.
+[11/10 21:21:37     37s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M1 is not defined in the cap table. Therefore, the LEF value 0.135 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[11/10 21:21:37     37s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M2 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[11/10 21:21:37     37s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M3 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[11/10 21:21:37     37s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M4 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[11/10 21:21:37     37s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M5 is not defined in the cap table. Therefore, the LEF value 0.103 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[11/10 21:21:37     37s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M6 is not defined in the cap table. Therefore, the LEF value 0.021 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[11/10 21:21:37     37s] **WARN: (IMPEXT-2766):	The sheet resistance for layer M7 is not defined in the cap table. Therefore, the LEF value 0.0145 will be used instead. To avoid this message, update the relevant cap table to include the sheet resistance for the specified layer and read it back in.
+[11/10 21:21:37     37s] Summary of Active RC-Corners : 
+[11/10 21:21:37     37s]  
+[11/10 21:21:37     37s]  Analysis View: typ
+[11/10 21:21:37     37s]     RC-Corner Name        : typ
+[11/10 21:21:37     37s]     RC-Corner Index       : 0
+[11/10 21:21:37     37s]     RC-Corner Temperature : 25 Celsius
+[11/10 21:21:37     37s]     RC-Corner Cap Table   : ''
+[11/10 21:21:37     37s]     RC-Corner PreRoute Res Factor         : 1
+[11/10 21:21:37     37s]     RC-Corner PreRoute Cap Factor         : 1
+[11/10 21:21:37     37s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[11/10 21:21:37     37s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[11/10 21:21:37     37s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[11/10 21:21:37     37s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from Cap Table]
+[11/10 21:21:37     37s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from Cap Table]
+[11/10 21:21:37     37s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+[11/10 21:21:37     37s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+[11/10 21:21:37     37s]     RC-Corner PostRoute Clock coupling capacitance Factor : 1 {1 1 1} 
+[11/10 21:21:37     37s] 
+[11/10 21:21:37     37s] Trim Metal Layers:
+[11/10 21:21:37     37s] LayerId::1 widthSet size::1
+[11/10 21:21:37     37s] LayerId::2 widthSet size::1
+[11/10 21:21:37     37s] LayerId::3 widthSet size::1
+[11/10 21:21:37     37s] LayerId::4 widthSet size::1
+[11/10 21:21:37     37s] LayerId::5 widthSet size::1
+[11/10 21:21:37     37s] LayerId::6 widthSet size::1
+[11/10 21:21:37     37s] LayerId::7 widthSet size::1
+[11/10 21:21:37     37s] eee: pegSigSF::1.070000
+[11/10 21:21:37     37s] Updating RC grid for preRoute extraction ...
+[11/10 21:21:37     37s] Initializing multi-corner resistance tables ...
+[11/10 21:21:37     37s] eee: l::1 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[11/10 21:21:37     37s] eee: l::2 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[11/10 21:21:37     37s] eee: l::3 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[11/10 21:21:37     37s] eee: l::4 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[11/10 21:21:37     37s] eee: l::5 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[11/10 21:21:37     37s] eee: l::6 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[11/10 21:21:37     37s] eee: l::7 avDens::0.000000 usedTrk::0.000000 availTrk::0.000000 sigTrk::0.000000
+[11/10 21:21:37     37s] {RT typ 0 7 7 {6 0} 1}
+[11/10 21:21:37     37s] eee: LAM: n=40 LLS=2-3 HLS=3-5 rDens=0.000000 uaWl=0.000000 uaWlH=0.000000 aWlH=0.000000 lMod=0 pMax=0.850000 pMod=82 wcR=0.533800 newSi=0.000000 wHLS=1.334500 siPrev=0 viaL=0.000000
+[11/10 21:21:37     37s] *Info: initialize multi-corner CTS.
+[11/10 21:21:37     37s] Ending "SetAnalysisView" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1027.2M, current mem=803.0M)
+[11/10 21:21:37     37s] Reading timing constraints file '/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab2/data/blockB/statistics_unit.sdc' ...
+[11/10 21:21:37     38s] Current (total cpu=0:00:38.0, real=0:00:24.0, peak res=1041.5M, current mem=1041.5M)
+[11/10 21:21:37     38s] INFO (CTE): Constraints read successfully.
+[11/10 21:21:37     38s] Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=1059.5M, current mem=1059.5M)
+[11/10 21:21:38     38s] Current (total cpu=0:00:38.1, real=0:00:25.0, peak res=1059.5M, current mem=1059.5M)
+[11/10 21:21:38     38s] Tech dependent Parameter, Build TLibAnalyzer for: cellAreaConsiderPadding
+[11/10 21:21:38     38s] 
+[11/10 21:21:38     38s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) Begin ...
+[11/10 21:21:38     38s] Summary for sequential cells identification: 
+[11/10 21:21:38     38s]   Identified SBFF number: 3
+[11/10 21:21:38     38s]   Identified MBFF number: 0
+[11/10 21:21:38     38s]   Identified SB Latch number: 0
+[11/10 21:21:38     38s]   Identified MB Latch number: 0
+[11/10 21:21:38     38s]   Not identified SBFF number: 0
+[11/10 21:21:38     38s]   Not identified MBFF number: 0
+[11/10 21:21:38     38s]   Not identified SB Latch number: 0
+[11/10 21:21:38     38s]   Not identified MB Latch number: 0
+[11/10 21:21:38     38s]   Number of sequential cells which are not FFs: 7
+[11/10 21:21:38     38s] Total number of combinational cells: 62
+[11/10 21:21:38     38s] Total number of sequential cells: 10
+[11/10 21:21:38     38s] Total number of tristate cells: 6
+[11/10 21:21:38     38s] Total number of level shifter cells: 0
+[11/10 21:21:38     38s] Total number of power gating cells: 0
+[11/10 21:21:38     38s] Total number of isolation cells: 0
+[11/10 21:21:38     38s] Total number of power switch cells: 0
+[11/10 21:21:38     38s] Total number of pulse generator cells: 0
+[11/10 21:21:38     38s] Total number of always on buffers: 0
+[11/10 21:21:38     38s] Total number of retention cells: 0
+[11/10 21:21:38     38s] List of usable buffers: sg13g2_buf_1 sg13g2_buf_16 sg13g2_buf_2 sg13g2_buf_4 sg13g2_buf_8
+[11/10 21:21:38     38s] Total number of usable buffers: 5
+[11/10 21:21:38     38s] List of unusable buffers:
+[11/10 21:21:38     38s] Total number of unusable buffers: 0
+[11/10 21:21:38     38s] List of usable inverters: sg13g2_inv_1 sg13g2_inv_16 sg13g2_inv_2 sg13g2_inv_4 sg13g2_inv_8
+[11/10 21:21:38     38s] Total number of usable inverters: 5
+[11/10 21:21:38     38s] List of unusable inverters:
+[11/10 21:21:38     38s] Total number of unusable inverters: 0
+[11/10 21:21:38     38s] List of identified usable delay cells: sg13g2_dlygate4sd2_1[11/10 21:21:38     38s] 
+[11/10 21:21:38     38s] TimeStamp Creating Cell Server ...(0, 1, 1, 1) End ...
+ sg13g2_dlygate4sd1_1 sg13g2_dlygate4sd3_1
+[11/10 21:21:38     38s] Total number of identified usable delay cells: 3
+[11/10 21:21:38     38s] List of identified unusable delay cells:
+[11/10 21:21:38     38s] Total number of identified unusable delay cells: 0
+[11/10 21:21:38     38s] 
+[11/10 21:21:38     38s] TimeStamp Deleting Cell Server Begin ...
+[11/10 21:21:38     38s] 
+[11/10 21:21:38     38s] TimeStamp Deleting Cell Server End ...
+[11/10 21:21:38     38s] Ending "Cell type marking" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1083.8M, current mem=1083.8M)
+[11/10 21:21:38     38s] 
+[11/10 21:21:38     38s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) Begin ...
+[11/10 21:21:38     38s] Summary for sequential cells identification: 
+[11/10 21:21:38     38s]   Identified SBFF number: 3
+[11/10 21:21:38     38s]   Identified MBFF number: 0
+[11/10 21:21:38     38s]   Identified SB Latch number: 0
+[11/10 21:21:38     38s]   Identified MB Latch number: 0
+[11/10 21:21:38     38s]   Not identified SBFF number: 0
+[11/10 21:21:38     38s]   Not identified MBFF number: 0
+[11/10 21:21:38     38s]   Not identified SB Latch number: 0
+[11/10 21:21:38     38s]   Not identified MB Latch number: 0
+[11/10 21:21:38     38s]   Number of sequential cells which are not FFs: 7
+[11/10 21:21:38     38s]  Visiting view : typ
+[11/10 21:21:38     38s]    : PowerDomain = none : Weighted F : unweighted  = 25.20 (1.000) with rcCorner = 0
+[11/10 21:21:38     38s]    : PowerDomain = none : Weighted F : unweighted  = 23.30 (1.000) with rcCorner = -1
+[11/10 21:21:38     38s]  Visiting view : typ
+[11/10 21:21:38     38s]    : PowerDomain = none : Weighted F : unweighted  = 25.20 (1.000) with rcCorner = 0
+[11/10 21:21:38     38s]    : PowerDomain = none : Weighted F : unweighted  = 23.30 (1.000) with rcCorner = -1
+[11/10 21:21:38     38s] TLC MultiMap info (StdDelay):
+[11/10 21:21:38     38s]   : typ + typ + 1 + no RcCorner := 23.3ps
+[11/10 21:21:38     38s]   : typ + typ + 1 + typ := 25.2ps
+[11/10 21:21:38     38s]  Setting StdDelay to: 25.2ps
+[11/10 21:21:38     38s] 
+[11/10 21:21:38     38s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) End ...
+[11/10 21:21:38     38s] @file 10: global_net
+[11/10 21:21:38     38s] @file 11:
+[11/10 21:21:38     38s] @file 12: user_read_floorplan
+[11/10 21:21:38     38s] Reading floorplan file - /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/run/innovus_fp/statistics_unit_5.fp (mem = 1236.3M).
+[11/10 21:21:38     38s] #% Begin Load floorplan data ... (date=11/10 21:21:38, mem=1084.7M)
+[11/10 21:21:38     38s] *info: reset 939 existing net BottomPreferredLayer and AvoidDetour
+[11/10 21:21:38     38s] Deleting old partition specification.
+[11/10 21:21:38     38s] Set FPlanBox to (0 0 200160 199920)
+[11/10 21:21:38     38s] Adjust TopMetal1 preferred direction offset from 1.64 to 0.
+[11/10 21:21:38     38s] Start create_tracks
+[11/10 21:21:38     38s] Generated pitch 2.52 in TopMetal1 is different from 2.28 defined in technology file in preferred direction.
+[11/10 21:21:38     38s]  ... processed partition successfully.
+[11/10 21:21:38     38s] Reading binary special route file /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab3/run/innovus_fp/statistics_unit_5.fp.spr (Created by Innovus v21.14-s109_1 on Sun Oct 18 18:47:46 2026, version: 1)
+[11/10 21:21:38     38s] Convert 0 swires and 0 svias from compressed groups
+[11/10 21:21:38     38s] 29 swires and 81 svias were compressed
+[11/10 21:21:38     38s] 69 swires and 194 svias were decompressed from small or sparse groups
+[11/10 21:21:38     38s] Ending "Read special route file" (total cpu=0:00:00.0, real=0:00:00.0, peak res=1085.5M, current mem=1085.5M)
+[11/10 21:21:38     38s] Extracting standard cell pins and blockage ...... 
+[11/10 21:21:38     38s] Temporarily expand pitch on layer M6 from 2280 to 4560 (2x).
+[11/10 21:21:38     38s] **WARN: (IMPTR-2104):	Layer M6: Pitch=2280 is less than min width=1640 + min spacing=1640.
+[11/10 21:21:38     38s] **WARN: (IMPTR-2108):	For layer M6, the gaps of 78 out of 78 tracks are narrower than 3.280um (space 1.640 + width 1.640).
+[11/10 21:21:38     38s] Type 'man IMPTR-2108' for more detail.
+[11/10 21:21:38     38s]  As a result, your trialRoute congestion could be incorrect.
+[11/10 21:21:38     38s] Pin and blockage extraction finished
+[11/10 21:21:38     38s] Delete all existing relative floorplan constraints.
+[11/10 21:21:38     38s] #% End Load floorplan data ... (date=11/10 21:21:38, total cpu=0:00:00.0, real=0:00:00.0, peak res=1086.0M, current mem=1086.0M)
+[11/10 21:21:38     38s] INFO: copied floorplan  -> ./in/statistics_unit_5.fp
+[11/10 21:21:38     38s] INFO: copied floorplan  -> ./in/statistics_unit_5.fp.spr
+[11/10 21:21:38     38s] @file 13:
+[11/10 21:21:38     38s] @file 14: user_3_otchet
+[11/10 21:21:38     38s] AAE_INFO: opIsDesignInPostRouteState() is 0
+[11/10 21:21:38     38s] AAE DB initialization (MEM=1261.21 CPU=0:00:00.0 REAL=0:00:00.0) 
+[11/10 21:21:38     38s] #################################################################################
+[11/10 21:21:38     38s] # Design Stage: PreRoute
+[11/10 21:21:38     38s] # Design Name: statistics_unit
+[11/10 21:21:38     38s] # Design Mode: 130nm
+[11/10 21:21:38     38s] # Analysis Mode: MMMC Non-OCV 
+[11/10 21:21:38     38s] # Parasitics Mode: No SPEF/RCDB 
+[11/10 21:21:38     38s] # Signoff Settings: SI Off 
+[11/10 21:21:38     38s] #################################################################################
+[11/10 21:21:38     38s] Calculate delays in Single mode...
+[11/10 21:21:38     38s] Topological Sorting (REAL = 0:00:00.0, MEM = 1280.0M, InitMEM = 1280.0M)
+[11/10 21:21:38     38s] Start delay calculation (fullDC) (1 T). (MEM=1280.03)
+[11/10 21:21:38     38s] siFlow : Timing analysis mode is single, using late cdB files
+[11/10 21:21:38     38s] Start AAE Lib Loading. (MEM=1291.55)
+[11/10 21:21:38     38s] End AAE Lib Loading. (MEM=1310.62 CPU=0:00:00.0 Real=0:00:00.0)
+[11/10 21:21:38     38s] End AAE Lib Interpolated Model. (MEM=1310.62 CPU Time=0:00:00.0, Real Time=0:00:00.0)
+[11/10 21:21:38     39s] Total number of fetched objects 937
+[11/10 21:21:38     39s] AAE_INFO: Total number of nets for which stage creation was skipped for all views 0
+[11/10 21:21:38     39s] End Timing Check Calculation. (CPU Time=0:00:00.0, Real Time=0:00:00.0)
+[11/10 21:21:38     39s] End delay calculation. (MEM=1420 CPU=0:00:00.1 REAL=0:00:00.0)
+[11/10 21:21:39     39s] End delay calculation (fullDC). (MEM=1383.38 CPU=0:00:00.2 REAL=0:00:01.0)
+[11/10 21:21:39     39s] *** CDM Built up (cpu=0:00:00.3  real=0:00:01.0  mem= 1383.4M) ***
+[11/10 21:21:39     39s] **WARN: (TCLCMD-1681):	The software has performed a full/partial timing reset. All existing timing path and timing point collection references have been invalidated and may no longer be referenced.
+[11/10 21:21:39     39s] **INFO(SUSPEND): The current script is stopped at 'suspend' command. Type 'resume' to continue.
+[11/10 21:21:39     39s] [SUSPEND]innovus 2> 
+[SUSPEND]innovus 2> set_interactive_constraint_modes [all_constraint_modes -active]
+[SUSPEND]innovus 3> set_propagated_clock [all_clocks]
+
+[11/10 21:25:57     59s] [SUSPEND]innovus 4> set_interactive_constraint_modes {}
+[SUSPEND]innovus 5> **INFO (INTERRUPT): The current script will stop before next command.
+[11/10 21:27:22     66s] **INFO (INTERRUPT): One more Ctrl-C to exit Innovus ...
+
+[11/10 21:27:24     66s] [SUSPEND]innovus 5> set_interactive_constraint_modes {}
+[SUSPEND]innovus 6> **INFO (INTERRUPT): The current script will stop before next command.
+[11/10 21:33:39     96s] **INFO (INTERRUPT): One more Ctrl-C to exit Innovus ...
+[11/10 21:33:39     96s] Innovus terminated by user interrupt.
+[11/10 21:33:39     96s] 
+[11/10 21:33:39     96s] *** Memory Usage v#1 (Current mem = 1326.871M, initial mem = 376.109M) ***
+[11/10 21:33:39     96s] 
+[11/10 21:33:39     96s] *** Summary of all messages that are not suppressed in this session:
+[11/10 21:33:39     96s] Severity  ID               Count  Summary                                  
+[11/10 21:33:39     96s] WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+[11/10 21:33:39     96s] WARNING   IMPEXT-2766          7  The sheet resistance for layer %s is not...
+[11/10 21:33:39     96s] WARNING   IMPEXT-2773          1  The via resistance between layers %s and...
+[11/10 21:33:39     96s] WARNING   IMPEXT-2776          6  The via resistance between layers %s and...
+[11/10 21:33:39     96s] WARNING   IMPVL-159          156  Pin '%s' of cell '%s' is defined in LEF ...
+[11/10 21:33:39     96s] WARNING   IMPOPT-801           1  Genus executable not found in PATH%s. In...
+[11/10 21:33:39     96s] WARNING   IMPTR-2104           1  Layer %s: Pitch=%d is less than min widt...
+[11/10 21:33:39     96s] WARNING   IMPTR-2108           1  For layer M%d, the gaps of %d out of %d ...
+[11/10 21:33:39     96s] WARNING   TCLCMD-1681          1  The software has performed a full/partia...
+[11/10 21:33:39     96s] *** Message Summary: 175 warning(s), 0 error(s)
+[11/10 21:33:39     96s] 
+[11/10 21:33:39     96s] --- Ending "Innovus" (totcpu=0:01:36, real=0:12:26, mem=1326.9M) ---

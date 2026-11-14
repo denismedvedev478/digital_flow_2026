@@ -1,0 +1,159 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Sat Nov 14 16:31:13 2026                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v21.14-s109_1 (64bit) 06/29/2022 09:53 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: NanoRoute 21.14-s109_1 NR220628-1629/21_14-UB (database version 18.20.582) {superthreading v2.17}
+#@(#)CDS: AAE 21.14-s031 (64bit) 06/29/2022 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: CTE 21.14-s031_1 () Jun 22 2022 10:32:17 ( )
+#@(#)CDS: SYNTECH 21.14-s014_1 () May 29 2022 20:47:50 ( )
+#@(#)CDS: CPE v21.14-s062
+#@(#)CDS: IQuantus/TQuantus 21.1.1-w001 (64bit) Wed Jun 1 22:42:35 PDT 2022 (Linux 3.10.0-693.el7.x86_64)
+
+#@ source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.debug.tcl
+#@ Begin verbose source (pre): source /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.debug.tcl
+read_db $::env(ENV_DB) 
+gui_show
+gui_fit
+group_path -name reg2reg -from [all_registers] -to [all_registers]
+report_timing -late -path_type full_clock -max_paths 1 -group reg2reg  >> eco_base_exp.rpt
+report_timing -early -path_type full_clock -max_paths 1 -group reg2reg
+set design_name [get_db current_design .name]
+set eco_start sum_reg[2]
+set eco_end   sum_reg[30]
+set eco_view  typ
+set eco_sink_pin {add_18_25_g2892__2883/Y}
+set eco_cell sg13g2_buf_4
+set eco_tag fix_setup_buffer
+set eco_report_dir ./reports/ECO.${eco_tag}
+file mkdir ./db
+file mkdir $eco_report_dir
+write_db ./db/DB.${design_name}.pre_eco.enc
+delete_filler -prefix FILLER
+set_db eco_honor_dont_touch       true
+set_db eco_honor_dont_use         true
+set_db eco_honor_fixed_status     true
+set_db eco_honor_fixed_wires      true
+set_db eco_inherit_net_attribute  true
+set_db eco_check_logical_equivalence true
+set_db eco_refine_place          false
+set_db eco_update_timing         false
+set_db eco_prefix ECO
+eco_add_repeater \
+    -cells $eco_cell \
+    -pins $eco_sink_pin
+place_detail -eco true
+check_place
+route_eco
+add_fillers \
+    -base_cells $::env(ENV_FILLER_CELLS) \
+    -prefix FILLER
+check_place
+check_connectivity \
+    -type all \
+    -out_file ${eco_report_dir}/connectivity.rpt
+check_drc \
+    -check_only all \
+    -out_file ${eco_report_dir}/drc.rpt
+reset_parasitics
+extract_rc
+report_timing -late -path_type full_clock -max_paths 1 -group reg2reg >> eco_0_exp.rpt
+report_timing -early -path_type full_clock -max_paths 1 -group reg2reg
+select_obj FE_ECOC0_add_18_25_n_159
+set_db eco_refine_place  true
+set_db eco_update_timing true
+write_db ./db/DB.${design_name}.pre_eco_0.enc
+suspend
+resume 
+set_db eco_refine_place          false
+set_db eco_update_timing         false
+delete_filler -prefix FILLER
+eco_delete_repeater -insts FE_ECOC0_add_18_25_n_159
+place_detail -eco true
+check_place
+route_eco
+add_fillers \
+    -base_cells $::env(ENV_FILLER_CELLS) \
+    -prefix FILLER
+check_place
+set_db eco_refine_place  true
+set_db eco_update_timing true
+reset_parasitics
+extract_rc
+report_timing -late -path_type full_clock -max_paths 1 -group reg2reg >> eco_1_exp.rpt
+report_timing -early -path_type full_clock -max_paths 1 -group reg2reg
+write_db ./db/DB.${design_name}.pre_eco_1.enc
+suspend
+resume 
+set_db eco_refine_place          false
+set_db eco_update_timing         false
+delete_filler -prefix FILLER
+eco_update_cell -insts g8040 -cells sg13g2_inv_2
+place_detail -eco true
+check_place
+route_eco
+add_fillers \
+    -base_cells $::env(ENV_FILLER_CELLS) \
+    -prefix FILLER
+check_place
+set_db eco_refine_place  true
+set_db eco_update_timing true
+reset_parasitics
+extract_rc
+report_timing -late -path_type full_clock -max_paths 1 -group reg2reg >> eco_2_exp.rpt
+report_timing -early -path_type full_clock -max_paths 1 -group reg2reg
+write_db ./db/DB.${design_name}.pre_eco_2.enc
+suspend
+resume 
+#@ End verbose source: /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.debug.tcl
+set_layer_preference groupmain_Congestion -is_visible 1
+set_layer_preference congestH -is_visible 1
+set_layer_preference congestV -is_visible 1
+set_layer_preference congest -is_visible 1
+set_layer_preference congestObj -is_visible 1
+set_layer_preference congestH -color {#000066 #0000c9 #0053ff #00fcfa #00a953 #53a900 #f9fc00 #ff5300 #ff5858 #ffffff}
+set_layer_preference congestV -color {#000066 #0000c9 #0053ff #00fcfa #00a953 #53a900 #f9fc00 #ff5300 #ff5858 #ffffff}
+gui_pan -91.18400 131.98800
+gui_pan -24.88200 54.56600
+gui_select -point {-255.37000 268.09700}
+gui_select -point {-261.09500 266.33500}
+set_layer_preference densityMap -is_visible 1
+gui_pan 7.84300 94.95500
+gui_pan -38.55600 94.42400
+gui_pan -16.60900 146.22200
+set_layer_preference node_net -is_visible 0
+gui_pan -73.18200 41.37500
+set_layer_preference densityMap -is_visible 0
+set_layer_preference densityMap -is_visible 1
+gui_pan 4.59800 128.66800
+gui_pan -7.97200 33.20600
+gui_pan -14.15000 -69.14900
+gui_pan -6.08300 -69.09600
+set_layer_preference groupmain_Congestion -is_visible 0
+set_layer_preference congestH -is_visible 0
+set_layer_preference congestV -is_visible 0
+set_layer_preference gcellOvflow -is_visible 0
+set_layer_preference congest -is_visible 0
+set_layer_preference congestObj -is_visible 0
+set_layer_preference groupmain_Congestion -is_visible 1
+set_layer_preference congestH -is_visible 1
+set_layer_preference congestV -is_visible 1
+set_layer_preference congest -is_visible 1
+set_layer_preference congestObj -is_visible 1
+set_layer_preference groupmain_Congestion -is_visible 0
+set_layer_preference congestH -is_visible 0
+set_layer_preference congestV -is_visible 0
+set_layer_preference gcellOvflow -is_visible 0
+set_layer_preference congest -is_visible 0
+set_layer_preference congestObj -is_visible 0
+set_layer_preference densityMap -is_visible 0
+gui_select -point {234.80600 24.04300}
+gui_pan 33.75000 -32.95800
+gui_pan -11.01800 -77.08900
+gui_pan -16.92800 -78.40600
+gui_pan 0.49700 -57.97900
+gui_pan 2.23400 -59.41600
+gui_pan -17.59400 50.86700

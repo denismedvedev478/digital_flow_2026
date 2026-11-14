@@ -1,0 +1,98 @@
+*----------------------------------------------------------------------------------------
+*	Innovus 21.14-s109_1 (64bit) 06/29/2022 09:53 (Linux 3.10.0-693.el7.x86_64)
+*	
+*
+* 	Date & Time:	2026-Nov-14 11:47:59 (2026-Nov-14 08:47:59 GMT)
+*
+*----------------------------------------------------------------------------------------
+*
+*	Design: statistics_unit
+*
+*	Liberty Libraries used: 
+*	        typ: /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/../PDK//IHP_Open_PDK/sg13g2_stdcell/lib/sg13g2_stdcell_typ_1p20V_25C.lib
+*
+*	Power Domain used: 
+*              Rail:        VDD      Voltage:        1.2 
+*
+*       Power View : typ
+*
+*       User-Defined Activity : N.A.
+*
+*       Activity File: N.A.
+*
+*       Hierarchical Global Activity: N.A.
+*
+*       Global Activity: N.A.
+*
+*       Sequential Element Activity: 0.200000
+*
+*       Primary Input Activity: 0.200000
+*
+*       Default icg ratio: N.A.
+*
+*       Global Comb ClockGate Ratio: N.A.
+*
+*	Power Units = 1mW
+*
+*	Time Units = 1e-09 secs 
+*
+*       report_power -outfile ./reports/R.Route/report_power.rep
+*
+-----------------------------------------------------------------------------------------
+
+
+Total Power 
+-----------------------------------------------------------------------------------------
+Total Internal Power:        0.61530653 	    6.8377%
+Total Switching Power:       8.38290409 	   93.1559%
+Total Leakage Power:         0.00058190 	    0.0065%
+Total Power:                 8.99879251 
+-----------------------------------------------------------------------------------------
+
+
+Group                           Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+Sequential                         0.443     0.02583   7.891e-05      0.4689        5.21 
+Macro                                  0           0           0           0           0 
+IO                                     0           0           0           0           0 
+Physical-Only                          0           0   0.0002991   0.0002991    0.003323 
+Combinational                     0.1575       8.264   0.0002009       8.422       93.59 
+Clock (Combinational)            0.01488     0.09291   3.023e-06      0.1078       1.198 
+Clock (Sequential)                     0           0           0           0           0 
+-----------------------------------------------------------------------------------------
+Total                             0.6153       8.383   0.0005819       8.999         100 
+-----------------------------------------------------------------------------------------
+
+
+Rail                  Voltage   Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+VDD                       1.2     0.6153       8.383   0.0005819       8.999         100 
+
+
+Clock                           Internal   Switching     Leakage       Total  Percentage 
+                                Power      Power         Power         Power  (%)        
+-----------------------------------------------------------------------------------------
+clk                              0.01488     0.09291   3.023e-06      0.1078       1.198 
+-----------------------------------------------------------------------------------------
+Total (excluding duplicates)     0.01488     0.09291   3.023e-06      0.1078       1.198 
+-----------------------------------------------------------------------------------------
+Clock: clk
+Clock Period: 0.010000 usec 
+Clock Toggle Rate:   200.0000 Mhz 
+Clock Static Probability:  0.5000
+
+
+
+-----------------------------------------------------------------------------------------
+*	Power Distribution Summary: 
+*                Highest Average Power:          FE_OFC276_min_16 (sg13g2_buf_16):          0.07353 
+*                Highest Leakage Power:          FE_OFC276_min_16 (sg13g2_buf_16):        1.385e-06 
+*          Total Cap:      5.74966e-10 F
+*          Total instances in design:  1769
+*          Total instances in design with no power:     0
+*          Total instances in design with no activity:     0
+*          Total Fillers and Decap:   756
+-----------------------------------------------------------------------------------------
+

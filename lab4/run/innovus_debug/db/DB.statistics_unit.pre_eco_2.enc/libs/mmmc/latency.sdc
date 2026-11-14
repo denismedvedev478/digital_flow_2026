@@ -1,0 +1,1 @@
+/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/run/innovus_impl/db/DB.statistics_unit.final.enc/mmmc/views/typ/latency.sdc
