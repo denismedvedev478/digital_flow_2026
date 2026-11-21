@@ -28,6 +28,7 @@ proc user_clock_tree_synthesis {args} \
     set_db cts_target_max_transition_time 0.40
     set_db cts_target_skew 0.10
     set_db cts_top_fanout_threshold 50
+    set_db cts_max_fanout 8    
 
     set_db cts_buffer_cells {
         sg13g2_buf_4
@@ -371,6 +372,9 @@ proc user_place {args} \
         - [set STAGE "place"] [clock format [clock seconds] -format "%R     %d / %m / %C%y"]\a"
 
     place_opt_design
+
+    set_db opt_fix_fanout_load true
+    opt_design -pre_cts
 
     # ------------------
     # reports

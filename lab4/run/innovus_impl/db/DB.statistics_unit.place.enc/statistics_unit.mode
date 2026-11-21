@@ -10,6 +10,7 @@ catch { setOptMode -autoSetupViews { typ} }
 catch { setOptMode -autoTDGRSetupViews { typ} }
 catch { setOptMode -drcMargin 0 }
 catch { setOptMode -fixDrc true }
+catch { setOptMode -fixFanoutLoad true }
 catch { setOptMode -optimizeFF true }
 catch { setOptMode -setupTargetSlack 0 }
 catch { setPathGroupOptions reg2reg -effortLevel high -weight 2 }

@@ -1,0 +1,45 @@
+[11/14 18:07:35      0s] 
+[11/14 18:07:35      0s] Cadence Innovus(TM) Implementation System.
+[11/14 18:07:35      0s] Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+[11/14 18:07:35      0s] 
+[11/14 18:07:35      0s] Version:	v21.14-s109_1, built Wed Jun 29 09:53:08 PDT 2022
+[11/14 18:07:35      0s] Options:	-stylus -files /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.debug.tcl 
+[11/14 18:07:35      0s] Date:		Sat Nov 14 18:07:35 2026
+[11/14 18:07:35      0s] Host:		miet-cad-edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (32cores*32cpus*Common KVM processor 512KB)
+[11/14 18:07:35      0s] OS:		CentOS Linux release 7.9.2009 (Core)
+[11/14 18:07:35      0s] 
+[11/14 18:07:35      0s] License:
+[11/14 18:07:35      0s] 		[18:07:35.185281] Configured Lic search path (21.01-s002): 5280@srv-eda-05
+[11/14 18:07:35      0s] 
+[11/14 18:07:35      0s] 		invs	Innovus Implementation System	21.1	checkout succeeded
+[11/14 18:07:35      0s] 		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+[11/14 18:07:46     20s] 
+[11/14 18:07:46     20s] 
+[11/14 18:07:51     29s] Reset Parastics called with the command setExtractRCMode -reset[11/14 18:07:52     30s] **WARN: (IMPOPT-801):	Genus executable not found in PATH. Install Genus, add the path to the genus executable in the PATH variable and rerun Innovus.
+@(#)CDS: Innovus v21.14-s109_1 (64bit) 06/29/2022 09:53 (Linux 3.10.0-693.el7.x86_64)
+[11/14 18:07:54     32s] @(#)CDS: NanoRoute 21.14-s109_1 NR220628-1629/21_14-UB (database version 18.20.582) {superthreading v2.17}
+[11/14 18:07:54     32s] @(#)CDS: AAE 21.14-s031 (64bit) 06/29/2022 (Linux 3.10.0-693.el7.x86_64)
+[11/14 18:07:54     32s] @(#)CDS: CTE 21.14-s031_1 () Jun 22 2022 10:32:17 ( )
+[11/14 18:07:54     32s] @(#)CDS: SYNTECH 21.14-s014_1 () May 29 2022 20:47:50 ( )
+[11/14 18:07:54     32s] @(#)CDS: CPE v21.14-s062
+[11/14 18:07:54     32s] @(#)CDS: IQuantus/TQuantus 21.1.1-w001 (64bit) Wed Jun 1 22:42:35 PDT 2022 (Linux 3.10.0-693.el7.x86_64)
+[11/14 18:07:54     32s] @(#)CDS: OA 22.60-p074 Tue Apr 12 12:08:19 2022
+[11/14 18:07:54     32s] @(#)CDS: SGN 20.10-d001 (01-Jun-2020) (64 bit executable, Qt5.9.0)
+[11/14 18:07:54     32s] @(#)CDS: RCDB 11.15.0
+[11/14 18:07:54     32s] @(#)CDS: STYLUS 21.12-s008_1 (04/27/2022 03:28 PDT)
+[11/14 18:07:54     32s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_2286_miet-cad-edu_zzomda_NSjjVA.
+
+[11/14 18:07:54     32s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_2286_miet-cad-edu_zzomda_NSjjVA.
+[11/14 18:07:54     32s] 
+[11/14 18:07:54     32s] The soft stacksize limit is either up to the hard limit or larger than 0.2% of RAM. No change is needed.
+[11/14 18:07:56     34s] 
+[11/14 18:07:56     34s] **INFO:  MMMC transition support version v31-84 
+[11/14 18:07:56     34s] 
+[11/14 18:07:59     37s] #@ Processing -files option
+[11/14 18:07:59     37s] **ERROR: (IMPSYT-6696):	Initfile (/home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.debug.tcl) does not exist.
+[11/14 18:07:59     37s] @innovus 1> gui_select -point {0.06100 0.08800}
+[11/14 18:08:08     38s] @innovus 2> [11/14 18:14:54     67s] 
+[11/14 18:14:54     67s] *** Summary of all messages that are not suppressed in this session:
+[11/14 18:14:54     67s] Severity  ID               Count  Summary                                  
+[11/14 18:14:54     67s] ERROR     IMPSYT-6696          1  Initfile (%s) does not exist.            
+[11/14 18:14:54     67s] WARNING   IMPOPT-801           1  Genus executable not found in PATH%s. In...

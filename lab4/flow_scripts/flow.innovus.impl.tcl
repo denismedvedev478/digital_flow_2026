@@ -14,8 +14,6 @@ user_read_floorplan
 user_3_otchet
 # gunzip 
 
-suspend
-
 user_preplace
 
 user_place
@@ -30,15 +28,19 @@ user_extract_rc
 
 user_sta
 
+suspend
+
 user_write_netlist
 user_write_def
-user_write_lef       $::env(TOP_CTS_LAYER_num)   
+user_write_lef       $::env(TOP_CTS_LAYER_num)  
+#паразтые парметры 
 user_write_spef
+# 
 user_write_gds       
 user_write_sdf       typ           
 user_write_lib       typ typ
 
-write_db ./db/DB.$::env(ENV_DESIGN).final.enc
+write_db -timing_graph ./db/DB.$::env(ENV_DESIGN).final.enc 
 
 gui_show
 gui_fit

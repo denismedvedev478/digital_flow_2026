@@ -4,6 +4,8 @@
 # Тактовый сигнал: период 10 нс, частота 100 МГц.
 create_clock -name clk -period 10.0 [get_ports clk]
 
+set_false_path -to [all_registers -async]
+
 # Все входы блока, кроме тактового.
 set input_ports [remove_from_collection [all_inputs] [get_ports clk]]
 

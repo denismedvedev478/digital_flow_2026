@@ -1,0 +1,16 @@
+#######################################################
+#                                                     
+#  Innovus Command Logging File                     
+#  Created on Sat Nov 14 18:07:55 2026                
+#                                                     
+#######################################################
+
+#@(#)CDS: Innovus v21.14-s109_1 (64bit) 06/29/2022 09:53 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: NanoRoute 21.14-s109_1 NR220628-1629/21_14-UB (database version 18.20.582) {superthreading v2.17}
+#@(#)CDS: AAE 21.14-s031 (64bit) 06/29/2022 (Linux 3.10.0-693.el7.x86_64)
+#@(#)CDS: CTE 21.14-s031_1 () Jun 22 2022 10:32:17 ( )
+#@(#)CDS: SYNTECH 21.14-s014_1 () May 29 2022 20:47:50 ( )
+#@(#)CDS: CPE v21.14-s062
+#@(#)CDS: IQuantus/TQuantus 21.1.1-w001 (64bit) Wed Jun 1 22:42:35 PDT 2022 (Linux 3.10.0-693.el7.x86_64)
+
+gui_select -point {0.06100 0.08800}

@@ -3965,3 +3965,349 @@ Sat Nov 14 16:32:09 2026
 [11/14 16:37:44    132s] @innovus 50> gui_pan 0.49700 -57.97900
 [11/14 16:37:46    132s] @innovus 51> gui_pan 2.23400 -59.41600
 [11/14 16:37:48    133s] @innovus 52> gui_pan -17.59400 50.86700
+
+check_design -type cts
+[11/14 18:05:49    503s] Begin: Design checking
+[11/14 18:05:50    504s] Initializing placement interface...
+[11/14 18:05:50    504s]   Use check_library -place or consult logv if problems occur.
+[11/14 18:05:50    504s]   Leaving CCOpt scope - Initializing placement interface...
+[11/14 18:05:50    504s]   Leaving CCOpt scope - Initializing placement interface done. (took cpu=0:00:00.0 real=0:00:00.0)
+[11/14 18:05:50    504s] Initializing placement interface done.
+[11/14 18:05:50    504s] Leaving CCOpt scope - Cleaning up placement interface...
+[11/14 18:05:50    504s] Leaving CCOpt scope - Cleaning up placement interface done. (took cpu=0:00:00.0 real=0:00:00.0)
+[11/14 18:05:50    504s] **WARN: (CHKCTS-16):	Preferred routing layers for route_type CTS_RULE_ccopt_autotrimmed do not have similar RC characteristics. Mismatch found on layers: Metal2(H) R=0.258Ohm/um C=0.227fF/um RC=0.059fs/um^2 and Metal3(V) R=0.258Ohm/um C=0.206fF/um RC=0.053fs/um^2.
+[11/14 18:05:50    504s] Type 'man CHKCTS-16' for more detail.
+[11/14 18:05:50    504s] **WARN: (CHKCTS-16):	Preferred routing layers for route_type CTS_RULE_ccopt_autotrimmed do not have similar RC characteristics. Mismatch found on layers: Metal3(V) R=0.258Ohm/um C=0.206fF/um RC=0.053fs/um^2 and Metal4(H) R=0.258Ohm/um C=0.227fF/um RC=0.059fs/um^2.
+[11/14 18:05:50    504s] Type 'man CHKCTS-16' for more detail.
+[11/14 18:05:50    504s] **ERROR: (CHKCTS-24):	Insufficient number of clock gating cells for clock_tree clk and power_domain auto-default. Have cells: {}.
+[11/14 18:05:50    504s] Type 'man CHKCTS-24' for more detail.
+[11/14 18:05:50    504s] **ERROR: (CHKCTS-6):	The value for the cts_target_skew attribute 0.100ns is too low (minimum 0.161ns) for skew_group clk/func, delay_corner typ and delay_type late.
+[11/14 18:05:50    504s] Type 'man CHKCTS-6' for more detail.
+[11/14 18:05:50    504s] **WARN: (IMPCCOPT-1261):	The skew target of 0.100ns for skew_group clk/func in primary delay corner typ is too small. For best results, it is recommended that the skew target be set no lower than 0.161ns. The skew target has been relaxed to 0.161ns. You may force the use of the tighter skew target by setting cts_exit_if_skew_target_over_constrained to false.
+[11/14 18:05:50    504s] Type 'man IMPCCOPT-1261' for more detail.
+[11/14 18:05:50    504s] Leaving CCOpt scope - Cleaning up placement interface...
+[11/14 18:05:50    504s] Leaving CCOpt scope - Cleaning up placement interface done. (took cpu=0:00:00.0 real=0:00:00.0)
+[11/14 18:05:50    504s]         Messages issued during checks:
+[11/14 18:05:50    504s] ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[11/14 18:05:50    504s] | ID                | Severity  | Count       | Description                                                                                                                  |
+[11/14 18:05:50    504s] ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[11/14 18:05:50    504s] | CHKCTS-24         | error     | 1           | Insufficient number of clock gating cells for clock_tree %s and power_domain %s. Have cells: %s.                             |
+[11/14 18:05:50    504s] | CHKCTS-6          | error     | 1           | The value for the cts_target_skew attribute %s is too low (minimum %s) for skew_group %s, delay_corner %s and delay_type %s. |
+[11/14 18:05:50    504s] | CHKCTS-16         | warning   | 2           | Preferred routing layers for route_type %s do not have similar RC characteristics. Mismatch found on layers: %s.             |
+[11/14 18:05:50    504s] ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[11/14 18:05:50    504s] 		(Real time: 0:00:01.0, Memory: 1998.4M)
+[11/14 18:05:50    504s] 
+[11/14 18:05:50    504s] **INFO: Identified 2 error(s) and 2 warning(s) during 'check_design -type {cts}'.
+[11/14 18:05:50    504s] End: Design checking
+[11/14 18:05:50    504s] 2
+
+
+report_clock_trees 
+[11/14 18:06:30    507s] @innovus 54> Clock tree timing engine global stage delay update for typ:both.early...
+[11/14 18:06:30    507s] End AAE Lib Interpolated Model. (MEM=1998.35 CPU Time=0:00:00.0, Real Time=0:00:00.0)
+[11/14 18:06:30    507s] Clock tree timing engine global stage delay update for typ:both.early done. (took cpu=0:00:00.0 real=0:00:00.0)
+[11/14 18:06:30    507s] Clock tree timing engine global stage delay update for typ:both.late...
+[11/14 18:06:30    507s] Clock tree timing engine global stage delay update for typ:both.late done. (took cpu=0:00:00.0 real=0:00:00.0)
+[11/14 18:06:30    507s] Clock DAG hash : 18111452600979183279 9725527764112921058
+[11/14 18:06:30    507s] CTS services accumulated run-time stats :
+[11/14 18:06:30    507s]   delay calculator: calls=3125, total_wall_time=0.203s, mean_wall_time=0.065ms
+[11/14 18:06:30    507s]   legalizer: calls=0, total_wall_time=0.000s, mean_wall_time=0.000ms
+[11/14 18:06:30    507s]   steiner router: calls=3118, total_wall_time=0.036s, mean_wall_time=0.012ms
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Clock DAG stats:
+[11/14 18:06:30    507s] ================
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] ---------------------------------------------------------
+[11/14 18:06:30    507s] Cell type                 Count    Area       Capacitance
+[11/14 18:06:30    507s] ---------------------------------------------------------
+[11/14 18:06:30    507s] Buffers                     0        0.000       0.000
+[11/14 18:06:30    507s] Inverters                   3      103.421       0.141
+[11/14 18:06:30    507s] Integrated Clock Gates      0        0.000       0.000
+[11/14 18:06:30    507s] Discrete Clock Gates        0        0.000       0.000
+[11/14 18:06:30    507s] Clock Logic                 0        0.000       0.000
+[11/14 18:06:30    507s] All                         3      103.421       0.141
+[11/14 18:06:30    507s] ---------------------------------------------------------
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Clock DAG sink counts:
+[11/14 18:06:30    507s] ======================
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] -------------------------
+[11/14 18:06:30    507s] Sink type           Count
+[11/14 18:06:30    507s] -------------------------
+[11/14 18:06:30    507s] Regular              113
+[11/14 18:06:30    507s] Enable Latch           0
+[11/14 18:06:30    507s] Load Capacitance       0
+[11/14 18:06:30    507s] Antenna Diode          0
+[11/14 18:06:30    507s] Node Sink              0
+[11/14 18:06:30    507s] Total                113
+[11/14 18:06:30    507s] -------------------------
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Clock DAG wire lengths:
+[11/14 18:06:30    507s] =======================
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] --------------------
+[11/14 18:06:30    507s] Type     Wire Length
+[11/14 18:06:30    507s] --------------------
+[11/14 18:06:30    507s] Top       1508.560
+[11/14 18:06:30    507s] Trunk        0.000
+[11/14 18:06:30    507s] Leaf         0.000
+[11/14 18:06:30    507s] Total     1508.560
+[11/14 18:06:30    507s] --------------------
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Clock DAG hp wire lengths:
+[11/14 18:06:30    507s] ==========================
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] -----------------------
+[11/14 18:06:30    507s] Type     hp Wire Length
+[11/14 18:06:30    507s] -----------------------
+[11/14 18:06:30    507s] Top         489.780
+[11/14 18:06:30    507s] Trunk         0.000
+[11/14 18:06:30    507s] Leaf          0.000
+[11/14 18:06:30    507s] Total       489.780
+[11/14 18:06:30    507s] -----------------------
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Clock DAG capacitances:
+[11/14 18:06:30    507s] =======================
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] --------------------------------
+[11/14 18:06:30    507s] Type     Gate     Wire     Total
+[11/14 18:06:30    507s] --------------------------------
+[11/14 18:06:30    507s] Top      0.479    0.222    0.700
+[11/14 18:06:30    507s] Trunk    0.000    0.000    0.000
+[11/14 18:06:30    507s] Leaf     0.000    0.000    0.000
+[11/14 18:06:30    507s] Total    0.479    0.222    0.700
+[11/14 18:06:30    507s] --------------------------------
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Clock DAG sink capacitances:
+[11/14 18:06:30    507s] ============================
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] -----------------------------------------------
+[11/14 18:06:30    507s] Total    Average    Std. Dev.    Min      Max
+[11/14 18:06:30    507s] -----------------------------------------------
+[11/14 18:06:30    507s] 0.338     0.003       0.000      0.003    0.003
+[11/14 18:06:30    507s] -----------------------------------------------
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Clock DAG net violations:
+[11/14 18:06:30    507s] =========================
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] None
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Clock DAG primary half-corner transition distribution:
+[11/14 18:06:30    507s] ======================================================
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] --------------------------------------------------------------------------------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] Net Type    Target    Count    Average    Std. Dev.    Min      Max      Distribution                                                              Over Target
+[11/14 18:06:30    507s] --------------------------------------------------------------------------------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] Top         0.400       4       0.067       0.022      0.043    0.087    {4 <= 0.240ns, 0 <= 0.320ns, 0 <= 0.360ns, 0 <= 0.380ns, 0 <= 0.400ns}         -
+[11/14 18:06:30    507s] --------------------------------------------------------------------------------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Clock DAG library cell distribution:
+[11/14 18:06:30    507s] ====================================
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] ------------------------------------------------
+[11/14 18:06:30    507s] Name             Type        Inst     Inst Area 
+[11/14 18:06:30    507s]                              Count    (um^2)
+[11/14 18:06:30    507s] ------------------------------------------------
+[11/14 18:06:30    507s] sg13g2_inv_16    inverter      3       103.421
+[11/14 18:06:30    507s] ------------------------------------------------
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Please note that the following tables reflect only the defined clock trees, so the flop counts might not include all flops in your design.
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Clock Tree Summary:
+[11/14 18:06:30    507s] ===================
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] ---------------------------------------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] Clock Tree  Clock  Bufs  Invs  Other  Max       Max     Max     Max          Standard   Wire   Gate   Clock Tree Root
+[11/14 18:06:30    507s] Name        Gates              Clock  Non-leaf  Leaf    Length  Source-sink  cell area  cap    cap    
+[11/14 18:06:30    507s]                                Cells  Fanout    Fanout  (um)    Resistance   (um^2)     (pF)   (pF)   
+[11/14 18:06:30    507s]                                                                 (Ohms)                                
+[11/14 18:06:30    507s] ---------------------------------------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] clk           0     0     3      0       57       0     114.72    2895.4      103.421   0.222  0.479  clk
+[11/14 18:06:30    507s] ---------------------------------------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Clock Sink Summary:
+[11/14 18:06:30    507s] ===================
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] -------------------------------------------------------------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] Clock Tree  Explicit      Implicit      Explicit     Implicit     Explicit   Implicit   Posedge  Negedge  Memory  Enable  Non enable  Other
+[11/14 18:06:30    507s] Name        exclude pins  exclude pins  ignore pins  ignore pins  stop pins  stop pins  Flops    Flops    Clock   Latch   Latch       Sinks
+[11/14 18:06:30    507s]                                                                                                           Pins    Sinks   Sinks       
+[11/14 18:06:30    507s] -------------------------------------------------------------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] clk              0             0             0            0           0          0        113       0       0       0         0         0
+[11/14 18:06:30    507s] -------------------------------------------------------------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Summary across all clock trees:
+[11/14 18:06:30    507s] ===============================
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] ------------------------------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] Clock  Bufs  Invs  Other  Max       Average   Max     Average  Max      Max          Standard   Wire   Gate
+[11/14 18:06:30    507s] Gates              Clock  Non-leaf  Non-leaf  Leaf    Leaf     Length   Source-sink  cell area  cap    cap
+[11/14 18:06:30    507s]                    Cells  Fanout    Fanout    Fanout  Fanout   (um)     Resistance   (um^2)     (pF)   (pF)
+[11/14 18:06:30    507s]                                                                         (Ohms)                         
+[11/14 18:06:30    507s] ------------------------------------------------------------------------------------------------------------
+[11/14 18:06:30    507s]   0     0     3      0       57        29       0        0     114.720    289.540     103.421   0.222  0.479
+[11/14 18:06:30    507s] ------------------------------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Clock Sink Summary across all clock trees:
+[11/14 18:06:30    507s] ==========================================
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] -------------------------------------------------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] Explicit      Implicit      Explicit     Implicit     Explicit   Implicit   Posedge  Negedge  Memory  Enable  Non enable  Other
+[11/14 18:06:30    507s] exclude pins  exclude pins  ignore pins  ignore pins  stop pins  stop pins  Flops    Flops    Clock   Latch   Latch       Sinks
+[11/14 18:06:30    507s]                                                                                               Pins    Sinks   Sinks       
+[11/14 18:06:30    507s] -------------------------------------------------------------------------------------------------------------------------------
+[11/14 18:06:30    507s]      0             0             0            0           0          0        113       0       0       0         0         0
+[11/14 18:06:30    507s] -------------------------------------------------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Physical metrics across all clock trees:
+[11/14 18:06:30    507s] ========================================
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] -----------------------------------------------------------------------
+[11/14 18:06:30    507s] Metric                               Minimum  Average  Maximum  Std.dev
+[11/14 18:06:30    507s] -----------------------------------------------------------------------
+[11/14 18:06:30    507s] Source-sink routed net length (um)   57.960    93.510  114.720  23.147
+[11/14 18:06:30    507s] Source-sink manhattan distance (um)  68.780    93.215  111.720  15.613
+[11/14 18:06:30    507s] Source-sink resistance (Ohm)         62.881   175.598  289.540  94.214
+[11/14 18:06:30    507s] -----------------------------------------------------------------------
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Transition distribution for half-corner typ:both.late:
+[11/14 18:06:30    507s] ======================================================
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] --------------------------------------------------------------------------------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] Net Type    Target    Count    Average    Std. Dev.    Min      Max      Distribution                                                              Over Target
+[11/14 18:06:30    507s] --------------------------------------------------------------------------------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] Top         0.400       4       0.067       0.022      0.043    0.087    {4 <= 0.240ns, 0 <= 0.320ns, 0 <= 0.360ns, 0 <= 0.380ns, 0 <= 0.400ns}         -
+[11/14 18:06:30    507s] --------------------------------------------------------------------------------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Count of violations across all clock trees:
+[11/14 18:06:30    507s] ===========================================
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] ---------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] Clock Tree  # Max capacitance  # Max resistance  # Max length  # Max fanout  # Slew
+[11/14 18:06:30    507s] Name        violations         violations        violations    violations    violations
+[11/14 18:06:30    507s] ---------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] clk                 0                 0               0             0            0
+[11/14 18:06:30    507s] ---------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] Total               0                 0               0             0            0
+[11/14 18:06:30    507s] ---------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Note the above table per clock tree is based on CCOpt clock tree view. The violations are counted across half corners.
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Found a total of 0 clock tree pins with max capacitance violations.
+[11/14 18:06:30    507s] Found a total of 0 clock tree nets with max resistance violations.
+[11/14 18:06:30    507s] Found a total of 0 clock tree nets with max length violations.
+[11/14 18:06:30    507s] Found a total of 0 clock tree nets with max fanout violations.
+[11/14 18:06:30    507s] Found a total of 0 clock tree pins with a slew violation.
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Report for clock tree: clk:
+[11/14 18:06:30    507s] ===========================
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Clock Tree Gating Structure (Logical):
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] # Full cycle clock gates   : 0
+[11/14 18:06:30    507s] Minimum clock gating depth : 0
+[11/14 18:06:30    507s] Maximum clock gating depth : 0
+[11/14 18:06:30    507s] Clock gate area (um^2)     : 0.000
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Clock Tree Buffering Structure (Logical):
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] # Buffers             :   0
+[11/14 18:06:30    507s] # Inverters           :   3
+[11/14 18:06:30    507s]   Total               :   3
+[11/14 18:06:30    507s] Minimum depth         :   2
+[11/14 18:06:30    507s] Maximum depth         :   2
+[11/14 18:06:30    507s] Buffering area (um^2) : 103.421
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Clock Tree Level Structure (Logical):
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] -----------------------------------------------------------------
+[11/14 18:06:30    507s] Level  Full   Posedge  Negedge  Memory  Enable  Non enable  Other
+[11/14 18:06:30    507s]        Cycle  Flops    Flops    Clock   Latch   Latch       Sinks
+[11/14 18:06:30    507s]                                 Pins    Sinks   Sinks       
+[11/14 18:06:30    507s] -----------------------------------------------------------------
+[11/14 18:06:30    507s] root     0      113       0       0       0         0         0
+[11/14 18:06:30    507s] -----------------------------------------------------------------
+[11/14 18:06:30    507s] Total    0      113       0       0       0         0         0
+[11/14 18:06:30    507s] -----------------------------------------------------------------
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] Target and measured clock slews (in ns):
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] -------------------------------------------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] Timing Corner   Worst Rising  Worst Falling  Worst Rising  Worst Falling  Leaf Slew    Leaf Slew  Trunk Slew   Trunk Slew
+[11/14 18:06:30    507s]                 Leaf Slew     Leaf Slew      Trunk Slew    Trunk Slew     Target Type  Target     Target Type  Target
+[11/14 18:06:30    507s] -------------------------------------------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] typ:both.early     0.087          0.071           -              -        ignored          -      ignored          -
+[11/14 18:06:30    507s] typ:both.late      0.087          0.071           -              -        explicit      0.400     explicit      0.400
+[11/14 18:06:30    507s] -------------------------------------------------------------------------------------------------------------------------
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] * - indicates that target was not met.
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] auto extracted - target was extracted from SDC.
+[11/14 18:06:30    507s] auto computed - target was computed when balancing trees.
+[11/14 18:06:30    507s] 
+[11/14 18:06:30    507s] 
+[11/14 18:06:58    509s] @innovus 55> gui_select -rect {242.50300 -53.28500 242.50300 -48.87700}
+[11/14 18:07:01    510s] Tech dependent Parameter, Build TLibAnalyzer for: cellAreaConsiderPadding
+[11/14 18:07:01    510s] 
+[11/14 18:07:01    510s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) Begin ...
+[11/14 18:07:01    510s] Summary for sequential cells identification: 
+[11/14 18:07:01    510s]   Identified SBFF number: 3
+[11/14 18:07:01    510s]   Identified MBFF number: 0
+[11/14 18:07:01    510s]   Identified SB Latch number: 0
+[11/14 18:07:01    510s]   Identified MB Latch number: 0
+[11/14 18:07:01    510s]   Not identified SBFF number: 0
+[11/14 18:07:01    510s]   Not identified MBFF number: 0
+[11/14 18:07:01    510s]   Not identified SB Latch number: 0
+[11/14 18:07:01    510s]   Not identified MB Latch number: 0
+[11/14 18:07:01    510s]   Number of sequential cells which are not FFs: 7
+[11/14 18:07:01    510s]  Visiting view : typ
+[11/14 18:07:01    510s]    : PowerDomain = none : Weighted F : unweighted  = 25.20 (1.000) with rcCorner = 0
+[11/14 18:07:01    510s]    : PowerDomain = none : Weighted F : unweighted  = 23.30 (1.000) with rcCorner = -1
+[11/14 18:07:01    510s]  Visiting view : typ
+[11/14 18:07:01    510s]    : PowerDomain = none : Weighted F : unweighted  = 25.20 (1.000) with rcCorner = 0
+[11/14 18:07:01    510s]    : PowerDomain = none : Weighted F : unweighted  = 23.30 (1.000) with rcCorner = -1
+[11/14 18:07:01    510s] TLC MultiMap info (StdDelay):
+[11/14 18:07:01    510s]   : typ + typ + 1 + no RcCorner := 23.3ps
+[11/14 18:07:01    510s]   : typ + typ + 1 + typ := 25.2ps
+[11/14 18:07:01    510s]  Setting StdDelay to: 25.2ps
+[11/14 18:07:01    510s] 
+[11/14 18:07:01    510s] TimeStamp Creating Cell Server ...(0, 0, 0, 0) End ...
+[11/14 18:07:33    513s] **INFO (INTERRUPT): One more Ctrl-C to exit Innovus ...
+[11/14 18:07:33    513s] Innovus terminated by user interrupt.
+[11/14 18:07:33    513s] 
+[11/14 18:07:33    513s] *** Memory Usage v#1 (Current mem = 1987.508M, initial mem = 376.109M) ***
+[11/14 18:07:33    513s] 
+[11/14 18:07:33    513s] *** Summary of all messages that are not suppressed in this session:
+[11/14 18:07:33    513s] Severity  ID               Count  Summary                                  
+[11/14 18:07:33    513s] WARNING   IMPLF-200            1  Pin '%s' in macro '%s' has no ANTENNAGAT...
+[11/14 18:07:33    513s] WARNING   IMPDBTCL-321         1  The attribute '%s' still works but will ...
+[11/14 18:07:33    513s] WARNING   IMPEXT-6197          4  The Cap table file is not specified. Thi...
+[11/14 18:07:33    513s] WARNING   IMPEXT-2766          7  The sheet resistance for layer %s is not...
+[11/14 18:07:33    513s] WARNING   IMPEXT-2773          1  The via resistance between layers %s and...
+[11/14 18:07:33    513s] WARNING   IMPEXT-2776          6  The via resistance between layers %s and...
+[11/14 18:07:33    513s] WARNING   IMPVL-159          156  Pin '%s' of cell '%s' is defined in LEF ...
+[11/14 18:07:33    513s] WARNING   IMPESI-3505          1  set_db delaycal_eng_%s (default=%s) will...
+[11/14 18:07:33    513s] WARNING   IMPSP-5217           3  add_fillers command is running on a post...
+[11/14 18:07:33    513s] WARNING   IMPOPT-3706          1  RC data of net '%s' has been disabled be...
+[11/14 18:07:33    513s] WARNING   IMPOPT-801           1  Genus executable not found in PATH%s. In...
+[11/14 18:07:33    513s] WARNING   IMPCCOPT-1261        1  The skew target of %s for %s in %sdelay ...
+[11/14 18:07:33    513s] WARNING   CHKCTS-16            2  Preferred routing layers for route_type ...
+[11/14 18:07:33    513s] ERROR     CHKCTS-6             1  The value for the cts_target_skew attrib...
+[11/14 18:07:33    513s] ERROR     CHKCTS-24            1  Insufficient number of clock gating cell...
+[11/14 18:07:33    513s] WARNING   IMPTR-2104           2  Layer %s: Pitch=%d is less than min widt...
+[11/14 18:07:33    513s] WARNING   IMPTR-2108           2  For layer M%d, the gaps of %d out of %d ...
+[11/14 18:07:33    513s] WARNING   IMPCTE-107           1  The following globals have been obsolete...
+[11/14 18:07:33    513s] WARNING   IMPUDM-33            3  Global variable "%s" is obsolete and wil...
+[11/14 18:07:33    513s] *** Message Summary: 193 warning(s), 2 error(s)
+[11/14 18:07:33    513s] 
+[11/14 18:07:33    513s] --- Ending "Innovus" (totcpu=0:08:33, real=1:36:39, mem=1987.5M) ---

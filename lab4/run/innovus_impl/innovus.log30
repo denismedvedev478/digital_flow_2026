@@ -1,0 +1,17 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2021 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v21.14-s109_1, built Wed Jun 29 09:53:08 PDT 2022
+Options:	-stylus -files /home/zzomda/Desktop/syn_digtl/digital_flow_2026/lab4/flow_scripts/flow.innovus.impl.tcl 
+Date:		Sat Nov 14 18:19:24 2026
+Host:		miet-cad-edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (32cores*32cpus*Common KVM processor 512KB)
+OS:		CentOS Linux release 7.9.2009 (Core)
+
+License:
+		[18:19:24.185289] Configured Lic search path (21.01-s002): 5280@srv-eda-05
+
+		invs	Innovus Implementation System	21.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use set_multi_cpu_usage to set your required CPU count.
+
+*** INTERRUPTED *** [signal 2]

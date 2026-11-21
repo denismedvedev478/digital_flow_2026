@@ -8,6 +8,7 @@
 ::db::check_and_set_root_attr floorplan_max_io_height false
 ::db::check_and_set_root_attr opt_drv_margin 0.0
 ::db::check_and_set_root_attr opt_fix_drv true
+::db::check_and_set_root_attr opt_fix_fanout_load true
 ::db::check_and_set_root_attr opt_preserve_all_sequential false
 ::db::check_and_set_root_attr opt_resize_flip_flops true
 ::db::check_and_set_root_attr opt_setup_target_slack 0.0

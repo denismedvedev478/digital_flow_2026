@@ -157,3 +157,6 @@ gui_pan -16.92800 -78.40600
 gui_pan 0.49700 -57.97900
 gui_pan 2.23400 -59.41600
 gui_pan -17.59400 50.86700
+check_design -type cts
+report_clock_trees 
+gui_select -rect {242.50300 -53.28500 242.50300 -48.87700}
