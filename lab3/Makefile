@@ -6,7 +6,7 @@ export PDK_DIR     				= $(PWD)/../PDK/
 # Design settings
 # ============================================================
 
-export ENV_DESIGN               = counter
+export ENV_DESIGN               = processing_unit
 export ENV_DESIGN_DIR           = $(PWD)/data/$(ENV_DESIGN)
 export ENV_MMMC                 = $(ENV_DESIGN_DIR)/mmmc.view
 export ENV_DEFINE               =
@@ -22,7 +22,7 @@ export INNOVUS_FP_SCRIPT        = $(FLOW_DIR)/flow.innovus.fp.tcl
 # ============================================================
 # Genus Synthesis settings
 # ============================================================
-export GENUS_RUN_DIR     = $(PWD)/run/genus
+export GENUS_RUN_DIR     = $(PWD)/tmp/genus
 export GENUS_OUTPUT_DIR  = $(GENUS_RUN_DIR)/outputs
 export GENUS_REPORT_DIR  = $(GENUS_RUN_DIR)/reports
 export GENUS_LOG_DIR     = $(GENUS_RUN_DIR)/logs
@@ -47,6 +47,7 @@ export ENV_POWER_NETS       = VDD
 export ENV_GROUND_NETS      = VSS
 export ENV_INNOVUS_FP       = innovus
 
+MARK  ?= 4
 export INNOVUS_FP_RUN_DIR     = $(PWD)/run/innovus_fp
 export INNOVUS_FP_OUTPUT_DIR  = $(INNOVUS_FP_RUN_DIR)/outputs
 export INNOVUS_FP_REPORT_DIR  = $(INNOVUS_FP_RUN_DIR)/reports
@@ -108,6 +109,7 @@ $(INNOVUS_FP_RUN_DIR): $(INNOVUS_FP_OUTPUT_DIR) $(INNOVUS_FP_REPORT_DIR) $(INNOV
 
 innovus.fp: $(INNOVUS_FP_RUN_DIR)
 	@echo "=== Starting Innovus Floorplan ==="
+	@echo "TARGET MARK:$(MARK)"
 	@echo "Design:     $(ENV_DESIGN)"
 	@echo "Netlist:    $(ENV_NETLIST)"
 	@echo "Tech size:  $(TECH_SIZE)"
@@ -115,7 +117,7 @@ innovus.fp: $(INNOVUS_FP_RUN_DIR)
 	@echo "Power nets: $(ENV_POWER_NETS)"
 	@echo "Ground nets:$(ENV_GROUND_NETS)"
 	@echo "MMMC:       $(ENV_MMMC)"
-	cd $(INNOVUS_FP_RUN_DIR) && $(ENV_INNOVUS_FP) -no_gui $(INNOVUS_FP_OPTS) \
+	cd $(INNOVUS_FP_RUN_DIR) && $(ENV_INNOVUS_FP) $(INNOVUS_FP_OPTS) \
 		-files $(INNOVUS_FP_SCRIPT) 2>&1 | tee $(INNOVUS_FP_LOG)
 	@echo "=== Innovus Floorplan Complete ==="
 	@echo "Log saved to: $(INNOVUS_FP_LOG)"
@@ -125,6 +127,7 @@ innovus.fp: $(INNOVUS_FP_RUN_DIR)
 # ----------------------------------------
 innovus: $(INNOVUS_FP_RUN_DIR)
 	@echo "=== Starting Interactive Innovus ==="
+	@echo "TARGET MARK:$(MARK)"
 	cd $(INNOVUS_FP_RUN_DIR) && $(ENV_INNOVUS_FP) $(INNOVUS_FP_OPTS)
 
 clean:
