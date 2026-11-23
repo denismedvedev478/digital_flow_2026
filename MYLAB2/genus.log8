@@ -1,0 +1,181 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[22:37:32.357275] Configured Lic search path (23.02-s003): 5280@srv-eda-01:5280@srv-eda-05:1717@srv-eda-01
+
+Version: 23.10-p004_1, built Thu Feb 01 02:43:46 PST 2024
+Options: -files ./scripts/input.tcl 
+Date:    Sun Oct 18 22:37:32 2026
+Host:    miet-cad-edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (32cores*32cpus*1physical cpu*Common KVM processor 512KB) (132031524KB)
+PID:     30485
+OS:      CentOS Linux release 7.9.2009 (Core)
+
+Checking out license: Genus_Synthesis
+[22:37:32.251257] Periodic Lic check successful
+[22:37:32.775558] Feature usage summary:
+[22:37:32.775558] Genus_Synthesis
+
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Finished executable startup (0 seconds elapsed).
+
+Loading tool scripts...
+Finished loading tool scripts (12 seconds elapsed).
+
+#@ Processing -files option
+@genus:root: 1> source ./scripts/input.tcl
+#@ Begin verbose source ./scripts/input.tcl
+@file(input.tcl) 1: file mkdir ./out/10_syn_gen
+@file(input.tcl) 2: file mkdir ./out/20_syn_map
+@file(input.tcl) 3: file mkdir ./out/30_syn_opt
+@file(input.tcl) 5: set script_path [file normalize [file dirname [info script]]]
+@file(input.tcl) 6: set rtl_dir ${script_path}/../rtl
+@file(input.tcl) 7: set sdc_dir ${script_path}/../sdc
+@file(input.tcl) 9: set_db init_hdl_search_path ${rtl_dir}
+  Setting attribute of root '/': 'init_hdl_search_path' = /home/denismedvedev478/digital_flow_2026/MYLAB2/scripts/../rtl
+@file(input.tcl) 10: set_db timing_report_unconstrained false
+  Setting attribute of root '/': 'timing_report_unconstrained' = false
+@file(input.tcl) 12: read_hdl -sv -f ${rtl_dir}/filelist.f
+@file(input.tcl) 13: read_mmmc $::env(ENV_MMMC)
+  Setting attribute of root '/': 'is_read_mmmc_flow' = true
+Sourcing './sdc/mmmc.view' (Sun Oct 18 22:37:44 MSK 2026)...
+#@ Begin verbose source ./sdc/mmmc.view
+@file(mmmc.view) 5: set lib_list_typ {}
+@file(mmmc.view) 7: lappend lib_list_typ  " $::env(PDK_DIR)/IHP_Open_PDK/sg13g2_stdcell/lib/sg13g2_stdcell_typ_1p20V_25C.lib"
+@file(mmmc.view) 9: create_rc_corner -name typ -temperature {25} -pre_route_res {1} -pre_route_cap {1} -pre_route_clock_res {0} -pre_route_clock_cap {0} -post_route_res {1} -post_route_cap {1} -post_route_cross_cap {1} -post_route_clock_res {0} -post_route_clock_cap {0}
+@file(mmmc.view) 10: create_library_set -name typ -timing $lib_list_typ
+@file(mmmc.view) 11: create_opcond -name typ -process {1} -voltage {1.20} -temperature {25}
+@file(mmmc.view) 12: create_timing_condition -name typ -opcond {typ} -library_sets {typ}
+@file(mmmc.view) 13: create_delay_corner -name typ -timing_condition {typ} -rc_corner {typ}
+@file(mmmc.view) 33: create_constraint_mode -name func -sdc_files "$::env(ENV_DESIGN).sdc"
+@file(mmmc.view) 34: create_analysis_view -name typ -constraint_mode {func} -delay_corner {typ}
+@file(mmmc.view) 35: set_analysis_view -setup {typ} -hold {typ}
+
+  Message Summary for Library sg13g2_stdcell_typ_1p20V_25C.lib:
+  *************************************************************
+  Missing a function attribute in the output pin definition. [LBR-518]: 1
+  An unsupported construct was detected in this library. [LBR-40]: 6
+  *************************************************************
+ 
+Info    : Created nominal operating condition. [LBR-412]
+        : Operating condition '_nominal_' was created for the PVT values (1.000000, 1.200000, 25.000000) in library 'sg13g2_stdcell_typ_1p20V_25C.lib'.
+        : The nominal operating condition is represented, either by the nominal PVT values specified in the library source (via nom_process,nom_voltage and nom_temperature respectively), or by the default PVT values (1.0,1.0,1.0).
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_antennanp' must have an output pin.
+        : Add the missing output pin(s), then reload the library. Else the library cell will be marked as timing model i.e. unusable. Timing_model means that the cell does not have any defined function. If there is no output pin, Genus will mark library cell as unusable i.e. the attribute 'usable' will be marked to 'false' on the libcell. Therefore, the cell is not used for mapping and it will not be picked up from the library for synthesis. If you query the attribute 'unusable_reason' on the libcell; result will be: 'Library cell has no output pins.'Note: The message LBR-9 is only for the logical pins and not for the power_ground pins. Genus will depend upon the output function defined in the pin group (output pin) of the cell, to use it for mapping. The pg_pin will not have any function defined.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_antennanp' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_decap_4' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_decap_4' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_decap_8' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_decap_8' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_1' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_1' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_2' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_2' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_4' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_4' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_8' must have an output pin.
+Warning : Library cell has no output pins defined. [LBR-9]
+        : Library cell 'sg13g2_fill_8' must have an output pin.
+Warning : Unusable clock gating integrated cell found at the time of loading libraries. This warning happens because a particular library cell is defined as 'clock_gating_integrated_cell', but 'dont_use' attribute is defined as true in the liberty library. To make Genus use this cell for clock gating insertion, 'dont_use' attribute should be set to false. [LBR-101]
+        : Clock gating integrated cell name: 'sg13g2_lgcp_1'
+        : To make the cell usable, change the value of 'dont_use' attribute to false.
+Warning : Unusable clock gating integrated cell found at the time of loading libraries. This warning happens because a particular library cell is defined as 'clock_gating_integrated_cell', but 'dont_use' attribute is defined as true in the liberty library. To make Genus use this cell for clock gating insertion, 'dont_use' attribute should be set to false. [LBR-101]
+        : Clock gating integrated cell name: 'sg13g2_slgcp_1'
+Info    : Set default library domain. [LBR-109]
+        : The default library domain is 'library_domain:typ'.
+  Library has 58 usable logic and 8 usable sequential lib-cells.
+#@ End verbose source ./sdc/mmmc.view
+@file(input.tcl) 16: set DESIGN_NAME $::env(ENV_DESIGN)
+@file(input.tcl) 17: elaborate ${DESIGN_NAME}
+Info    : Elaborating Design. [ELAB-1]
+        : Elaborating top-level block 'processing_unit' from file '/home/denismedvedev478/digital_flow_2026/lab2/rtl/processing_unit.sv'.
+Info    : Done Elaborating Design. [ELAB-3]
+        : Done elaborating 'processing_unit'.
+Checking for analog nets...
+Check completed for analog nets.
+Checking for source RTL...
+Check completed for source RTL.
+Running Unified Mux Engine Tricks...
+Completed Unified Mux Engine Tricks
+
+Stage: post_elab
+-------------------------------------------------------
+| Trick             | Accepts | Rejects | Runtime (s) | 
+-------------------------------------------------------
+| ume_constant_bmux |       0 |       0 |        0.00 | 
+| ume_merge         |       0 |       0 |        0.00 | 
+| ume_ssm           |       0 |       0 |        0.00 | 
+| ume_cse           |       1 |       0 |        0.00 | 
+| ume_shrink        |       0 |       0 |        0.00 | 
+| ume_sweep         |       0 |       0 |        0.00 | 
+| ume_constant_bmux |       0 |       0 |        0.00 | 
+| ume_merge         |       0 |       0 |        0.00 | 
+| ume_ssm           |       0 |       0 |        0.00 | 
+| ume_cse           |       0 |       0 |        0.00 | 
+| ume_shrink        |       0 |       0 |        0.00 | 
+| ume_sweep         |       0 |       0 |        0.00 | 
+-------------------------------------------------------
+Starting optimize datapath shifters [v1.0] (stage: post_elab, startdef: processing_unit, recur: true)
+Completed optimize datapath shifters (accepts: 0, rejects: 0, runtime: 0.000s)
+Starting clip mux common data inputs [v1.0] (stage: post_elab, startdef: processing_unit, recur: true)
+Completed clip mux common data inputs (accepts: 0, rejects: 0, runtime: 0.000s)
+Starting clip the non-user hierarchies [v2.0] (stage: post_elab, startdef: processing_unit, recur: true)
+Completed clip the non-user hierarchies (accepts: 0, rejects: 0, runtime: 0.000s)
+Starting basic netlist cleanup [v1.0] (stage: post_elab, startdef: processing_unit, recur: true)
+Completed basic netlist cleanup (accepts: 0, rejects: 0, runtime: 0.000s)
+
+Stage: post_elab
+--------------------------------------------------------------------
+| Transform                      | Accepts | Rejects | Runtime (s) | 
+--------------------------------------------------------------------
+| hlo_optimize_datapath_shifters |       0 |       0 |        0.00 | 
+| hlo_clip_mux_input             |       0 |       0 |        0.00 | 
+| hlo_clip                       |       0 |       0 |        0.00 | 
+| hlo_cleanup                    |       0 |       0 |        0.00 | 
+--------------------------------------------------------------------
+UM:   flow.cputime  flow.realtime  timing.setup.tns  timing.setup.wns  snapshot
+UM:*                                                                   elaborate
+@file(input.tcl) 19: read_sdc ${sdc_dir}/$::env(ENV_DESIGN).sdc
+Statistics for commands executed by read_sdc:
+ "all_inputs"               - successful      1 , failed      0 (runtime  0.00)
+ "all_outputs"              - successful      2 , failed      0 (runtime  0.00)
+ "create_clock"             - successful      1 , failed      0 (runtime  0.00)
+ "get_clocks"               - successful      4 , failed      0 (runtime  0.00)
+ "get_ports"                - successful      2 , failed      0 (runtime  0.00)
+ "remove_from_collection"   - successful      1 , failed      0 (runtime  0.00)
+ "set_input_delay"          - successful      2 , failed      0 (runtime  0.00)
+ "set_output_delay"         - successful      2 , failed      0 (runtime  0.00)
+read_sdc completed in 00:00:00 (hh:mm:ss)
+@file(input.tcl) 20: check_timing_intent
+Error: Timing Analysis queries are being called without performing init_design command
+#@ End verbose source ./scripts/input.tcl
+1
+Encountered problems processing file: ./scripts/input.tcl
+WARNING: This version of the tool is 990 days old.
+@genus:root: 2> exit
+
+Lic Summary:
+[22:42:10.001304] cdslmd servers: srv-eda-05 srv-eda-01
+[22:42:10.016472] Feature usage summary:
+[22:42:10.154951]   Genus_Synthesis  
+

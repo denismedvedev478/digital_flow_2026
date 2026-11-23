@@ -1,0 +1,36 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[23:55:05.357283] Configured Lic search path (23.02-s003): 5280@srv-eda-01:5280@srv-eda-05:1717@srv-eda-01
+
+Version: 23.10-p004_1, built Thu Feb 01 02:43:46 PST 2024
+Options: -files /home/denismedvedev478/digital_flow_2026/lab2/flow_scripts/flow.genus.syn.tcl 
+Date:    Tue Oct 20 23:55:05 2026
+Host:    miet-cad-edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (32cores*32cpus*1physical cpu*Common KVM processor 512KB) (132031524KB)
+PID:     10913
+OS:      CentOS Linux release 7.9.2009 (Core)
+
+Checking out license: Genus_Synthesis
+[23:55:05.203753] Periodic Lic check successful
+[23:55:05.728053] Feature usage summary:
+[23:55:05.728054] Genus_Synthesis
+
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Finished executable startup (0 seconds elapsed).
+
+Loading tool scripts...
+Another Ctrl-C within 1 second will terminate the tool.
+CURRENT RESOURCES: RT {elapsed: 0s, ST: 0s, FG: 0s, CPU: 0.0%}, MEM {curr: 0.7G, peak: 0.7G, phys curr: 0.0G, phys peak: 0.0G}, SYS {load: 3.1, cpu: 32, total: 125.9G, free: 13.9G}
+
+Another Ctrl-C within 1 second will terminate the tool.
+CURRENT RESOURCES: RT {elapsed: 1s, ST: 1s, FG: 1s, CPU: 0.0%}, MEM {curr: 0.7G, peak: 0.7G, phys curr: 0.0G, phys peak: 0.0G}, SYS {load: 3.1, cpu: 32, total: 125.9G, free: 13.9G}
+Abnormal exit.
+Encountered a problem while exiting.

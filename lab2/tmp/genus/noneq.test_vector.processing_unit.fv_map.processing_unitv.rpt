@@ -1,0 +1,3220 @@
+// Confirm all Non-equivalent compared points
+
+Functional test vector for mapped points:
+  (G) + 97   DFF  /result_reg[25]/U$1
+  (R) + 97   DFF  /result_reg[25]/U$1
+Diagnosis points: [DATA]
+  (G) + 5177 INV  /g3077/U$1
+  (R) + 1880 INV  /g3077/U$1
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 4    PI  /data_a[15] = 0
+  (R) + 4    PI  /data_a[15] = 0
+
+  (G) + 5    PI  /data_a[14] = 0
+  (R) + 5    PI  /data_a[14] = 0
+
+  (G) + 6    PI  /data_a[13] = 0
+  (R) + 6    PI  /data_a[13] = 0
+
+  (G) + 7    PI  /data_a[12] = 0
+  (R) + 7    PI  /data_a[12] = 0
+
+  (G) + 8    PI  /data_a[11] = 0
+  (R) + 8    PI  /data_a[11] = 0
+
+  (G) + 9    PI  /data_a[10] = 0
+  (R) + 9    PI  /data_a[10] = 0
+
+  (G) + 10   PI  /data_a[9] = 0
+  (R) + 10   PI  /data_a[9] = 0
+
+  (G) + 11   PI  /data_a[8] = 0
+  (R) + 11   PI  /data_a[8] = 0
+
+  (G) + 12   PI  /data_a[7] = 0
+  (R) + 12   PI  /data_a[7] = 0
+
+  (G) + 13   PI  /data_a[6] = 0
+  (R) + 13   PI  /data_a[6] = 0
+
+  (G) + 14   PI  /data_a[5] = 0
+  (R) + 14   PI  /data_a[5] = 0
+
+  (G) + 15   PI  /data_a[4] = 0
+  (R) + 15   PI  /data_a[4] = 0
+
+  (G) + 16   PI  /data_a[3] = 0
+  (R) + 16   PI  /data_a[3] = 0
+
+  (G) + 17   PI  /data_a[2] = 0
+  (R) + 17   PI  /data_a[2] = 0
+
+  (G) + 18   PI  /data_a[1] = 0
+  (R) + 18   PI  /data_a[1] = 0
+
+  (G) + 19   PI  /data_a[0] = 0
+  (R) + 19   PI  /data_a[0] = 0
+
+  (G) + 20   PI  /data_b[15] = 0
+  (R) + 20   PI  /data_b[15] = 0
+
+  (G) + 21   PI  /data_b[14] = 0
+  (R) + 21   PI  /data_b[14] = 0
+
+  (G) + 22   PI  /data_b[13] = 1
+  (R) + 22   PI  /data_b[13] = 1
+
+  (G) + 23   PI  /data_b[12] = 0
+  (R) + 23   PI  /data_b[12] = 0
+
+  (G) + 24   PI  /data_b[11] = 1
+  (R) + 24   PI  /data_b[11] = 1
+
+  (G) + 25   PI  /data_b[10] = 0
+  (R) + 25   PI  /data_b[10] = 0
+
+  (G) + 26   PI  /data_b[9] = 1
+  (R) + 26   PI  /data_b[9] = 1
+
+  (G) + 27   PI  /data_b[8] = 0
+  (R) + 27   PI  /data_b[8] = 0
+
+  (G) + 28   PI  /data_b[7] = 1
+  (R) + 28   PI  /data_b[7] = 1
+
+  (G) + 29   PI  /data_b[6] = 1
+  (R) + 29   PI  /data_b[6] = 1
+
+  (G) + 30   PI  /data_b[5] = 0
+  (R) + 30   PI  /data_b[5] = 0
+
+  (G) + 31   PI  /data_b[4] = 1
+  (R) + 31   PI  /data_b[4] = 1
+
+  (G) + 32   PI  /data_b[3] = 1
+  (R) + 32   PI  /data_b[3] = 1
+
+  (G) + 33   PI  /data_b[2] = 0
+  (R) + 33   PI  /data_b[2] = 0
+
+  (G) + 34   PI  /data_b[1] = 1
+  (R) + 34   PI  /data_b[1] = 1
+
+  (G) + 35   PI  /data_b[0] = 1
+  (R) + 35   PI  /data_b[0] = 1
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 97   DFF /result_reg[25]/U$1 = 1
+  (R) + 97   DFF /result_reg[25]/U$1 = 1
+
+
+Simulation result:
+  (G) + 5177 INV /g3077/U$1 = 0
+  (R) + 1880 INV /g3077/U$1 = 1
+
+
+
+Functional test vector for mapped points:
+  (G) + 98   DFF  /result_reg[26]/U$1
+  (R) + 98   DFF  /result_reg[26]/U$1
+Diagnosis points: [DATA]
+  (G) + 5181 INV  /g3078/U$1
+  (R) + 1887 INV  /g3078/U$1
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 4    PI  /data_a[15] = 0
+  (R) + 4    PI  /data_a[15] = 0
+
+  (G) + 5    PI  /data_a[14] = 0
+  (R) + 5    PI  /data_a[14] = 0
+
+  (G) + 6    PI  /data_a[13] = 0
+  (R) + 6    PI  /data_a[13] = 0
+
+  (G) + 7    PI  /data_a[12] = 0
+  (R) + 7    PI  /data_a[12] = 0
+
+  (G) + 8    PI  /data_a[11] = 0
+  (R) + 8    PI  /data_a[11] = 0
+
+  (G) + 9    PI  /data_a[10] = 0
+  (R) + 9    PI  /data_a[10] = 0
+
+  (G) + 10   PI  /data_a[9] = 0
+  (R) + 10   PI  /data_a[9] = 0
+
+  (G) + 11   PI  /data_a[8] = 0
+  (R) + 11   PI  /data_a[8] = 0
+
+  (G) + 12   PI  /data_a[7] = 0
+  (R) + 12   PI  /data_a[7] = 0
+
+  (G) + 13   PI  /data_a[6] = 0
+  (R) + 13   PI  /data_a[6] = 0
+
+  (G) + 14   PI  /data_a[5] = 0
+  (R) + 14   PI  /data_a[5] = 0
+
+  (G) + 15   PI  /data_a[4] = 0
+  (R) + 15   PI  /data_a[4] = 0
+
+  (G) + 16   PI  /data_a[3] = 0
+  (R) + 16   PI  /data_a[3] = 0
+
+  (G) + 17   PI  /data_a[2] = 0
+  (R) + 17   PI  /data_a[2] = 0
+
+  (G) + 18   PI  /data_a[1] = 0
+  (R) + 18   PI  /data_a[1] = 0
+
+  (G) + 19   PI  /data_a[0] = 0
+  (R) + 19   PI  /data_a[0] = 0
+
+  (G) + 20   PI  /data_b[15] = 0
+  (R) + 20   PI  /data_b[15] = 0
+
+  (G) + 21   PI  /data_b[14] = 0
+  (R) + 21   PI  /data_b[14] = 0
+
+  (G) + 22   PI  /data_b[13] = 1
+  (R) + 22   PI  /data_b[13] = 1
+
+  (G) + 23   PI  /data_b[12] = 0
+  (R) + 23   PI  /data_b[12] = 0
+
+  (G) + 24   PI  /data_b[11] = 1
+  (R) + 24   PI  /data_b[11] = 1
+
+  (G) + 25   PI  /data_b[10] = 0
+  (R) + 25   PI  /data_b[10] = 0
+
+  (G) + 26   PI  /data_b[9] = 1
+  (R) + 26   PI  /data_b[9] = 1
+
+  (G) + 27   PI  /data_b[8] = 0
+  (R) + 27   PI  /data_b[8] = 0
+
+  (G) + 28   PI  /data_b[7] = 1
+  (R) + 28   PI  /data_b[7] = 1
+
+  (G) + 29   PI  /data_b[6] = 1
+  (R) + 29   PI  /data_b[6] = 1
+
+  (G) + 30   PI  /data_b[5] = 0
+  (R) + 30   PI  /data_b[5] = 0
+
+  (G) + 31   PI  /data_b[4] = 1
+  (R) + 31   PI  /data_b[4] = 1
+
+  (G) + 32   PI  /data_b[3] = 1
+  (R) + 32   PI  /data_b[3] = 1
+
+  (G) + 33   PI  /data_b[2] = 0
+  (R) + 33   PI  /data_b[2] = 0
+
+  (G) + 34   PI  /data_b[1] = 1
+  (R) + 34   PI  /data_b[1] = 1
+
+  (G) + 35   PI  /data_b[0] = 1
+  (R) + 35   PI  /data_b[0] = 1
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 98   DFF /result_reg[26]/U$1 = 1
+  (R) + 98   DFF /result_reg[26]/U$1 = 1
+
+
+Simulation result:
+  (G) + 5181 INV /g3078/U$1 = 0
+  (R) + 1887 INV /g3078/U$1 = 1
+
+
+
+Functional test vector for mapped points:
+  (G) + 96   DFF  /result_reg[24]/U$1
+  (R) + 96   DFF  /result_reg[24]/U$1
+Diagnosis points: [DATA]
+  (G) + 5173 INV  /g3076/U$1
+  (R) + 1872 INV  /g3076/U$1
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 4    PI  /data_a[15] = 0
+  (R) + 4    PI  /data_a[15] = 0
+
+  (G) + 5    PI  /data_a[14] = 0
+  (R) + 5    PI  /data_a[14] = 0
+
+  (G) + 6    PI  /data_a[13] = 0
+  (R) + 6    PI  /data_a[13] = 0
+
+  (G) + 7    PI  /data_a[12] = 0
+  (R) + 7    PI  /data_a[12] = 0
+
+  (G) + 8    PI  /data_a[11] = 1
+  (R) + 8    PI  /data_a[11] = 1
+
+  (G) + 9    PI  /data_a[10] = 1
+  (R) + 9    PI  /data_a[10] = 1
+
+  (G) + 10   PI  /data_a[9] = 1
+  (R) + 10   PI  /data_a[9] = 1
+
+  (G) + 11   PI  /data_a[8] = 1
+  (R) + 11   PI  /data_a[8] = 1
+
+  (G) + 12   PI  /data_a[7] = 0
+  (R) + 12   PI  /data_a[7] = 0
+
+  (G) + 13   PI  /data_a[6] = 0
+  (R) + 13   PI  /data_a[6] = 0
+
+  (G) + 14   PI  /data_a[5] = 1
+  (R) + 14   PI  /data_a[5] = 1
+
+  (G) + 15   PI  /data_a[4] = 1
+  (R) + 15   PI  /data_a[4] = 1
+
+  (G) + 16   PI  /data_a[3] = 0
+  (R) + 16   PI  /data_a[3] = 0
+
+  (G) + 17   PI  /data_a[2] = 0
+  (R) + 17   PI  /data_a[2] = 0
+
+  (G) + 18   PI  /data_a[1] = 1
+  (R) + 18   PI  /data_a[1] = 1
+
+  (G) + 19   PI  /data_a[0] = 1
+  (R) + 19   PI  /data_a[0] = 1
+
+  (G) + 20   PI  /data_b[15] = 1
+  (R) + 20   PI  /data_b[15] = 1
+
+  (G) + 21   PI  /data_b[14] = 0
+  (R) + 21   PI  /data_b[14] = 0
+
+  (G) + 22   PI  /data_b[13] = 1
+  (R) + 22   PI  /data_b[13] = 1
+
+  (G) + 23   PI  /data_b[12] = 0
+  (R) + 23   PI  /data_b[12] = 0
+
+  (G) + 24   PI  /data_b[11] = 1
+  (R) + 24   PI  /data_b[11] = 1
+
+  (G) + 25   PI  /data_b[10] = 0
+  (R) + 25   PI  /data_b[10] = 0
+
+  (G) + 26   PI  /data_b[9] = 1
+  (R) + 26   PI  /data_b[9] = 1
+
+  (G) + 27   PI  /data_b[8] = 1
+  (R) + 27   PI  /data_b[8] = 1
+
+  (G) + 28   PI  /data_b[7] = 1
+  (R) + 28   PI  /data_b[7] = 1
+
+  (G) + 29   PI  /data_b[6] = 1
+  (R) + 29   PI  /data_b[6] = 1
+
+  (G) + 30   PI  /data_b[5] = 0
+  (R) + 30   PI  /data_b[5] = 0
+
+  (G) + 31   PI  /data_b[4] = 0
+  (R) + 31   PI  /data_b[4] = 0
+
+  (G) + 32   PI  /data_b[3] = 1
+  (R) + 32   PI  /data_b[3] = 1
+
+  (G) + 33   PI  /data_b[2] = 0
+  (R) + 33   PI  /data_b[2] = 0
+
+  (G) + 34   PI  /data_b[1] = 0
+  (R) + 34   PI  /data_b[1] = 0
+
+  (G) + 35   PI  /data_b[0] = 1
+  (R) + 35   PI  /data_b[0] = 1
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 96   DFF /result_reg[24]/U$1 = 1
+  (R) + 96   DFF /result_reg[24]/U$1 = 1
+
+
+Simulation result:
+  (G) + 5173 INV /g3076/U$1 = 1
+  (R) + 1872 INV /g3076/U$1 = 0
+
+
+
+Functional test vector for mapped points:
+  (G) + 83   DFF  /result_reg[11]/U$1
+  (R) + 83   DFF  /result_reg[11]/U$1
+Diagnosis points: [DATA]
+  (G) + 5208 NAND /g3098/U$1
+  (R) + 1928 NAND /g3098__6417/U$1
+
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   4    PI   /data_a[15]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   5    PI   /data_a[14]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   6    PI   /data_a[13]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   7    PI   /data_a[12]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   20   PI   /data_b[15]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   21   PI   /data_b[14]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   22   PI   /data_b[13]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   23   PI   /data_b[12]
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 8    PI  /data_a[11] = 0
+  (R) + 8    PI  /data_a[11] = 0
+
+  (G) + 9    PI  /data_a[10] = 0
+  (R) + 9    PI  /data_a[10] = 0
+
+  (G) + 10   PI  /data_a[9] = 0
+  (R) + 10   PI  /data_a[9] = 0
+
+  (G) + 11   PI  /data_a[8] = 1
+  (R) + 11   PI  /data_a[8] = 1
+
+  (G) + 12   PI  /data_a[7] = 1
+  (R) + 12   PI  /data_a[7] = 1
+
+  (G) + 13   PI  /data_a[6] = 1
+  (R) + 13   PI  /data_a[6] = 1
+
+  (G) + 14   PI  /data_a[5] = 1
+  (R) + 14   PI  /data_a[5] = 1
+
+  (G) + 15   PI  /data_a[4] = 0
+  (R) + 15   PI  /data_a[4] = 0
+
+  (G) + 16   PI  /data_a[3] = 1
+  (R) + 16   PI  /data_a[3] = 1
+
+  (G) + 17   PI  /data_a[2] = 0
+  (R) + 17   PI  /data_a[2] = 0
+
+  (G) + 18   PI  /data_a[1] = 0
+  (R) + 18   PI  /data_a[1] = 0
+
+  (G) + 19   PI  /data_a[0] = 0
+  (R) + 19   PI  /data_a[0] = 0
+
+  (G) + 24   PI  /data_b[11] = 1
+  (R) + 24   PI  /data_b[11] = 1
+
+  (G) + 25   PI  /data_b[10] = 0
+  (R) + 25   PI  /data_b[10] = 0
+
+  (G) + 26   PI  /data_b[9] = 0
+  (R) + 26   PI  /data_b[9] = 0
+
+  (G) + 27   PI  /data_b[8] = 1
+  (R) + 27   PI  /data_b[8] = 1
+
+  (G) + 28   PI  /data_b[7] = 0
+  (R) + 28   PI  /data_b[7] = 0
+
+  (G) + 29   PI  /data_b[6] = 1
+  (R) + 29   PI  /data_b[6] = 1
+
+  (G) + 30   PI  /data_b[5] = 0
+  (R) + 30   PI  /data_b[5] = 0
+
+  (G) + 31   PI  /data_b[4] = 1
+  (R) + 31   PI  /data_b[4] = 1
+
+  (G) + 32   PI  /data_b[3] = 1
+  (R) + 32   PI  /data_b[3] = 1
+
+  (G) + 33   PI  /data_b[2] = 0
+  (R) + 33   PI  /data_b[2] = 0
+
+  (G) + 34   PI  /data_b[1] = 0
+  (R) + 34   PI  /data_b[1] = 0
+
+  (G) + 35   PI  /data_b[0] = 0
+  (R) + 35   PI  /data_b[0] = 0
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 83   DFF /result_reg[11]/U$1 = 0
+  (R) + 83   DFF /result_reg[11]/U$1 = 0
+
+  (R) + 4    PI  /data_a[15] = 1
+
+  (R) + 5    PI  /data_a[14] = 0
+
+  (R) + 6    PI  /data_a[13] = 1
+
+  (R) + 7    PI  /data_a[12] = 1
+
+  (R) + 20   PI  /data_b[15] = 0
+
+  (R) + 21   PI  /data_b[14] = 0
+
+  (R) + 22   PI  /data_b[13] = 1
+
+  (R) + 23   PI  /data_b[12] = 0
+
+
+Simulation result:
+  (G) + 5208 NAND /g3098/U$1 = 1
+  (R) + 1928 NAND /g3098__6417/U$1 = 0
+
+
+
+Functional test vector for mapped points:
+  (G) + 87   DFF  /result_reg[15]/U$1
+  (R) + 87   DFF  /result_reg[15]/U$1
+Diagnosis points: [DATA]
+  (G) + 5116 NAND /g3061/U$1
+  (R) + 1172 NAND /g3061__2802/U$1
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 4    PI  /data_a[15] = 0
+  (R) + 4    PI  /data_a[15] = 0
+
+  (G) + 5    PI  /data_a[14] = 0
+  (R) + 5    PI  /data_a[14] = 0
+
+  (G) + 6    PI  /data_a[13] = 1
+  (R) + 6    PI  /data_a[13] = 1
+
+  (G) + 7    PI  /data_a[12] = 0
+  (R) + 7    PI  /data_a[12] = 0
+
+  (G) + 8    PI  /data_a[11] = 0
+  (R) + 8    PI  /data_a[11] = 0
+
+  (G) + 9    PI  /data_a[10] = 1
+  (R) + 9    PI  /data_a[10] = 1
+
+  (G) + 10   PI  /data_a[9] = 1
+  (R) + 10   PI  /data_a[9] = 1
+
+  (G) + 11   PI  /data_a[8] = 1
+  (R) + 11   PI  /data_a[8] = 1
+
+  (G) + 12   PI  /data_a[7] = 1
+  (R) + 12   PI  /data_a[7] = 1
+
+  (G) + 13   PI  /data_a[6] = 0
+  (R) + 13   PI  /data_a[6] = 0
+
+  (G) + 14   PI  /data_a[5] = 0
+  (R) + 14   PI  /data_a[5] = 0
+
+  (G) + 15   PI  /data_a[4] = 0
+  (R) + 15   PI  /data_a[4] = 0
+
+  (G) + 16   PI  /data_a[3] = 1
+  (R) + 16   PI  /data_a[3] = 1
+
+  (G) + 17   PI  /data_a[2] = 0
+  (R) + 17   PI  /data_a[2] = 0
+
+  (G) + 18   PI  /data_a[1] = 0
+  (R) + 18   PI  /data_a[1] = 0
+
+  (G) + 19   PI  /data_a[0] = 0
+  (R) + 19   PI  /data_a[0] = 0
+
+  (G) + 20   PI  /data_b[15] = 1
+  (R) + 20   PI  /data_b[15] = 1
+
+  (G) + 21   PI  /data_b[14] = 1
+  (R) + 21   PI  /data_b[14] = 1
+
+  (G) + 22   PI  /data_b[13] = 1
+  (R) + 22   PI  /data_b[13] = 1
+
+  (G) + 23   PI  /data_b[12] = 1
+  (R) + 23   PI  /data_b[12] = 1
+
+  (G) + 24   PI  /data_b[11] = 1
+  (R) + 24   PI  /data_b[11] = 1
+
+  (G) + 25   PI  /data_b[10] = 0
+  (R) + 25   PI  /data_b[10] = 0
+
+  (G) + 26   PI  /data_b[9] = 1
+  (R) + 26   PI  /data_b[9] = 1
+
+  (G) + 27   PI  /data_b[8] = 1
+  (R) + 27   PI  /data_b[8] = 1
+
+  (G) + 28   PI  /data_b[7] = 1
+  (R) + 28   PI  /data_b[7] = 1
+
+  (G) + 29   PI  /data_b[6] = 0
+  (R) + 29   PI  /data_b[6] = 0
+
+  (G) + 30   PI  /data_b[5] = 0
+  (R) + 30   PI  /data_b[5] = 0
+
+  (G) + 31   PI  /data_b[4] = 0
+  (R) + 31   PI  /data_b[4] = 0
+
+  (G) + 32   PI  /data_b[3] = 1
+  (R) + 32   PI  /data_b[3] = 1
+
+  (G) + 33   PI  /data_b[2] = 0
+  (R) + 33   PI  /data_b[2] = 0
+
+  (G) + 34   PI  /data_b[1] = 0
+  (R) + 34   PI  /data_b[1] = 0
+
+  (G) + 35   PI  /data_b[0] = 1
+  (R) + 35   PI  /data_b[0] = 1
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 87   DFF /result_reg[15]/U$1 = 1
+  (R) + 87   DFF /result_reg[15]/U$1 = 1
+
+
+Simulation result:
+  (G) + 5116 NAND /g3061/U$1 = 0
+  (R) + 1172 NAND /g3061__2802/U$1 = 1
+
+
+
+Functional test vector for mapped points:
+  (G) + 99   DFF  /result_reg[27]/U$1
+  (R) + 99   DFF  /result_reg[27]/U$1
+Diagnosis points: [DATA]
+  (G) + 5185 INV  /g3079/U$1
+  (R) + 1894 INV  /g3079/U$1
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 4    PI  /data_a[15] = 0
+  (R) + 4    PI  /data_a[15] = 0
+
+  (G) + 5    PI  /data_a[14] = 1
+  (R) + 5    PI  /data_a[14] = 1
+
+  (G) + 6    PI  /data_a[13] = 1
+  (R) + 6    PI  /data_a[13] = 1
+
+  (G) + 7    PI  /data_a[12] = 0
+  (R) + 7    PI  /data_a[12] = 0
+
+  (G) + 8    PI  /data_a[11] = 1
+  (R) + 8    PI  /data_a[11] = 1
+
+  (G) + 9    PI  /data_a[10] = 0
+  (R) + 9    PI  /data_a[10] = 0
+
+  (G) + 10   PI  /data_a[9] = 1
+  (R) + 10   PI  /data_a[9] = 1
+
+  (G) + 11   PI  /data_a[8] = 0
+  (R) + 11   PI  /data_a[8] = 0
+
+  (G) + 12   PI  /data_a[7] = 1
+  (R) + 12   PI  /data_a[7] = 1
+
+  (G) + 13   PI  /data_a[6] = 0
+  (R) + 13   PI  /data_a[6] = 0
+
+  (G) + 14   PI  /data_a[5] = 1
+  (R) + 14   PI  /data_a[5] = 1
+
+  (G) + 15   PI  /data_a[4] = 0
+  (R) + 15   PI  /data_a[4] = 0
+
+  (G) + 16   PI  /data_a[3] = 1
+  (R) + 16   PI  /data_a[3] = 1
+
+  (G) + 17   PI  /data_a[2] = 0
+  (R) + 17   PI  /data_a[2] = 0
+
+  (G) + 18   PI  /data_a[1] = 0
+  (R) + 18   PI  /data_a[1] = 0
+
+  (G) + 19   PI  /data_a[0] = 1
+  (R) + 19   PI  /data_a[0] = 1
+
+  (G) + 20   PI  /data_b[15] = 1
+  (R) + 20   PI  /data_b[15] = 1
+
+  (G) + 21   PI  /data_b[14] = 1
+  (R) + 21   PI  /data_b[14] = 1
+
+  (G) + 22   PI  /data_b[13] = 0
+  (R) + 22   PI  /data_b[13] = 0
+
+  (G) + 23   PI  /data_b[12] = 1
+  (R) + 23   PI  /data_b[12] = 1
+
+  (G) + 24   PI  /data_b[11] = 1
+  (R) + 24   PI  /data_b[11] = 1
+
+  (G) + 25   PI  /data_b[10] = 0
+  (R) + 25   PI  /data_b[10] = 0
+
+  (G) + 26   PI  /data_b[9] = 0
+  (R) + 26   PI  /data_b[9] = 0
+
+  (G) + 27   PI  /data_b[8] = 1
+  (R) + 27   PI  /data_b[8] = 1
+
+  (G) + 28   PI  /data_b[7] = 1
+  (R) + 28   PI  /data_b[7] = 1
+
+  (G) + 29   PI  /data_b[6] = 0
+  (R) + 29   PI  /data_b[6] = 0
+
+  (G) + 30   PI  /data_b[5] = 0
+  (R) + 30   PI  /data_b[5] = 0
+
+  (G) + 31   PI  /data_b[4] = 1
+  (R) + 31   PI  /data_b[4] = 1
+
+  (G) + 32   PI  /data_b[3] = 1
+  (R) + 32   PI  /data_b[3] = 1
+
+  (G) + 33   PI  /data_b[2] = 0
+  (R) + 33   PI  /data_b[2] = 0
+
+  (G) + 34   PI  /data_b[1] = 0
+  (R) + 34   PI  /data_b[1] = 0
+
+  (G) + 35   PI  /data_b[0] = 1
+  (R) + 35   PI  /data_b[0] = 1
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 99   DFF /result_reg[27]/U$1 = 1
+  (R) + 99   DFF /result_reg[27]/U$1 = 1
+
+
+Simulation result:
+  (G) + 5185 INV /g3079/U$1 = 0
+  (R) + 1894 INV /g3079/U$1 = 1
+
+
+
+Functional test vector for mapped points:
+  (G) + 95   DFF  /result_reg[23]/U$1
+  (R) + 95   DFF  /result_reg[23]/U$1
+Diagnosis points: [DATA]
+  (G) + 5169 INV  /g3075/U$1
+  (R) + 1865 INV  /g3075/U$1
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 4    PI  /data_a[15] = 1
+  (R) + 4    PI  /data_a[15] = 1
+
+  (G) + 5    PI  /data_a[14] = 0
+  (R) + 5    PI  /data_a[14] = 0
+
+  (G) + 6    PI  /data_a[13] = 0
+  (R) + 6    PI  /data_a[13] = 0
+
+  (G) + 7    PI  /data_a[12] = 1
+  (R) + 7    PI  /data_a[12] = 1
+
+  (G) + 8    PI  /data_a[11] = 0
+  (R) + 8    PI  /data_a[11] = 0
+
+  (G) + 9    PI  /data_a[10] = 0
+  (R) + 9    PI  /data_a[10] = 0
+
+  (G) + 10   PI  /data_a[9] = 1
+  (R) + 10   PI  /data_a[9] = 1
+
+  (G) + 11   PI  /data_a[8] = 1
+  (R) + 11   PI  /data_a[8] = 1
+
+  (G) + 12   PI  /data_a[7] = 1
+  (R) + 12   PI  /data_a[7] = 1
+
+  (G) + 13   PI  /data_a[6] = 1
+  (R) + 13   PI  /data_a[6] = 1
+
+  (G) + 14   PI  /data_a[5] = 0
+  (R) + 14   PI  /data_a[5] = 0
+
+  (G) + 15   PI  /data_a[4] = 0
+  (R) + 15   PI  /data_a[4] = 0
+
+  (G) + 16   PI  /data_a[3] = 0
+  (R) + 16   PI  /data_a[3] = 0
+
+  (G) + 17   PI  /data_a[2] = 0
+  (R) + 17   PI  /data_a[2] = 0
+
+  (G) + 18   PI  /data_a[1] = 0
+  (R) + 18   PI  /data_a[1] = 0
+
+  (G) + 19   PI  /data_a[0] = 1
+  (R) + 19   PI  /data_a[0] = 1
+
+  (G) + 20   PI  /data_b[15] = 0
+  (R) + 20   PI  /data_b[15] = 0
+
+  (G) + 21   PI  /data_b[14] = 1
+  (R) + 21   PI  /data_b[14] = 1
+
+  (G) + 22   PI  /data_b[13] = 1
+  (R) + 22   PI  /data_b[13] = 1
+
+  (G) + 23   PI  /data_b[12] = 0
+  (R) + 23   PI  /data_b[12] = 0
+
+  (G) + 24   PI  /data_b[11] = 0
+  (R) + 24   PI  /data_b[11] = 0
+
+  (G) + 25   PI  /data_b[10] = 1
+  (R) + 25   PI  /data_b[10] = 1
+
+  (G) + 26   PI  /data_b[9] = 0
+  (R) + 26   PI  /data_b[9] = 0
+
+  (G) + 27   PI  /data_b[8] = 0
+  (R) + 27   PI  /data_b[8] = 0
+
+  (G) + 28   PI  /data_b[7] = 1
+  (R) + 28   PI  /data_b[7] = 1
+
+  (G) + 29   PI  /data_b[6] = 0
+  (R) + 29   PI  /data_b[6] = 0
+
+  (G) + 30   PI  /data_b[5] = 0
+  (R) + 30   PI  /data_b[5] = 0
+
+  (G) + 31   PI  /data_b[4] = 0
+  (R) + 31   PI  /data_b[4] = 0
+
+  (G) + 32   PI  /data_b[3] = 0
+  (R) + 32   PI  /data_b[3] = 0
+
+  (G) + 33   PI  /data_b[2] = 0
+  (R) + 33   PI  /data_b[2] = 0
+
+  (G) + 34   PI  /data_b[1] = 1
+  (R) + 34   PI  /data_b[1] = 1
+
+  (G) + 35   PI  /data_b[0] = 1
+  (R) + 35   PI  /data_b[0] = 1
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 95   DFF /result_reg[23]/U$1 = 1
+  (R) + 95   DFF /result_reg[23]/U$1 = 1
+
+
+Simulation result:
+  (G) + 5169 INV /g3075/U$1 = 0
+  (R) + 1865 INV /g3075/U$1 = 1
+
+
+
+Functional test vector for mapped points:
+  (G) + 100  DFF  /result_reg[28]/U$1
+  (R) + 100  DFF  /result_reg[28]/U$1
+Diagnosis points: [DATA]
+  (G) + 5189 INV  /g3080/U$1
+  (R) + 1901 INV  /g3080/U$1
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 4    PI  /data_a[15] = 0
+  (R) + 4    PI  /data_a[15] = 0
+
+  (G) + 5    PI  /data_a[14] = 0
+  (R) + 5    PI  /data_a[14] = 0
+
+  (G) + 6    PI  /data_a[13] = 1
+  (R) + 6    PI  /data_a[13] = 1
+
+  (G) + 7    PI  /data_a[12] = 0
+  (R) + 7    PI  /data_a[12] = 0
+
+  (G) + 8    PI  /data_a[11] = 1
+  (R) + 8    PI  /data_a[11] = 1
+
+  (G) + 9    PI  /data_a[10] = 1
+  (R) + 9    PI  /data_a[10] = 1
+
+  (G) + 10   PI  /data_a[9] = 0
+  (R) + 10   PI  /data_a[9] = 0
+
+  (G) + 11   PI  /data_a[8] = 0
+  (R) + 11   PI  /data_a[8] = 0
+
+  (G) + 12   PI  /data_a[7] = 0
+  (R) + 12   PI  /data_a[7] = 0
+
+  (G) + 13   PI  /data_a[6] = 0
+  (R) + 13   PI  /data_a[6] = 0
+
+  (G) + 14   PI  /data_a[5] = 0
+  (R) + 14   PI  /data_a[5] = 0
+
+  (G) + 15   PI  /data_a[4] = 0
+  (R) + 15   PI  /data_a[4] = 0
+
+  (G) + 16   PI  /data_a[3] = 1
+  (R) + 16   PI  /data_a[3] = 1
+
+  (G) + 17   PI  /data_a[2] = 1
+  (R) + 17   PI  /data_a[2] = 1
+
+  (G) + 18   PI  /data_a[1] = 0
+  (R) + 18   PI  /data_a[1] = 0
+
+  (G) + 19   PI  /data_a[0] = 1
+  (R) + 19   PI  /data_a[0] = 1
+
+  (G) + 20   PI  /data_b[15] = 0
+  (R) + 20   PI  /data_b[15] = 0
+
+  (G) + 21   PI  /data_b[14] = 1
+  (R) + 21   PI  /data_b[14] = 1
+
+  (G) + 22   PI  /data_b[13] = 0
+  (R) + 22   PI  /data_b[13] = 0
+
+  (G) + 23   PI  /data_b[12] = 0
+  (R) + 23   PI  /data_b[12] = 0
+
+  (G) + 24   PI  /data_b[11] = 0
+  (R) + 24   PI  /data_b[11] = 0
+
+  (G) + 25   PI  /data_b[10] = 1
+  (R) + 25   PI  /data_b[10] = 1
+
+  (G) + 26   PI  /data_b[9] = 1
+  (R) + 26   PI  /data_b[9] = 1
+
+  (G) + 27   PI  /data_b[8] = 1
+  (R) + 27   PI  /data_b[8] = 1
+
+  (G) + 28   PI  /data_b[7] = 0
+  (R) + 28   PI  /data_b[7] = 0
+
+  (G) + 29   PI  /data_b[6] = 1
+  (R) + 29   PI  /data_b[6] = 1
+
+  (G) + 30   PI  /data_b[5] = 0
+  (R) + 30   PI  /data_b[5] = 0
+
+  (G) + 31   PI  /data_b[4] = 0
+  (R) + 31   PI  /data_b[4] = 0
+
+  (G) + 32   PI  /data_b[3] = 1
+  (R) + 32   PI  /data_b[3] = 1
+
+  (G) + 33   PI  /data_b[2] = 0
+  (R) + 33   PI  /data_b[2] = 0
+
+  (G) + 34   PI  /data_b[1] = 0
+  (R) + 34   PI  /data_b[1] = 0
+
+  (G) + 35   PI  /data_b[0] = 1
+  (R) + 35   PI  /data_b[0] = 1
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 100  DFF /result_reg[28]/U$1 = 1
+  (R) + 100  DFF /result_reg[28]/U$1 = 1
+
+
+Simulation result:
+  (G) + 5189 INV /g3080/U$1 = 0
+  (R) + 1901 INV /g3080/U$1 = 1
+
+
+
+Functional test vector for mapped points:
+  (G) + 94   DFF  /result_reg[22]/U$1
+  (R) + 94   DFF  /result_reg[22]/U$1
+Diagnosis points: [DATA]
+  (G) + 5165 INV  /g3074/U$1
+  (R) + 1858 INV  /g3074/U$1
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 4    PI  /data_a[15] = 0
+  (R) + 4    PI  /data_a[15] = 0
+
+  (G) + 5    PI  /data_a[14] = 1
+  (R) + 5    PI  /data_a[14] = 1
+
+  (G) + 6    PI  /data_a[13] = 1
+  (R) + 6    PI  /data_a[13] = 1
+
+  (G) + 7    PI  /data_a[12] = 1
+  (R) + 7    PI  /data_a[12] = 1
+
+  (G) + 8    PI  /data_a[11] = 0
+  (R) + 8    PI  /data_a[11] = 0
+
+  (G) + 9    PI  /data_a[10] = 1
+  (R) + 9    PI  /data_a[10] = 1
+
+  (G) + 10   PI  /data_a[9] = 0
+  (R) + 10   PI  /data_a[9] = 0
+
+  (G) + 11   PI  /data_a[8] = 1
+  (R) + 11   PI  /data_a[8] = 1
+
+  (G) + 12   PI  /data_a[7] = 0
+  (R) + 12   PI  /data_a[7] = 0
+
+  (G) + 13   PI  /data_a[6] = 1
+  (R) + 13   PI  /data_a[6] = 1
+
+  (G) + 14   PI  /data_a[5] = 1
+  (R) + 14   PI  /data_a[5] = 1
+
+  (G) + 15   PI  /data_a[4] = 0
+  (R) + 15   PI  /data_a[4] = 0
+
+  (G) + 16   PI  /data_a[3] = 1
+  (R) + 16   PI  /data_a[3] = 1
+
+  (G) + 17   PI  /data_a[2] = 0
+  (R) + 17   PI  /data_a[2] = 0
+
+  (G) + 18   PI  /data_a[1] = 1
+  (R) + 18   PI  /data_a[1] = 1
+
+  (G) + 19   PI  /data_a[0] = 1
+  (R) + 19   PI  /data_a[0] = 1
+
+  (G) + 20   PI  /data_b[15] = 0
+  (R) + 20   PI  /data_b[15] = 0
+
+  (G) + 21   PI  /data_b[14] = 1
+  (R) + 21   PI  /data_b[14] = 1
+
+  (G) + 22   PI  /data_b[13] = 0
+  (R) + 22   PI  /data_b[13] = 0
+
+  (G) + 23   PI  /data_b[12] = 1
+  (R) + 23   PI  /data_b[12] = 1
+
+  (G) + 24   PI  /data_b[11] = 1
+  (R) + 24   PI  /data_b[11] = 1
+
+  (G) + 25   PI  /data_b[10] = 0
+  (R) + 25   PI  /data_b[10] = 0
+
+  (G) + 26   PI  /data_b[9] = 1
+  (R) + 26   PI  /data_b[9] = 1
+
+  (G) + 27   PI  /data_b[8] = 1
+  (R) + 27   PI  /data_b[8] = 1
+
+  (G) + 28   PI  /data_b[7] = 1
+  (R) + 28   PI  /data_b[7] = 1
+
+  (G) + 29   PI  /data_b[6] = 0
+  (R) + 29   PI  /data_b[6] = 0
+
+  (G) + 30   PI  /data_b[5] = 0
+  (R) + 30   PI  /data_b[5] = 0
+
+  (G) + 31   PI  /data_b[4] = 1
+  (R) + 31   PI  /data_b[4] = 1
+
+  (G) + 32   PI  /data_b[3] = 0
+  (R) + 32   PI  /data_b[3] = 0
+
+  (G) + 33   PI  /data_b[2] = 0
+  (R) + 33   PI  /data_b[2] = 0
+
+  (G) + 34   PI  /data_b[1] = 1
+  (R) + 34   PI  /data_b[1] = 1
+
+  (G) + 35   PI  /data_b[0] = 0
+  (R) + 35   PI  /data_b[0] = 0
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 94   DFF /result_reg[22]/U$1 = 1
+  (R) + 94   DFF /result_reg[22]/U$1 = 1
+
+
+Simulation result:
+  (G) + 5165 INV /g3074/U$1 = 0
+  (R) + 1858 INV /g3074/U$1 = 1
+
+
+
+Functional test vector for mapped points:
+  (G) + 101  DFF  /result_reg[29]/U$1
+  (R) + 101  DFF  /result_reg[29]/U$1
+Diagnosis points: [DATA]
+  (G) + 5193 INV  /g3081/U$1
+  (R) + 1908 INV  /g3081/U$1
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 4    PI  /data_a[15] = 0
+  (R) + 4    PI  /data_a[15] = 0
+
+  (G) + 5    PI  /data_a[14] = 1
+  (R) + 5    PI  /data_a[14] = 1
+
+  (G) + 6    PI  /data_a[13] = 1
+  (R) + 6    PI  /data_a[13] = 1
+
+  (G) + 7    PI  /data_a[12] = 1
+  (R) + 7    PI  /data_a[12] = 1
+
+  (G) + 8    PI  /data_a[11] = 1
+  (R) + 8    PI  /data_a[11] = 1
+
+  (G) + 9    PI  /data_a[10] = 1
+  (R) + 9    PI  /data_a[10] = 1
+
+  (G) + 10   PI  /data_a[9] = 0
+  (R) + 10   PI  /data_a[9] = 0
+
+  (G) + 11   PI  /data_a[8] = 1
+  (R) + 11   PI  /data_a[8] = 1
+
+  (G) + 12   PI  /data_a[7] = 1
+  (R) + 12   PI  /data_a[7] = 1
+
+  (G) + 13   PI  /data_a[6] = 0
+  (R) + 13   PI  /data_a[6] = 0
+
+  (G) + 14   PI  /data_a[5] = 1
+  (R) + 14   PI  /data_a[5] = 1
+
+  (G) + 15   PI  /data_a[4] = 1
+  (R) + 15   PI  /data_a[4] = 1
+
+  (G) + 16   PI  /data_a[3] = 0
+  (R) + 16   PI  /data_a[3] = 0
+
+  (G) + 17   PI  /data_a[2] = 0
+  (R) + 17   PI  /data_a[2] = 0
+
+  (G) + 18   PI  /data_a[1] = 0
+  (R) + 18   PI  /data_a[1] = 0
+
+  (G) + 19   PI  /data_a[0] = 1
+  (R) + 19   PI  /data_a[0] = 1
+
+  (G) + 20   PI  /data_b[15] = 1
+  (R) + 20   PI  /data_b[15] = 1
+
+  (G) + 21   PI  /data_b[14] = 1
+  (R) + 21   PI  /data_b[14] = 1
+
+  (G) + 22   PI  /data_b[13] = 1
+  (R) + 22   PI  /data_b[13] = 1
+
+  (G) + 23   PI  /data_b[12] = 0
+  (R) + 23   PI  /data_b[12] = 0
+
+  (G) + 24   PI  /data_b[11] = 0
+  (R) + 24   PI  /data_b[11] = 0
+
+  (G) + 25   PI  /data_b[10] = 0
+  (R) + 25   PI  /data_b[10] = 0
+
+  (G) + 26   PI  /data_b[9] = 0
+  (R) + 26   PI  /data_b[9] = 0
+
+  (G) + 27   PI  /data_b[8] = 1
+  (R) + 27   PI  /data_b[8] = 1
+
+  (G) + 28   PI  /data_b[7] = 0
+  (R) + 28   PI  /data_b[7] = 0
+
+  (G) + 29   PI  /data_b[6] = 0
+  (R) + 29   PI  /data_b[6] = 0
+
+  (G) + 30   PI  /data_b[5] = 1
+  (R) + 30   PI  /data_b[5] = 1
+
+  (G) + 31   PI  /data_b[4] = 1
+  (R) + 31   PI  /data_b[4] = 1
+
+  (G) + 32   PI  /data_b[3] = 1
+  (R) + 32   PI  /data_b[3] = 1
+
+  (G) + 33   PI  /data_b[2] = 0
+  (R) + 33   PI  /data_b[2] = 0
+
+  (G) + 34   PI  /data_b[1] = 1
+  (R) + 34   PI  /data_b[1] = 1
+
+  (G) + 35   PI  /data_b[0] = 0
+  (R) + 35   PI  /data_b[0] = 0
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 101  DFF /result_reg[29]/U$1 = 0
+  (R) + 101  DFF /result_reg[29]/U$1 = 0
+
+
+Simulation result:
+  (G) + 5193 INV /g3081/U$1 = 1
+  (R) + 1908 INV /g3081/U$1 = 0
+
+
+
+Functional test vector for mapped points:
+  (G) + 93   DFF  /result_reg[21]/U$1
+  (R) + 93   DFF  /result_reg[21]/U$1
+Diagnosis points: [DATA]
+  (G) + 5161 INV  /g3073/U$1
+  (R) + 1851 INV  /g3073/U$1
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 4    PI  /data_a[15] = 0
+  (R) + 4    PI  /data_a[15] = 0
+
+  (G) + 5    PI  /data_a[14] = 1
+  (R) + 5    PI  /data_a[14] = 1
+
+  (G) + 6    PI  /data_a[13] = 1
+  (R) + 6    PI  /data_a[13] = 1
+
+  (G) + 7    PI  /data_a[12] = 1
+  (R) + 7    PI  /data_a[12] = 1
+
+  (G) + 8    PI  /data_a[11] = 0
+  (R) + 8    PI  /data_a[11] = 0
+
+  (G) + 9    PI  /data_a[10] = 1
+  (R) + 9    PI  /data_a[10] = 1
+
+  (G) + 10   PI  /data_a[9] = 0
+  (R) + 10   PI  /data_a[9] = 0
+
+  (G) + 11   PI  /data_a[8] = 1
+  (R) + 11   PI  /data_a[8] = 1
+
+  (G) + 12   PI  /data_a[7] = 0
+  (R) + 12   PI  /data_a[7] = 0
+
+  (G) + 13   PI  /data_a[6] = 1
+  (R) + 13   PI  /data_a[6] = 1
+
+  (G) + 14   PI  /data_a[5] = 1
+  (R) + 14   PI  /data_a[5] = 1
+
+  (G) + 15   PI  /data_a[4] = 0
+  (R) + 15   PI  /data_a[4] = 0
+
+  (G) + 16   PI  /data_a[3] = 1
+  (R) + 16   PI  /data_a[3] = 1
+
+  (G) + 17   PI  /data_a[2] = 0
+  (R) + 17   PI  /data_a[2] = 0
+
+  (G) + 18   PI  /data_a[1] = 1
+  (R) + 18   PI  /data_a[1] = 1
+
+  (G) + 19   PI  /data_a[0] = 1
+  (R) + 19   PI  /data_a[0] = 1
+
+  (G) + 20   PI  /data_b[15] = 0
+  (R) + 20   PI  /data_b[15] = 0
+
+  (G) + 21   PI  /data_b[14] = 1
+  (R) + 21   PI  /data_b[14] = 1
+
+  (G) + 22   PI  /data_b[13] = 0
+  (R) + 22   PI  /data_b[13] = 0
+
+  (G) + 23   PI  /data_b[12] = 1
+  (R) + 23   PI  /data_b[12] = 1
+
+  (G) + 24   PI  /data_b[11] = 1
+  (R) + 24   PI  /data_b[11] = 1
+
+  (G) + 25   PI  /data_b[10] = 0
+  (R) + 25   PI  /data_b[10] = 0
+
+  (G) + 26   PI  /data_b[9] = 1
+  (R) + 26   PI  /data_b[9] = 1
+
+  (G) + 27   PI  /data_b[8] = 1
+  (R) + 27   PI  /data_b[8] = 1
+
+  (G) + 28   PI  /data_b[7] = 1
+  (R) + 28   PI  /data_b[7] = 1
+
+  (G) + 29   PI  /data_b[6] = 0
+  (R) + 29   PI  /data_b[6] = 0
+
+  (G) + 30   PI  /data_b[5] = 0
+  (R) + 30   PI  /data_b[5] = 0
+
+  (G) + 31   PI  /data_b[4] = 1
+  (R) + 31   PI  /data_b[4] = 1
+
+  (G) + 32   PI  /data_b[3] = 0
+  (R) + 32   PI  /data_b[3] = 0
+
+  (G) + 33   PI  /data_b[2] = 0
+  (R) + 33   PI  /data_b[2] = 0
+
+  (G) + 34   PI  /data_b[1] = 1
+  (R) + 34   PI  /data_b[1] = 1
+
+  (G) + 35   PI  /data_b[0] = 0
+  (R) + 35   PI  /data_b[0] = 0
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 93   DFF /result_reg[21]/U$1 = 1
+  (R) + 93   DFF /result_reg[21]/U$1 = 1
+
+
+Simulation result:
+  (G) + 5161 INV /g3073/U$1 = 0
+  (R) + 1851 INV /g3073/U$1 = 1
+
+
+
+Functional test vector for mapped points:
+  (G) + 86   DFF  /result_reg[14]/U$1
+  (R) + 86   DFF  /result_reg[14]/U$1
+Diagnosis points: [DATA]
+  (G) + 5100 NAND /g3060/U$1
+  (R) + 1070 NAND /g3060__1617/U$1
+
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   4    PI   /data_a[15]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   20   PI   /data_b[15]
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 5    PI  /data_a[14] = 0
+  (R) + 5    PI  /data_a[14] = 0
+
+  (G) + 6    PI  /data_a[13] = 0
+  (R) + 6    PI  /data_a[13] = 0
+
+  (G) + 7    PI  /data_a[12] = 0
+  (R) + 7    PI  /data_a[12] = 0
+
+  (G) + 8    PI  /data_a[11] = 0
+  (R) + 8    PI  /data_a[11] = 0
+
+  (G) + 9    PI  /data_a[10] = 0
+  (R) + 9    PI  /data_a[10] = 0
+
+  (G) + 10   PI  /data_a[9] = 0
+  (R) + 10   PI  /data_a[9] = 0
+
+  (G) + 11   PI  /data_a[8] = 0
+  (R) + 11   PI  /data_a[8] = 0
+
+  (G) + 12   PI  /data_a[7] = 0
+  (R) + 12   PI  /data_a[7] = 0
+
+  (G) + 13   PI  /data_a[6] = 0
+  (R) + 13   PI  /data_a[6] = 0
+
+  (G) + 14   PI  /data_a[5] = 0
+  (R) + 14   PI  /data_a[5] = 0
+
+  (G) + 15   PI  /data_a[4] = 0
+  (R) + 15   PI  /data_a[4] = 0
+
+  (G) + 16   PI  /data_a[3] = 0
+  (R) + 16   PI  /data_a[3] = 0
+
+  (G) + 17   PI  /data_a[2] = 0
+  (R) + 17   PI  /data_a[2] = 0
+
+  (G) + 18   PI  /data_a[1] = 0
+  (R) + 18   PI  /data_a[1] = 0
+
+  (G) + 19   PI  /data_a[0] = 0
+  (R) + 19   PI  /data_a[0] = 0
+
+  (G) + 21   PI  /data_b[14] = 0
+  (R) + 21   PI  /data_b[14] = 0
+
+  (G) + 22   PI  /data_b[13] = 0
+  (R) + 22   PI  /data_b[13] = 0
+
+  (G) + 23   PI  /data_b[12] = 0
+  (R) + 23   PI  /data_b[12] = 0
+
+  (G) + 24   PI  /data_b[11] = 1
+  (R) + 24   PI  /data_b[11] = 1
+
+  (G) + 25   PI  /data_b[10] = 0
+  (R) + 25   PI  /data_b[10] = 0
+
+  (G) + 26   PI  /data_b[9] = 0
+  (R) + 26   PI  /data_b[9] = 0
+
+  (G) + 27   PI  /data_b[8] = 0
+  (R) + 27   PI  /data_b[8] = 0
+
+  (G) + 28   PI  /data_b[7] = 1
+  (R) + 28   PI  /data_b[7] = 1
+
+  (G) + 29   PI  /data_b[6] = 1
+  (R) + 29   PI  /data_b[6] = 1
+
+  (G) + 30   PI  /data_b[5] = 1
+  (R) + 30   PI  /data_b[5] = 1
+
+  (G) + 31   PI  /data_b[4] = 1
+  (R) + 31   PI  /data_b[4] = 1
+
+  (G) + 32   PI  /data_b[3] = 1
+  (R) + 32   PI  /data_b[3] = 1
+
+  (G) + 33   PI  /data_b[2] = 0
+  (R) + 33   PI  /data_b[2] = 0
+
+  (G) + 34   PI  /data_b[1] = 1
+  (R) + 34   PI  /data_b[1] = 1
+
+  (G) + 35   PI  /data_b[0] = 0
+  (R) + 35   PI  /data_b[0] = 0
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 86   DFF /result_reg[14]/U$1 = 1
+  (R) + 86   DFF /result_reg[14]/U$1 = 1
+
+  (R) + 4    PI  /data_a[15] = 1
+
+  (R) + 20   PI  /data_b[15] = 1
+
+
+Simulation result:
+  (G) + 5100 NAND /g3060/U$1 = 0
+  (R) + 1070 NAND /g3060__1617/U$1 = 1
+
+
+
+Functional test vector for mapped points:
+  (G) + 102  DFF  /result_reg[30]/U$1
+  (R) + 102  DFF  /result_reg[30]/U$1
+Diagnosis points: [DATA]
+  (G) + 5197 INV  /g3082/U$1
+  (R) + 1915 INV  /g3082/U$1
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 4    PI  /data_a[15] = 0
+  (R) + 4    PI  /data_a[15] = 0
+
+  (G) + 5    PI  /data_a[14] = 1
+  (R) + 5    PI  /data_a[14] = 1
+
+  (G) + 6    PI  /data_a[13] = 1
+  (R) + 6    PI  /data_a[13] = 1
+
+  (G) + 7    PI  /data_a[12] = 1
+  (R) + 7    PI  /data_a[12] = 1
+
+  (G) + 8    PI  /data_a[11] = 1
+  (R) + 8    PI  /data_a[11] = 1
+
+  (G) + 9    PI  /data_a[10] = 1
+  (R) + 9    PI  /data_a[10] = 1
+
+  (G) + 10   PI  /data_a[9] = 0
+  (R) + 10   PI  /data_a[9] = 0
+
+  (G) + 11   PI  /data_a[8] = 1
+  (R) + 11   PI  /data_a[8] = 1
+
+  (G) + 12   PI  /data_a[7] = 1
+  (R) + 12   PI  /data_a[7] = 1
+
+  (G) + 13   PI  /data_a[6] = 0
+  (R) + 13   PI  /data_a[6] = 0
+
+  (G) + 14   PI  /data_a[5] = 1
+  (R) + 14   PI  /data_a[5] = 1
+
+  (G) + 15   PI  /data_a[4] = 1
+  (R) + 15   PI  /data_a[4] = 1
+
+  (G) + 16   PI  /data_a[3] = 0
+  (R) + 16   PI  /data_a[3] = 0
+
+  (G) + 17   PI  /data_a[2] = 0
+  (R) + 17   PI  /data_a[2] = 0
+
+  (G) + 18   PI  /data_a[1] = 0
+  (R) + 18   PI  /data_a[1] = 0
+
+  (G) + 19   PI  /data_a[0] = 1
+  (R) + 19   PI  /data_a[0] = 1
+
+  (G) + 20   PI  /data_b[15] = 1
+  (R) + 20   PI  /data_b[15] = 1
+
+  (G) + 21   PI  /data_b[14] = 1
+  (R) + 21   PI  /data_b[14] = 1
+
+  (G) + 22   PI  /data_b[13] = 1
+  (R) + 22   PI  /data_b[13] = 1
+
+  (G) + 23   PI  /data_b[12] = 0
+  (R) + 23   PI  /data_b[12] = 0
+
+  (G) + 24   PI  /data_b[11] = 0
+  (R) + 24   PI  /data_b[11] = 0
+
+  (G) + 25   PI  /data_b[10] = 0
+  (R) + 25   PI  /data_b[10] = 0
+
+  (G) + 26   PI  /data_b[9] = 0
+  (R) + 26   PI  /data_b[9] = 0
+
+  (G) + 27   PI  /data_b[8] = 1
+  (R) + 27   PI  /data_b[8] = 1
+
+  (G) + 28   PI  /data_b[7] = 0
+  (R) + 28   PI  /data_b[7] = 0
+
+  (G) + 29   PI  /data_b[6] = 0
+  (R) + 29   PI  /data_b[6] = 0
+
+  (G) + 30   PI  /data_b[5] = 1
+  (R) + 30   PI  /data_b[5] = 1
+
+  (G) + 31   PI  /data_b[4] = 1
+  (R) + 31   PI  /data_b[4] = 1
+
+  (G) + 32   PI  /data_b[3] = 1
+  (R) + 32   PI  /data_b[3] = 1
+
+  (G) + 33   PI  /data_b[2] = 0
+  (R) + 33   PI  /data_b[2] = 0
+
+  (G) + 34   PI  /data_b[1] = 1
+  (R) + 34   PI  /data_b[1] = 1
+
+  (G) + 35   PI  /data_b[0] = 0
+  (R) + 35   PI  /data_b[0] = 0
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 102  DFF /result_reg[30]/U$1 = 1
+  (R) + 102  DFF /result_reg[30]/U$1 = 1
+
+
+Simulation result:
+  (G) + 5197 INV /g3082/U$1 = 1
+  (R) + 1915 INV /g3082/U$1 = 0
+
+
+
+Functional test vector for mapped points:
+  (G) + 92   DFF  /result_reg[20]/U$1
+  (R) + 92   DFF  /result_reg[20]/U$1
+Diagnosis points: [DATA]
+  (G) + 5157 INV  /g3072/U$1
+  (R) + 1844 INV  /g3072/U$1
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 4    PI  /data_a[15] = 0
+  (R) + 4    PI  /data_a[15] = 0
+
+  (G) + 5    PI  /data_a[14] = 1
+  (R) + 5    PI  /data_a[14] = 1
+
+  (G) + 6    PI  /data_a[13] = 1
+  (R) + 6    PI  /data_a[13] = 1
+
+  (G) + 7    PI  /data_a[12] = 1
+  (R) + 7    PI  /data_a[12] = 1
+
+  (G) + 8    PI  /data_a[11] = 0
+  (R) + 8    PI  /data_a[11] = 0
+
+  (G) + 9    PI  /data_a[10] = 1
+  (R) + 9    PI  /data_a[10] = 1
+
+  (G) + 10   PI  /data_a[9] = 0
+  (R) + 10   PI  /data_a[9] = 0
+
+  (G) + 11   PI  /data_a[8] = 1
+  (R) + 11   PI  /data_a[8] = 1
+
+  (G) + 12   PI  /data_a[7] = 0
+  (R) + 12   PI  /data_a[7] = 0
+
+  (G) + 13   PI  /data_a[6] = 1
+  (R) + 13   PI  /data_a[6] = 1
+
+  (G) + 14   PI  /data_a[5] = 1
+  (R) + 14   PI  /data_a[5] = 1
+
+  (G) + 15   PI  /data_a[4] = 0
+  (R) + 15   PI  /data_a[4] = 0
+
+  (G) + 16   PI  /data_a[3] = 1
+  (R) + 16   PI  /data_a[3] = 1
+
+  (G) + 17   PI  /data_a[2] = 0
+  (R) + 17   PI  /data_a[2] = 0
+
+  (G) + 18   PI  /data_a[1] = 1
+  (R) + 18   PI  /data_a[1] = 1
+
+  (G) + 19   PI  /data_a[0] = 1
+  (R) + 19   PI  /data_a[0] = 1
+
+  (G) + 20   PI  /data_b[15] = 0
+  (R) + 20   PI  /data_b[15] = 0
+
+  (G) + 21   PI  /data_b[14] = 1
+  (R) + 21   PI  /data_b[14] = 1
+
+  (G) + 22   PI  /data_b[13] = 0
+  (R) + 22   PI  /data_b[13] = 0
+
+  (G) + 23   PI  /data_b[12] = 1
+  (R) + 23   PI  /data_b[12] = 1
+
+  (G) + 24   PI  /data_b[11] = 1
+  (R) + 24   PI  /data_b[11] = 1
+
+  (G) + 25   PI  /data_b[10] = 0
+  (R) + 25   PI  /data_b[10] = 0
+
+  (G) + 26   PI  /data_b[9] = 1
+  (R) + 26   PI  /data_b[9] = 1
+
+  (G) + 27   PI  /data_b[8] = 1
+  (R) + 27   PI  /data_b[8] = 1
+
+  (G) + 28   PI  /data_b[7] = 1
+  (R) + 28   PI  /data_b[7] = 1
+
+  (G) + 29   PI  /data_b[6] = 0
+  (R) + 29   PI  /data_b[6] = 0
+
+  (G) + 30   PI  /data_b[5] = 0
+  (R) + 30   PI  /data_b[5] = 0
+
+  (G) + 31   PI  /data_b[4] = 1
+  (R) + 31   PI  /data_b[4] = 1
+
+  (G) + 32   PI  /data_b[3] = 0
+  (R) + 32   PI  /data_b[3] = 0
+
+  (G) + 33   PI  /data_b[2] = 0
+  (R) + 33   PI  /data_b[2] = 0
+
+  (G) + 34   PI  /data_b[1] = 1
+  (R) + 34   PI  /data_b[1] = 1
+
+  (G) + 35   PI  /data_b[0] = 0
+  (R) + 35   PI  /data_b[0] = 0
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 92   DFF /result_reg[20]/U$1 = 1
+  (R) + 92   DFF /result_reg[20]/U$1 = 1
+
+
+Simulation result:
+  (G) + 5157 INV /g3072/U$1 = 0
+  (R) + 1844 INV /g3072/U$1 = 1
+
+
+
+Functional test vector for mapped points:
+  (G) + 82   DFF  /result_reg[10]/U$1
+  (R) + 82   DFF  /result_reg[10]/U$1
+Diagnosis points: [DATA]
+  (G) + 4986 NAND /g3052/U$1
+  (R) + 678  NAND /g3052__2398/U$1
+
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   4    PI   /data_a[15]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   5    PI   /data_a[14]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   6    PI   /data_a[13]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   7    PI   /data_a[12]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   8    PI   /data_a[11]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   20   PI   /data_b[15]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   21   PI   /data_b[14]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   22   PI   /data_b[13]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   23   PI   /data_b[12]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   24   PI   /data_b[11]
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 9    PI  /data_a[10] = 0
+  (R) + 9    PI  /data_a[10] = 0
+
+  (G) + 10   PI  /data_a[9] = 0
+  (R) + 10   PI  /data_a[9] = 0
+
+  (G) + 11   PI  /data_a[8] = 0
+  (R) + 11   PI  /data_a[8] = 0
+
+  (G) + 12   PI  /data_a[7] = 1
+  (R) + 12   PI  /data_a[7] = 1
+
+  (G) + 13   PI  /data_a[6] = 1
+  (R) + 13   PI  /data_a[6] = 1
+
+  (G) + 14   PI  /data_a[5] = 0
+  (R) + 14   PI  /data_a[5] = 0
+
+  (G) + 15   PI  /data_a[4] = 0
+  (R) + 15   PI  /data_a[4] = 0
+
+  (G) + 16   PI  /data_a[3] = 0
+  (R) + 16   PI  /data_a[3] = 0
+
+  (G) + 17   PI  /data_a[2] = 1
+  (R) + 17   PI  /data_a[2] = 1
+
+  (G) + 18   PI  /data_a[1] = 1
+  (R) + 18   PI  /data_a[1] = 1
+
+  (G) + 19   PI  /data_a[0] = 0
+  (R) + 19   PI  /data_a[0] = 0
+
+  (G) + 25   PI  /data_b[10] = 1
+  (R) + 25   PI  /data_b[10] = 1
+
+  (G) + 26   PI  /data_b[9] = 0
+  (R) + 26   PI  /data_b[9] = 0
+
+  (G) + 27   PI  /data_b[8] = 0
+  (R) + 27   PI  /data_b[8] = 0
+
+  (G) + 28   PI  /data_b[7] = 0
+  (R) + 28   PI  /data_b[7] = 0
+
+  (G) + 29   PI  /data_b[6] = 1
+  (R) + 29   PI  /data_b[6] = 1
+
+  (G) + 30   PI  /data_b[5] = 0
+  (R) + 30   PI  /data_b[5] = 0
+
+  (G) + 31   PI  /data_b[4] = 0
+  (R) + 31   PI  /data_b[4] = 0
+
+  (G) + 32   PI  /data_b[3] = 0
+  (R) + 32   PI  /data_b[3] = 0
+
+  (G) + 33   PI  /data_b[2] = 0
+  (R) + 33   PI  /data_b[2] = 0
+
+  (G) + 34   PI  /data_b[1] = 1
+  (R) + 34   PI  /data_b[1] = 1
+
+  (G) + 35   PI  /data_b[0] = 1
+  (R) + 35   PI  /data_b[0] = 1
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 82   DFF /result_reg[10]/U$1 = 0
+  (R) + 82   DFF /result_reg[10]/U$1 = 0
+
+  (R) + 4    PI  /data_a[15] = 1
+
+  (R) + 5    PI  /data_a[14] = 0
+
+  (R) + 6    PI  /data_a[13] = 0
+
+  (R) + 7    PI  /data_a[12] = 1
+
+  (R) + 8    PI  /data_a[11] = 0
+
+  (R) + 20   PI  /data_b[15] = 1
+
+  (R) + 21   PI  /data_b[14] = 1
+
+  (R) + 22   PI  /data_b[13] = 1
+
+  (R) + 23   PI  /data_b[12] = 1
+
+  (R) + 24   PI  /data_b[11] = 1
+
+
+Simulation result:
+  (G) + 4986 NAND /g3052/U$1 = 0
+  (R) + 678  NAND /g3052__2398/U$1 = 1
+
+
+
+Functional test vector for mapped points:
+  (G) + 79   DFF  /result_reg[7]/U$1
+  (R) + 79   DFF  /result_reg[7]/U$1
+Diagnosis points: [DATA]
+  (G) + 5012 NAND /g3054/U$1
+  (R) + 708  NAND /g3054__6260/U$1
+
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   4    PI   /data_a[15]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   5    PI   /data_a[14]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   6    PI   /data_a[13]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   7    PI   /data_a[12]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   8    PI   /data_a[11]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   20   PI   /data_b[15]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   21   PI   /data_b[14]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   22   PI   /data_b[13]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   23   PI   /data_b[12]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   24   PI   /data_b[11]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   25   PI   /data_b[10]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   26   PI   /data_b[9]
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 12   PI  /data_a[7] = 1
+  (R) + 12   PI  /data_a[7] = 1
+
+  (G) + 13   PI  /data_a[6] = 1
+  (R) + 13   PI  /data_a[6] = 1
+
+  (G) + 14   PI  /data_a[5] = 1
+  (R) + 14   PI  /data_a[5] = 1
+
+  (G) + 15   PI  /data_a[4] = 1
+  (R) + 15   PI  /data_a[4] = 1
+
+  (G) + 16   PI  /data_a[3] = 1
+  (R) + 16   PI  /data_a[3] = 1
+
+  (G) + 17   PI  /data_a[2] = 0
+  (R) + 17   PI  /data_a[2] = 0
+
+  (G) + 18   PI  /data_a[1] = 0
+  (R) + 18   PI  /data_a[1] = 0
+
+  (G) + 19   PI  /data_a[0] = 0
+  (R) + 19   PI  /data_a[0] = 0
+
+  (G) + 28   PI  /data_b[7] = 0
+  (R) + 28   PI  /data_b[7] = 0
+
+  (G) + 29   PI  /data_b[6] = 0
+  (R) + 29   PI  /data_b[6] = 0
+
+  (G) + 30   PI  /data_b[5] = 0
+  (R) + 30   PI  /data_b[5] = 0
+
+  (G) + 31   PI  /data_b[4] = 1
+  (R) + 31   PI  /data_b[4] = 1
+
+  (G) + 32   PI  /data_b[3] = 1
+  (R) + 32   PI  /data_b[3] = 1
+
+  (G) + 33   PI  /data_b[2] = 0
+  (R) + 33   PI  /data_b[2] = 0
+
+  (G) + 34   PI  /data_b[1] = 0
+  (R) + 34   PI  /data_b[1] = 0
+
+  (G) + 35   PI  /data_b[0] = 0
+  (R) + 35   PI  /data_b[0] = 0
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 79   DFF /result_reg[7]/U$1 = 0
+  (R) + 79   DFF /result_reg[7]/U$1 = 0
+
+  (R) + 4    PI  /data_a[15] = 0
+
+  (R) + 5    PI  /data_a[14] = 1
+
+  (R) + 6    PI  /data_a[13] = 1
+
+  (R) + 7    PI  /data_a[12] = 1
+
+  (R) + 8    PI  /data_a[11] = 1
+
+  (R) + 20   PI  /data_b[15] = 1
+
+  (R) + 21   PI  /data_b[14] = 0
+
+  (R) + 22   PI  /data_b[13] = 0
+
+  (R) + 23   PI  /data_b[12] = 0
+
+  (R) + 24   PI  /data_b[11] = 1
+
+  (R) + 25   PI  /data_b[10] = 0
+
+  (R) + 26   PI  /data_b[9] = 1
+
+
+Simulation result:
+  (G) + 5012 NAND /g3054/U$1 = 0
+  (R) + 708  NAND /g3054__6260/U$1 = 1
+
+
+
+Functional test vector for mapped points:
+  (G) + 103  DFF  /result_reg[31]/U$1
+  (R) + 103  DFF  /result_reg[31]/U$1
+Diagnosis points: [DATA]
+  (G) + 5137 INV  /g3068/U$1
+  (R) + 1812 INV  /g3068/U$1
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 4    PI  /data_a[15] = 0
+  (R) + 4    PI  /data_a[15] = 0
+
+  (G) + 5    PI  /data_a[14] = 1
+  (R) + 5    PI  /data_a[14] = 1
+
+  (G) + 6    PI  /data_a[13] = 1
+  (R) + 6    PI  /data_a[13] = 1
+
+  (G) + 7    PI  /data_a[12] = 1
+  (R) + 7    PI  /data_a[12] = 1
+
+  (G) + 8    PI  /data_a[11] = 1
+  (R) + 8    PI  /data_a[11] = 1
+
+  (G) + 9    PI  /data_a[10] = 1
+  (R) + 9    PI  /data_a[10] = 1
+
+  (G) + 10   PI  /data_a[9] = 0
+  (R) + 10   PI  /data_a[9] = 0
+
+  (G) + 11   PI  /data_a[8] = 1
+  (R) + 11   PI  /data_a[8] = 1
+
+  (G) + 12   PI  /data_a[7] = 1
+  (R) + 12   PI  /data_a[7] = 1
+
+  (G) + 13   PI  /data_a[6] = 0
+  (R) + 13   PI  /data_a[6] = 0
+
+  (G) + 14   PI  /data_a[5] = 1
+  (R) + 14   PI  /data_a[5] = 1
+
+  (G) + 15   PI  /data_a[4] = 1
+  (R) + 15   PI  /data_a[4] = 1
+
+  (G) + 16   PI  /data_a[3] = 0
+  (R) + 16   PI  /data_a[3] = 0
+
+  (G) + 17   PI  /data_a[2] = 0
+  (R) + 17   PI  /data_a[2] = 0
+
+  (G) + 18   PI  /data_a[1] = 0
+  (R) + 18   PI  /data_a[1] = 0
+
+  (G) + 19   PI  /data_a[0] = 1
+  (R) + 19   PI  /data_a[0] = 1
+
+  (G) + 20   PI  /data_b[15] = 1
+  (R) + 20   PI  /data_b[15] = 1
+
+  (G) + 21   PI  /data_b[14] = 1
+  (R) + 21   PI  /data_b[14] = 1
+
+  (G) + 22   PI  /data_b[13] = 1
+  (R) + 22   PI  /data_b[13] = 1
+
+  (G) + 23   PI  /data_b[12] = 0
+  (R) + 23   PI  /data_b[12] = 0
+
+  (G) + 24   PI  /data_b[11] = 0
+  (R) + 24   PI  /data_b[11] = 0
+
+  (G) + 25   PI  /data_b[10] = 0
+  (R) + 25   PI  /data_b[10] = 0
+
+  (G) + 26   PI  /data_b[9] = 0
+  (R) + 26   PI  /data_b[9] = 0
+
+  (G) + 27   PI  /data_b[8] = 1
+  (R) + 27   PI  /data_b[8] = 1
+
+  (G) + 28   PI  /data_b[7] = 0
+  (R) + 28   PI  /data_b[7] = 0
+
+  (G) + 29   PI  /data_b[6] = 0
+  (R) + 29   PI  /data_b[6] = 0
+
+  (G) + 30   PI  /data_b[5] = 1
+  (R) + 30   PI  /data_b[5] = 1
+
+  (G) + 31   PI  /data_b[4] = 1
+  (R) + 31   PI  /data_b[4] = 1
+
+  (G) + 32   PI  /data_b[3] = 1
+  (R) + 32   PI  /data_b[3] = 1
+
+  (G) + 33   PI  /data_b[2] = 0
+  (R) + 33   PI  /data_b[2] = 0
+
+  (G) + 34   PI  /data_b[1] = 1
+  (R) + 34   PI  /data_b[1] = 1
+
+  (G) + 35   PI  /data_b[0] = 0
+  (R) + 35   PI  /data_b[0] = 0
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 103  DFF /result_reg[31]/U$1 = 1
+  (R) + 103  DFF /result_reg[31]/U$1 = 1
+
+
+Simulation result:
+  (G) + 5137 INV /g3068/U$1 = 1
+  (R) + 1812 INV /g3068/U$1 = 0
+
+
+
+Functional test vector for mapped points:
+  (G) + 91   DFF  /result_reg[19]/U$1
+  (R) + 91   DFF  /result_reg[19]/U$1
+Diagnosis points: [DATA]
+  (G) + 5152 INV  /g3071/U$1
+  (R) + 1836 INV  /g3071/U$1
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 4    PI  /data_a[15] = 1
+  (R) + 4    PI  /data_a[15] = 1
+
+  (G) + 5    PI  /data_a[14] = 0
+  (R) + 5    PI  /data_a[14] = 0
+
+  (G) + 6    PI  /data_a[13] = 0
+  (R) + 6    PI  /data_a[13] = 0
+
+  (G) + 7    PI  /data_a[12] = 0
+  (R) + 7    PI  /data_a[12] = 0
+
+  (G) + 8    PI  /data_a[11] = 1
+  (R) + 8    PI  /data_a[11] = 1
+
+  (G) + 9    PI  /data_a[10] = 1
+  (R) + 9    PI  /data_a[10] = 1
+
+  (G) + 10   PI  /data_a[9] = 1
+  (R) + 10   PI  /data_a[9] = 1
+
+  (G) + 11   PI  /data_a[8] = 1
+  (R) + 11   PI  /data_a[8] = 1
+
+  (G) + 12   PI  /data_a[7] = 1
+  (R) + 12   PI  /data_a[7] = 1
+
+  (G) + 13   PI  /data_a[6] = 0
+  (R) + 13   PI  /data_a[6] = 0
+
+  (G) + 14   PI  /data_a[5] = 1
+  (R) + 14   PI  /data_a[5] = 1
+
+  (G) + 15   PI  /data_a[4] = 0
+  (R) + 15   PI  /data_a[4] = 0
+
+  (G) + 16   PI  /data_a[3] = 0
+  (R) + 16   PI  /data_a[3] = 0
+
+  (G) + 17   PI  /data_a[2] = 1
+  (R) + 17   PI  /data_a[2] = 1
+
+  (G) + 18   PI  /data_a[1] = 1
+  (R) + 18   PI  /data_a[1] = 1
+
+  (G) + 19   PI  /data_a[0] = 1
+  (R) + 19   PI  /data_a[0] = 1
+
+  (G) + 20   PI  /data_b[15] = 1
+  (R) + 20   PI  /data_b[15] = 1
+
+  (G) + 21   PI  /data_b[14] = 0
+  (R) + 21   PI  /data_b[14] = 0
+
+  (G) + 22   PI  /data_b[13] = 0
+  (R) + 22   PI  /data_b[13] = 0
+
+  (G) + 23   PI  /data_b[12] = 0
+  (R) + 23   PI  /data_b[12] = 0
+
+  (G) + 24   PI  /data_b[11] = 1
+  (R) + 24   PI  /data_b[11] = 1
+
+  (G) + 25   PI  /data_b[10] = 0
+  (R) + 25   PI  /data_b[10] = 0
+
+  (G) + 26   PI  /data_b[9] = 1
+  (R) + 26   PI  /data_b[9] = 1
+
+  (G) + 27   PI  /data_b[8] = 1
+  (R) + 27   PI  /data_b[8] = 1
+
+  (G) + 28   PI  /data_b[7] = 0
+  (R) + 28   PI  /data_b[7] = 0
+
+  (G) + 29   PI  /data_b[6] = 0
+  (R) + 29   PI  /data_b[6] = 0
+
+  (G) + 30   PI  /data_b[5] = 1
+  (R) + 30   PI  /data_b[5] = 1
+
+  (G) + 31   PI  /data_b[4] = 0
+  (R) + 31   PI  /data_b[4] = 0
+
+  (G) + 32   PI  /data_b[3] = 0
+  (R) + 32   PI  /data_b[3] = 0
+
+  (G) + 33   PI  /data_b[2] = 1
+  (R) + 33   PI  /data_b[2] = 1
+
+  (G) + 34   PI  /data_b[1] = 1
+  (R) + 34   PI  /data_b[1] = 1
+
+  (G) + 35   PI  /data_b[0] = 0
+  (R) + 35   PI  /data_b[0] = 0
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 91   DFF /result_reg[19]/U$1 = 1
+  (R) + 91   DFF /result_reg[19]/U$1 = 1
+
+
+Simulation result:
+  (G) + 5152 INV /g3071/U$1 = 0
+  (R) + 1836 INV /g3071/U$1 = 1
+
+
+
+Functional test vector for mapped points:
+  (G) + 85   DFF  /result_reg[13]/U$1
+  (R) + 85   DFF  /result_reg[13]/U$1
+Diagnosis points: [DATA]
+  (G) + 5084 NAND /g3059/U$1
+  (R) + 985  NAND /g3059__3680/U$1
+
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   4    PI   /data_a[15]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   5    PI   /data_a[14]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   20   PI   /data_b[15]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   21   PI   /data_b[14]
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 6    PI  /data_a[13] = 1
+  (R) + 6    PI  /data_a[13] = 1
+
+  (G) + 7    PI  /data_a[12] = 0
+  (R) + 7    PI  /data_a[12] = 0
+
+  (G) + 8    PI  /data_a[11] = 1
+  (R) + 8    PI  /data_a[11] = 1
+
+  (G) + 9    PI  /data_a[10] = 1
+  (R) + 9    PI  /data_a[10] = 1
+
+  (G) + 10   PI  /data_a[9] = 0
+  (R) + 10   PI  /data_a[9] = 0
+
+  (G) + 11   PI  /data_a[8] = 0
+  (R) + 11   PI  /data_a[8] = 0
+
+  (G) + 12   PI  /data_a[7] = 0
+  (R) + 12   PI  /data_a[7] = 0
+
+  (G) + 13   PI  /data_a[6] = 0
+  (R) + 13   PI  /data_a[6] = 0
+
+  (G) + 14   PI  /data_a[5] = 0
+  (R) + 14   PI  /data_a[5] = 0
+
+  (G) + 15   PI  /data_a[4] = 0
+  (R) + 15   PI  /data_a[4] = 0
+
+  (G) + 16   PI  /data_a[3] = 1
+  (R) + 16   PI  /data_a[3] = 1
+
+  (G) + 17   PI  /data_a[2] = 0
+  (R) + 17   PI  /data_a[2] = 0
+
+  (G) + 18   PI  /data_a[1] = 1
+  (R) + 18   PI  /data_a[1] = 1
+
+  (G) + 19   PI  /data_a[0] = 0
+  (R) + 19   PI  /data_a[0] = 0
+
+  (G) + 22   PI  /data_b[13] = 0
+  (R) + 22   PI  /data_b[13] = 0
+
+  (G) + 23   PI  /data_b[12] = 1
+  (R) + 23   PI  /data_b[12] = 1
+
+  (G) + 24   PI  /data_b[11] = 1
+  (R) + 24   PI  /data_b[11] = 1
+
+  (G) + 25   PI  /data_b[10] = 0
+  (R) + 25   PI  /data_b[10] = 0
+
+  (G) + 26   PI  /data_b[9] = 1
+  (R) + 26   PI  /data_b[9] = 1
+
+  (G) + 27   PI  /data_b[8] = 0
+  (R) + 27   PI  /data_b[8] = 0
+
+  (G) + 28   PI  /data_b[7] = 1
+  (R) + 28   PI  /data_b[7] = 1
+
+  (G) + 29   PI  /data_b[6] = 1
+  (R) + 29   PI  /data_b[6] = 1
+
+  (G) + 30   PI  /data_b[5] = 0
+  (R) + 30   PI  /data_b[5] = 0
+
+  (G) + 31   PI  /data_b[4] = 0
+  (R) + 31   PI  /data_b[4] = 0
+
+  (G) + 32   PI  /data_b[3] = 0
+  (R) + 32   PI  /data_b[3] = 0
+
+  (G) + 33   PI  /data_b[2] = 1
+  (R) + 33   PI  /data_b[2] = 1
+
+  (G) + 34   PI  /data_b[1] = 1
+  (R) + 34   PI  /data_b[1] = 1
+
+  (G) + 35   PI  /data_b[0] = 1
+  (R) + 35   PI  /data_b[0] = 1
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 85   DFF /result_reg[13]/U$1 = 0
+  (R) + 85   DFF /result_reg[13]/U$1 = 0
+
+  (R) + 4    PI  /data_a[15] = 0
+
+  (R) + 5    PI  /data_a[14] = 0
+
+  (R) + 20   PI  /data_b[15] = 0
+
+  (R) + 21   PI  /data_b[14] = 1
+
+
+Simulation result:
+  (G) + 5084 NAND /g3059/U$1 = 1
+  (R) + 985  NAND /g3059__3680/U$1 = 0
+
+
+
+Functional test vector for mapped points:
+  (G) + 90   DFF  /result_reg[18]/U$1
+  (R) + 90   DFF  /result_reg[18]/U$1
+Diagnosis points: [DATA]
+  (G) + 5147 INV  /g3070/U$1
+  (R) + 1828 INV  /g3070/U$1
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 4    PI  /data_a[15] = 0
+  (R) + 4    PI  /data_a[15] = 0
+
+  (G) + 5    PI  /data_a[14] = 1
+  (R) + 5    PI  /data_a[14] = 1
+
+  (G) + 6    PI  /data_a[13] = 0
+  (R) + 6    PI  /data_a[13] = 0
+
+  (G) + 7    PI  /data_a[12] = 0
+  (R) + 7    PI  /data_a[12] = 0
+
+  (G) + 8    PI  /data_a[11] = 0
+  (R) + 8    PI  /data_a[11] = 0
+
+  (G) + 9    PI  /data_a[10] = 0
+  (R) + 9    PI  /data_a[10] = 0
+
+  (G) + 10   PI  /data_a[9] = 0
+  (R) + 10   PI  /data_a[9] = 0
+
+  (G) + 11   PI  /data_a[8] = 1
+  (R) + 11   PI  /data_a[8] = 1
+
+  (G) + 12   PI  /data_a[7] = 1
+  (R) + 12   PI  /data_a[7] = 1
+
+  (G) + 13   PI  /data_a[6] = 0
+  (R) + 13   PI  /data_a[6] = 0
+
+  (G) + 14   PI  /data_a[5] = 1
+  (R) + 14   PI  /data_a[5] = 1
+
+  (G) + 15   PI  /data_a[4] = 0
+  (R) + 15   PI  /data_a[4] = 0
+
+  (G) + 16   PI  /data_a[3] = 0
+  (R) + 16   PI  /data_a[3] = 0
+
+  (G) + 17   PI  /data_a[2] = 1
+  (R) + 17   PI  /data_a[2] = 1
+
+  (G) + 18   PI  /data_a[1] = 1
+  (R) + 18   PI  /data_a[1] = 1
+
+  (G) + 19   PI  /data_a[0] = 1
+  (R) + 19   PI  /data_a[0] = 1
+
+  (G) + 20   PI  /data_b[15] = 0
+  (R) + 20   PI  /data_b[15] = 0
+
+  (G) + 21   PI  /data_b[14] = 1
+  (R) + 21   PI  /data_b[14] = 1
+
+  (G) + 22   PI  /data_b[13] = 0
+  (R) + 22   PI  /data_b[13] = 0
+
+  (G) + 23   PI  /data_b[12] = 1
+  (R) + 23   PI  /data_b[12] = 1
+
+  (G) + 24   PI  /data_b[11] = 0
+  (R) + 24   PI  /data_b[11] = 0
+
+  (G) + 25   PI  /data_b[10] = 1
+  (R) + 25   PI  /data_b[10] = 1
+
+  (G) + 26   PI  /data_b[9] = 1
+  (R) + 26   PI  /data_b[9] = 1
+
+  (G) + 27   PI  /data_b[8] = 0
+  (R) + 27   PI  /data_b[8] = 0
+
+  (G) + 28   PI  /data_b[7] = 0
+  (R) + 28   PI  /data_b[7] = 0
+
+  (G) + 29   PI  /data_b[6] = 0
+  (R) + 29   PI  /data_b[6] = 0
+
+  (G) + 30   PI  /data_b[5] = 0
+  (R) + 30   PI  /data_b[5] = 0
+
+  (G) + 31   PI  /data_b[4] = 1
+  (R) + 31   PI  /data_b[4] = 1
+
+  (G) + 32   PI  /data_b[3] = 0
+  (R) + 32   PI  /data_b[3] = 0
+
+  (G) + 33   PI  /data_b[2] = 1
+  (R) + 33   PI  /data_b[2] = 1
+
+  (G) + 34   PI  /data_b[1] = 1
+  (R) + 34   PI  /data_b[1] = 1
+
+  (G) + 35   PI  /data_b[0] = 1
+  (R) + 35   PI  /data_b[0] = 1
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 90   DFF /result_reg[18]/U$1 = 1
+  (R) + 90   DFF /result_reg[18]/U$1 = 1
+
+
+Simulation result:
+  (G) + 5147 INV /g3070/U$1 = 1
+  (R) + 1828 INV /g3070/U$1 = 0
+
+
+
+Functional test vector for mapped points:
+  (G) + 81   DFF  /result_reg[9]/U$1
+  (R) + 81   DFF  /result_reg[9]/U$1
+Diagnosis points: [DATA]
+  (G) + 5000 NAND /g3053/U$1
+  (R) + 694  NAND /g3053__5107/U$1
+
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   4    PI   /data_a[15]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   5    PI   /data_a[14]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   6    PI   /data_a[13]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   7    PI   /data_a[12]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   8    PI   /data_a[11]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   20   PI   /data_b[15]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   21   PI   /data_b[14]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   22   PI   /data_b[13]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   23   PI   /data_b[12]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   24   PI   /data_b[11]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   25   PI   /data_b[10]
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 10   PI  /data_a[9] = 0
+  (R) + 10   PI  /data_a[9] = 0
+
+  (G) + 11   PI  /data_a[8] = 0
+  (R) + 11   PI  /data_a[8] = 0
+
+  (G) + 12   PI  /data_a[7] = 0
+  (R) + 12   PI  /data_a[7] = 0
+
+  (G) + 13   PI  /data_a[6] = 0
+  (R) + 13   PI  /data_a[6] = 0
+
+  (G) + 14   PI  /data_a[5] = 1
+  (R) + 14   PI  /data_a[5] = 1
+
+  (G) + 15   PI  /data_a[4] = 0
+  (R) + 15   PI  /data_a[4] = 0
+
+  (G) + 16   PI  /data_a[3] = 1
+  (R) + 16   PI  /data_a[3] = 1
+
+  (G) + 17   PI  /data_a[2] = 0
+  (R) + 17   PI  /data_a[2] = 0
+
+  (G) + 18   PI  /data_a[1] = 1
+  (R) + 18   PI  /data_a[1] = 1
+
+  (G) + 19   PI  /data_a[0] = 1
+  (R) + 19   PI  /data_a[0] = 1
+
+  (G) + 26   PI  /data_b[9] = 0
+  (R) + 26   PI  /data_b[9] = 0
+
+  (G) + 27   PI  /data_b[8] = 1
+  (R) + 27   PI  /data_b[8] = 1
+
+  (G) + 28   PI  /data_b[7] = 0
+  (R) + 28   PI  /data_b[7] = 0
+
+  (G) + 29   PI  /data_b[6] = 1
+  (R) + 29   PI  /data_b[6] = 1
+
+  (G) + 30   PI  /data_b[5] = 0
+  (R) + 30   PI  /data_b[5] = 0
+
+  (G) + 31   PI  /data_b[4] = 0
+  (R) + 31   PI  /data_b[4] = 0
+
+  (G) + 32   PI  /data_b[3] = 1
+  (R) + 32   PI  /data_b[3] = 1
+
+  (G) + 33   PI  /data_b[2] = 1
+  (R) + 33   PI  /data_b[2] = 1
+
+  (G) + 34   PI  /data_b[1] = 0
+  (R) + 34   PI  /data_b[1] = 0
+
+  (G) + 35   PI  /data_b[0] = 0
+  (R) + 35   PI  /data_b[0] = 0
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 81   DFF /result_reg[9]/U$1 = 0
+  (R) + 81   DFF /result_reg[9]/U$1 = 0
+
+  (R) + 4    PI  /data_a[15] = 1
+
+  (R) + 5    PI  /data_a[14] = 1
+
+  (R) + 6    PI  /data_a[13] = 0
+
+  (R) + 7    PI  /data_a[12] = 1
+
+  (R) + 8    PI  /data_a[11] = 0
+
+  (R) + 20   PI  /data_b[15] = 1
+
+  (R) + 21   PI  /data_b[14] = 1
+
+  (R) + 22   PI  /data_b[13] = 0
+
+  (R) + 23   PI  /data_b[12] = 1
+
+  (R) + 24   PI  /data_b[11] = 0
+
+  (R) + 25   PI  /data_b[10] = 1
+
+
+Simulation result:
+  (G) + 5000 NAND /g3053/U$1 = 1
+  (R) + 694  NAND /g3053__5107/U$1 = 0
+
+
+
+Functional test vector for mapped points:
+  (G) + 89   DFF  /result_reg[17]/U$1
+  (R) + 89   DFF  /result_reg[17]/U$1
+Diagnosis points: [DATA]
+  (G) + 5143 INV  /g3069/U$1
+  (R) + 1821 INV  /g3069/U$1
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 4    PI  /data_a[15] = 0
+  (R) + 4    PI  /data_a[15] = 0
+
+  (G) + 5    PI  /data_a[14] = 1
+  (R) + 5    PI  /data_a[14] = 1
+
+  (G) + 6    PI  /data_a[13] = 0
+  (R) + 6    PI  /data_a[13] = 0
+
+  (G) + 7    PI  /data_a[12] = 0
+  (R) + 7    PI  /data_a[12] = 0
+
+  (G) + 8    PI  /data_a[11] = 0
+  (R) + 8    PI  /data_a[11] = 0
+
+  (G) + 9    PI  /data_a[10] = 0
+  (R) + 9    PI  /data_a[10] = 0
+
+  (G) + 10   PI  /data_a[9] = 0
+  (R) + 10   PI  /data_a[9] = 0
+
+  (G) + 11   PI  /data_a[8] = 1
+  (R) + 11   PI  /data_a[8] = 1
+
+  (G) + 12   PI  /data_a[7] = 1
+  (R) + 12   PI  /data_a[7] = 1
+
+  (G) + 13   PI  /data_a[6] = 0
+  (R) + 13   PI  /data_a[6] = 0
+
+  (G) + 14   PI  /data_a[5] = 1
+  (R) + 14   PI  /data_a[5] = 1
+
+  (G) + 15   PI  /data_a[4] = 0
+  (R) + 15   PI  /data_a[4] = 0
+
+  (G) + 16   PI  /data_a[3] = 0
+  (R) + 16   PI  /data_a[3] = 0
+
+  (G) + 17   PI  /data_a[2] = 1
+  (R) + 17   PI  /data_a[2] = 1
+
+  (G) + 18   PI  /data_a[1] = 1
+  (R) + 18   PI  /data_a[1] = 1
+
+  (G) + 19   PI  /data_a[0] = 1
+  (R) + 19   PI  /data_a[0] = 1
+
+  (G) + 20   PI  /data_b[15] = 0
+  (R) + 20   PI  /data_b[15] = 0
+
+  (G) + 21   PI  /data_b[14] = 1
+  (R) + 21   PI  /data_b[14] = 1
+
+  (G) + 22   PI  /data_b[13] = 0
+  (R) + 22   PI  /data_b[13] = 0
+
+  (G) + 23   PI  /data_b[12] = 1
+  (R) + 23   PI  /data_b[12] = 1
+
+  (G) + 24   PI  /data_b[11] = 0
+  (R) + 24   PI  /data_b[11] = 0
+
+  (G) + 25   PI  /data_b[10] = 1
+  (R) + 25   PI  /data_b[10] = 1
+
+  (G) + 26   PI  /data_b[9] = 1
+  (R) + 26   PI  /data_b[9] = 1
+
+  (G) + 27   PI  /data_b[8] = 0
+  (R) + 27   PI  /data_b[8] = 0
+
+  (G) + 28   PI  /data_b[7] = 0
+  (R) + 28   PI  /data_b[7] = 0
+
+  (G) + 29   PI  /data_b[6] = 0
+  (R) + 29   PI  /data_b[6] = 0
+
+  (G) + 30   PI  /data_b[5] = 0
+  (R) + 30   PI  /data_b[5] = 0
+
+  (G) + 31   PI  /data_b[4] = 1
+  (R) + 31   PI  /data_b[4] = 1
+
+  (G) + 32   PI  /data_b[3] = 0
+  (R) + 32   PI  /data_b[3] = 0
+
+  (G) + 33   PI  /data_b[2] = 1
+  (R) + 33   PI  /data_b[2] = 1
+
+  (G) + 34   PI  /data_b[1] = 1
+  (R) + 34   PI  /data_b[1] = 1
+
+  (G) + 35   PI  /data_b[0] = 1
+  (R) + 35   PI  /data_b[0] = 1
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 89   DFF /result_reg[17]/U$1 = 1
+  (R) + 89   DFF /result_reg[17]/U$1 = 1
+
+
+Simulation result:
+  (G) + 5143 INV /g3069/U$1 = 0
+  (R) + 1821 INV /g3069/U$1 = 1
+
+
+
+Functional test vector for mapped points:
+  (G) + 78   DFF  /result_reg[6]/U$1
+  (R) + 78   DFF  /result_reg[6]/U$1
+Diagnosis points: [DATA]
+  (G) + 5034 NAND /g3056/U$1
+  (R) + 734  NAND /g3056__8428/U$1
+
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   4    PI   /data_a[15]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   5    PI   /data_a[14]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   6    PI   /data_a[13]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   7    PI   /data_a[12]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   8    PI   /data_a[11]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   20   PI   /data_b[15]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   21   PI   /data_b[14]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   22   PI   /data_b[13]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   23   PI   /data_b[12]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   24   PI   /data_b[11]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   25   PI   /data_b[10]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   26   PI   /data_b[9]
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 13   PI  /data_a[6] = 1
+  (R) + 13   PI  /data_a[6] = 1
+
+  (G) + 14   PI  /data_a[5] = 1
+  (R) + 14   PI  /data_a[5] = 1
+
+  (G) + 15   PI  /data_a[4] = 1
+  (R) + 15   PI  /data_a[4] = 1
+
+  (G) + 16   PI  /data_a[3] = 1
+  (R) + 16   PI  /data_a[3] = 1
+
+  (G) + 17   PI  /data_a[2] = 0
+  (R) + 17   PI  /data_a[2] = 0
+
+  (G) + 18   PI  /data_a[1] = 0
+  (R) + 18   PI  /data_a[1] = 0
+
+  (G) + 19   PI  /data_a[0] = 0
+  (R) + 19   PI  /data_a[0] = 0
+
+  (G) + 29   PI  /data_b[6] = 0
+  (R) + 29   PI  /data_b[6] = 0
+
+  (G) + 30   PI  /data_b[5] = 0
+  (R) + 30   PI  /data_b[5] = 0
+
+  (G) + 31   PI  /data_b[4] = 1
+  (R) + 31   PI  /data_b[4] = 1
+
+  (G) + 32   PI  /data_b[3] = 1
+  (R) + 32   PI  /data_b[3] = 1
+
+  (G) + 33   PI  /data_b[2] = 0
+  (R) + 33   PI  /data_b[2] = 0
+
+  (G) + 34   PI  /data_b[1] = 0
+  (R) + 34   PI  /data_b[1] = 0
+
+  (G) + 35   PI  /data_b[0] = 0
+  (R) + 35   PI  /data_b[0] = 0
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 78   DFF /result_reg[6]/U$1 = 0
+  (R) + 78   DFF /result_reg[6]/U$1 = 0
+
+  (R) + 4    PI  /data_a[15] = 0
+
+  (R) + 5    PI  /data_a[14] = 1
+
+  (R) + 6    PI  /data_a[13] = 1
+
+  (R) + 7    PI  /data_a[12] = 1
+
+  (R) + 8    PI  /data_a[11] = 1
+
+  (R) + 20   PI  /data_b[15] = 1
+
+  (R) + 21   PI  /data_b[14] = 0
+
+  (R) + 22   PI  /data_b[13] = 0
+
+  (R) + 23   PI  /data_b[12] = 0
+
+  (R) + 24   PI  /data_b[11] = 1
+
+  (R) + 25   PI  /data_b[10] = 0
+
+  (R) + 26   PI  /data_b[9] = 1
+
+
+Simulation result:
+  (G) + 5034 NAND /g3056/U$1 = 1
+  (R) + 734  NAND /g3056__8428/U$1 = 0
+
+
+
+Functional test vector for mapped points:
+  (G) + 84   DFF  /result_reg[12]/U$1
+  (R) + 84   DFF  /result_reg[12]/U$1
+Diagnosis points: [DATA]
+  (G) + 5068 NAND /g3058/U$1
+  (R) + 896  NAND /g3058__6783/U$1
+
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   4    PI   /data_a[15]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   5    PI   /data_a[14]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   6    PI   /data_a[13]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   20   PI   /data_b[15]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   21   PI   /data_b[14]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   22   PI   /data_b[13]
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 7    PI  /data_a[12] = 1
+  (R) + 7    PI  /data_a[12] = 1
+
+  (G) + 8    PI  /data_a[11] = 0
+  (R) + 8    PI  /data_a[11] = 0
+
+  (G) + 9    PI  /data_a[10] = 0
+  (R) + 9    PI  /data_a[10] = 0
+
+  (G) + 10   PI  /data_a[9] = 0
+  (R) + 10   PI  /data_a[9] = 0
+
+  (G) + 11   PI  /data_a[8] = 1
+  (R) + 11   PI  /data_a[8] = 1
+
+  (G) + 12   PI  /data_a[7] = 1
+  (R) + 12   PI  /data_a[7] = 1
+
+  (G) + 13   PI  /data_a[6] = 1
+  (R) + 13   PI  /data_a[6] = 1
+
+  (G) + 14   PI  /data_a[5] = 1
+  (R) + 14   PI  /data_a[5] = 1
+
+  (G) + 15   PI  /data_a[4] = 0
+  (R) + 15   PI  /data_a[4] = 0
+
+  (G) + 16   PI  /data_a[3] = 1
+  (R) + 16   PI  /data_a[3] = 1
+
+  (G) + 17   PI  /data_a[2] = 0
+  (R) + 17   PI  /data_a[2] = 0
+
+  (G) + 18   PI  /data_a[1] = 0
+  (R) + 18   PI  /data_a[1] = 0
+
+  (G) + 19   PI  /data_a[0] = 0
+  (R) + 19   PI  /data_a[0] = 0
+
+  (G) + 23   PI  /data_b[12] = 0
+  (R) + 23   PI  /data_b[12] = 0
+
+  (G) + 24   PI  /data_b[11] = 1
+  (R) + 24   PI  /data_b[11] = 1
+
+  (G) + 25   PI  /data_b[10] = 0
+  (R) + 25   PI  /data_b[10] = 0
+
+  (G) + 26   PI  /data_b[9] = 0
+  (R) + 26   PI  /data_b[9] = 0
+
+  (G) + 27   PI  /data_b[8] = 1
+  (R) + 27   PI  /data_b[8] = 1
+
+  (G) + 28   PI  /data_b[7] = 0
+  (R) + 28   PI  /data_b[7] = 0
+
+  (G) + 29   PI  /data_b[6] = 1
+  (R) + 29   PI  /data_b[6] = 1
+
+  (G) + 30   PI  /data_b[5] = 0
+  (R) + 30   PI  /data_b[5] = 0
+
+  (G) + 31   PI  /data_b[4] = 1
+  (R) + 31   PI  /data_b[4] = 1
+
+  (G) + 32   PI  /data_b[3] = 1
+  (R) + 32   PI  /data_b[3] = 1
+
+  (G) + 33   PI  /data_b[2] = 0
+  (R) + 33   PI  /data_b[2] = 0
+
+  (G) + 34   PI  /data_b[1] = 0
+  (R) + 34   PI  /data_b[1] = 0
+
+  (G) + 35   PI  /data_b[0] = 0
+  (R) + 35   PI  /data_b[0] = 0
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 84   DFF /result_reg[12]/U$1 = 0
+  (R) + 84   DFF /result_reg[12]/U$1 = 0
+
+  (R) + 4    PI  /data_a[15] = 1
+
+  (R) + 5    PI  /data_a[14] = 0
+
+  (R) + 6    PI  /data_a[13] = 1
+
+  (R) + 20   PI  /data_b[15] = 0
+
+  (R) + 21   PI  /data_b[14] = 0
+
+  (R) + 22   PI  /data_b[13] = 1
+
+
+Simulation result:
+  (G) + 5068 NAND /g3058/U$1 = 0
+  (R) + 896  NAND /g3058__6783/U$1 = 1
+
+
+
+Functional test vector for mapped points:
+  (G) + 88   DFF  /result_reg[16]/U$1
+  (R) + 88   DFF  /result_reg[16]/U$1
+Diagnosis points: [DATA]
+  (G) + 5212 INV  /g3099/U$1
+  (R) + 1935 INV  /g3099/U$1
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 4    PI  /data_a[15] = 0
+  (R) + 4    PI  /data_a[15] = 0
+
+  (G) + 5    PI  /data_a[14] = 1
+  (R) + 5    PI  /data_a[14] = 1
+
+  (G) + 6    PI  /data_a[13] = 0
+  (R) + 6    PI  /data_a[13] = 0
+
+  (G) + 7    PI  /data_a[12] = 0
+  (R) + 7    PI  /data_a[12] = 0
+
+  (G) + 8    PI  /data_a[11] = 0
+  (R) + 8    PI  /data_a[11] = 0
+
+  (G) + 9    PI  /data_a[10] = 0
+  (R) + 9    PI  /data_a[10] = 0
+
+  (G) + 10   PI  /data_a[9] = 0
+  (R) + 10   PI  /data_a[9] = 0
+
+  (G) + 11   PI  /data_a[8] = 1
+  (R) + 11   PI  /data_a[8] = 1
+
+  (G) + 12   PI  /data_a[7] = 1
+  (R) + 12   PI  /data_a[7] = 1
+
+  (G) + 13   PI  /data_a[6] = 0
+  (R) + 13   PI  /data_a[6] = 0
+
+  (G) + 14   PI  /data_a[5] = 1
+  (R) + 14   PI  /data_a[5] = 1
+
+  (G) + 15   PI  /data_a[4] = 0
+  (R) + 15   PI  /data_a[4] = 0
+
+  (G) + 16   PI  /data_a[3] = 0
+  (R) + 16   PI  /data_a[3] = 0
+
+  (G) + 17   PI  /data_a[2] = 1
+  (R) + 17   PI  /data_a[2] = 1
+
+  (G) + 18   PI  /data_a[1] = 1
+  (R) + 18   PI  /data_a[1] = 1
+
+  (G) + 19   PI  /data_a[0] = 1
+  (R) + 19   PI  /data_a[0] = 1
+
+  (G) + 20   PI  /data_b[15] = 0
+  (R) + 20   PI  /data_b[15] = 0
+
+  (G) + 21   PI  /data_b[14] = 1
+  (R) + 21   PI  /data_b[14] = 1
+
+  (G) + 22   PI  /data_b[13] = 0
+  (R) + 22   PI  /data_b[13] = 0
+
+  (G) + 23   PI  /data_b[12] = 1
+  (R) + 23   PI  /data_b[12] = 1
+
+  (G) + 24   PI  /data_b[11] = 0
+  (R) + 24   PI  /data_b[11] = 0
+
+  (G) + 25   PI  /data_b[10] = 1
+  (R) + 25   PI  /data_b[10] = 1
+
+  (G) + 26   PI  /data_b[9] = 1
+  (R) + 26   PI  /data_b[9] = 1
+
+  (G) + 27   PI  /data_b[8] = 0
+  (R) + 27   PI  /data_b[8] = 0
+
+  (G) + 28   PI  /data_b[7] = 0
+  (R) + 28   PI  /data_b[7] = 0
+
+  (G) + 29   PI  /data_b[6] = 0
+  (R) + 29   PI  /data_b[6] = 0
+
+  (G) + 30   PI  /data_b[5] = 0
+  (R) + 30   PI  /data_b[5] = 0
+
+  (G) + 31   PI  /data_b[4] = 1
+  (R) + 31   PI  /data_b[4] = 1
+
+  (G) + 32   PI  /data_b[3] = 0
+  (R) + 32   PI  /data_b[3] = 0
+
+  (G) + 33   PI  /data_b[2] = 1
+  (R) + 33   PI  /data_b[2] = 1
+
+  (G) + 34   PI  /data_b[1] = 1
+  (R) + 34   PI  /data_b[1] = 1
+
+  (G) + 35   PI  /data_b[0] = 1
+  (R) + 35   PI  /data_b[0] = 1
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 88   DFF /result_reg[16]/U$1 = 1
+  (R) + 88   DFF /result_reg[16]/U$1 = 1
+
+
+Simulation result:
+  (G) + 5212 INV /g3099/U$1 = 0
+  (R) + 1935 INV /g3099/U$1 = 1
+
+
+
+Functional test vector for mapped points:
+  (G) + 80   DFF  /result_reg[8]/U$1
+  (R) + 80   DFF  /result_reg[8]/U$1
+Diagnosis points: [DATA]
+  (G) + 5023 NAND /g3055/U$1
+  (R) + 721  NAND /g3055__4319/U$1
+
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   4    PI   /data_a[15]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   5    PI   /data_a[14]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   6    PI   /data_a[13]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   7    PI   /data_a[12]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   8    PI   /data_a[11]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   20   PI   /data_b[15]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   21   PI   /data_b[14]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   22   PI   /data_b[13]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   23   PI   /data_b[12]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   24   PI   /data_b[11]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   25   PI   /data_b[10]
+// Warning: Key point's mapped point is not in compared logic cone
+  (R)   26   PI   /data_b[9]
+
+  (G) + 3    PI  /valid_in = 1
+  (R) + 3    PI  /valid_in = 1
+
+  (G) + 11   PI  /data_a[8] = 0
+  (R) + 11   PI  /data_a[8] = 0
+
+  (G) + 12   PI  /data_a[7] = 0
+  (R) + 12   PI  /data_a[7] = 0
+
+  (G) + 13   PI  /data_a[6] = 0
+  (R) + 13   PI  /data_a[6] = 0
+
+  (G) + 14   PI  /data_a[5] = 1
+  (R) + 14   PI  /data_a[5] = 1
+
+  (G) + 15   PI  /data_a[4] = 1
+  (R) + 15   PI  /data_a[4] = 1
+
+  (G) + 16   PI  /data_a[3] = 1
+  (R) + 16   PI  /data_a[3] = 1
+
+  (G) + 17   PI  /data_a[2] = 1
+  (R) + 17   PI  /data_a[2] = 1
+
+  (G) + 18   PI  /data_a[1] = 1
+  (R) + 18   PI  /data_a[1] = 1
+
+  (G) + 19   PI  /data_a[0] = 0
+  (R) + 19   PI  /data_a[0] = 0
+
+  (G) + 27   PI  /data_b[8] = 0
+  (R) + 27   PI  /data_b[8] = 0
+
+  (G) + 28   PI  /data_b[7] = 1
+  (R) + 28   PI  /data_b[7] = 1
+
+  (G) + 29   PI  /data_b[6] = 0
+  (R) + 29   PI  /data_b[6] = 0
+
+  (G) + 30   PI  /data_b[5] = 1
+  (R) + 30   PI  /data_b[5] = 1
+
+  (G) + 31   PI  /data_b[4] = 1
+  (R) + 31   PI  /data_b[4] = 1
+
+  (G) + 32   PI  /data_b[3] = 1
+  (R) + 32   PI  /data_b[3] = 1
+
+  (G) + 33   PI  /data_b[2] = 0
+  (R) + 33   PI  /data_b[2] = 0
+
+  (G) + 34   PI  /data_b[1] = 0
+  (R) + 34   PI  /data_b[1] = 0
+
+  (G) + 35   PI  /data_b[0] = 1
+  (R) + 35   PI  /data_b[0] = 1
+
+  (G) + 36   PI  /operation[1] = 1
+  (R) + 36   PI  /operation[1] = 1
+
+  (G) + 37   PI  /operation[0] = 1
+  (R) + 37   PI  /operation[0] = 1
+
+  (G) + 80   DFF /result_reg[8]/U$1 = 0
+  (R) + 80   DFF /result_reg[8]/U$1 = 0
+
+  (R) + 4    PI  /data_a[15] = 0
+
+  (R) + 5    PI  /data_a[14] = 0
+
+  (R) + 6    PI  /data_a[13] = 1
+
+  (R) + 7    PI  /data_a[12] = 0
+
+  (R) + 8    PI  /data_a[11] = 0
+
+  (R) + 20   PI  /data_b[15] = 0
+
+  (R) + 21   PI  /data_b[14] = 1
+
+  (R) + 22   PI  /data_b[13] = 1
+
+  (R) + 23   PI  /data_b[12] = 1
+
+  (R) + 24   PI  /data_b[11] = 1
+
+  (R) + 25   PI  /data_b[10] = 1
+
+  (R) + 26   PI  /data_b[9] = 1
+
+
+Simulation result:
+  (G) + 5023 NAND /g3055/U$1 = 0
+  (R) + 721  NAND /g3055__4319/U$1 = 1
+
+

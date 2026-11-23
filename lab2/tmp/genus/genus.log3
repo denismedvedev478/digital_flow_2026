@@ -1,0 +1,160 @@
+Cadence Genus(TM) Synthesis Solution.
+Copyright 2024 Cadence Design Systems, Inc. All rights reserved worldwide.
+Cadence and the Cadence logo are registered trademarks and Genus is a trademark
+of Cadence Design Systems, Inc. in the United States and other countries.
+
+[22:49:51.357307] Configured Lic search path (23.02-s003): 5280@srv-eda-01:5280@srv-eda-05:1717@srv-eda-01
+
+Version: 23.10-p004_1, built Thu Feb 01 02:43:46 PST 2024
+Options: -files /home/denismedvedev478/digital_flow_2026/lab2/flow_scripts/flow.genus.syn.tcl 
+Date:    Sun Oct 18 22:49:51 2026
+Host:    miet-cad-edu (x86_64 w/Linux 3.10.0-1160.119.1.el7.x86_64) (32cores*32cpus*1physical cpu*Common KVM processor 512KB) (132031524KB)
+PID:     4940
+OS:      CentOS Linux release 7.9.2009 (Core)
+
+Checking out license: Genus_Synthesis
+[22:49:51.374146] Periodic Lic check successful
+[22:49:51.374159] Feature usage summary:
+[22:49:51.374159] Genus_Synthesis
+
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+
+
+
+Finished executable startup (1 second elapsed).
+
+Loading tool scripts...
+Finished loading tool scripts (12 seconds elapsed).
+
+#@ Processing -files option
+@genus:root: 1> source /home/denismedvedev478/digital_flow_2026/lab2/flow_scripts/flow.genus.syn.tcl
+#@ Begin verbose source /home/denismedvedev478/digital_flow_2026/lab2/flow_scripts/flow.genus.syn.tcl
+@file(flow.genus.syn.tcl) 5: source $::env(FLOW_DIR)/steps.genus.tcl
+Sourcing '/home/denismedvedev478/digital_flow_2026/lab2/flow_scripts/steps.genus.tcl' (Sun Oct 18 22:50:03 MSK 2026)...
+#@ Begin verbose source /home/denismedvedev478/digital_flow_2026/lab2/flow_scripts/steps.genus.tcl
+@file(steps.genus.tcl) 2: proc step_genus_gen ...
+@file(steps.genus.tcl) 17: proc step_genus_user_reports ...
+@file(steps.genus.tcl) 30: proc step_genus_user_out ...
+@file(steps.genus.tcl) 40: proc step_genus_opt ...
+@file(steps.genus.tcl) 52: proc step_genus_read_hdl ...
+@file(steps.genus.tcl) 61: proc step_genus_read_mmmc ...
+@file(steps.genus.tcl) 67: proc step_genus_init_design ...
+@file(steps.genus.tcl) 76: proc step_genus_map ...
+@file(steps.genus.tcl) 90: proc step_genus_lec ...
+@file(steps.genus.tcl) 103: proc step_genus_host_info ...
+@file(steps.genus.tcl) 119: proc step_genus_global_options ...
+@file(steps.genus.tcl) 146: proc step_genus_elaborate ...
+#@ End verbose source /home/denismedvedev478/digital_flow_2026/lab2/flow_scripts/steps.genus.tcl
+@file(flow.genus.syn.tcl) 8: step_genus_host_info
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+model name	: Common KVM processor
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+cpu MHz		: 2449.998
+Hostname : miet-cad-edu
+@file(flow.genus.syn.tcl) 9: step_genus_global_options
+  Setting attribute of root '/': 'ui_units_timing_reporting' = ns
+  Setting attribute of root '/': 'max_cpus_per_server' = 8
+  Setting attribute of root '/': 'syn_generic_effort' = medium
+  Setting attribute of root '/': 'syn_map_effort' = medium
+  Setting attribute of root '/': 'syn_opt_effort' = medium
+  Setting attribute of root '/': 'information_level' = 1
+  Setting attribute of root '/': 'init_hdl_search_path' = /home/denismedvedev478/digital_flow_2026/lab2/rtl/
+@file(flow.genus.syn.tcl) 12: step_genus_read_hdl
+@file(flow.genus.syn.tcl) 13: step_genus_read_mmmc
+  Setting attribute of root '/': 'is_read_mmmc_flow' = true
+Sourcing '/home/denismedvedev478/digital_flow_2026/lab2/sdc/mmmc.view' (Sun Oct 18 22:50:03 MSK 2026)...
+#@ Begin verbose source /home/denismedvedev478/digital_flow_2026/lab2/sdc/mmmc.view
+@file(mmmc.view) 5: set lib_list_typ {}
+@file(mmmc.view) 7: lappend lib_list_typ  " $::env(PDK_DIR)/IHP_Open_PDK/sg13g2_stdcell/lib/sg13g2_stdcell_typ_1p20V_25C.lib"
+@file(mmmc.view) 9: create_rc_corner -name typ -temperature {25} -pre_route_res {1} -pre_route_cap {1} -pre_route_clock_res {0} -pre_route_clock_cap {0} -post_route_res {1} -post_route_cap {1} -post_route_cross_cap {1} -post_route_clock_res {0} -post_route_clock_cap {0}
+@file(mmmc.view) 10: create_library_set -name typ -timing $lib_list_typ
+@file(mmmc.view) 11: create_opcond -name typ -process {1} -voltage {1.20} -temperature {25}
+@file(mmmc.view) 12: create_timing_condition -name typ -opcond {typ} -library_sets {typ}
+@file(mmmc.view) 13: create_delay_corner -name typ -timing_condition {typ} -rc_corner {typ}
+@file(mmmc.view) 33: create_constraint_mode -name func -sdc_files "$::env(ENV_DESIGN_DIR)/$::env(ENV_DESIGN).sdc"
+Error   : File error. [FILE-100] [create_constraint_mode]
+        : File '/home/denismedvedev478/digital_flow_2026/lab2/rtl//processing_unit.sdc' not found
+        : Make sure that the file is a readable regular file and has the specified name.
+Error   : Incorrect list type. [TIM-403] [create_constraint_mode]
+        : The list type is invalid
+        : The list format is invalid.
+#@ End verbose source /home/denismedvedev478/digital_flow_2026/lab2/sdc/mmmc.view
+1
+#@ End verbose source /home/denismedvedev478/digital_flow_2026/lab2/flow_scripts/flow.genus.syn.tcl
+Failed on read_mmmc
+Encountered problems processing file: /home/denismedvedev478/digital_flow_2026/lab2/flow_scripts/flow.genus.syn.tcl
+WARNING: This version of the tool is 990 days old.
+
+Another Ctrl-C within 1 second will terminate the tool.
+CURRENT RESOURCES: RT {elapsed: 42s, ST: 16s, FG: 16s, CPU: 0.6%}, MEM {curr: 0.9G, peak: 0.9G, phys curr: 0.3G, phys peak: 0.3G}, SYS {load: 0.1, cpu: 32, total: 125.9G, free: 76.9G}
+@genus:root: 2> 
+@genus:root: 2> exit
+
+Lic Summary:
+[22:50:33.001336] cdslmd servers: srv-eda-05 srv-eda-01
+[22:50:33.016504] Feature usage summary:
+[22:50:33.154983]   Genus_Synthesis  
+
